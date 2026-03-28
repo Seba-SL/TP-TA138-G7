@@ -12,18 +12,16 @@ RL 0 Vo 10k
 Q5 N004 N005 0 0 2N3904
 Q6 N005 N005 0 0 2N3904
 R1 VRef2 N005 1k
-M2 Vo VG Vcc Vcc RRS140P03
 VRef1 VRef1 0 2.5
 VRef2 VRef2 0 9.5
+X§M1 Vo VG Vcc irf4905
 .model NPN NPN
 .model PNP PNP
 .lib C:\users\sebastian\AppData\Local\LTspice\lib\cmp\standard.bjt
-.model NMOS NMOS
-.model PMOS PMOS
-.lib C:\users\sebastian\AppData\Local\LTspice\lib\cmp\standard.mos
 * Alimentación Recibida, sin estabiizar.
 * 9.5 V con variacion de 0.2 V
 * Vref: Implementacion mediante TL341
 .tran 0 1 0 0.001
+.include Modelos/irf4905.spi
 .backanno
 .end
