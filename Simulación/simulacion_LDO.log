@@ -1,6 +1,6 @@
 LTspice 24.1.5 for Windows
 Circuit: C:\users\sebastian\Desktop\FIUBA-2do Cuatrimestre\Taller de Diseño Electrónico TA138\TP_Taller_de_Diseño_ TA138_G7\Simulación\simulacion_LDO.net
-Start Time: Sat Mar 28 09:13:16 2026
+Start Time: Sat Mar 28 09:42:09 2026
 solver = Normal
 Maximum thread count: 4
 tnom = 27
@@ -13,41 +13,125 @@ Gmin = 1.07374
 Gmin = 0.115292
 Gmin = 0.0123794
 Gmin = 0.00132923
+Gmin = 0.000142725
+Gmin = 1.5325e-05
 vernier = 0.5
 vernier = 0.25
-vernier = 0.125
-Gmin = 0.000544452
-vernier = 0.0625
+Gmin = 6.54158e-06
+vernier = 0.333333
+vernier = 0.166667
 vernier = 0.0833333
-Gmin = 0.000468834
-vernier = 0.111111
-Gmin = 0.000366272
-vernier = 0.148148
-vernier = 0.197531
-Gmin = 0.00024283
-vernier = 0.263374
-vernier = 0.351165
-Gmin = 0.000127111
-vernier = 0.46822
-Gmin = 4.67254e-05
-vernier = 0.624294
-vernier = 0.832392
-Gmin = 9.18824e-06
-vernier = 1
-Gmin = 1.0562e-06
-Gmin = 1.13409e-07
-Gmin = 1.21772e-08
-Gmin = 1.30752e-09
-Gmin = 1.40394e-10
-Gmin = 1.50747e-11
-Gmin = 1.61863e-12
-Gmin = 1.73799e-13
+vernier = 0.0416667
+Gmin = 4.20703e-06
+vernier = 0.0208333
+vernier = 0.0104167
+vernier = 0.00520833
+vernier = 0.00260417
+vernier = 0.00130208
+vernier = 0.000651042
+vernier = 0.000488281
 Gmin = 0
-Gmin stepping succeeded in finding the operating point.
+Gmin stepping failed
+
+Starting source stepping with srcstepmethod=0
+Source Step = 3.0303%
+Source Step = 33.3333%
+Source Step = 63.6364%
+vernier = 0.25
+Source Step = 68.1818%
+Source Step = 68.9542%
+Source Step = 68.9838%
+Source Step = 69.0134%
+Source Step = 69.043%
+Source Step = 69.0726%
+vernier = 0.00146484
+Source Step = 69.1036%
+Source Step = 69.148%
+Source Step = 69.1924%
+Source Step = 69.2368%
+Source Step = 69.2812%
+Source Step = 69.3256%
+vernier = 0.00219727
+Source Step = 69.3922%
+Source Step = 69.4587%
+Source Step = 69.5253%
+Source Step = 69.5919%
+Source Step = 69.6585%
+vernier = 0.0032959
+Source Step = 69.755%
+Source Step = 69.8549%
+Source Step = 69.9548%
+Source Step = 70.0547%
+Source Step = 70.1545%
+vernier = 0.00494385
+Source Step = 70.2944%
+Source Step = 70.4442%
+Source Step = 70.594%
+Source Step = 70.7438%
+Source Step = 70.8936%
+vernier = 0.00741577
+Source Step = 71.0959%
+Source Step = 71.3206%
+Source Step = 71.5453%
+Source Step = 71.77%
+Source Step = 71.9948%
+vernier = 0.0111237
+Source Step = 72.2869%
+Source Step = 72.624%
+Source Step = 72.9611%
+Source Step = 73.2981%
+Source Step = 73.6352%
+vernier = 0.0166855
+Source Step = 74.0566%
+Source Step = 74.5622%
+Source Step = 75.0678%
+Source Step = 75.5734%
+Source Step = 76.0791%
+vernier = 0.0250282
+Source Step = 76.6858%
+Source Step = 76.8564%
+Source Step = 77.0461%
+Source Step = 77.2357%
+Source Step = 77.4253%
+Source Step = 77.6149%
+vernier = 0.00938559
+Source Step = 77.8803%
+Source Step = 78.1647%
+Source Step = 78.4491%
+Source Step = 78.7336%
+Source Step = 79.018%
+vernier = 0.0140784
+Source Step = 79.4019%
+Source Step = 79.8285%
+Source Step = 80.2552%
+Source Step = 80.6818%
+Source Step = 81.1084%
+vernier = 0.0211176
+Source Step = 81.663%
+Source Step = 82.3029%
+Source Step = 82.9429%
+Source Step = 83.5828%
+Source Step = 84.2227%
+vernier = 0.0316764
+Source Step = 85.0226%
+Source Step = 85.9825%
+Source Step = 86.9424%
+Source Step = 87.9023%
+Source Step = 88.8622%
+vernier = 0.0475145
+Source Step = 90.014%
+Source Step = 91.4539%
+Source Step = 92.8937%
+Source Step = 94.3335%
+Source Step = 95.7734%
+vernier = 0.0712718
+Source Step = 97.4292%
+Source Step = 99.5889%
+Source stepping succeeded in finding the operating point.
 
 
 Simulation stopped by user.
-Total elapsed time: 2.209 seconds.
+Total elapsed time: 26.423 seconds.
 
 Files loaded:
 C:\users\sebastian\Desktop\FIUBA-2do Cuatrimestre\Taller de Diseño Electrónico TA138\TP_Taller_de_Diseño_ TA138_G7\Simulación\simulacion_LDO.net
