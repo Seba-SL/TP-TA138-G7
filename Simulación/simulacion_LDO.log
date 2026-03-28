@@ -1,6 +1,6 @@
 LTspice 24.1.5 for Windows
 Circuit: C:\users\sebastian\Desktop\FIUBA-2do Cuatrimestre\Taller de Diseño Electrónico TA138\TP_Taller_de_Diseño_ TA138_G7\Simulación\simulacion_LDO.net
-Start Time: Sat Mar 28 09:42:09 2026
+Start Time: Sat Mar 28 11:19:32 2026
 solver = Normal
 Maximum thread count: 4
 tnom = 27
@@ -15,20 +15,78 @@ Gmin = 0.0123794
 Gmin = 0.00132923
 Gmin = 0.000142725
 Gmin = 1.5325e-05
+Gmin = 1.6455e-06
+Gmin = 1.76685e-07
+Gmin = 1.89714e-08
+Gmin = 2.03704e-09
+Gmin = 2.18725e-10
+Gmin = 2.34854e-11
+Gmin = 2.52173e-12
+Gmin = 2.70769e-13
+Gmin = 0
+Gmin stepping succeeded in finding the operating point.
+
+Direct Newton iteration failed to find .op point.  (Use ".option noopiter" to skip.)
+Starting Gmin stepping
+Gmin = 10
+Gmin = 1.07374
+Gmin = 0.115292
+Gmin = 0.0123794
+Gmin = 0.00132923
+Gmin = 0.000142725
+Gmin = 1.5325e-05
+Gmin = 1.6455e-06
+Gmin = 1.76685e-07
+Gmin = 1.89714e-08
+Gmin = 2.03704e-09
+Gmin = 2.18725e-10
+Gmin = 2.34854e-11
+Gmin = 2.52173e-12
+Gmin = 2.70769e-13
+Gmin = 0
+Gmin stepping succeeded in finding the operating point.
+
+Direct Newton iteration failed to find .op point.  (Use ".option noopiter" to skip.)
+Starting Gmin stepping
+Gmin = 10
+Gmin = 1.07374
+Gmin = 0.115292
+Gmin = 0.0123794
+Gmin = 0.00132923
+Gmin = 0.000142725
+Gmin = 1.5325e-05
+Gmin = 1.6455e-06
+Gmin = 1.76685e-07
+Gmin = 1.89714e-08
+Gmin = 2.03704e-09
+Gmin = 2.18725e-10
+Gmin = 2.34854e-11
+Gmin = 2.52173e-12
+Gmin = 2.70769e-13
+Gmin = 0
+Gmin stepping succeeded in finding the operating point.
+
+Direct Newton iteration failed to find .op point.  (Use ".option noopiter" to skip.)
+Starting Gmin stepping
+Gmin = 10
+Gmin = 1.07374
+Gmin = 0.115292
+Gmin = 0.0123794
+Gmin = 0.00132923
+Gmin = 0.000142725
+Gmin = 1.5325e-05
+Gmin = 1.6455e-06
 vernier = 0.5
 vernier = 0.25
-Gmin = 6.54158e-06
-vernier = 0.333333
-vernier = 0.166667
-vernier = 0.0833333
-vernier = 0.0416667
-Gmin = 4.20703e-06
-vernier = 0.0208333
-vernier = 0.0104167
-vernier = 0.00520833
-vernier = 0.00260417
-vernier = 0.00130208
-vernier = 0.000651042
+vernier = 0.125
+vernier = 0.0625
+vernier = 0.03125
+vernier = 0.015625
+vernier = 0.0078125
+vernier = 0.00390625
+vernier = 0.00195312
+vernier = 0.000976562
+Gmin = 2.05688e-06
 vernier = 0.000488281
 Gmin = 0
 Gmin stepping failed
@@ -37,101 +95,115 @@ Starting source stepping with srcstepmethod=0
 Source Step = 3.0303%
 Source Step = 33.3333%
 Source Step = 63.6364%
-vernier = 0.25
-Source Step = 68.1818%
-Source Step = 68.9542%
-Source Step = 68.9838%
-Source Step = 69.0134%
-Source Step = 69.043%
-Source Step = 69.0726%
+Source Step = 79.5455%
+Source Step = 87.1212%
+Source Step = 94.697%
+Source Step = 97.7332%
+Source Step = 97.7628%
+Source Step = 97.7924%
+Source Step = 97.822%
+Source Step = 97.8516%
+Source Step = 97.8812%
 vernier = 0.00146484
-Source Step = 69.1036%
-Source Step = 69.148%
-Source Step = 69.1924%
-Source Step = 69.2368%
-Source Step = 69.2812%
-Source Step = 69.3256%
+Source Step = 97.9196%
+Source Step = 97.964%
+Source Step = 98.0084%
+Source Step = 98.0528%
+Source Step = 98.0972%
 vernier = 0.00219727
-Source Step = 69.3922%
-Source Step = 69.4587%
-Source Step = 69.5253%
-Source Step = 69.5919%
-Source Step = 69.6585%
+Source Step = 98.1527%
+Source Step = 98.2193%
+Source Step = 98.2858%
+Source Step = 98.3524%
+Source Step = 98.419%
 vernier = 0.0032959
-Source Step = 69.755%
-Source Step = 69.8549%
-Source Step = 69.9548%
-Source Step = 70.0547%
-Source Step = 70.1545%
+Source Step = 98.4989%
+Source Step = 98.5988%
+Source Step = 98.6987%
+Source Step = 98.7985%
+Source Step = 98.8984%
 vernier = 0.00494385
-Source Step = 70.2944%
-Source Step = 70.4442%
-Source Step = 70.594%
-Source Step = 70.7438%
-Source Step = 70.8936%
+Source Step = 99.0133%
+Source Step = 99.1631%
+Source Step = 99.3129%
+Source Step = 99.4627%
+Source Step = 99.6125%
 vernier = 0.00741577
-Source Step = 71.0959%
-Source Step = 71.3206%
-Source Step = 71.5453%
-Source Step = 71.77%
-Source Step = 71.9948%
-vernier = 0.0111237
-Source Step = 72.2869%
-Source Step = 72.624%
-Source Step = 72.9611%
-Source Step = 73.2981%
-Source Step = 73.6352%
-vernier = 0.0166855
-Source Step = 74.0566%
-Source Step = 74.5622%
-Source Step = 75.0678%
-Source Step = 75.5734%
-Source Step = 76.0791%
-vernier = 0.0250282
-Source Step = 76.6858%
-Source Step = 76.8564%
-Source Step = 77.0461%
-Source Step = 77.2357%
-Source Step = 77.4253%
-Source Step = 77.6149%
-vernier = 0.00938559
-Source Step = 77.8803%
-Source Step = 78.1647%
-Source Step = 78.4491%
-Source Step = 78.7336%
-Source Step = 79.018%
-vernier = 0.0140784
-Source Step = 79.4019%
-Source Step = 79.8285%
-Source Step = 80.2552%
-Source Step = 80.6818%
-Source Step = 81.1084%
-vernier = 0.0211176
-Source Step = 81.663%
-Source Step = 82.3029%
-Source Step = 82.9429%
-Source Step = 83.5828%
-Source Step = 84.2227%
-vernier = 0.0316764
-Source Step = 85.0226%
-Source Step = 85.9825%
-Source Step = 86.9424%
-Source Step = 87.9023%
-Source Step = 88.8622%
-vernier = 0.0475145
-Source Step = 90.014%
-Source Step = 91.4539%
-Source Step = 92.8937%
-Source Step = 94.3335%
-Source Step = 95.7734%
-vernier = 0.0712718
-Source Step = 97.4292%
-Source Step = 99.5889%
+Source Step = 99.7773%
+Source Step = 100%
 Source stepping succeeded in finding the operating point.
 
+Direct Newton iteration failed to find .op point.  (Use ".option noopiter" to skip.)
+Starting Gmin stepping
+Gmin = 10
+Gmin = 1.07374
+Gmin = 0.115292
+Gmin = 0.0123794
+Gmin = 0.00132923
+Gmin = 0.000142725
+Gmin = 1.5325e-05
+vernier = 0.5
+Gmin = 2.5711e-06
+vernier = 0.25
+vernier = 0.125
+vernier = 0.0625
+vernier = 0.03125
+vernier = 0.015625
+vernier = 0.0078125
+vernier = 0.00390625
+vernier = 0.00195312
+vernier = 0.000976562
+Gmin = 2.57047e-06
+vernier = 0.00130208
+Gmin = 2.56295e-06
+vernier = 0.00173611
+vernier = 0.00231481
+Gmin = 2.55038e-06
+vernier = 0.00308642
+vernier = 0.00411522
+Gmin = 2.53046e-06
+vernier = 0.00548696
+Gmin = 2.49943e-06
+vernier = 0.00731595
+vernier = 0.00975459
+Gmin = 2.44821e-06
+vernier = 0.0130061
+vernier = 0.0173415
+Gmin = 2.36874e-06
+vernier = 0.023122
+Gmin = 2.24896e-06
+vernier = 0.0308293
+vernier = 0.0411057
+Gmin = 2.06165e-06
+vernier = 0.0548076
+vernier = 0.0730768
+Gmin = 1.79534e-06
+vernier = 0.0974357
+Gmin = 1.44539e-06
+vernier = 0.129914
+vernier = 0.173219
+Gmin = 1.00706e-06
+vernier = 0.230959
+vernier = 0.307945
+Gmin = 5.69558e-07
+vernier = 0.410593
+Gmin = 2.35546e-07
+vernier = 0.547457
+vernier = 0.729942
+Gmin = 5.58009e-08
+vernier = 0.973256
+vernier = 1
+Gmin = 6.91424e-09
+Gmin = 7.4241e-10
+Gmin = 7.97157e-11
+Gmin = 8.55941e-12
+Gmin = 9.1906e-13
+Gmin = 0
+Gmin = 0
+Gmin stepping succeeded in finding the operating point.
 
-Simulation stopped by user.
-Total elapsed time: 26.423 seconds.
+.step 
+Total elapsed time: 1.229 seconds.
 
 Files loaded:
 C:\users\sebastian\Desktop\FIUBA-2do Cuatrimestre\Taller de Diseño Electrónico TA138\TP_Taller_de_Diseño_ TA138_G7\Simulación\simulacion_LDO.net
@@ -139,3 +211,6 @@ C:\users\sebastian\AppData\Local\LTspice\lib\cmp\standard.bjt
 C:\users\sebastian\Desktop\FIUBA-2do Cuatrimestre\Taller de Diseño Electrónico TA138\TP_Taller_de_Diseño_ TA138_G7\Simulación\Modelos\irf4905.spi
 C:\users\sebastian\Desktop\FIUBA-2do Cuatrimestre\Taller de Diseño Electrónico TA138\TP_Taller_de_Diseño_ TA138_G7\Simulación\Modelos\TL431.spi
 
+Vo1_rl: V(Vo)=5.01816701889 at 10
+Vo2_rl: V(Vo)=5.04252290726 at 20
+RegLine: (Vo2_rl - Vo1_rl)/(Vin2_rl - Vin1_rl)=0.00243558883667
