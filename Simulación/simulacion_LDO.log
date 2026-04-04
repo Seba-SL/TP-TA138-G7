@@ -1,93 +1,51 @@
-LTspice 24.1.5 for Windows
-Circuit: C:\users\sebastian\Desktop\FIUBA-2do Cuatrimestre\Taller de Diseño Electrónico TA138\TP_Taller_de_Diseño_ TA138_G7\Simulación\simulacion_LDO.net
-Start Time: Sat Mar 28 11:19:32 2026
+.STEP increment has wrong sign -- fixing...
+LTspice 24.0.12 for Windows
+Circuit: * C:\Users\ramaz\Desktop\Circuitos II\TP-TA138-G7\Simulaci�n\simulacion_LDO.asc
+Start Time: Sat Apr  4 12:16:13 2026
+Warning: Multiple definitions of model "2scr375p" Type: BJT
+Warning: Multiple definitions of model "bc857b" Type: BJT
+Warning: Multiple definitions of model "bc847c" Type: BJT
+Warning: Multiple definitions of model "bc847b" Type: BJT
+irl: both pins shorted together -- ignoring.
 solver = Normal
-Maximum thread count: 4
-tnom = 27
-temp = 27
-method = trap
-Direct Newton iteration failed to find .op point.  (Use ".option noopiter" to skip.)
-Starting Gmin stepping
-Gmin = 10
-Gmin = 1.07374
-Gmin = 0.115292
-Gmin = 0.0123794
-Gmin = 0.00132923
-Gmin = 0.000142725
-Gmin = 1.5325e-05
-Gmin = 1.6455e-06
-Gmin = 1.76685e-07
-Gmin = 1.89714e-08
-Gmin = 2.03704e-09
-Gmin = 2.18725e-10
-Gmin = 2.34854e-11
-Gmin = 2.52173e-12
-Gmin = 2.70769e-13
-Gmin = 0
-Gmin stepping succeeded in finding the operating point.
+Maximum thread count: 8
+
+
 
 Direct Newton iteration failed to find .op point.  (Use ".option noopiter" to skip.)
 Starting Gmin stepping
 Gmin = 10
-Gmin = 1.07374
-Gmin = 0.115292
-Gmin = 0.0123794
-Gmin = 0.00132923
-Gmin = 0.000142725
-Gmin = 1.5325e-05
-Gmin = 1.6455e-06
-Gmin = 1.76685e-07
-Gmin = 1.89714e-08
-Gmin = 2.03704e-09
-Gmin = 2.18725e-10
-Gmin = 2.34854e-11
-Gmin = 2.52173e-12
-Gmin = 2.70769e-13
-Gmin = 0
-Gmin stepping succeeded in finding the operating point.
-
-Direct Newton iteration failed to find .op point.  (Use ".option noopiter" to skip.)
-Starting Gmin stepping
-Gmin = 10
-Gmin = 1.07374
-Gmin = 0.115292
-Gmin = 0.0123794
-Gmin = 0.00132923
-Gmin = 0.000142725
-Gmin = 1.5325e-05
-Gmin = 1.6455e-06
-Gmin = 1.76685e-07
-Gmin = 1.89714e-08
-Gmin = 2.03704e-09
-Gmin = 2.18725e-10
-Gmin = 2.34854e-11
-Gmin = 2.52173e-12
-Gmin = 2.70769e-13
-Gmin = 0
-Gmin stepping succeeded in finding the operating point.
-
-Direct Newton iteration failed to find .op point.  (Use ".option noopiter" to skip.)
-Starting Gmin stepping
-Gmin = 10
-Gmin = 1.07374
-Gmin = 0.115292
-Gmin = 0.0123794
-Gmin = 0.00132923
-Gmin = 0.000142725
-Gmin = 1.5325e-05
-Gmin = 1.6455e-06
 vernier = 0.5
 vernier = 0.25
+Gmin = 3.08405
 vernier = 0.125
 vernier = 0.0625
 vernier = 0.03125
+Gmin = 2.96398
 vernier = 0.015625
 vernier = 0.0078125
+Gmin = 2.89549
 vernier = 0.00390625
-vernier = 0.00195312
-vernier = 0.000976562
-Gmin = 2.05688e-06
-vernier = 0.000488281
+vernier = 0.00520833
+Gmin = 2.86643
+vernier = 0.00260417
+vernier = 0.00130208
+Gmin = 2.85991
+vernier = 0.00173611
+vernier = 0.000868055
+Gmin = 2.85371
+vernier = 0.00115741
+vernier = 0.000578703
+vernier = 0.000771604
+Gmin = 2.84945
+vernier = 0.000578703
+vernier = 0.000771604
+Gmin = 2.84574
+vernier = 0.000578703
+vernier = 0.000434027
+vernier = 0.000578703
+Gmin = 2.84392
+vernier = 0.000434027
 Gmin = 0
 Gmin stepping failed
 
@@ -95,122 +53,179 @@ Starting source stepping with srcstepmethod=0
 Source Step = 3.0303%
 Source Step = 33.3333%
 Source Step = 63.6364%
-Source Step = 79.5455%
-Source Step = 87.1212%
-Source Step = 94.697%
-Source Step = 97.7332%
-Source Step = 97.7628%
-Source Step = 97.7924%
-Source Step = 97.822%
-Source Step = 97.8516%
-Source Step = 97.8812%
-vernier = 0.00146484
-Source Step = 97.9196%
-Source Step = 97.964%
-Source Step = 98.0084%
-Source Step = 98.0528%
-Source Step = 98.0972%
-vernier = 0.00219727
-Source Step = 98.1527%
-Source Step = 98.2193%
-Source Step = 98.2858%
-Source Step = 98.3524%
-Source Step = 98.419%
-vernier = 0.0032959
-Source Step = 98.4989%
-Source Step = 98.5988%
-Source Step = 98.6987%
-Source Step = 98.7985%
-Source Step = 98.8984%
-vernier = 0.00494385
-Source Step = 99.0133%
-Source Step = 99.1631%
-Source Step = 99.3129%
-Source Step = 99.4627%
-Source Step = 99.6125%
-vernier = 0.00741577
-Source Step = 99.7773%
-Source Step = 100%
+vernier = 0.25
+Source Step = 64.5833%
+Source Step = 66.4773%
+Source Step = 68.3712%
+Source Step = 70.2652%
+Source Step = 72.1591%
+vernier = 0.09375
+Source Step = 74.4318%
+Source Step = 77.2727%
+Source Step = 80.1136%
+Source Step = 82.9545%
+Source Step = 85.7955%
+vernier = 0.140625
+Source Step = 89.0625%
+Source Step = 93.3239%
+Source Step = 97.5852%
 Source stepping succeeded in finding the operating point.
 
-Direct Newton iteration failed to find .op point.  (Use ".option noopiter" to skip.)
-Starting Gmin stepping
-Gmin = 10
-Gmin = 1.07374
-Gmin = 0.115292
-Gmin = 0.0123794
-Gmin = 0.00132923
-Gmin = 0.000142725
-Gmin = 1.5325e-05
-vernier = 0.5
-Gmin = 2.5711e-06
-vernier = 0.25
-vernier = 0.125
-vernier = 0.0625
-vernier = 0.03125
-vernier = 0.015625
-vernier = 0.0078125
-vernier = 0.00390625
-vernier = 0.00195312
-vernier = 0.000976562
-Gmin = 2.57047e-06
-vernier = 0.00130208
-Gmin = 2.56295e-06
-vernier = 0.00173611
-vernier = 0.00231481
-Gmin = 2.55038e-06
-vernier = 0.00308642
-vernier = 0.00411522
-Gmin = 2.53046e-06
-vernier = 0.00548696
-Gmin = 2.49943e-06
-vernier = 0.00731595
-vernier = 0.00975459
-Gmin = 2.44821e-06
-vernier = 0.0130061
-vernier = 0.0173415
-Gmin = 2.36874e-06
-vernier = 0.023122
-Gmin = 2.24896e-06
-vernier = 0.0308293
-vernier = 0.0411057
-Gmin = 2.06165e-06
-vernier = 0.0548076
-vernier = 0.0730768
-Gmin = 1.79534e-06
-vernier = 0.0974357
-Gmin = 1.44539e-06
-vernier = 0.129914
-vernier = 0.173219
-Gmin = 1.00706e-06
-vernier = 0.230959
-vernier = 0.307945
-Gmin = 5.69558e-07
-vernier = 0.410593
-Gmin = 2.35546e-07
-vernier = 0.547457
-vernier = 0.729942
-Gmin = 5.58009e-08
-vernier = 0.973256
-vernier = 1
-Gmin = 6.91424e-09
-Gmin = 7.4241e-10
-Gmin = 7.97157e-11
-Gmin = 8.55941e-12
-Gmin = 9.1906e-13
-Gmin = 0
-Gmin = 0
-Gmin stepping succeeded in finding the operating point.
+Semiconductor Device Operating Points:
+                        --- Diodes ---
+Name:    d:m1:1      d:m1:2      d:m1:3      d:m1:4      d:u7:1
+Model:    m1:md      m1:md1      m1:md2      m1:md3      u7:d0v5
+Id:     -8.19e-09    2.59e-13    7.29e+00    7.29e+00   -1.03e-04
+Vd:     -3.82e-02    2.59e-01    2.59e-01    2.59e-01   -4.95e-01
+Req:     8.05e+06    1.00e+12    1.42e-03    1.42e-03    2.02e+01
+CAP:     3.51e-09    5.93e-09    0.00e+00    0.00e+00    7.38e-19
 
-.step 
-Total elapsed time: 1.229 seconds.
+Name:   d:u7:rev    d:u7:clp     d:u7:s      d:u7:s1    d:u7:esd1
+Model:   u7:drev      u7:dc       u7:ds       u7:ds      u7:d6z8
+Id:     -5.36e-12   -1.78e-12   -5.18e-11    1.13e-05   -2.50e-12
+Vd:     -3.81e+00   -1.78e+00   -1.80e+00    3.35e-01   -2.50e+00
+Req:     1.00e+12    1.00e+12    1.00e+12    2.41e+03    1.00e+12
+CAP:     1.39e-11    6.18e-16    5.15e-16    1.44e-15    2.08e-12
 
-Files loaded:
-C:\users\sebastian\Desktop\FIUBA-2do Cuatrimestre\Taller de Diseño Electrónico TA138\TP_Taller_de_Diseño_ TA138_G7\Simulación\simulacion_LDO.net
-C:\users\sebastian\AppData\Local\LTspice\lib\cmp\standard.bjt
-C:\users\sebastian\Desktop\FIUBA-2do Cuatrimestre\Taller de Diseño Electrónico TA138\TP_Taller_de_Diseño_ TA138_G7\Simulación\Modelos\irf4905.spi
-C:\users\sebastian\Desktop\FIUBA-2do Cuatrimestre\Taller de Diseño Electrónico TA138\TP_Taller_de_Diseño_ TA138_G7\Simulación\Modelos\TL431.spi
+Name:    d:u8:ip     d:u8:in    d:u8:inn    d:u8:inr    d:u8:opm
+Model:   u8:mdth     u8:mdth     u8:mdth     u8:mdth     u8:mdth
+Id:      5.00e-06    5.00e-06   -2.04e-12   -4.74e-12   -1.78e-10
+Vd:      7.20e-01    7.20e-01   -2.04e+00   -4.74e+00   -1.78e+02
+Req:     5.18e+03    5.17e+03    1.00e+12    1.00e+12    1.00e+12
+CAP:     6.90e-24    6.90e-24    2.29e-24    1.67e-24    2.99e-25
 
-Vo1_rl: V(Vo)=5.01816701889 at 10
-Vo2_rl: V(Vo)=5.04252290726 at 20
-RegLine: (Vo2_rl - Vo1_rl)/(Vin2_rl - Vin1_rl)=0.00243558883667
+Name:   d:u8:onm     d:u8:op     d:u8:on     d:u9:ip     d:u9:in
+Model:   u8:mdth     u8:mdth     u8:mdth     u9:mdth     u9:mdth
+Id:     -1.31e-10   -7.14e-12    9.40e-07   -1.62e-12    1.00e-05
+Vd:     -1.31e+02   -7.14e+00    6.77e-01   -1.62e+00    7.38e-01
+Req:     1.00e+12    1.00e+12    2.75e+04    1.00e+12    2.59e+03
+CAP:     3.48e-25    1.40e-24    6.66e-24    2.47e-24    7.01e-24
+
+Name:   d:u9:inn    d:u9:inr    d:u9:opm    d:u9:onm     d:u9:op
+Model:   u9:mdth     u9:mdth     u9:mdth     u9:mdth     u9:mdth
+Id:     -2.01e-12   -4.75e-12   -1.83e-10   -1.27e-10   -7.36e-12
+Vd:     -2.01e+00   -4.75e+00   -1.83e+02   -1.27e+02   -7.36e+00
+Req:     1.00e+12    1.00e+12    1.00e+12    1.00e+12    1.00e+12
+CAP:     2.31e-24    1.67e-24    2.95e-25    3.54e-25    1.38e-24
+
+Name:    d:u9:on    d:u10:ip    d:u10:in    d:u10:inn   d:u10:inr
+Model:   u9:mdth    u10:mdth    u10:mdth    u10:mdth    u10:mdth
+Id:      3.60e-03    5.00e-06    5.00e-06   -2.35e-12   -4.43e-12
+Vd:      8.91e-01    7.20e-01    7.20e-01   -2.35e+00   -4.43e+00
+Req:     7.19e+00    5.17e+03    5.17e+03    1.00e+12    1.00e+12
+CAP:     7.87e-24    6.90e-24    6.90e-24    2.18e-24    1.72e-24
+
+Name:   d:u10:opm   d:u10:onm   d:u10:op    d:u10:on    d:u11:ip
+Model:  u10:mdth    u10:mdth    u10:mdth    u10:mdth    u11:mdth
+Id:     -1.07e-10   -2.03e-10   -9.87e-13   -5.48e-12    5.00e-06
+Vd:     -1.07e+02   -2.03e+02   -9.87e-01   -5.48e+00    7.20e-01
+Req:     1.00e+12    1.00e+12    1.00e+12    1.00e+12    5.17e+03
+CAP:     3.85e-25    2.80e-25    2.84e-24    1.57e-24    6.90e-24
+
+Name:   d:u11:in    d:u11:inn   d:u11:inr   d:u11:opm   d:u11:onm
+Model:  u11:mdth    u11:mdth    u11:mdth    u11:mdth    u11:mdth
+Id:      5.00e-06   -5.34e-12   -1.44e-12   -1.31e-10   -1.79e-10
+Vd:      7.20e-01   -5.34e+00   -1.44e+00   -1.31e+02   -1.79e+02
+Req:     5.17e+03    1.00e+12    1.00e+12    1.00e+12    1.00e+12
+CAP:     6.90e-24    1.59e-24    2.56e-24    3.48e-25    2.99e-25
+
+Name:   d:u11:op    d:u11:on    d:u12:ip    d:u12:in    d:u12:inn
+Model:  u11:mdth    u11:mdth    u12:mdth    u12:mdth    u12:mdth
+Id:     -1.13e-12   -5.33e-12    4.85e-06    4.95e-06    2.02e-07
+Vd:     -1.13e+00   -5.33e+00    7.20e-01    7.20e-01    6.37e-01
+Req:     1.00e+12    1.00e+12    5.33e+03    5.23e+03    1.28e+05
+CAP:     2.74e-24    1.59e-24    6.90e-24    6.90e-24    6.43e-24
+
+Name:   d:u12:inr   d:u12:opm   d:u12:onm   d:u12:op    d:u12:on
+Model:  u12:mdth    u12:mdth    u12:mdth    u12:mdth    u12:mdth
+Id:     -7.42e-12   -1.82e-10   -1.28e-10   -7.23e-12    3.28e-05
+Vd:     -7.42e+00   -1.82e+02   -1.28e+02   -7.23e+00    7.69e-01
+Req:     1.00e+12    1.00e+12    1.00e+12    1.00e+12    7.89e+02
+CAP:     1.38e-24    2.96e-25    3.53e-25    1.39e-24    7.18e-24
+
+                        --- Bipolar Transistors ---
+Name:       q1          q2          q5          q6          q3
+Model:    2n3904      2n3904      2n3904      2n3904      2n3906
+Ib:      -8.27e-12    7.76e-06    7.73e-06    7.73e-06   -3.31e-04
+Ic:       6.50e-12    2.39e-03    2.40e-03    2.31e-03   -2.32e-11
+Vbe:     -1.77e+00    6.77e-01    6.77e-01    6.77e-01   -6.74e-01
+Vbc:     -6.49e+00   -3.38e+00   -4.09e+00    0.00e+00   -6.68e-01
+Vce:      4.72e+00    4.05e+00    4.77e+00    6.77e-01   -5.86e-03
+BetaDC:  -7.86e-01    3.08e+02    3.10e+02    2.98e+02    7.00e-08
+Gm:       7.44e-43    9.20e-02    9.23e-02    8.87e-02    1.24e-02
+Rpi:      1.00e+12    3.33e+03    3.35e+03    3.34e+03    3.19e+03
+Rx:       2.00e+01    2.00e+01    2.00e+01    2.00e+01    2.00e+01
+Ro:       0.00e+00    4.32e+04    4.34e+04    4.33e+04    2.02e+01
+Cbe:      5.36e-12    4.49e-11    4.50e-11    4.38e-11    3.74e-11
+Cbc:      1.89e-12    2.28e-12    2.16e-12    4.00e-12    1.25e-08
+Cjs:      0.00e+00    0.00e+00    0.00e+00    0.00e+00    0.00e+00
+BetaAC:   7.44e-31    3.07e+02    3.09e+02    2.97e+02    3.97e+01
+Cbx:      0.00e+00    0.00e+00    0.00e+00    0.00e+00    0.00e+00
+Ft:       2.19e-02    3.10e+08    3.11e+08    2.95e+08    1.58e+05
+
+Name:       q4          q7          q8          q9          q10
+Model:    2n3906        npn       bc547b      bc547b      bc557b
+Ib:      -1.03e-05    4.51e-05    4.16e-04    4.16e-04    1.00e-11
+Ic:      -2.05e-03    4.51e-03    5.39e-04    5.39e-04   -6.43e-12
+Vbe:     -6.74e-01    8.13e-01    6.73e-01    6.73e-01    3.56e+00
+Vbc:      0.00e+00   -5.69e+00    6.62e-01    6.62e-01    6.15e+00
+Vce:     -6.74e-01    6.50e+00    1.18e-02    1.18e-02   -2.58e+00
+BetaDC:   1.99e+02    1.00e+02    1.29e+00    1.29e+00   -6.43e-01
+Gm:       7.89e-02    1.75e-01    3.41e-02    3.41e-02    8.97e-72
+Rpi:      2.51e+03    5.73e+02    2.01e+03    2.01e+03    1.00e+12
+Rx:       2.00e+01    0.00e+00    1.00e+00    1.00e+00    1.00e+00
+Ro:       4.88e+04    0.00e+00    1.01e+01    1.01e+01    0.00e+00
+Cbe:      4.35e-11    0.00e+00    1.19e-10    1.19e-10    5.95e-12
+Cbc:      4.50e-12    0.00e+00    3.47e-11    3.47e-11    1.57e-12
+Cjs:      0.00e+00    0.00e+00    0.00e+00    0.00e+00    0.00e+00
+BetaAC:   1.98e+02    1.00e+02    6.85e+01    6.85e+01    8.97e-60
+Cbx:      0.00e+00    0.00e+00    2.14e-11    2.14e-11    9.26e-13
+Ft:       2.62e+08    0.00e+00    3.09e+07    3.09e+07    1.89e-02
+
+Name:       q11
+Model:    bc557b
+Ib:       1.67e-11
+Ic:      -9.78e-12
+Vbe:      6.91e+00
+Vbc:      9.49e+00
+Vce:     -2.58e+00
+BetaDC:  -5.86e-01
+Gm:       0.00e+00
+Rpi:      1.00e+12
+Rx:       1.00e+00
+Ro:       0.00e+00
+Cbe:      4.76e-12
+Cbc:      1.35e-12
+Cjs:      0.00e+00
+BetaAC:   0.00e+00
+Cbx:      7.95e-13
+Ft:       2.31e-02
+
+                        --- MOSFET Transistors ---
+Name:        m:m1:1
+Model:        m1:mm
+Id:         -1.83e+00
+Vgs:        -7.57e+00
+Vds:        -1.95e-02
+Vbs:         0.00e+00
+Vth:        -3.54e+00
+Vdsat:      -4.03e+00
+Gm:          4.55e-01
+Gds:         9.38e+01
+Gmb:         0.00e+00
+Cbd:         0.00e+00
+Cbs:         0.00e+00
+Cgsov:       2.84e-09
+Cgdov:       1.00e-15
+Cgbov:       0.00e+00
+Cgs:         0.00e+00
+Cgd:         0.00e+00
+Cgb:         0.00e+00
+
+
+
+
+
+
+
+
