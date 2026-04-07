@@ -19,6 +19,9 @@
 \usepackage[T1]{fontenc}
 \usepackage{amssymb}
 \usepackage[spanish]{babel}
+\usepackage{multirow}
+\usepackage{siunitx}
+\usepackage{circuitikz}
 
 \addto\captionsspanish{
 	\renewcommand{\tablename}{Tabla}
@@ -57,6 +60,7 @@ citestyle=apa
 	%{\scshape\Huge Trabajo Pr\'actico \par}
 	{\scshape\Huge Diseño de Fuente de Alimentación \par}
 	\vspace{2cm}
+	{\scshape\Large Checkpoint 1: Diseño de Regulador Lineal LDO \par}
 	
 	
 	\vspace{2cm}
@@ -65,7 +69,7 @@ citestyle=apa
 		\textbf{Alumnos:} & \textbf{Padr\'on:} & \textbf{Mail:} \\
 		Lazo, Sebastian Nahuel & 106213 &slazo@fi.uba.ar \\
 		Flores, Ahmed Ali & 106238 & aaflores@fi.uba.ar  \\
-		Mántaras, Ramiro  & --- &rmantaras@fi.uba.ar \\
+		Mántaras, Ramiro  & 111510 &rmantaras@fi.uba.ar \\
 		
 	\end{tabular}
 	
@@ -74,7 +78,7 @@ citestyle=apa
 	
 	\begin{tabular}{ p{6cm} p{6cm} p{6cm}}
 		\textbf{Docentes:}  
-		\\Julio Zola & Sergio Andres Quinteros  
+		\\Teóricas: Julio Zola & Tutor: Sergio Andres Quinteros  
 	\end{tabular}
 	
 \end{titlepage}
@@ -94,14 +98,199 @@ Se propone el diseño e implementación de un sistema electrónico capaz de gene
 El diseño resultante tiene como objetivo combinar alta eficiencia energética, estabilidad de la tensión de salida y confiabilidad operativa, características fundamentales en sistemas de alimentación destinados a cargas como
 microprocesadores, sensores y transceptores de comunicación, tanto para aplicaciones automotrices como industriales.
 
+En total, el dispositivo debe contar con las siguientes especificaciones:
+
+\begin{table}[h]
+	\centering
+	\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}{|p{3cm}|l|l|c|c|c|c|}
+		\hline
+		\textbf{Característica} & \textbf{Símbolo} & \textbf{Condiciones de prueba} & \textbf{Min.} & \textbf{Tip.} & \textbf{Max.} & \textbf{Unidades} \\
+		\hline
+		
+		\multicolumn{7}{|l|}{\textbf{Especificaciones Generales}} \\
+		\hline
+		
+		Rango de operación tensión de entrada & VIN &  & 12 & 24 & 30 & V \\
+		\hline
+		
+		VIN UVLO \par arranque & VIN\_UVLO\_START & VIN creciendo &  &  &  & V \\
+		\hline
+		
+		VIN UVLO \par apagado & VIN\_UVLO\_STOP & VIN decreciendo &  &  &  & V \\
+		\hline
+		
+		VIN UVLO \par histéresis & VIN\_UVLO\_HYST &  &  &  &  & V \\
+		\hline
+		
+		\multirow{2}{3cm}{Corriente de alimentación inactivo} & IQ & VIN=12V &  &  &  & mA \\
+		\cline{2-7}
+		& IQ\_Sleep & ENABLE=0 &  &  &  & mA \\
+		\hline
+	\end{tabular}
+	\caption{Especificaciones Generales.}
+\end{table}
+
 \section{Desarrollo}
+
+La construcción del dispositivo se divide en dos secciones: 
+\begin{itemize}
+	\item \textbf{Fuente Switching}: Encargada de regular la tensión de forma eficiente desde la fuente de energía hacia el regulador lineal.
+	\item \textbf{Regulador Lineal}: Sacrifica eficiencia a cambio de precisión y control. Interactúa de forma directa con la carga.
+\end{itemize}
+
 
 \subsection{Fuente de alimentación conmutada}
 
 
 \subsection{Regulador de baja caída (LDO,Low Dropout Regulator)}
 
+\subsubsection{Especificaciones e implementación}
 
+El propósito de esta etapa es regular la tensión de salida de la fuente conmutada de forma precisa, sacrificando la eficiencia. Se espera de esta etapa las especificaciones de la tabla \ref{tabla:especificaciones_ldo}.
+
+\begin{table}[h]
+	\centering
+	\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}{|p{3cm}|l|p{5cm}|c|c|c|c|}
+		\hline
+		\textbf{Característica} & \textbf{Símbolo} & \textbf{Condiciones de prueba} & \textbf{Min.} & \textbf{Tip.} & \textbf{Max.} & \textbf{Unidades} \\
+		\hline
+		
+		\multicolumn{7}{|l|}{\textbf{Especificaciones regulador lineal Vo}} \\
+		\hline
+		
+		Vo exactitud y regulación de carga & Vo & $\si{100}{mA} < I_{out} < \si{1.5}{A}$ \break $VREG = \si{9.5}{V}$ & 4.9 & 5 & 5.1 & V \\
+		\hline
+		
+		Vo rango de capacidad de carga & COUT(Vo) &  & 1,0 & 2,2 & 15,0 & \si{\micro\farad} \\
+		\hline
+		
+		Io corriente límite & ILIM(Vo) &  &  & 1,5 &  & A \\
+		\hline
+		
+		Corriente de foldback & IFBK &  &  & 400 &  & \si{mA} \\
+		\hline
+		
+		\multirow{2}{3cm}{Vo startup time} & t(start) & $C = \SI{2.2}{\micro\farad},\ I = \SI{100}{\milli\ampere}$ &  &  &  & ms \\
+		\cline{2-7}
+		& t(start) & $C = \SI{2.2}{\micro\farad},\ I = \SI{100}{\milli\ampere}$ &  &  &  & ms \\
+		\hline
+	\end{tabular}
+
+	\caption{Especificaciones del regulador lineal LDO.}
+	\label{tabla:especificaciones_ldo}
+\end{table}
+
+Para la implementación, se utilizará un transistor de paso, responsable de disipar la potencia de recorte, realimentado por tensión y corriente, de acuerdo a la figura \ref{fig:bloques_ldo}.
+
+\begin{figure}
+	\centering
+\begin{tikzpicture}[transform shape]
+	% Paths, nodes and wires:
+	\draw (4, 6) to[american voltage source, l={$V_{cc}$}] (4, 3);
+	\draw (4, 6) to[sinusoidal voltage source, l_={$V_{ac}$}] (4, 8);
+	\draw (4, 8) -- (10, 8);
+	\node[spdt, rotate=-90] at (8.75, 5.405){};
+	\node[fourport, rotate=-90] at (8.795, 5.41){};
+	\node[pigfete, rotate=90](N1) at (10.77, 8){} node[anchor=south] at (N1.text){$T_{paso}$};
+	\draw (10.5, 7) -- (8.75, 7) -- (8.75, 6);
+	\draw (14, 6) to[american resistor, /tikz/circuitikz/bipoles/length=1.12cm, l={$R_L$}] (14, 4);
+	\node[fourport](N2) at (11, 1){} node[anchor=north] at (N2.text){$\small k_c$};
+	\node[fourport](N3) at (11, -1){} node[anchor=north] at (N3.text){$k_v$};
+	\draw (4, 3) -| (14, 4);
+	\draw (10.75, 1.25) to[american voltage source, /tikz/circuitikz/bipoles/length=0.700cm] (10.75, 0.75);
+	\draw (10.75, -0.75) to[american voltage source, /tikz/circuitikz/bipoles/length=0.700cm] (10.75, -1.25);
+	\draw (10.75, 1.25) |- (10.09, 1.455);
+	\draw (10.75, 0.75) |- (10.09, 0.545);
+	\draw (10.75, -0.75) |- (10.09, -0.545);
+	\draw (10.75, -1.25) |- (10.09, -1.455);
+	\draw (11.91, 1.455) -| (11.5, 0.75) |- (11.91, 0.545);
+	\node[circ] at (11.5, -0.545){};
+	\node[circ] at (11.5, -1.455){};
+	\draw (11.91, -0.545) -| (11.5, -0.5);
+	\draw (11.91, -1.455) -| (11.5, -1.5);
+	\draw (11.91, -1.455) -| (12.75, -1.75);
+	\draw (10.09, -1.455) -| (9.25, -1.75);
+	\draw (10.09, 0.545) -| (9.25, 0.25);
+	\draw (4, 3) -- (4, 2.75);
+	\draw (11.91, 0.545) -| (13, 0.75) |- (14, 6);
+	\draw (11.54, 8) -| (14, 7) -- (12.5, 7) |- (11.91, 1.455);
+	\node[tlground] at (9.25, 0.25){};
+	\node[tlground] at (4, 2.75){};
+	\node[tlground] at (12.75, -1.75){};
+	\node[tlground] at (9.25, -1.75){};
+	\draw (11.91, -0.545) -| (15, 6) -- (14, 6);
+	\node[circ](N4) at (14, 6){} node[anchor=south] at (N4.text){$v_o$};
+	\node[circ] at (4, 3){};
+	\draw (5.75, 4) to[full Schottky diode, /tikz/circuitikz/bipoles/length=0.840cm] (5.75, 5);
+	\node[shape=rectangle, draw, line width=1pt, minimum width=0.965cm, minimum height=1.965cm] at (5.75, 4.5){};
+	\draw (6.25, 4.5) -- (6.75, 4.5);
+	\draw (5.75, 5.5) -- (5.75, 8);
+	\draw (5.75, 3.5) -| (5.75, 3);
+	\node[circ](N5) at (6.75, 4.5){} node[anchor=west] at (N5.text){$v_{reg}$};
+	\node[op amp, xscale=-0.8, yscale=0.8] at (7.433, 1.069){};
+	\draw (10.09, 1.455) -| (8.385, 1.461);
+	\node[circ](N6) at (8.385, 0.677){} node[anchor=west] at (N6.text){$v_{reg}$};
+	\draw (6.481, 1.069) |- (9.25, 2.25) -- (9.25, 4.5) |- (9.065, 4.81);
+	\node[circ] at (5.75, 3){};
+	\node[circ] at (5.75, 8){};
+	\node[op amp, xscale=-0.8, yscale=0.8] at (6.25, -0.937){};
+	\draw (5.298, -0.937) |- (8.25, 2.75) -| (8.34, 4.5) |- (8.435, 4.81);
+	\node[circ](N7) at (7.202, -1.329){} node[anchor=west] at (N7.text){$\alpha v_{reg}+\beta v_o$};
+	\draw (10.09, -0.545) -| (7.202, -0.545);
+\end{tikzpicture}
+	\caption{Circuito simplificado del circuito regulador LDO.}
+	\label{fig:bloques_ldo}
+\end{figure}
+
+
+\subsubsection{El transistor de paso (Tipo MOS)}
+
+La elección del transistor de paso es el primer paso de diseño, y para su elección deben tenerse en cuenta los siguientes puntos:
+
+\textbf{Canal} \par
+
+El canal del transistor determinará sobre dónde se efectúa el control. 
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[transform shape]
+		% Paths, nodes and wires:
+		\node[pigfete, rotate=90] at (8.73, 6.5){};
+		\node[nigfete, rotate=90] at (11.02, 6.5){};
+		\node[circ](N1) at (7.96, 6.5){} node[anchor=south] at (N1.text){$v_s$};
+		\node[circ](N2) at (9.5, 6.5){} node[anchor=south] at (N2.text){$v_d$};
+		\node[circ](N3) at (8.46, 5.52){} node[anchor=north] at (N3.text){$v_g$};
+		\node[circ](N4) at (11.29, 5.52){} node[anchor=north] at (N4.text){$v_g$};
+		\node[circ](N5) at (11.79, 6.5){} node[anchor=south] at (N5.text){$v_s$};
+		\node[circ](N6) at (10.25, 6.5){} node[anchor=south] at (N6.text){$v_d$};
+	\end{tikzpicture}
+	\caption{Transitor de paso tipo MOS canal N y canal P.}
+	\label{fig:transistor_PN}
+\end{figure}
+
+Se conoce que la eficiencia de un transistor canal N es superior a la que exhibe un canal P. Sin embargo, no necesariamente esto lo hace una elección atractiva para la implementación.\\ En este caso, al tratarse de una fuente controlada LDO, se espera que la alimentación de la fuente sea tan solo $V_{DO}$ mayor a $V_{o}$ para que comience a regular, y por ende se espera que el circuito de control opere con tensiones menores o lo más cercanas posibles a $V_{o}$.
+
+En este caso, de la observación de la figura \ref{fig:transistor_PN}, se observa que para el control efectivo del transistor canal N, $v_g$ deberá ser al menos $v_o + V_{th}$ para polarizarlo en modo triodo y poder hacer un control de tensión y corriente. Esto implica que el circuito de control requerirá \textit{al menos} de una tensión de alimentación de $v_o + V_th$. Esto significa $V_{DO} > V_{th}$. Para valores comerciales, esto significa más de \si{4}{V}.
+
+En consecuencia, el canal debe ser P, para simplificar el circuito y hacer posible un $V_{DO} < \si{1}{V}$.
+
+\textbf{Modelo} \par
+
+La elección del modelo, en este caso, no es complicada debido a la escasa oferta de transistores PMOS disponibles, que a su vez cuentan con un modelo de spice para su fácil simulación.
+
+Una de las comodidades de elegir este tipo de canal es que $\|V_{th}\|$ puede tomar valores de hasta $v_o + V_{DO}$ sin afectar en gran medida el diseño circuital. Para valores comerciales $V_{th} \approx \si{4}{V}$, se desprecia como factor decisivo.
+
+Fundamental es que las tensiones y corrientes de operación se encuentren en el rango operativo del regulador, es decir
+
+$$V_{DSmax} = \si{32}{V} \qquad I_{DSmax} = \si{1.5}{A}.$$
+
+Además, debe operar dentro de la zona de operación segura SOA.
+
+Con estas cosas en mente, se escoge el modelo \textbf{4905}. Es un transistor que no sobredimensiona en gran medida la capacidad del regulador, normalmente pensado para switching pero aun así apto para la tarea.
+
+\subsubsection{Lazo de tensión}
 
 \section{Conclusiones}
 
