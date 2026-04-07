@@ -1,6 +1,7 @@
 \babel@toc {spanish}{}\relax 
 \contentsline {section}{\numberline {1}Objetivo}{2}{}%
 \contentsline {section}{\numberline {2}Desarrollo}{2}{}%
-\contentsline {subsection}{\numberline {2.1}Regulador de baja caída (LDO,Low Dropout Regulator)}{2}{}%
+\contentsline {subsection}{\numberline {2.1}Fuente de alimentación conmutada}{2}{}%
+\contentsline {subsection}{\numberline {2.2}Regulador de baja caída (LDO,Low Dropout Regulator)}{2}{}%
 \contentsline {section}{\numberline {3}Conclusiones}{2}{}%
 \contentsline {section}{\numberline {A}Apéndice}{2}{}%
