@@ -317,7 +317,7 @@ A su vez, se puede lograr limitar la corriente estableciendo un máximo de corri
 
 \subsubsection{Tensión de referencia $V_{Ref-t}$}
 
-Para obtener una tensión de referencia se utiliza un circuito 
+Para obtener una tensión de referencia se utiliza un circuito basado en un diodo zener en polarización inversa, el cual fija una tensión de acuerdo a la configuración de un divisor resistivo. En este caso se opto por el circuito integrado TL431 el cual es un regulador de derivación ajustables de tres terminales, con estabilidad térmica especificada en rangos de temperatura aplicables para aplicaciones automotrices y comerciales. La tensión de salida puede ajustarse a cualquier valor entre 2,5 V y 36 V, con dos resistencias externas tal como se observa en el diagrama de la figura \ref{fig:vref_t}.
 
 \begin{figure}[H]
 	\centering
@@ -347,6 +347,9 @@ Para obtener una tensión de referencia se utiliza un circuito
 
 \subsubsection{Tensión de referencia $V_{Ref-c}$}
 
+Este circuito genera una referencia modificada que se usa para implementar limitación de corriente tipo foldback. La idea es que el límite de corriente dependa de la tensión de salida $V_o$
+
+Cuando la salida cae (por ejemplo en un cortocircuito), el circuito reduce aún más la corriente permitida, protegiendo al transistor de paso.
 \begin{figure}[H]
 	\centering
 	\resizebox{\textwidth}{!}{
