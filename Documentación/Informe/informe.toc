@@ -4,11 +4,13 @@
 \contentsline {subsection}{\numberline {2.1}Fuente de alimentación conmutada}{2}{}%
 \contentsline {subsection}{\numberline {2.2}Regulador de baja caída (LDO,Low Dropout Regulator)}{2}{}%
 \contentsline {subsubsection}{\numberline {2.2.1}Especificaciones e implementación}{2}{}%
-\contentsline {subsubsection}{\numberline {2.2.2}El transistor de paso (Tipo MOS)}{3}{}%
-\contentsline {subsubsection}{\numberline {2.2.3}Lazo de tensión}{4}{}%
-\contentsline {subsubsection}{\numberline {2.2.4}Tensión de referencia}{5}{}%
-\contentsline {subsubsection}{\numberline {2.2.5}Lazo de Corriente}{5}{}%
-\contentsline {subsubsection}{\numberline {2.2.6}Limitador de corriente shunt}{5}{}%
-\contentsline {subsubsection}{\numberline {2.2.7}Simulaciones}{5}{}%
-\contentsline {section}{\numberline {3}Conclusiones}{5}{}%
-\contentsline {section}{\numberline {A}Apéndice}{5}{}%
+\contentsline {subsubsection}{\numberline {2.2.2}Tensión de referencia $V_{Ref-t}$}{4}{}%
+\contentsline {subsubsection}{\numberline {2.2.3}Tensión de referencia $V_{Ref-c}$}{5}{}%
+\contentsline {subsubsection}{\numberline {2.2.4}El transistor de paso (Tipo MOS)}{7}{}%
+\contentsline {subsubsection}{\numberline {2.2.5}Lazo de tensión}{7}{}%
+\contentsline {subsubsection}{\numberline {2.2.6}Tensión de referencia}{9}{}%
+\contentsline {subsubsection}{\numberline {2.2.7}Lazo de Corriente}{9}{}%
+\contentsline {subsubsection}{\numberline {2.2.8}Limitador de corriente shunt}{9}{}%
+\contentsline {subsubsection}{\numberline {2.2.9}Simulaciones}{9}{}%
+\contentsline {section}{\numberline {3}Conclusiones}{9}{}%
+\contentsline {section}{\numberline {A}Apéndice}{9}{}%
