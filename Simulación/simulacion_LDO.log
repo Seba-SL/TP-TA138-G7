@@ -1,21 +1,839 @@
-LTspice 24.0.12 for Windows
-Circuit: * C:\Users\ramaz\Desktop\Circuitos II\TP-TA138-G7\Simulaci�n\simulacion_LDO.asc
-Start Time: Tue Apr  7 23:40:29 2026
-Warning: Multiple definitions of model "2scr375p" Type: BJT
-Warning: Multiple definitions of model "bc857b" Type: BJT
-Warning: Multiple definitions of model "bc847c" Type: BJT
-Warning: Multiple definitions of model "bc847b" Type: BJT
-irl: both pins shorted together -- ignoring.
+LTspice 24.1.5 for Windows
+Circuit: C:\users\sebastian\Desktop\FIUBA-2do Cuatrimestre\Taller de Diseño Electrónico TA138\TP_Taller_de_Diseño_ TA138_G7\Simulación\simulacion_LDO.net
+Start Time: Wed Apr  8 16:10:27 2026
 solver = Normal
-Maximum thread count: 8
+Maximum thread count: 4
 tnom = 27
 temp = 27
-method = modified trap
-WARNING: Node NC_02 is floating.
+method = trap
+ERROR: Node nc_01 is floating and connected to current source IRL
+ERROR: Node nc_02 is floating and connected to current source IRL
+WARNING: Node nc_06 is floating.
 
-WARNING: Less than two connections to node nc_01.  This node is used by v3.
-WARNING: Less than two connections to node nc_02.  This node is used by v3.
-WARNING: Less than two connections to node nc_03.  This node is used by q17.
+Direct Newton iteration failed to find .op point.  (Use ".option noopiter" to skip.)
+Starting Gmin stepping
+Gmin = 10
+vernier = 0.5
+Gmin = 1.67772
+vernier = 0.25
+vernier = 0.125
+Gmin = 1.20453
+vernier = 0.0625
+vernier = 0.03125
+Gmin = 1.12325
+vernier = 0.0416667
+vernier = 0.0208333
+vernier = 0.0104167
+Gmin = 1.08598
+vernier = 0.0138889
+vernier = 0.00694444
+Gmin = 1.06546
+vernier = 0.00925925
+vernier = 0.00462963
+Gmin = 1.05199
+vernier = 0.00617283
+vernier = 0.00308642
+Gmin = 1.04271
+vernier = 0.00411522
+vernier = 0.00205761
+Gmin = 1.03603
+vernier = 0.00274348
+vernier = 0.00365797
+vernier = 0.00182899
+Gmin = 1.03071
+vernier = 0.00243865
+vernier = 0.00121932
+Gmin = 1.02742
+vernier = 0.00162576
+vernier = 0.00216769
+vernier = 0.00108384
+Gmin = 1.02429
+vernier = 0.00144512
+vernier = 0.000722562
+Gmin = 1.02198
+vernier = 0.000963415
+Gmin = 1.01977
+vernier = 0.00128455
+vernier = 0.000642277
+vernier = 0.000856369
+Gmin = 1.0183
+vernier = 0.00114182
+vernier = 0.000570912
+Gmin = 1.01692
+vernier = 0.000761216
+vernier = 0.000570912
+Gmin = 1.01556
+vernier = 0.000761216
+vernier = 0.000570912
+vernier = 0.000761216
+vernier = 0.000570912
+Gmin = 1.01469
+vernier = 0.000761216
+vernier = 0.000570912
+vernier = 0.000428184
+Gmin = 1.01386
+vernier = 0.000570912
+vernier = 0.000428184
+Gmin = 1.01299
+vernier = 0.000570912
+vernier = 0.000428184
+vernier = 0.000570911
+vernier = 0.000428184
+Gmin = 1.01234
+Gmin = 0
+Gmin stepping failed
+
+Starting source stepping with srcstepmethod=0
+Source Step = 3.0303%
+Source Step = 33.3333%
+Source Step = 63.6364%
+Source Step = 93.9394%
+Source stepping succeeded in finding the operating point.
+
+Direct Newton iteration failed to find .op point.  (Use ".option noopiter" to skip.)
+Starting Gmin stepping
+Gmin = 10
+vernier = 0.5
+Gmin = 1.67772
+vernier = 0.25
+vernier = 0.125
+Gmin = 1.20453
+vernier = 0.0625
+vernier = 0.0833333
+vernier = 0.0416667
+Gmin = 1.12594
+vernier = 0.0208333
+vernier = 0.0277778
+vernier = 0.0138889
+Gmin = 1.09327
+vernier = 0.0185185
+vernier = 0.00925925
+Gmin = 1.06829
+vernier = 0.0123457
+vernier = 0.00617283
+vernier = 0.00823044
+Gmin = 1.0533
+vernier = 0.00411522
+vernier = 0.00548696
+Gmin = 1.0436
+vernier = 0.00274348
+vernier = 0.00365797
+Gmin = 1.03718
+vernier = 0.00182899
+vernier = 0.00243865
+Gmin = 1.03229
+vernier = 0.00325153
+vernier = 0.00162576
+Gmin = 1.0279
+vernier = 0.00216769
+vernier = 0.00108384
+vernier = 0.00144512
+Gmin = 1.0253
+vernier = 0.00192683
+vernier = 0.000963415
+Gmin = 1.02271
+vernier = 0.00128455
+vernier = 0.000642277
+Gmin = 1.02058
+vernier = 0.000856369
+vernier = 0.00114182
+Gmin = 1.01849
+vernier = 0.000570912
+vernier = 0.000761216
+Gmin = 1.01728
+vernier = 0.00101495
+vernier = 0.000507477
+vernier = 0.000676636
+Gmin = 1.01607
+vernier = 0.000902182
+vernier = 0.000451091
+Gmin = 1.01487
+vernier = 0.000601454
+vernier = 0.000451091
+Gmin = 1.01388
+vernier = 0.000601454
+vernier = 0.000451091
+vernier = 0.000601454
+vernier = 0.000451091
+Gmin = 1.01319
+vernier = 0.000601454
+vernier = 0.00045109
+Gmin = 1.01228
+Gmin = 0
+Gmin stepping failed
+
+Starting source stepping with srcstepmethod=0
+Source Step = 3.0303%
+Source Step = 33.3333%
+Source Step = 63.6364%
+Source Step = 93.9394%
+Source stepping succeeded in finding the operating point.
+
+Direct Newton iteration failed to find .op point.  (Use ".option noopiter" to skip.)
+Starting Gmin stepping
+Gmin = 10
+vernier = 0.5
+Gmin = 1.67772
+vernier = 0.25
+vernier = 0.125
+Gmin = 1.20453
+vernier = 0.0625
+vernier = 0.0833333
+vernier = 0.0416667
+Gmin = 1.12594
+vernier = 0.0208333
+vernier = 0.0277778
+vernier = 0.0138889
+Gmin = 1.09327
+vernier = 0.0185185
+vernier = 0.00925925
+Gmin = 1.06829
+vernier = 0.0123457
+vernier = 0.00617283
+vernier = 0.00823044
+Gmin = 1.0533
+vernier = 0.00411522
+vernier = 0.00548696
+Gmin = 1.0436
+vernier = 0.00274348
+vernier = 0.00365797
+Gmin = 1.03718
+vernier = 0.00182899
+vernier = 0.00243865
+Gmin = 1.03229
+vernier = 0.00325153
+vernier = 0.00162576
+Gmin = 1.0279
+vernier = 0.00216769
+vernier = 0.00108384
+vernier = 0.00144512
+Gmin = 1.0253
+vernier = 0.00192683
+vernier = 0.000963415
+Gmin = 1.02271
+vernier = 0.00128455
+vernier = 0.000642277
+Gmin = 1.02058
+vernier = 0.000856369
+vernier = 0.00114182
+Gmin = 1.01849
+vernier = 0.000570912
+vernier = 0.000761216
+Gmin = 1.01728
+vernier = 0.00101495
+vernier = 0.000507477
+vernier = 0.000676636
+Gmin = 1.01607
+vernier = 0.000902182
+vernier = 0.000451091
+Gmin = 1.01487
+vernier = 0.000601454
+vernier = 0.000451091
+Gmin = 1.01388
+vernier = 0.000601454
+vernier = 0.000451091
+vernier = 0.000601454
+vernier = 0.000451091
+Gmin = 1.01319
+vernier = 0.000601454
+vernier = 0.00045109
+Gmin = 1.01228
+Gmin = 0
+Gmin stepping failed
+
+Starting source stepping with srcstepmethod=0
+Source Step = 3.0303%
+Source Step = 33.3333%
+Source Step = 63.6364%
+Source Step = 93.9394%
+Source stepping succeeded in finding the operating point.
+
+Direct Newton iteration failed to find .op point.  (Use ".option noopiter" to skip.)
+Starting Gmin stepping
+Gmin = 10
+vernier = 0.5
+Gmin = 1.67772
+vernier = 0.25
+vernier = 0.125
+Gmin = 1.20453
+vernier = 0.0625
+vernier = 0.03125
+Gmin = 1.12325
+vernier = 0.0416667
+vernier = 0.0208333
+vernier = 0.0104167
+Gmin = 1.08598
+vernier = 0.0138889
+vernier = 0.00694444
+Gmin = 1.06546
+vernier = 0.00925925
+vernier = 0.00462963
+Gmin = 1.05199
+vernier = 0.00617283
+vernier = 0.00308642
+Gmin = 1.04271
+vernier = 0.00411522
+vernier = 0.00205761
+Gmin = 1.03603
+vernier = 0.00274348
+vernier = 0.00365797
+vernier = 0.00182899
+Gmin = 1.03071
+vernier = 0.00243865
+vernier = 0.00121932
+Gmin = 1.02742
+vernier = 0.00162576
+vernier = 0.00216769
+vernier = 0.00108384
+Gmin = 1.02429
+vernier = 0.00144512
+vernier = 0.000722562
+Gmin = 1.02198
+vernier = 0.000963415
+Gmin = 1.01977
+vernier = 0.00128455
+vernier = 0.000642277
+vernier = 0.000856369
+Gmin = 1.0183
+vernier = 0.00114182
+vernier = 0.000570912
+Gmin = 1.01692
+vernier = 0.000761216
+vernier = 0.000570912
+Gmin = 1.01556
+vernier = 0.000761216
+vernier = 0.000570912
+vernier = 0.000761216
+vernier = 0.000570912
+Gmin = 1.01469
+vernier = 0.000761216
+vernier = 0.000570912
+vernier = 0.000428184
+Gmin = 1.01386
+vernier = 0.000570912
+vernier = 0.000428184
+Gmin = 1.01299
+vernier = 0.000570912
+vernier = 0.000428184
+vernier = 0.000570911
+vernier = 0.000428184
+Gmin = 1.01234
+Gmin = 0
+Gmin stepping failed
+
+Starting source stepping with srcstepmethod=0
+Source Step = 3.0303%
+Source Step = 33.3333%
+Source Step = 63.6364%
+Source Step = 93.9394%
+Source stepping succeeded in finding the operating point.
+
+Direct Newton iteration failed to find .op point.  (Use ".option noopiter" to skip.)
+Starting Gmin stepping
+Gmin = 10
+vernier = 0.5
+Gmin = 1.67772
+vernier = 0.25
+vernier = 0.125
+Gmin = 1.20453
+vernier = 0.0625
+vernier = 0.03125
+Gmin = 1.12325
+vernier = 0.0416667
+vernier = 0.0208333
+vernier = 0.0104167
+Gmin = 1.08598
+vernier = 0.0138889
+vernier = 0.00694444
+Gmin = 1.06546
+vernier = 0.00925925
+vernier = 0.00462963
+Gmin = 1.05199
+vernier = 0.00617283
+vernier = 0.00308642
+Gmin = 1.04271
+vernier = 0.00411522
+vernier = 0.00205761
+Gmin = 1.03603
+vernier = 0.00274348
+vernier = 0.00365797
+vernier = 0.00182899
+Gmin = 1.03071
+vernier = 0.00243865
+vernier = 0.00121932
+Gmin = 1.02742
+vernier = 0.00162576
+vernier = 0.00216769
+vernier = 0.00108384
+Gmin = 1.02429
+vernier = 0.00144512
+vernier = 0.000722562
+Gmin = 1.02198
+vernier = 0.000963415
+Gmin = 1.01977
+vernier = 0.00128455
+vernier = 0.000642277
+vernier = 0.000856369
+Gmin = 1.0183
+vernier = 0.00114182
+vernier = 0.000570912
+Gmin = 1.01692
+vernier = 0.000761216
+vernier = 0.000570912
+Gmin = 1.01556
+vernier = 0.000761216
+vernier = 0.000570912
+vernier = 0.000761216
+vernier = 0.000570912
+Gmin = 1.01469
+vernier = 0.000761216
+vernier = 0.000570912
+vernier = 0.000428184
+Gmin = 1.01386
+vernier = 0.000570912
+vernier = 0.000428184
+Gmin = 1.01299
+vernier = 0.000570912
+vernier = 0.000428184
+vernier = 0.000570911
+vernier = 0.000428184
+Gmin = 1.01234
+Gmin = 0
+Gmin stepping failed
+
+Starting source stepping with srcstepmethod=0
+Source Step = 3.0303%
+Source Step = 33.3333%
+Source Step = 63.6364%
+Source Step = 93.9394%
+Source Step = 98.2955%
+Source Step = 99.1477%
+Source Step = 99.6212%
+Source stepping succeeded in finding the operating point.
+
+Early termination of direct N-R iteration.
+Direct Newton iteration failed to find .op point.  (Use ".option noopiter" to skip.)
+Starting Gmin stepping
+Gmin = 10
+vernier = 0.5
+Gmin = 1.67772
+vernier = 0.25
+vernier = 0.125
+Gmin = 1.20453
+vernier = 0.0625
+vernier = 0.03125
+Gmin = 1.12325
+vernier = 0.0416667
+vernier = 0.0208333
+vernier = 0.0104167
+Gmin = 1.08598
+vernier = 0.0138889
+vernier = 0.00694444
+Gmin = 1.06546
+vernier = 0.00925925
+vernier = 0.00462963
+Gmin = 1.05199
+vernier = 0.00617283
+vernier = 0.00308642
+Gmin = 1.04271
+vernier = 0.00411522
+vernier = 0.00205761
+Gmin = 1.03603
+vernier = 0.00274348
+vernier = 0.00365797
+vernier = 0.00182899
+Gmin = 1.03071
+vernier = 0.00243865
+vernier = 0.00121932
+Gmin = 1.02742
+vernier = 0.00162576
+vernier = 0.00216769
+vernier = 0.00108384
+Gmin = 1.02429
+vernier = 0.00144512
+vernier = 0.000722562
+Gmin = 1.02217
+vernier = 0.000963415
+vernier = 0.00128455
+Gmin = 1.01981
+vernier = 0.000642277
+vernier = 0.000856369
+Gmin = 1.01845
+vernier = 0.00114182
+vernier = 0.000570912
+vernier = 0.000761216
+Gmin = 1.01709
+vernier = 0.00101495
+vernier = 0.000507477
+Gmin = 1.01574
+vernier = 0.000676636
+vernier = 0.000507477
+Gmin = 1.01466
+vernier = 0.000676636
+vernier = 0.000507477
+vernier = 0.000676636
+vernier = 0.000507477
+Gmin = 1.01389
+vernier = 0.000676636
+vernier = 0.000507477
+Gmin = 0
+Gmin stepping failed
+
+Starting source stepping with srcstepmethod=0
+Source Step = 3.0303%
+Source Step = 33.3333%
+Source Step = 63.6364%
+Source Step = 93.9394%
+Source Step = 94.7088%
+Source Step = 94.7384%
+Source Step = 94.768%
+Source Step = 94.7976%
+Source Step = 94.8272%
+vernier = 0.00146484
+Source Step = 94.8612%
+Source Step = 94.9056%
+Source Step = 94.95%
+Source Step = 94.9944%
+Source Step = 95.0388%
+vernier = 0.00219727
+Source Step = 95.0876%
+Source Step = 95.1542%
+Source Step = 95.2208%
+Source Step = 95.2873%
+Source Step = 95.3539%
+vernier = 0.0032959
+Source Step = 95.4238%
+Source Step = 95.5237%
+Source Step = 95.6236%
+Source Step = 95.7235%
+Source Step = 95.8233%
+Source Step = 95.9232%
+vernier = 0.00494385
+Source Step = 96.073%
+Source Step = 96.2228%
+Source Step = 96.3727%
+Source Step = 96.5225%
+Source Step = 96.6723%
+vernier = 0.00741577
+Source Step = 96.8895%
+Source Step = 97.1142%
+Source Step = 97.339%
+Source Step = 97.5637%
+Source Step = 97.7884%
+vernier = 0.0111237
+Source Step = 98.103%
+Source Step = 98.4401%
+Source Step = 98.7772%
+Source Step = 99.1143%
+Source Step = 99.4513%
+vernier = 0.0166855
+Source Step = 99.9064%
+Source stepping succeeded in finding the operating point.
+
+Early termination of direct N-R iteration.
+Direct Newton iteration failed to find .op point.  (Use ".option noopiter" to skip.)
+Starting Gmin stepping
+Gmin = 10
+vernier = 0.5
+Gmin = 1.67772
+vernier = 0.25
+vernier = 0.125
+Gmin = 1.20453
+vernier = 0.0625
+vernier = 0.0833333
+vernier = 0.0416667
+Gmin = 1.12594
+vernier = 0.0208333
+vernier = 0.0277778
+vernier = 0.0138889
+Gmin = 1.09327
+vernier = 0.0185185
+vernier = 0.00925925
+Gmin = 1.06829
+vernier = 0.0123457
+vernier = 0.00617283
+vernier = 0.00823044
+Gmin = 1.0533
+vernier = 0.00411522
+vernier = 0.00548696
+Gmin = 1.0436
+vernier = 0.00274348
+vernier = 0.00365797
+Gmin = 1.03718
+vernier = 0.00182899
+vernier = 0.00243865
+Gmin = 1.03261
+vernier = 0.00325153
+vernier = 0.00162576
+Gmin = 1.02842
+vernier = 0.00216769
+vernier = 0.00108384
+vernier = 0.00144512
+Gmin = 1.02568
+vernier = 0.00192683
+vernier = 0.000963415
+Gmin = 1.02309
+vernier = 0.00128455
+vernier = 0.000642277
+Gmin = 1.02096
+vernier = 0.000856369
+vernier = 0.00114182
+Gmin = 1.01887
+vernier = 0.000570912
+vernier = 0.000761216
+Gmin = 1.01766
+vernier = 0.00101495
+vernier = 0.000507477
+vernier = 0.000676636
+Gmin = 1.01645
+vernier = 0.000902182
+vernier = 0.000451091
+Gmin = 1.01525
+vernier = 0.000601454
+vernier = 0.000451091
+Gmin = 1.01418
+vernier = 0.000601454
+vernier = 0.000451091
+Gmin = 1.01327
+vernier = 0.000601454
+vernier = 0.000451091
+vernier = 0.000601454
+vernier = 0.00045109
+Gmin = 1.01258
+Gmin = 0
+Gmin stepping failed
+
+Starting source stepping with srcstepmethod=0
+Source Step = 3.0303%
+Source Step = 33.3333%
+Source Step = 63.6364%
+Source Step = 72.7628%
+Source Step = 72.8812%
+Source Step = 72.9995%
+Source Step = 73.1179%
+Source Step = 73.2363%
+vernier = 0.00585938
+Source Step = 73.3665%
+Source Step = 73.544%
+Source Step = 73.7216%
+Source Step = 73.8991%
+Source Step = 74.0767%
+vernier = 0.00878906
+Source Step = 74.2631%
+Source Step = 74.5295%
+Source Step = 74.7492%
+Source Step = 74.8158%
+Source Step = 74.8824%
+Source Step = 74.949%
+Source Step = 75.0155%
+Source Step = 75.0821%
+vernier = 0.0032959
+Source Step = 75.1753%
+Source Step = 75.2752%
+Source Step = 75.3751%
+Source Step = 75.475%
+Source Step = 75.5748%
+vernier = 0.00494385
+Source Step = 75.7097%
+Source Step = 75.8595%
+Source Step = 76.0093%
+Source Step = 76.1591%
+Source Step = 76.3089%
+vernier = 0.00741577
+Source Step = 76.5037%
+Source Step = 76.7284%
+Source Step = 76.9531%
+Source Step = 77.1778%
+Source Step = 77.4026%
+vernier = 0.0111237
+Source Step = 77.6835%
+Source Step = 78.0205%
+Source Step = 78.3576%
+Source Step = 78.6947%
+Source Step = 79.0318%
+vernier = 0.0166855
+Source Step = 79.4363%
+Source Step = 79.9419%
+Source Step = 80.4475%
+Source Step = 80.9531%
+Source Step = 81.4588%
+vernier = 0.0250282
+Source Step = 82.0402%
+Source Step = 82.7987%
+Source Step = 83.5571%
+Source Step = 84.3155%
+Source Step = 85.074%
+vernier = 0.0375423
+Source Step = 85.9082%
+Source Step = 87.0459%
+Source Step = 88.1835%
+Source Step = 89.3212%
+Source Step = 90.4588%
+vernier = 0.0563135
+Source Step = 91.6533%
+Source Step = 93.3598%
+Source Step = 95.0663%
+Source Step = 96.7728%
+Source Step = 98.4792%
+Source stepping succeeded in finding the operating point.
+
+Early termination of direct N-R iteration.
+Direct Newton iteration failed to find .op point.  (Use ".option noopiter" to skip.)
+Starting Gmin stepping
+Gmin = 10
+vernier = 0.5
+Gmin = 1.67772
+vernier = 0.25
+vernier = 0.125
+Gmin = 1.20453
+vernier = 0.0625
+vernier = 0.0833333
+vernier = 0.0416667
+Gmin = 1.12594
+vernier = 0.0208333
+vernier = 0.0277778
+vernier = 0.0138889
+Gmin = 1.09327
+vernier = 0.0185185
+vernier = 0.00925925
+Gmin = 1.06829
+vernier = 0.0123457
+vernier = 0.00617283
+vernier = 0.00823044
+Gmin = 1.0533
+vernier = 0.00411522
+vernier = 0.00548696
+Gmin = 1.04431
+vernier = 0.00274348
+vernier = 0.00365797
+Gmin = 1.03789
+vernier = 0.00182899
+vernier = 0.00243865
+Gmin = 1.033
+vernier = 0.00325153
+vernier = 0.00162576
+Gmin = 1.0286
+vernier = 0.00216769
+vernier = 0.00108384
+vernier = 0.00144512
+Gmin = 1.026
+vernier = 0.00192683
+vernier = 0.000963415
+Gmin = 1.02341
+vernier = 0.00128455
+vernier = 0.000642277
+Gmin = 1.02111
+vernier = 0.000856369
+Gmin = 1.01915
+vernier = 0.00114182
+vernier = 0.000570912
+vernier = 0.000761216
+Gmin = 1.01784
+vernier = 0.00101495
+vernier = 0.000507477
+Gmin = 1.01661
+vernier = 0.000676636
+vernier = 0.000902182
+vernier = 0.000451091
+Gmin = 1.01535
+vernier = 0.000601454
+vernier = 0.000451091
+Gmin = 1.01429
+vernier = 0.000601454
+vernier = 0.000451091
+Gmin = 1.01337
+vernier = 0.000601454
+vernier = 0.000451091
+vernier = 0.000601454
+vernier = 0.00045109
+Gmin = 1.01269
+Gmin = 0
+Gmin stepping failed
+
+Starting source stepping with srcstepmethod=0
+Source Step = 3.0303%
+Source Step = 33.3333%
+Source Step = 63.6364%
+vernier = 0.25
+Source Step = 60.9848%
+Source Step = 61.4583%
+Source Step = 61.9318%
+Source Step = 62.4053%
+Source Step = 62.7397%
+Source Step = 62.7693%
+Source Step = 62.7989%
+Source Step = 62.8285%
+Source Step = 62.8581%
+Source Step = 62.8877%
+vernier = 0.00146484
+Source Step = 62.9321%
+Source Step = 62.9764%
+Source Step = 63.0208%
+Source Step = 63.0652%
+Source Step = 63.1096%
+vernier = 0.00219727
+Source Step = 63.174%
+Source Step = 63.2406%
+Source Step = 63.3071%
+Source Step = 63.3737%
+Source Step = 63.4403%
+vernier = 0.0032959
+Source Step = 63.5335%
+Source Step = 63.6334%
+Source Step = 63.7333%
+Source Step = 63.8332%
+Source Step = 63.933%
+vernier = 0.00494385
+Source Step = 64.0679%
+Source Step = 64.2177%
+Source Step = 64.3675%
+Source Step = 64.5173%
+Source Step = 64.6671%
+vernier = 0.00741577
+Source Step = 64.8619%
+Source Step = 65.0866%
+Source Step = 65.3113%
+Source Step = 65.536%
+Source Step = 65.7608%
+vernier = 0.0111237
+Source Step = 66.0417%
+Source Step = 66.3787%
+Source Step = 66.7158%
+Source Step = 67.0529%
+Source Step = 67.39%
+vernier = 0.0166855
+Source Step = 67.7945%
+Source Step = 68.3001%
+Source Step = 68.8057%
+Source Step = 69.3113%
+Source Step = 69.817%
+vernier = 0.0250282
+Source Step = 70.3984%
+Source Step = 71.1569%
+Source Step = 71.9153%
+Source Step = 72.6737%
+Source Step = 73.4321%
+vernier = 0.0375423
+Source Step = 74.2664%
+Source Step = 75.4041%
+Source Step = 76.5417%
+Source Step = 77.6794%
+Source Step = 78.817%
+vernier = 0.0563135
+Source Step = 80.0115%
+Source Step = 81.718%
+Source Step = 83.4245%
+Source Step = 85.1309%
+Source Step = 86.8374%
+Source Step = 88.5439%
+vernier = 0.0844703
+Source Step = 91.1036%
+Source Step = 93.6633%
+Source Step = 96.223%
+Source Step = 98.7827%
+Source stepping succeeded in finding the operating point.
+
+Early termination of direct N-R iteration.
 Direct Newton iteration failed to find .op point.  (Use ".option noopiter" to skip.)
 Starting Gmin stepping
 Gmin = 10
@@ -91,293 +909,148 @@ Gmin stepping failed
 Starting source stepping with srcstepmethod=0
 Source Step = 3.0303%
 Source Step = 33.3333%
-Source Step = 58.3333%
-vernier = 0.0625
-Source Step = 59.4697%
-Source Step = 61.3636%
-Source Step = 63.2576%
-Source Step = 65.1515%
-Source Step = 67.0455%
-vernier = 0.09375
-Source Step = 69.7917%
-Source Step = 71.5007%
-Source Step = 71.545%
-Source Step = 71.5894%
-Source Step = 71.6338%
-Source Step = 71.6782%
-Source Step = 71.7226%
-vernier = 0.00219727
+Source Step = 63.6364%
+vernier = 0.25
+Source Step = 62.4053%
+Source Step = 62.8788%
+Source Step = 63.3523%
+Source Step = 63.8258%
+Source Step = 64.2992%
+vernier = 0.0234375
+Source Step = 64.8911%
+Source Step = 65.6013%
+Source Step = 66.3116%
+Source Step = 67.0218%
+Source Step = 67.732%
+vernier = 0.0351562
+Source Step = 68.5843%
+Source Step = 69.6496%
+Source Step = 70.715%
 Source Step = 71.7803%
-Source Step = 71.8469%
-Source Step = 71.9135%
-Source Step = 71.9801%
-Source Step = 72.0466%
-vernier = 0.0032959
-Source Step = 72.1299%
-Source Step = 72.2297%
-Source Step = 72.3296%
-Source Step = 72.4295%
-Source Step = 72.5294%
-vernier = 0.00494385
-Source Step = 72.6492%
-Source Step = 72.799%
-Source Step = 72.9488%
-Source Step = 73.0987%
-Source Step = 73.2485%
-vernier = 0.00741577
-Source Step = 73.4208%
-Source Step = 73.6455%
-Source Step = 73.8702%
-Source Step = 74.0949%
-Source Step = 74.3196%
-vernier = 0.0111237
-Source Step = 74.5668%
-Source Step = 74.9039%
-Source Step = 75.241%
-Source Step = 75.5781%
-Source Step = 75.9152%
-vernier = 0.0166855
-Source Step = 76.2691%
-Source Step = 76.7747%
-Source Step = 77.2803%
-Source Step = 77.786%
-Source Step = 78.2916%
-Source Step = 78.7972%
-vernier = 0.0250282
-Source Step = 79.5556%
-Source Step = 80.3141%
-Source Step = 81.0725%
-Source Step = 81.8309%
-Source Step = 82.5894%
-vernier = 0.0375423
-Source Step = 83.6891%
-Source Step = 84.8267%
-Source Step = 85.9644%
-Source Step = 87.102%
-Source Step = 88.2397%
-vernier = 0.0563135
-Source Step = 89.8324%
-Source Step = 90.355%
-Source Step = 90.3816%
-Source Step = 90.4083%
-Source Step = 90.435%
-Source Step = 90.4616%
-Source Step = 90.4883%
-Source Step = 90.515%
-Source Step = 90.5416%
-vernier = 0.00131985
-Source Step = 90.575%
-Source Step = 90.6149%
-Source Step = 90.6549%
-Source Step = 90.6949%
-Source Step = 90.7349%
-vernier = 0.00197977
-Source Step = 90.7829%
-Source Step = 90.8429%
-Source Step = 90.9029%
-Source Step = 90.9629%
-Source Step = 91.0229%
-vernier = 0.00296966
-Source Step = 91.0919%
-Source Step = 91.1819%
-Source Step = 91.2719%
-Source Step = 91.3619%
-Source Step = 91.4518%
-vernier = 0.00445449
-Source Step = 91.5508%
-Source Step = 91.6858%
-Source Step = 91.8208%
-Source Step = 91.9558%
-Source Step = 92.0908%
-vernier = 0.00668173
-Source Step = 92.2325%
-Source Step = 92.435%
-Source Step = 92.6375%
-Source Step = 92.8399%
-Source Step = 93.0424%
-Source Step = 93.2449%
-vernier = 0.0100226
-Source Step = 93.5486%
-Source Step = 93.8523%
-Source Step = 94.156%
-Source Step = 94.4598%
-Source Step = 94.7635%
-vernier = 0.0150339
-Source Step = 95.2039%
-Source Step = 95.6594%
-Source Step = 96.115%
-Source Step = 96.5706%
-Source Step = 97.0261%
-vernier = 0.0225508
-Source Step = 97.6639%
-Source Step = 98.3473%
-Source Step = 99.0307%
-Source Step = 99.714%
+Source Step = 72.8456%
+vernier = 0.0527344
+Source Step = 74.0708%
+Source Step = 75.6688%
+Source Step = 77.2668%
+Source Step = 78.8648%
+Source Step = 80.4628%
+vernier = 0.0791016
+Source Step = 82.2206%
+Source Step = 84.6177%
+Source Step = 87.0147%
+Source Step = 89.4117%
+Source Step = 91.8087%
+vernier = 0.118652
+Source Step = 94.3256%
+Source Step = 96.4885%
+Source Step = 96.5447%
+Source Step = 96.6009%
+Source Step = 96.6571%
+Source Step = 96.7132%
+Source Step = 96.7694%
+Source Step = 96.8256%
+Source Step = 96.8818%
+Source Step = 96.938%
+Source Step = 96.9941%
+Source Step = 97.0503%
+Source Step = 97.1065%
+Source Step = 97.1627%
+Source Step = 97.2189%
+Source Step = 97.275%
+Source Step = 97.3312%
+Source Step = 97.3874%
+Source Step = 97.4436%
+Source Step = 97.4998%
+Source Step = 97.5559%
+Source Step = 97.6121%
+Source Step = 97.6683%
+Source Step = 97.7245%
+Source Step = 97.7807%
+Source Step = 97.8368%
+Source Step = 97.893%
+Source Step = 97.9492%
+Source Step = 98.0054%
+Source Step = 98.0616%
+Source Step = 98.1177%
+Source Step = 98.1739%
+Source Step = 98.2301%
+Source Step = 98.2863%
+Source Step = 98.3425%
+Source Step = 98.3986%
+Source Step = 98.4548%
+Source Step = 98.511%
+Source Step = 98.5672%
+Source Step = 98.6234%
+Source Step = 98.6795%
+Source Step = 98.7357%
+Source Step = 98.7919%
+Source Step = 98.8481%
+Source Step = 98.9043%
+Source Step = 98.9604%
+Source Step = 99.0166%
+Source Step = 99.0728%
+Source Step = 99.129%
+Source Step = 99.1852%
+Source Step = 99.2413%
+Source Step = 99.2975%
+Source Step = 99.3537%
+Source Step = 99.4099%
+Source Step = 99.4661%
+Source Step = 99.5222%
+Source Step = 99.5784%
+Source Step = 99.6346%
+Source Step = 99.6908%
+Source Step = 99.747%
+Source Step = 99.8031%
+Source Step = 99.8593%
+Source Step = 99.9155%
+Source Step = 99.9717%
+Source Step = 100%
+Source Step = 100%
+Source Step = 100%
+Source Step = 100%
+Source Step = 100%
+Source Step = 100%
+Source Step = 100%
+Source Step = 100%
+Source Step = 100%
+Source Step = 100%
+Source Step = 100%
+Source Step = 100%
+Source Step = 100%
+Source Step = 100%
+Source Step = 100%
+Source Step = 100%
+Source Step = 100%
+Source Step = 100%
+Source Step = 100%
+Source Step = 100%
+Source Step = 100%
+Source Step = 100%
+Source Step = 100%
+Source Step = 100%
+Source Step = 100%
+Source Step = 100%
+Source Step = 100%
+Source Step = 100%
+Source Step = 100%
+Source Step = 100%
+Source Step = 100%
+Source Step = 100%
+Source Step = 100%
+Source Step = 100%
 Source stepping succeeded in finding the operating point.
 
-Semiconductor Device Operating Points:
-                        --- Diodes ---
-Name:    d:m1:1      d:m1:2      d:m1:3      d:m1:4      d:u7:1
-Model:    m1:md      m1:md1      m1:md2      m1:md3      u7:d0v5
-Id:     -1.29e-08   -5.46e-12    0.00e+00   -1.05e-10   -1.03e-04
-Vd:     -9.19e+00   -5.46e+00   -5.46e+00   -5.46e+00   -4.95e-01
-Req:     1.00e+12    1.00e+12    1.00e+12    1.00e+12    2.02e+01
-CAP:     1.20e-09    1.41e-09    0.00e+00    0.00e+00    7.38e-19
+.step 
+Total elapsed time: 87.694 seconds.
 
-Name:   d:u7:rev    d:u7:clp     d:u7:s      d:u7:s1    d:u7:esd1
-Model:   u7:drev      u7:dc       u7:ds       u7:ds      u7:d6z8
-Id:     -4.73e-12   -1.11e-12   -5.18e-11    1.13e-05   -2.50e-12
-Vd:     -3.18e+00   -1.11e+00   -1.81e+00    3.35e-01   -2.50e+00
-Req:     1.00e+12    1.00e+12    1.00e+12    2.40e+03    1.00e+12
-CAP:     1.47e-11    6.93e-16    5.14e-16    1.44e-15    2.08e-12
+Files loaded:
+C:\users\sebastian\Desktop\FIUBA-2do Cuatrimestre\Taller de Diseño Electrónico TA138\TP_Taller_de_Diseño_ TA138_G7\Simulación\simulacion_LDO.net
+C:\users\sebastian\AppData\Local\LTspice\lib\cmp\standard.bjt
+C:\users\sebastian\Desktop\FIUBA-2do Cuatrimestre\Taller de Diseño Electrónico TA138\TP_Taller_de_Diseño_ TA138_G7\Simulación\Modelos\irf4905.spi
+C:\users\sebastian\Desktop\FIUBA-2do Cuatrimestre\Taller de Diseño Electrónico TA138\TP_Taller_de_Diseño_ TA138_G7\Simulación\Modelos\TL431.spi
+C:\users\sebastian\Desktop\FIUBA-2do Cuatrimestre\Taller de Diseño Electrónico TA138\TP_Taller_de_Diseño_ TA138_G7\Simulación\Modelos\LM358.txt
 
-Name:    d:u6:ip     d:u6:in    d:u6:inn    d:u6:inr    d:u6:opm
-Model:   u6:mdth     u6:mdth     u6:mdth     u6:mdth     u6:mdth
-Id:      5.00e-06    5.00e-06    4.18e-13   -7.05e-12   -1.55e-10
-Vd:      7.20e-01    7.20e-01    2.72e-01   -7.05e+00   -1.55e+02
-Req:     5.18e+03    5.17e+03    1.50e+11    1.00e+12    1.00e+12
-CAP:     6.90e-24    6.90e-24    4.69e-24    1.41e-24    3.20e-25
-
-Name:   d:u6:onm     d:u6:op     d:u6:on     d:u3:ip     d:u3:in
-Model:   u6:mdth     u6:mdth     u6:mdth     u3:mdth     u3:mdth
-Id:     -1.54e-10   -6.35e-12   -1.14e-13    4.94e-06    4.95e-06
-Vd:     -1.54e+02   -6.35e+00   -1.14e-01    7.20e-01    7.20e-01
-Req:     1.00e+12    1.00e+12    1.00e+12    5.24e+03    5.22e+03
-CAP:     3.21e-25    1.48e-24    3.79e-24    6.90e-24    6.90e-24
-
-Name:   d:u3:inn    d:u3:inr    d:u3:opm    d:u3:onm     d:u3:op
-Model:   u3:mdth     u3:mdth     u3:mdth     u3:mdth     u3:mdth
-Id:      1.12e-07   -7.40e-12   -1.62e-10   -1.47e-10   -7.17e-12
-Vd:      6.22e-01   -7.40e+00   -1.62e+02   -1.47e+02   -7.17e+00
-Req:     2.32e+05    1.00e+12    1.00e+12    1.00e+12    1.00e+12
-CAP:     6.35e-24    1.38e-24    3.13e-25    3.28e-25    1.40e-24
-
-Name:    d:u3:on     d:u4:ip     d:u4:in    d:u4:inn    d:u4:inr
-Model:   u3:mdth     u4:mdth     u4:mdth     u4:mdth     u4:mdth
-Id:      2.36e-06    5.00e-06    5.00e-06   -7.87e-14   -6.70e-12
-Vd:      7.01e-01    7.20e-01    7.20e-01   -7.87e-02   -6.70e+00
-Req:     1.10e+04    5.18e+03    5.17e+03    1.00e+12    1.00e+12
-CAP:     6.79e-24    6.90e-24    6.90e-24    3.85e-24    1.44e-24
-
-Name:   d:u4:opm    d:u4:onm     d:u4:op     d:u4:on     d:u5:ip
-Model:   u4:mdth     u4:mdth     u4:mdth     u4:mdth     u5:mdth
-Id:     -1.56e-10   -1.53e-10   -6.45e-12   -1.41e-14    5.00e-06
-Vd:     -1.56e+02   -1.53e+02   -6.45e+00   -1.41e-02    7.20e-01
-Req:     1.00e+12    1.00e+12    1.00e+12    1.00e+12    5.18e+03
-CAP:     3.19e-25    3.22e-25    1.47e-24    3.97e-24    6.90e-24
-
-Name:    d:u5:in    d:u5:inn    d:u5:inr    d:u5:opm    d:u5:onm
-Model:   u5:mdth     u5:mdth     u5:mdth     u5:mdth     u5:mdth
-Id:      5.00e-06    5.11e-10   -7.26e-12   -1.58e-10   -1.51e-10
-Vd:      7.20e-01    4.83e-01   -7.26e+00   -1.58e+02   -1.51e+02
-Req:     5.17e+03    5.07e+07    1.00e+12    1.00e+12    1.00e+12
-CAP:     6.90e-24    5.56e-24    1.39e-24    3.17e-25    3.24e-25
-
-Name:    d:u5:op     d:u5:on
-Model:   u5:mdth     u5:mdth
-Id:     -6.36e-12   -1.02e-13
-Vd:     -6.36e+00   -1.02e-01
-Req:     1.00e+12    1.00e+12
-CAP:     1.47e-24    3.81e-24
-
-                        --- Bipolar Transistors ---
-Name:       q1          q2          q5          q6          q7
-Model:    bc547b      bc547b      bc547b      bc547b      bc547b
-Ib:       1.83e-03   -1.10e-11    6.49e-06    6.49e-06    1.62e-05
-Ic:       2.10e-05    9.30e-12    1.86e-03    1.82e-03    4.91e-03
-Vbe:      7.11e-01   -1.68e+00    6.55e-01    6.55e-01    6.80e-01
-Vbc:      7.03e-01   -9.23e+00   -1.13e+00    0.00e+00   -6.32e+00
-Vce:      7.89e-03    7.56e+00    1.79e+00    6.55e-01    7.00e+00
-BetaDC:   1.15e-02   -8.47e-01    2.86e+02    2.81e+02    3.04e+02
-Gm:       5.81e-02    1.37e-40    7.01e-02    6.89e-02    1.82e-01
-Rpi:      5.13e+02    1.00e+12    4.03e+03    4.03e+03    1.62e+03
-Rx:       1.00e+00    1.00e+00    1.00e+00    1.00e+00    1.00e+00
-Ro:       2.49e+00    0.00e+00    3.38e+04    3.38e+04    1.38e+04
-Cbe:      3.00e-10    8.94e-12    8.38e-11    8.33e-11    1.44e-10
-Cbc:      3.88e-11    9.02e-13    1.55e-12    2.31e-12    1.00e-12
-Cjs:      0.00e+00    0.00e+00    0.00e+00    0.00e+00    0.00e+00
-BetaAC:   2.98e+01    1.37e-28    2.83e+02    2.77e+02    2.95e+02
-Cbx:      2.40e-11    5.54e-13    9.55e-13    1.42e-12    6.17e-13
-Ft:       2.55e+07    1.53e-02    1.29e+08    1.26e+08    1.99e+08
-
-Name:       q8          q9          q12         q13         q16
-Model:    bc547b      bc547b      bc547b      bc547b      bc547b
-Ib:       1.95e-06   -9.81e-12    3.17e-06    2.63e-06    6.52e-06
-Ic:       5.75e-04    6.51e-12    9.66e-04    8.40e-04    1.81e-03
-Vbe:      6.23e-01   -3.29e+00    6.36e-01    6.31e-01    6.55e-01
-Vbc:     -2.53e+00   -6.45e+00   -4.84e+00   -7.99e+00    3.94e-01
-Vce:      3.16e+00    3.16e+00    5.48e+00    8.62e+00    2.62e-01
-BetaDC:   2.94e+02   -6.64e-01    3.05e+02    3.19e+02    2.78e+02
-Gm:       2.19e-02    1.64e-67    3.68e-02    3.20e-02    6.85e-02
-Rpi:      1.34e+04    1.00e+12    8.25e+03    9.95e+03    4.03e+03
-Rx:       1.00e+00    1.00e+00    1.00e+00    1.00e+00    1.00e+00
-Ro:       1.12e+05    0.00e+00    6.88e+04    8.29e+04    3.01e+04
-Cbe:      4.81e-11    7.52e-12    6.05e-11    5.61e-11    8.31e-11
-Cbc:      1.28e-12    9.97e-13    1.08e-12    9.39e-13    7.16e-12
-Cjs:      0.00e+00    0.00e+00    0.00e+00    0.00e+00    0.00e+00
-BetaAC:   2.94e+02    1.64e-55    3.03e+02    3.18e+02    2.76e+02
-Cbx:      7.88e-13    6.13e-13    6.63e-13    5.77e-13    4.40e-12
-Ft:       6.95e+07    1.74e-02    9.40e+07    8.83e+07    1.15e+08
-
-Name:       q3          q4          q10         q11         q14
-Model:    bc557b      bc557b      bc557b      bc557b      bc557b
-Ib:       7.01e-12   -8.33e-13   -7.58e-06   -2.10e-05   -2.57e-06
-Ic:      -2.89e-11   -1.55e-11   -3.10e-03   -7.00e-03   -9.58e-04
-Vbe:     -1.57e-01   -1.57e-01   -6.52e-01   -6.81e-01   -6.22e-01
-Vbc:      7.55e+00    0.00e+00    5.74e+00    1.79e+00    3.14e+00
-Vce:     -7.71e+00   -1.57e-01   -6.39e+00   -2.48e+00   -3.76e+00
-BetaDC:  -4.13e+00    1.86e+01    4.09e+02    3.33e+02    3.73e+02
-Gm:       8.07e-10    5.92e-10    1.15e-01    2.49e-01    3.63e-02
-Rpi:      5.27e+10    5.27e+10    3.47e+03    1.25e+03    1.02e+04
-Rx:       1.00e+00    1.00e+00    1.00e+00    1.00e+00    1.00e+00
-Ro:       1.35e+12    4.54e+11    8.52e+03    3.21e+03    2.49e+04
-Cbe:      1.38e-11    1.38e-11    9.88e-11    1.78e-10    5.24e-11
-Cbc:      1.46e-12    6.79e-12    1.61e-12    2.40e-12    1.98e-12
-Cjs:      0.00e+00    0.00e+00    0.00e+00    0.00e+00    0.00e+00
-BetaAC:   4.25e+01    3.12e+01    3.99e+02    3.11e+02    3.72e+02
-Cbx:      8.61e-13    4.01e-12    9.48e-13    1.42e-12    1.17e-12
-Ft:       7.99e+00    3.84e+00    1.81e+08    2.18e+08    1.04e+08
-
-Name:       q15         q17
-Model:    bc557b        npn
-Ib:      -2.58e-06    9.23e-14
-Ic:      -8.35e-04    4.37e-22
-Vbe:     -6.22e-01    8.92e-02
-Vbc:      0.00e+00    3.02e-03
-Vce:     -6.22e-01    8.62e-02
-BetaDC:   3.24e+02    4.73e-09
-Gm:       3.16e-02    1.17e-13
-Rpi:      1.02e+04    9.99e+11
-Rx:       1.00e+00    0.00e+00
-Ro:       2.48e+04    2.30e+14
-Cbe:      4.98e-11    0.00e+00
-Cbc:      6.80e-12    0.00e+00
-Cjs:      0.00e+00    0.00e+00
-BetaAC:   3.23e+02    1.17e-01
-Cbx:      4.02e-12    0.00e+00
-Ft:       8.30e+07    0.00e+00
-
-                        --- MOSFET Transistors ---
-Name:        m:m1:1
-Model:        m1:mm
-Id:         -4.46e-01
-Vgs:        -3.73e+00
-Vds:        -9.18e+00
-Vbs:         0.00e+00
-Vth:        -3.54e+00
-Vdsat:      -1.91e-01
-Gm:          4.68e+00
-Gds:         2.33e-03
-Gmb:         0.00e+00
-Cbd:         0.00e+00
-Cbs:         0.00e+00
-Cgsov:       2.84e-09
-Cgdov:       1.00e-15
-Cgbov:       0.00e+00
-Cgs:         0.00e+00
-Cgd:         0.00e+00
-Cgb:         0.00e+00
-
-
-Total elapsed time: 4.023 seconds.
-
+Vo1_rl: V(Vo)=4.99266703924 at 10
+Vo2_rl: V(Vo)=5.00347026189 at 20
+RegLine: (Vo2_rl - Vo1_rl)/(Vin2_rl - Vin1_rl)=0.00108032226562
