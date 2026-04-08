@@ -133,17 +133,26 @@ En total, el dispositivo debe contar con las siguientes especificaciones:
 
 \section{Desarrollo}
 
-La construcción del dispositivo se divide en dos secciones: 
+La construcción del dispositivo se divide en dos secciones, las mismas se aprecian en el esquema general de la figura \ref{fig:esquemageneral}: 
+
 \begin{itemize}
-	\item \textbf{Fuente Switching}: Encargada de regular la tensión de forma eficiente desde la fuente de energía hacia el regulador lineal.
-	\item \textbf{Regulador Lineal}: Sacrifica eficiencia a cambio de precisión y control. Interactúa de forma directa con la carga.
+	\item \textbf{Fuente Conmutada (Fuente switching)}: Encargada de regular la tensión de forma eficiente desde la fuente de energía hacia el regulador lineal.
+	\item \textbf{Regulador Lineal (LDO)}: Sacrifica eficiencia a cambio de precisión y control. Interactúa de forma directa con la carga.
 \end{itemize}
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.85\linewidth]{img/esquema_general}
+	\caption{Esquema general del dispositivo.}
+	\label{fig:esquemageneral}
+\end{figure}
 
 \subsection{Fuente de alimentación conmutada}
 
 
 \subsection{Regulador de baja caída (LDO,Low Dropout Regulator)}
+
+Un Regulador de Baja Caída o LDO (Low Dropout Regulator) es un regulador lineal de tensión diseñado para mantener una tensión de salida constante incluso cuando la diferencia entre la tensión de entrada y la de salida es muy pequeña.
 
 \subsubsection{Especificaciones e implementación}
 
