@@ -681,12 +681,22 @@ Sin embargo estas dos implementaciones no podrían actuar en simultaneo, es por 
 	
 	\subsubsection{Simulaciones}
 	
+	
+	Para verificar el diseño se realizan simulación en el software LtSpice utilizando los modelos necesarios y las conexiones detalladas en el apéndice \ref{sec:apendice_simulaciónes} en la captura de la figura \ref{fig:ldoregulacionlinea}.
+
+	En particular, se evaluaron distintos aspectos fundamentales del desempeño del regulador LDO. En primer lugar, se analizó la estabilización de la tensión de salida frente a variaciones temporales de la tensión de entrada. Luego se estudió la regulación de línea, que caracteriza la capacidad del regulador para mantener constante la tensión de salida ante cambios en la tensión de entrada. Asimismo, se evaluó la regulación de carga, analizando la variación de la tensión de salida frente a cambios en la corriente demandada por la carga.
+	
+	Adicionalmente, se calculó la eficiencia del regulador, definida como la relación entre la potencia entregada a la carga y la potencia suministrada por la fuente de entrada. Este análisis permite estimar el rendimiento energético del circuito y las pérdidas asociadas al elemento de paso del regulador.
+	
+	Se presentan los resultados obtenidos para cada uno de estos casos.
+		
+		
 	\subsubsection{Estabilización de tensión }
 	
 		
 	\begin{figure}[h]
 		\centering
-		\includegraphics[width=1\linewidth]{"../../Simulación/Graficos en Python/LDO_Vcc_Vo"}
+		\includegraphics[width=0.85\linewidth]{"../../Simulación/LDO/Graficos en Python/Capturas/LDO_Vcc_Vo"}
 		\caption{}
 		\label{fig:ldovccvo}
 	\end{figure}
@@ -695,10 +705,10 @@ Sin embargo estas dos implementaciones no podrían actuar en simultaneo, es por 
 	
 		
 			
-		
+
 	\begin{figure}[H]
 		\centering
-		\includegraphics[width=1\linewidth]{"../../Simulación/Graficos en Python/LDO_regulacion_linea"}
+		\includegraphics[width=0.85\linewidth]{"../../Simulación/LDO/Graficos en Python/Capturas/LDO_regulacion_linea"}
 		\caption{}
 		\label{fig:ldoregulacionlinea}
 	\end{figure}
@@ -708,7 +718,7 @@ Sin embargo estas dos implementaciones no podrían actuar en simultaneo, es por 
 		
 	\begin{figure}[H]
 		\centering
-		\includegraphics[width=1\linewidth]{"../../Simulación/Graficos en Python/LDO_regulacion_carga"}
+		\includegraphics[width=0.85\linewidth]{"../../Simulación/LDO/Graficos en Python/Capturas/LDO_regulacion_carga"}
 		\caption{}
 		\label{fig:ldoregulacioncarga}
 	\end{figure}
@@ -730,8 +740,30 @@ Sin embargo estas dos implementaciones no podrían actuar en simultaneo, es por 
 	
 	
 	\appendix
-	\section{Apéndice}
-	\label{sec:apendice_a}
+	\section{Apéndice simulaciones}
+	\label{sec:apendice_simulaciónes}
+	
+	\subsection{LDO}
+	
+		
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=1\linewidth]{img/LDO/Esquematico_LDO_LTSPICE}
+		\caption{Captura de simulación en LtSpice.}
+		\label{fig:esquematicoldoltspice}
+	\end{figure}
+	
+	\section{Apéndice esquemáticos}
+	\label{sec:apendice_esquematicos}
+	
+	\subsection{LDO}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=1\linewidth]{img/LDO/esquematico_kicad_LDO}
+		\caption{Esquemático de la implementación del regulador lineal LDO.}
+		\label{fig:esquematicokicadldo}
+	\end{figure}
 	
 	
 \end{document}
