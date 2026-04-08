@@ -158,7 +158,7 @@ Un Regulador de Baja Caída o LDO (Low Dropout Regulator) es un regulador lineal
 
 El propósito de esta etapa es regular la tensión de salida de la fuente conmutada de forma precisa, sacrificando la eficiencia. Se espera de esta etapa las especificaciones de la tabla \ref{tabla:especificaciones_ldo}.
 
-\begin{table}[h]
+\begin{table}[H]
 	\centering
 	\renewcommand{\arraystretch}{1.5}
 	\begin{tabular}{|p{3cm}|l|p{5cm}|c|c|c|c|}
@@ -193,7 +193,7 @@ El propósito de esta etapa es regular la tensión de salida de la fuente conmut
 
 Para la implementación, se utilizará un transistor de paso, responsable de disipar la potencia de recorte, realimentado por tensión y corriente, de acuerdo a la figura \ref{fig:bloques_ldo}.
 
-\begin{figure}
+\begin{figure}[H]
 	\centering
 \begin{tikzpicture}[transform shape]
 	% Paths, nodes and wires:
@@ -297,9 +297,14 @@ $$V_{DSmax} = \si{32}{V} \qquad I_{DSmax} = \si{1.5}{A}.$$
 
 Además, debe operar dentro de la zona de operación segura SOA.
 
-Con estas cosas en mente, se escoge el modelo \textbf{4905}. Es un transistor que no sobredimensiona en gran medida la capacidad del regulador, normalmente pensado para switching pero aun así apto para la tarea.
+Considerando el contexto se escoge el modelo \textbf{4905}. Es un transistor que no sobredimensiona en gran medida la capacidad del regulador, normalmente pensado para switching pero aun así apto para la tarea.
 
 \subsubsection{Lazo de tensión}
+
+
+\subsubsection{Lazo de Corriente}
+
+\subsubsection{Limitación de corriente}
 
 \section{Conclusiones}
 

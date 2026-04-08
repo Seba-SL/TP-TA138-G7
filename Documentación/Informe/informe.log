@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2026.1.2)  7 APR 2026 21:17
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2026.1.2)  7 APR 2026 21:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1261,7 +1261,7 @@ LaTeX Font Warning: Command \small invalid in math mode on input line 208.
 
 [3]
 
-LaTeX Warning: Empty bibliography on input line 309.
+LaTeX Warning: Empty bibliography on input line 313.
 
 [4] (./informe.aux
 LaTeX Info: Redefining \sptext on input line 9.
@@ -1281,10 +1281,10 @@ Package logreq Info: Writing requests to 'informe.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 48631 strings out of 476091
- 1180435 string characters out of 5794082
+ 48632 strings out of 476091
+ 1180444 string characters out of 5794082
  2219560 words of memory out of 5000000
- 68510 multiletter control sequences out of 15000+600000
+ 68511 multiletter control sequences out of 15000+600000
  528930 words of font info for 67 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  83i,15n,89p,1196b,2811s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1302,7 +1302,7 @@ pfb></usr/share/texmf/fonts/type1/public/cm-super/sfcc1440.pfb></usr/share/texm
 f/fonts/type1/public/cm-super/sfcc2488.pfb></usr/share/texmf/fonts/type1/public
 /cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1000.p
 fb>
-Output written on informe.pdf (5 pages, 249313 bytes).
+Output written on informe.pdf (5 pages, 249429 bytes).
 PDF statistics:
  102 PDF objects out of 1000 (max. 8388607)
  62 compressed objects within 1 object stream

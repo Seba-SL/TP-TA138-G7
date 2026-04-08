@@ -6,5 +6,7 @@
 \contentsline {subsubsection}{\numberline {2.2.1}Especificaciones e implementación}{3}{}%
 \contentsline {subsubsection}{\numberline {2.2.2}El transistor de paso (Tipo MOS)}{3}{}%
 \contentsline {subsubsection}{\numberline {2.2.3}Lazo de tensión}{4}{}%
+\contentsline {subsubsection}{\numberline {2.2.4}Lazo de Corriente}{4}{}%
+\contentsline {subsubsection}{\numberline {2.2.5}Limitación de corriente}{4}{}%
 \contentsline {section}{\numberline {3}Conclusiones}{4}{}%
 \contentsline {section}{\numberline {A}Apéndice}{4}{}%
