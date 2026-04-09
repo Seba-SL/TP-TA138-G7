@@ -44,7 +44,7 @@ IL = data[:,0]
 Vo = data[:,1]
 
 plt.figure()
-plt.plot(IL, Vo, marker='o')
+plt.plot(IL, Vo, linewidth = 2)
 
 plt.xlabel("Corriente de carga $I_L$ (A)")
 plt.ylabel("Voltaje de salida $V_O$ (V)")
@@ -63,8 +63,8 @@ Vcc = data[:,1]
 Vo = data[:,2]
 
 plt.figure()
-plt.plot(Vcc, Vo, marker='o', color = "blue")
-plt.plot(Vcc, Vcc, marker='o', color = "red")
+plt.plot(Vcc, Vo, linewidth = 2, color = "blue")
+plt.plot(Vcc, Vcc, linewidth = 2, color = "red")
 
 
 plt.xlabel("Tensión de entrada $V_{cc}$ (V)")
