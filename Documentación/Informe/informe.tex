@@ -236,13 +236,13 @@ Para la implementación, se utilizará un transistor de paso, responsable de dis
 		\draw (5.75, 5.5) -- (5.75, 8);
 		\draw (5.75, 3.5) -| (5.75, 3);
 		\node[circ](N5) at (6.75, 4.5){} node[anchor=west] at (N5.text){$v_{reg}$};
-		\node[op amp, xscale=-0.8, yscale=0.8] at (7.433, 1.069){};
+		\node[op amp ,xscale=-0.8, yscale=-0.8] at (7.433, 1.069){};
 		\draw (10.09, 1.455) -| (8.385, 1.461);
 		\node[circ](N6) at (8.385, 0.677){} node[anchor=west] at (N6.text){$v_{reg}$};
 		\draw (6.481, 1.069) |- (9.25, 2.25) -- (9.25, 4.5) |- (9.065, 4.81);
 		\node[circ] at (5.75, 3){};
 		\node[circ] at (5.75, 8){};
-		\node[op amp, xscale=-0.8, yscale=0.8] at (6.25, -0.937){};
+		\node[op amp , xscale=-0.8, yscale=-0.8] at (6.25, -0.937){};
 		\draw (5.298, -0.937) |- (8.25, 2.75) -| (8.34, 4.5) |- (8.435, 4.81);
 		\node[circ](N7) at (7.202, -1.329){} node[anchor=west] at (N7.text){$\alpha v_{reg}+\beta v_o$};
 		\draw (10.09, -0.545) -| (7.202, -0.545);
@@ -297,6 +297,7 @@ Con estas cosas en mente, se escoge el modelo \textbf{IRF4905}. Es un transistor
 Una de las complicaciones de elegir este tipo de canal es que $\|V_{th}\|$ puede tomar valores de hasta $v_o + V_{DO}$ sin afectar en gran medida el diseño circuital, pero los valores comerciales rondan $V_{th} \approx \SI{4}{V}$. Esto puede perjudicar $V_{DO}$, pues $V_{th} \approx V_{reg}$, sin embargo, es un compromiso de diseño que debe hacerse, pues no hay modelos de fácil acceso con otro valor $V_{th}$.
 
 \subsubsection{Lazo de Tensión}
+\label{sec:lazo_tension}
 
 Cuando se tiene como objetivo estabilizar un valor de tensión es necesario utilizar un sistema con realimentación negativa, que muestree la señal de salida y ante cambios en la misma, se sume a la señal de control un incremento opuesto al cambio. Como primer aproximación tenemos el esquema de la figura \ref{fig:ldo_primera_aprox}, allí se observa que la señal de control viene dada por la salida de un operacional: $ \quad V_{ctrl} = a_{o} (V^+ - V^-) = a_{o}( VRef - V_F)\quad $ , dicha señal de controla un transistor de paso el cual brinda la corriente necesaria para obtener la tensión que se busca establecer, dicha tensión de salida $V_o$ se muestreara mediante un divisor resistivo formado de tal modo que idealmente $V_o\frac{R_1}{ R_1 + R_2 } = V_o \cdot f $.
 
@@ -307,7 +308,7 @@ Cuando se tiene como objetivo estabilizar un valor de tensión es necesario util
 		% Paths, nodes and wires:
 		\node[pigfete] at (-14.25, 9.77){};
 		\draw (-23.73, 10.04) to[american voltage source, l={$V_{Ref}$}] (-23.73, 8.039);
-		\node[op amp, yscale=-1] at (-18.79, 10.05){};
+		\node[op amp, yscale=1] at (-18.79, 10.05){};
 		\draw (-19.98, 10.539) -| (-23.73, 10.04);
 		\node[ground] at (-23.73, 8.039){};
 		\draw (-14.25, 9) to[generic, l={$Z_L$}] (-14.25, 6);
@@ -472,12 +473,12 @@ Finalmente, se diseña el amplificador diferencial. El diseño final puede verse
 
 Se espera un rango de modo común de 
 \begin{itemize}
-	\item $RRMC^+ = V_{cc} - vbe_{on} - vce_{on} + vbe_{on} \approx V_{cc} - \SI{0.3}{V}$
-	\item $RRMC^- = 0V + vce_{on} + vbe_{on} \approx \SI{1}{V}$.
+	\item $RTMC^+ = V_{cc} - vbe_{on} - vce_{on} + vbe_{on} \approx V_{cc} - \SI{0.3}{V}$
+	\item $RTMC^- = 0V + vce_{on} + vbe_{on} \approx \SI{1}{V}$.
 \end{itemize}
 Notar que esto limita el valor de $V_{DO} \ge \SI{0.3}{V}$.
 
-El amplificador diferencial cuenta con una fuente de corriente espejo como carga activa, y una fuente de corriente espejo simple que regula la alimentación general. La implementación de cargas activas es fundamental tanto para conservar un rango de rechazo de modo común aceptable como para mejorar enormemente la ganancia $a_o$.
+El amplificador diferencial cuenta con una fuente de corriente espejo como carga activa, y una fuente de corriente espejo simple que regula la alimentación general. La implementación de cargas activas es fundamental tanto para conservar un rango de rechazo de modo común aceptable como para mejorar enormemente la ganancia $a_o$ y el rechazo de modo común RRMC.
 
 La alimentación puede colocarse directamente sobre $v_{cc}$, pues las variaciones se ven reflejadas a la entrada como tension común.
 
@@ -541,7 +542,7 @@ De la hoja de datos, se obtiene la siguiente fórmula para esta topología:
 V_{ref-t} = \SI{2.5}{V} \cdot \left( 1 + \frac{R_1}{R_2}\right)
 \end{equation}
 
-Sin embargo, se puede asignar $(R_1 = 0 , R_2 = 0)$ para obtener la tensión de referencia deseada de \SI{2.5}{V}.
+Se busca la menor tensión de referencia posible, entonces se puede asignar $R_1 = 0$ para obtener una tensión de \SI{2.5}{V}.
 
 La resistencia $R_s$ cumple la función de limitador de corriente, pues 
 
@@ -560,36 +561,75 @@ Ya conociendo una regulación básica de tensión, la regulación de corriente r
 
 \begin{figure}[H]
 	\centering
+%	\begin{tikzpicture}[transform shape]
+%		 Paths, nodes and wires:
+%		\node[pigfete] at (-14.25, 9.77){};
+%		\draw (-23.73, 10.04) to[american voltage source, l={$V_{Ref}$}] (-23.73, 8.039);
+%		\node[op amp, yscale=-1] at (-18.79, 10.05){};
+%		\draw (-19.98, 10.539) -| (-23.73, 10.04);
+%		\node[ground] at (-23.73, 8.039){};
+%		\draw (-14.25, 7) to[generic, l={$Z_L$}] (-14.25, 4);
+%		\node[ground] at (-14.25, 4){};
+%		\draw (-17.6, 10.05) -| (-15.23, 10.04);
+%		\node[shape=rectangle, minimum width=1.235cm, minimum height=0.964cm] at (-14.115, 10.789){} node[anchor=north west, align=left, text width=0.847cm, inner sep=6pt] at (-14.75, 11.289){Vcc};
+%		\node[shape=rectangle, minimum width=1.235cm, minimum height=0.964cm] at (-13.75, 6.5){} node[anchor=north west, align=left, text width=0.847cm, inner sep=6pt] at (-14.385, 7){Vo};
+%		\node[shape=rectangle, minimum width=1.27cm, minimum height=1cm] at (-20.115, 9.539){} node[anchor=north west, align=left, text width=0.917cm, inner sep=5pt] at (-20.75, 10.039){$V_F$};
+%		\node[shape=rectangle, minimum width=1.27cm, minimum height=1cm] at (-20.23, 10.539){} node[anchor=north west, align=left, text width=0.917cm, inner sep=5pt] at (-20.865, 11.039){$V_{Ref}$};
+%		\node[shape=rectangle, minimum width=1.235cm, minimum height=0.964cm] at (-16.615, 10.29){} node[anchor=north west, align=left, text width=0.847cm, inner sep=6pt] at (-17.25, 10.789){$V_{ctrl}$};
+%		\draw (-14.25, 9) to[american resistor, l={$R_s$}] (-14.25, 7);
+%		\node[op amp, xscale=-0.85, yscale=-0.85] at (-19.821, 5.708){};
+%		\draw (-18.809, 5.292) to[american resistor, /tikz/circuitikz/bipoles/length=1.19cm, l={$R_1$}] (-16.809, 5.292);
+%		\draw (-18.809, 6.125) to[american resistor, /tikz/circuitikz/bipoles/length=1.19cm, l={$R_1'$}] (-16.809, 6.125);
+%		\draw (-20.809, 7.625) to[american resistor, /tikz/circuitikz/bipoles/length=1.19cm, l={$R_2'$}] (-18.809, 7.625);
+%		\draw (-18.809, 7.625) -- (-18.809, 6.125);
+%		\draw (-20.809, 4.042) to[american resistor, /tikz/circuitikz/bipoles/length=1.19cm, l={$R_2$}] (-18.809, 4.042);
+%		\draw (-18.809, 4.042) -| (-18.809, 5.292);
+%		\node[ground] at (-20.809, 4.042){};
+%		\node[ground] at (-20.809, 7.625){};
+%		\draw (-14.25, 9) -- (-16.75, 9) |- (-16.809, 6.125);
+%		\draw (-16.809, 5.292) -| (-15.25, 7) -| (-14.385, 7) -| (-14.25, 7);
+%		\draw (-19.98, 9.56) -| (-22, 9.5) |- (-20.832, 5.708);
+%	\end{tikzpicture}
 	\begin{tikzpicture}[transform shape]
 		% Paths, nodes and wires:
-		\node[pigfete] at (-14.25, 9.77){};
-		\draw (-23.73, 10.04) to[american voltage source, l={$V_{Ref}$}] (-23.73, 8.039);
-		\node[op amp, yscale=-1] at (-18.79, 10.05){};
-		\draw (-19.98, 10.539) -| (-23.73, 10.04);
-		\node[ground] at (-23.73, 8.039){};
-		\draw (-14.25, 7) to[generic, l={$Z_L$}] (-14.25, 4);
-		\node[ground] at (-14.25, 4){};
-		\draw (-17.6, 10.05) -| (-15.23, 10.04);
-		\node[shape=rectangle, minimum width=1.235cm, minimum height=0.964cm] at (-14.115, 10.789){} node[anchor=north west, align=left, text width=0.847cm, inner sep=6pt] at (-14.75, 11.289){Vcc};
-		\node[shape=rectangle, minimum width=1.235cm, minimum height=0.964cm] at (-13.75, 6.5){} node[anchor=north west, align=left, text width=0.847cm, inner sep=6pt] at (-14.385, 7){Vo};
-		\node[shape=rectangle, minimum width=1.27cm, minimum height=1cm] at (-20.115, 9.539){} node[anchor=north west, align=left, text width=0.917cm, inner sep=5pt] at (-20.75, 10.039){$V_F$};
-		\node[shape=rectangle, minimum width=1.27cm, minimum height=1cm] at (-20.23, 10.539){} node[anchor=north west, align=left, text width=0.917cm, inner sep=5pt] at (-20.865, 11.039){$V_{Ref}$};
-		\node[shape=rectangle, minimum width=1.235cm, minimum height=0.964cm] at (-16.615, 10.29){} node[anchor=north west, align=left, text width=0.847cm, inner sep=6pt] at (-17.25, 10.789){$V_{ctrl}$};
-		\draw (-14.25, 9) to[american resistor, l={$R_s$}] (-14.25, 7);
-		\node[op amp, xscale=-0.85, yscale=-0.85] at (-19.821, 5.708){};
-		\draw (-18.809, 5.292) to[american resistor, /tikz/circuitikz/bipoles/length=1.19cm, l={$R_1$}] (-16.809, 5.292);
-		\draw (-18.809, 6.125) to[american resistor, /tikz/circuitikz/bipoles/length=1.19cm, l={$R_1'$}] (-16.809, 6.125);
-		\draw (-20.809, 7.625) to[american resistor, /tikz/circuitikz/bipoles/length=1.19cm, l={$R_2'$}] (-18.809, 7.625);
-		\draw (-18.809, 7.625) -- (-18.809, 6.125);
-		\draw (-20.809, 4.042) to[american resistor, /tikz/circuitikz/bipoles/length=1.19cm, l={$R_2$}] (-18.809, 4.042);
-		\draw (-18.809, 4.042) -| (-18.809, 5.292);
-		\node[ground] at (-20.809, 4.042){};
-		\node[ground] at (-20.809, 7.625){};
-		\draw (-14.25, 9) -- (-16.75, 9) |- (-16.809, 6.125);
-		\draw (-16.809, 5.292) -| (-15.25, 7) -| (-14.385, 7) -| (-14.25, 7);
-		\draw (-19.98, 9.56) -| (-22, 9.5) |- (-20.832, 5.708);
+		\node[pigfete] at (10, 11.23){};
+		\draw (10, 10.46) to[american resistor, /tikz/circuitikz/bipoles/length=1.12cm, l={$R_s$}] (10, 8);
+		\draw (10, 8) to[generic, l={$Z_L$}] (10, 4.5);
+		\node[op amp, xscale=-0.7, yscale=-0.7] at (3.627, 7.343){};
+		\draw (4.96, 6) to[american resistor, /tikz/circuitikz/bipoles/length=1.12cm, l={$R_2$}] (2.5, 6);
+		\draw (5.71, 7) to[american resistor, /tikz/circuitikz/bipoles/length=1.12cm, l={$R_3$}] (5.71, 4.54);
+		\draw (8.17, 7) to[american resistor, /tikz/circuitikz/bipoles/length=1.12cm, l={$R_1$}] (5.71, 7);
+		\draw (4.96, 9) to[american resistor, /tikz/circuitikz/bipoles/length=1.12cm, l={$R_2'$}] (2.5, 9);
+		\draw (4.92, 10) to[american resistor, /tikz/circuitikz/bipoles/length=1.12cm, l={$R_3'$}] (2.5, 10);
+		\draw (8.21, 9) to[american resistor, /tikz/circuitikz/bipoles/length=1.12cm, l={$R_1'$}] (5.75, 9);
+		\node[op amp, xscale=0.7, yscale=0.7] at (4.167, 11.5){};
+		\draw (0.5, 11) to[american voltage source, l_={$V_{ref-c}$}] (0.5, 9);
+		\node[tlground] at (0.5, 9){};
+		\node[tlground] at (10, 4.5){};
+		\node[tlground] at (5.71, 4.54){};
+		\node[tlground] at (2.5, 8.5){};
+		\draw (2.5, 10) -| (2.5, 8.5);
+		\draw (4.92, 10) -| (5.25, 10) -| (5.25, 9) -- (5.75, 9);
+		\draw (5, 9) -- (5.25, 9);
+		\draw (5.25, 9) -| (5.25, 7.75) |- (4.46, 7.686);
+		\draw (5.71, 7) |- (4.46, 7);
+		\draw (4.96, 6) -| (5, 7);
+		\draw (2.5, 6) |- (2.794, 7.343);
+		\draw (2.5, 7.343) -| (1.75, 11) |- (3.334, 11.157);
+		\draw (0.5, 11) |- (3.334, 11.843);
+		\draw (5, 11.5) -| (9.02, 11.5);
+		\draw (8.21, 9) -| (8.5, 10.25) |- (10, 10.46);
+		\draw (8.17, 7) |- (8.5, 7) |- (10, 8);
+		\node[circ] at (5.71, 7){};
+		\node[circ] at (5, 7){};
+		\node[circ] at (2.5, 7.343){};
+		\node[circ] at (2.5, 9){};
+		\node[circ] at (5.25, 9){};
+		\node[circ] at (10, 10.46){};
+		\node[circ] at (10, 8){};
+		\node[shape=rectangle, minimum width=0.965cm, minimum height=0.465cm] at (3.334, 11.407){} node[anchor=north west, align=left, text width=0.577cm, inner sep=6pt] at (2.834, 11.657){$v_f$};
+		\node[rground, xscale=-1, yscale=-1](N1) at (10, 12){} node[anchor=south] at ([yshift=0.32cm]N1.text){$V_{cc}$};
 	\end{tikzpicture}
-	
 	\caption{Diagrama simplificado del circuito regulador de corriente.}
 	\label{fig:regulador_corriente_basico}
 \end{figure}
@@ -597,68 +637,154 @@ Ya conociendo una regulación básica de tensión, la regulación de corriente r
 
 A su vez, se puede lograr limitar la corriente estableciendo un máximo de corriente con el objetivo de proteger la carga de sobre corrientes. Esto se puede establecer dentro de la misma regulación de corriente estableciendo una tensión de referencia que contenga información de la corriente máxima. De allí denotamos $V_{Ref-c}$ la tensión de referencia que establece la corriente máxima y $V_{Ref-t}$ la tensión de referencia que establece la tensión de salida objetivo.
 
+El objetivo de este circuito es aplicar una protección tipo foldback. Esto quiere decir que una vez se alcanza la máxima corriente otorgable por la fuente, $I_{max} \SI{1.5}{A}$, si se sigue reduciendo la carga, entonces la corriente otorgada seguirá disminuyendo. Esto proteje tanto al regulador como a la carga.
+
+Para la implementación de este tipo de fuente, sin embargo, hace falta algo más que una simple referencia, pues la corriente objetivo varía con la salida de tensión, creando una relación I-V lineal.
+
+La elección de resistores se hace en función al compromiso $V_{DO}$-Efectividad del lazo. En este caso, se asigna $R_{s} = \SI{0.2}{\ohm}$. Para una corriente máxima, generará una caída de tensión de $V_{Rs} = \SI{0.3}{V}$, que mantiene el margen visto en la sección \ref{sec:lazo_tension} de $V_{DO} = \SI{0.8}{V}$.
+
+Antes de continuar, es importante observar que, si bien el diferencial de tensión generado por $R_s$ es muy pequeño, ambos terminales se encuentran muy cercados a $V=V_{reg}$. Al alimentar al amplificador, se estará muy cerca de exceder el rango de tensión de modo común RTMC.
+
+Para solucionar este problema, se agrega un nuevo divisor resistivo a la entrada del amplificador. Como se quiere tener control sobre el valor final de $V_{Rs}$, se realimenta para obtener 
+
+\begin{equation}
+	v_f = (I_o \cdot R_s) \cdot \frac{R_2}{R_1}
+\end{equation}
+
+Se busca una tensión $v_f$ para corriente máxima $v_{fmax} < V_{reg}$. A tal efecto se asignan $(R_2 = \SI{10}{k\ohm},R_1 = \SI{1}{k\ohm}) \rightarrow v_{fmax} = \SI{3}{V}$.
+
+Finalmente, el amplificador de control se encargará de asegurar $a_o\cdot f \gg 1$. Notar que, si $I_o ^\uparrow \rightarrow v_{f} ^\uparrow \rightarrow v_g ^\uparrow \rightarrow I_o ^\downarrow$, cerrando el lazo de realimentación negativa. El valor de $I_o$ se estabilizará cuando $V_{ref-c} = v_f$.
+
+Adicionalmente, se debe elegir el modelo de amplificador a utilizar. En este caso se emplea el \textbf{LM358} (o \textbf{LM348}) por su alimentación simple y operación con bajas tensiones de alimentación.
+
+Para el diseño amplificador final, se utiliza la misma topología del lazo de corriente, de la figura \ref{fig:lazo_tension2}.
+
 \subsubsection{Tensión de referencia $V_{Ref-c}$}
 
 Este circuito genera una referencia modificada que se usa para implementar limitación de corriente tipo foldback. La idea es que el límite de corriente dependa de la tensión de salida $V_o$
 
-Cuando la salida cae (por ejemplo en un cortocircuito), el circuito reduce aún más la corriente permitida, protegiendo al transistor de paso.
+Cuando la salida cae (por ejemplo en un cortocircuito), el circuito reduce aún más la corriente permitida, protegiendo al transistor de paso y la carga.
+
+Para conseguir este tipo de comportamiento, es necesaria una referencia variable, de la siguiente forma:
+
+\begin{equation}
+	v_{ref-c} = \alpha v_{ref-t} + \beta v_o.
+\end{equation}
+Comportamiento que puede obtenerse fácilmente con un circuito amplificador sumador, como el de la figura \ref{fig:vref_c}.
+
+Esto dota al lazo de una parte fija, que determina la corriente mínima absoluta, y una parte variable, que determinará cómo excursiona la referencia a partir de este punto.
+
+En nuestro caso, se esperará una corriente mínima $I_{FBCK} = \SI{400}{mA}$ y una máxima de $I_{max} = \SI{1.5}{A}$.
+
+Para la corriente mínima, se espera una salida de tensión nula,
+$$v_{ref-c} = \alpha v_{ref-t} = v_{fmin} = I_{FBCK} \cdot R_s \cdot \frac{R2}{R1} \rightarrow \SI{0.8}{V},$$
+entonces, 
+
+\begin{equation}
+\alpha = 0.32 = \frac{R_{\alpha2}}{R_{\alpha1} + R_{\alpha2}}.
+\end{equation}
+
+Del mismo modo, para la corriente máxima, se esperará que $v_o = V_{reg}$. Como tal
+
+$$v_{ref-c} = \alpha v_{ref-t} + \beta v_o = v_{fmax} = I_{max} \cdot R_s \cdot \frac{R2}{R1} \rightarrow \SI{3}{V},$$
+que define
+\begin{equation}
+\beta = 0.44 = \frac{R_{\beta2}}{R_{\beta1} + R_{\beta2}}.
+\end{equation}
 
 
 \begin{figure}[H]
 	\centering
 	\resizebox{\textwidth}{!}{
-		\begin{tikzpicture}[transform shape]
-			% Paths, nodes and wires:
-			\node[op amp, yscale=-1] at (12.69, 15.47){};
-			\draw (11.5, 14.98) -| (10.857, 14.931) -| (10.857, 13.931) -| (14.357, 15.431) |- (13.88, 15.47);
-			\node[op amp, yscale=-1] at (12.44, 8.74){};
-			\draw (11.25, 8.25) -| (10.607, 8.201) -| (10.607, 7.201) -| (14.107, 8.701) |- (13.63, 8.74);
-			\draw (14.357, 15.47) to[american resistor] (17.75, 15.48);
-			\draw (14.107, 8.74) to[american resistor] (17.5, 8.75);
-			\draw (17.5, 8.75) -| (17.75, 15.48);
-			\node[op amp, yscale=-1] at (22.19, 14.99){};
-			\draw (21, 15.48) |- (17.75, 15.48);
-			\draw (20.357, 12.97) to[american resistor] (23.75, 12.98);
-			\draw (20.367, 9.577) to[american resistor] (20.357, 12.97);
-			\draw (20.357, 12.97) |- (21, 14.5);
-			\draw (23.38, 14.99) -| (23.75, 12.98);
-			\node[ground] at (20.367, 9.577){};
-			\draw (4.607, 9.22) to[american resistor] (8, 9.23);
-			\draw (4.607, 15.95) to[american resistor] (8, 15.96);
-			\draw (8.143, 6.49) to[american resistor] (8.143, 9.24);
-			\draw (8, 13.21) to[american resistor] (8, 15.96);
-			\draw (11.5, 15.94) |- (8, 15.96);
-			\draw (11.25, 9.23) |- (8, 9.23);
-			\node[ground] at (8, 13.21){};
-			\node[ground] at (8.143, 6.49){};
-			\node[shape=rectangle, minimum width=-0.035cm, minimum height=-0.035cm] at (16.75, 18.75){};
-			\node[shape=rectangle, minimum width=1.715cm, minimum height=1.215cm] at (4.125, 15.73){} node[anchor=north west, align=left, text width=1.327cm, inner sep=6pt] at (3.25, 16.355){$V_{Ref-t}$};
-			\node[shape=rectangle, minimum width=1.715cm, minimum height=1.215cm] at (4.75, 9.125){} node[anchor=north west, align=left, text width=1.327cm, inner sep=6pt] at (3.875, 9.75){$V_{o}$};
-			\node[shape=rectangle, minimum width=1.715cm, minimum height=1.215cm] at (25.25, 15){} node[anchor=north west, align=left, text width=1.327cm, inner sep=6pt] at (24.375, 15.625){$V_{Ref-c}$};
-			\draw (23.75, 15) -- (24.5, 15);
-			\node[circ] at (24.5, 15){};
-		\end{tikzpicture}
+%		\begin{tikzpicture}[transform shape]
+%			% Paths, nodes and wires:
+%			\node[op amp, yscale=-1] at (12.69, 15.47){};
+%			\draw (11.5, 14.98) -| (10.857, 14.931) -| (10.857, 13.931) -| (14.357, 15.431) |- (13.88, 15.47);
+%			\node[op amp, yscale=-1] at (12.44, 8.74){};
+%			\draw (11.25, 8.25) -| (10.607, 8.201) -| (10.607, 7.201) -| (14.107, 8.701) |- (13.63, 8.74);
+%			\draw (14.357, 15.47) to[american resistor] (17.75, 15.48);
+%			\draw (14.107, 8.74) to[american resistor] (17.5, 8.75);
+%			\draw (17.5, 8.75) -| (17.75, 15.48);
+%			\node[op amp, yscale=-1] at (22.19, 14.99){};
+%			\draw (21, 15.48) |- (17.75, 15.48);
+%			\draw (20.357, 12.97) to[american resistor] (23.75, 12.98);
+%			\draw (20.367, 9.577) to[american resistor] (20.357, 12.97);
+%			\draw (20.357, 12.97) |- (21, 14.5);
+%			\draw (23.38, 14.99) -| (23.75, 12.98);
+%			\node[ground] at (20.367, 9.577){};
+%			\draw (4.607, 9.22) to[american resistor] (8, 9.23);
+%			\draw (4.607, 15.95) to[american resistor] (8, 15.96);
+%			\draw (8.143, 6.49) to[american resistor] (8.143, 9.24);
+%			\draw (8, 13.21) to[american resistor] (8, 15.96);
+%			\draw (11.5, 15.94) |- (8, 15.96);
+%			\draw (11.25, 9.23) |- (8, 9.23);
+%			\node[ground] at (8, 13.21){};
+%			\node[ground] at (8.143, 6.49){};
+%			\node[shape=rectangle, minimum width=-0.035cm, minimum height=-0.035cm] at (16.75, 18.75){};
+%			\node[shape=rectangle, minimum width=1.715cm, minimum height=1.215cm] at (4.125, 15.73){} node[anchor=north west, align=left, text width=1.327cm, inner sep=6pt] at (3.25, 16.355){$V_{Ref-t}$};
+%			\node[shape=rectangle, minimum width=1.715cm, minimum height=1.215cm] at (4.75, 9.125){} node[anchor=north west, align=left, text width=1.327cm, inner sep=6pt] at (3.875, 9.75){$V_{o}$};
+%			\node[shape=rectangle, minimum width=1.715cm, minimum height=1.215cm] at (25.25, 15){} node[anchor=north west, align=left, text width=1.327cm, inner sep=6pt] at (24.375, 15.625){$V_{Ref-c}$};
+%			\draw (23.75, 15) -- (24.5, 15);
+%			\node[circ] at (24.5, 15){};
+%		\end{tikzpicture}
+\begin{tikzpicture}[transform shape]
+	% Paths, nodes and wires:
+	\node[op amp] at (11.19, 12.51){};
+	\node[op amp] at (11.19, 8.49){};
+	\node[op amp, yscale=-1] at (18.19, 9.51){};
+	\draw (16.25, 7.5) to[american resistor, l={$R$}] (20.25, 7.5);
+	\draw (15, 12.5) to[american resistor, l={$R$}] (12.38, 12.51);
+	\draw (15, 8.5) to[american resistor, l={$R$}] (12.38, 8.49);
+	\draw (17, 10) -- (15, 10) -- (15, 12.5);
+	\draw (15, 8.5) -| (15, 10);
+	\draw (12.38, 8.49) |- (9.5, 10) -- (9.5, 9) |- (10, 8.98);
+	\draw (10, 13) -- (9.5, 13) -| (9.5, 14) -| (12.38, 12.51);
+	\draw (16.25, 7.5) to[american resistor, l={$R$}] (16.25, 5);
+	\draw (17, 9.02) -| (16.25, 7.5);
+	\node[tlground] at (16.25, 5){};
+	\draw (20.25, 7.5) |- (19.38, 9.51);
+	\draw (20.25, 9.51) -| (21, 9.5);
+	\draw (8, 8) to[american resistor, l={$R_{\beta1}$}] (5.38, 7.99);
+	\draw (8, 5) to[american resistor, l={$R_{\beta2}$}] (8, 8);
+	\draw (8, 12.02) to[american resistor, l={$R_{\alpha1}$}] (5.38, 12.01);
+	\draw (8, 9.02) to[american resistor, l={$R_{\alpha2}$}] (8, 12.02);
+	\node[tlground] at (8, 5){};
+	\node[tlground] at (8, 9.02){};
+	\draw (8, 8) -- (10, 8);
+	\node[circ](N1) at (5.38, 12.01){} node[anchor=east] at (N1.text){$v_{ref-t}$};
+	\node[circ](N2) at (5.38, 7.99){} node[anchor=east] at (N2.text){$v_{o}$};
+	\node[circ] at (8, 8){};
+	\node[circ] at (8, 12.02){};
+	\node[circ] at (15, 10){};
+	\node[circ](N3) at (21, 9.5){} node[anchor=west] at (N3.text){$v_{ref-c}$};
+	\node[circ] at (20.25, 9.5){};
+	\node[circ] at (16.25, 7.5){};
+	\node[circ] at (12.38, 12.51){};
+	\node[circ] at (12.38, 8.49){};
+	\draw (8, 12.02) -- (10, 12.02);
+\end{tikzpicture}
 	}
 	\caption{Diagrama simplificado del circuito de tensión de referencia para regular corriente.}
 	\label{fig:vref_c}
 \end{figure}
 
+
 	
-	\subsubsection{Llave electrónica}
+\subsubsection{Llave electrónica}
 	
-Sin embargo estas dos implementaciones no podrían actuar en simultaneo, es por eso que se debe implementar un conmutador que establezca el accionamiento de uno de los reguladores según las condiciones lo requieran. Esta idea se presenta de forma simplificada en el diagrama \ref{fig:reg_t_reg_c_conmutador}. 
+Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por eso que se debe implementar un conmutador que establezca el accionamiento de uno de los reguladores según las condiciones lo requieran. Esta idea se presenta de forma simplificada en el diagrama \ref{fig:reg_t_reg_c_conmutador}.
 
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[transform shape]
 		% Paths, nodes and wires:
 		\node[pigfete, rotate=90](N1) at (-12.02, 12.25){} node[anchor=south] at (N1.text){$T_{Paso}$};
-		\node[op amp, yscale=-1](N2) at (-18.79, 10.05){} node[anchor=center] at (N2.text){$a_t$};
+		\node[op amp, yscale=1](N2) at (-18.79, 10.05){} node[anchor=center] at (N2.text){$a_t$};
 		\draw (-7.5, 11.75) to[generic, l={$Z_L$}] (-7.5, 8.75);
 		\node[ground] at (-7.5, 8.75){};
 		\node[shape=rectangle, minimum width=1.235cm, minimum height=0.964cm] at (-14.365, 12.25){} node[anchor=north west, align=left, text width=0.847cm, inner sep=6pt] at (-15, 12.75){Vcc};
-		\node[shape=rectangle, minimum width=1.27cm, minimum height=1cm] at (-20.5, 10.5){} node[anchor=north west, align=left, text width=0.917cm, inner sep=5pt] at (-21.135, 11){$V_{Ref-t}$};
-		\node[op amp, yscale=-1](N3) at (-18.81, 7.24){} node[anchor=center] at (N3.text){$a_c$};
+		\node[shape=rectangle, minimum width=1.27cm, minimum height=1cm] at (-20.5, 10.5){} node[anchor= south west, align=left, text width=0.917cm, inner sep=5pt] at (-21.135, 11){$V_{ref-t}$};
+		\node[op amp, yscale=1](N3) at (-18.81, 7.24){} node[anchor=center] at (N3.text){$a_c$};
 		\node[spdt, xscale=-1, yscale=-1] at (-15.595, 8.75){};
 		\draw (-16.19, 9.065) |- (-17.6, 10.05);
 		\draw (-16.19, 8.435) |- (-17.62, 7.24);
@@ -667,7 +793,7 @@ Sin embargo estas dos implementaciones no podrían actuar en simultaneo, es por 
 		\node[shape=rectangle, draw, line width=1pt, minimum width=1.715cm, minimum height=1.465cm](N5) at (-19.125, 2.25){} node[anchor=center] at (N5.text){$f_V$};
 		\draw (-18.25, 4.75) -| (-11.25, 12.25);
 		\draw (-7.5, 11.75) |- (-9.75, 12.25) |- (-18.25, 4);
-		\node[shape=rectangle, minimum width=1.27cm, minimum height=1cm] at (-20.385, 7.75){} node[anchor=north west, align=left, text width=0.917cm, inner sep=5pt] at (-21.02, 8.25){$V_{Ref-c}$};
+		\node[shape=rectangle, minimum width=1.27cm, minimum height=1cm] at (-20.385, 7.75){} node[anchor= south west, align=left, text width=0.917cm, inner sep=5pt] at (-21.02, 8.25){$V_{ref-c}$};
 		\draw (-19.98, 9.56) -| (-23.25, 9.5) |- (-20, 2.5);
 		\draw (-20, 6.75) -- (-21.25, 6.75);
 		\draw (-21.25, 6.75) |- (-20, 4.75);
@@ -688,7 +814,13 @@ Sin embargo estas dos implementaciones no podrían actuar en simultaneo, es por 
 	\label{fig:reg_t_reg_c_conmutador}
 \end{figure}
 	
-	\begin{figure}
+	Deben combinarse ambas señales de control, pero solo la más dominante, es decir, la que más limite al transistor de paso, será la que controle.
+	
+	En este caso, ya que el transistor P-MOS reduce su corriente al aumentar $v_g$, se esperará que el lazo dominante sea aquél con mayor tensión a la salida.
+	
+	Una forma de obtener este resultado es utilizando el circuito de la figura \ref{fig:llave}.
+	
+	\begin{figure}[H]
 		\centering
 		\begin{tikzpicture}[transform shape]
 			% Paths, nodes and wires:
@@ -732,9 +864,10 @@ Sin embargo estas dos implementaciones no podrían actuar en simultaneo, es por 
 		\label{fig:llave}
 	\end{figure}
 	
+	
+	
 	\subsubsection{Limitador de corriente shunt}
-	
-	
+	\subsubsection{Problemas y mejoras posibles}
 	
 	
 	\subsubsection{Simulaciones}
