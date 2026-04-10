@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.4.8)  9 APR 2026 01:17
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.4.8)  10 APR 2026 11:52
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1023,12 +1023,8 @@ Package biblatex Info: Automatic encoding selection.
 \openout4 = `informe.bcf'.
 
 Package biblatex Info: Trying to load bibliographic data...
-
-
-Package biblatex Warning: File 'informe.bbl' is wrong format version - expected 3.3.
-
 Package biblatex Info: ... file 'informe.bbl' found.
-(informe.bbl)
+ (informe.bbl)
 Package biblatex Info: Reference section=0 on input line 45.
 Package biblatex Info: Reference segment=0 on input line 45.
 <img/Caratula.jpg, id=4, 868.24374pt x 188.705pt>
@@ -1060,8 +1056,8 @@ File: img/esquema_general.png Graphic file (type png)
 Package pdftex.def Info: img/esquema_general.png  used on input line 144.
 (pdftex.def)             Requested size: 435.3303pt x 134.11786pt.
 
-Underfull \hbox (badness 4429) in paragraph at lines 170--170
-[]|$[][] \OML/cmm/m/it/10 < I[] < \OT1/cmr/m/n/10 1 5\OML/cmm/m/it/10 A$ 
+Underfull \hbox (badness 3354) in paragraph at lines 170--170
+[]|$\OT1/cmr/m/n/10 100 [] \OML/cmm/m/it/10 < I[] < \OT1/cmr/m/n/10 1[]5 A$ 
  []
 
 
@@ -1072,57 +1068,57 @@ Underfull \hbox (badness 1430) in paragraph at lines 179--179
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[2 <./img/esquema_general.png>] [3] [4]
-Overfull \hbox (4.05109pt too wide) in paragraph at lines 408--408
+[2 <./img/esquema_general.png>]
+
+LaTeX Font Warning: Command \small invalid in math mode on input line 206.
+
+[3] [4] [5]
+
+LaTeX Warning: Reference `' on page 6 undefined on input line 537.
+
+[6] [7]
+Overfull \hbox (1.91925pt too wide) in paragraph at lines 786--786
 [][]$\OML/cmm/m/it/10 V[]$  
  []
 
 
-Overfull \hbox (4.60399pt too wide) in paragraph at lines 418--418
+Overfull \hbox (2.47215pt too wide) in paragraph at lines 796--796
 [][]$\OML/cmm/m/it/10 V[]$  
  []
 
-[5]
-
-LaTeX Font Warning: Command \small invalid in math mode on input line 454.
-
-[6] [7] [8]
-<../../Simulación/LDO/Graficos en Python/Capturas/LDO_Vcc_Vo.png, id=55, 462.528pt x 346.896pt>
+[8] [9]
+<../../Simulación/LDO/Graficos en Python/Capturas/LDO_Vcc_Vo.png, id=60, 462.528pt x 346.896pt>
 File: ../../Simulación/LDO/Graficos en Python/Capturas/LDO_Vcc_Vo.png Graphic file (type png)
 <use ../../Simulación/LDO/Graficos en Python/Capturas/LDO_Vcc_Vo.png>
-Package pdftex.def Info: ../../Simulación/LDO/Graficos en Python/Capturas/LDO_Vcc_Vo.png  used on input line 699.
+Package pdftex.def Info: ../../Simulación/LDO/Graficos en Python/Capturas/LDO_Vcc_Vo.png  used on input line 891.
 (pdftex.def)             Requested size: 435.3303pt x 326.51631pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<../../Simulación/LDO/Graficos en Python/Capturas/LDO_regulacion_linea.png, id=56, 462.528pt x 346.896pt>
+ [10 <../../Simulación/LDO/Graficos en Python/Capturas/LDO_Vcc_Vo.png>]
+<../../Simulación/LDO/Graficos en Python/Capturas/LDO_regulacion_linea.png, id=65, 987.2082pt x 466.1415pt>
 File: ../../Simulación/LDO/Graficos en Python/Capturas/LDO_regulacion_linea.png Graphic file (type png)
 <use ../../Simulación/LDO/Graficos en Python/Capturas/LDO_regulacion_linea.png>
-Package pdftex.def Info: ../../Simulación/LDO/Graficos en Python/Capturas/LDO_regulacion_linea.png  used on input line 711.
-(pdftex.def)             Requested size: 435.3303pt x 326.51631pt.
-[9] [10 <../../Simulación/LDO/Graficos en Python/Capturas/LDO_Vcc_Vo.png> <../../Simulación/LDO/Graficos en Python/Capturas/LDO_regulacion_linea.png>]
-<../../Simulación/LDO/Graficos en Python/Capturas/LDO_regulacion_carga.png, id=65, 462.528pt x 346.896pt>
+Package pdftex.def Info: ../../Simulación/LDO/Graficos en Python/Capturas/LDO_regulacion_linea.png  used on input line 926.
+(pdftex.def)             Requested size: 435.3303pt x 205.5581pt.
+<../../Simulación/LDO/Graficos en Python/Capturas/LDO_regulacion_carga.png, id=66, 462.528pt x 346.896pt>
 File: ../../Simulación/LDO/Graficos en Python/Capturas/LDO_regulacion_carga.png Graphic file (type png)
 <use ../../Simulación/LDO/Graficos en Python/Capturas/LDO_regulacion_carga.png>
-Package pdftex.def Info: ../../Simulación/LDO/Graficos en Python/Capturas/LDO_regulacion_carga.png  used on input line 721.
+Package pdftex.def Info: ../../Simulación/LDO/Graficos en Python/Capturas/LDO_regulacion_carga.png  used on input line 954.
 (pdftex.def)             Requested size: 435.3303pt x 326.51631pt.
- (conclusiones.tex)
+ [11 <../../Simulación/LDO/Graficos en Python/Capturas/LDO_regulacion_linea.png>] (conclusiones.tex)
 
-LaTeX Warning: Empty bibliography on input line 737.
+LaTeX Warning: Empty bibliography on input line 972.
 
-<img/LDO/Esquematico_LDO_LTSPICE.png, id=66, 940.51375pt x 598.235pt>
+<img/LDO/Esquematico_LDO_LTSPICE.png, id=72, 940.51375pt x 598.235pt>
 File: img/LDO/Esquematico_LDO_LTSPICE.png Graphic file (type png)
 <use img/LDO/Esquematico_LDO_LTSPICE.png>
-Package pdftex.def Info: img/LDO/Esquematico_LDO_LTSPICE.png  used on input line 750.
+Package pdftex.def Info: img/LDO/Esquematico_LDO_LTSPICE.png  used on input line 985.
 (pdftex.def)             Requested size: 512.14963pt x 325.76233pt.
-[11 <../../Simulación/LDO/Graficos en Python/Capturas/LDO_regulacion_carga.png>]
-<img/LDO/esquematico_kicad_LDO.png, id=71, 2640.11343pt x 1866.975pt>
+[12 <../../Simulación/LDO/Graficos en Python/Capturas/LDO_regulacion_carga.png>]
+<img/LDO/esquematico_kicad_LDO.png, id=78, 2640.11343pt x 1866.975pt>
 File: img/LDO/esquematico_kicad_LDO.png Graphic file (type png)
 <use img/LDO/esquematico_kicad_LDO.png>
-Package pdftex.def Info: img/LDO/esquematico_kicad_LDO.png  used on input line 762.
+Package pdftex.def Info: img/LDO/esquematico_kicad_LDO.png  used on input line 997.
 (pdftex.def)             Requested size: 512.14963pt x 362.16423pt.
- [12 <./img/LDO/Esquematico_LDO_LTSPICE.png>] [13 <./img/LDO/esquematico_kicad_LDO.png (PNG copy)>] (c:\Users\Flores\Desktop\facu\ce2\TP-TA138-G7\Documentación\Informe\build\informe.aux
+ [13 <./img/LDO/Esquematico_LDO_LTSPICE.png>] [14 <./img/LDO/esquematico_kicad_LDO.png (PNG copy)>] (c:\Users\Flores\Desktop\facu\ce2\TP-TA138-G7\Documentación\Informe\build\informe.aux
 LaTeX Info: Redefining \sptext on input line 9.
 LaTeX Info: Redefining \. on input line 9.
 LaTeX Info: Redefining \% on input line 9.
@@ -1131,22 +1127,26 @@ LaTeX Info: Redefining \% on input line 9.
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
+
+
+LaTeX Warning: There were undefined references.
+
 Package logreq Info: Writing requests to 'informe.run.xml'.
 \openout1 = `informe.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 53264 strings out of 467867
- 1327636 string characters out of 5417851
- 2449879 words of memory out of 5000000
- 81638 multiletter control sequences out of 15000+600000
+ 53348 strings out of 467867
+ 1330466 string characters out of 5417851
+ 2441884 words of memory out of 5000000
+ 81722 multiletter control sequences out of 15000+600000
  644364 words of font info for 75 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  98i,15n,118p,1264b,2813s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\Flores\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1000.pk> <C:\Users\Flores\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk> <C:\Users\Flores\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\Flores\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\Flores\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\Flores\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\Flores\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc2488.pk> <C:\Users\Flores\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc1440.pk> <C:\Users\Flores\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1728.pk><C:/Users/Flores/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbsy10.pfb><C:/Users/Flores/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Flores/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Flores/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/Flores/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Flores/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/Flores/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Flores/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Flores/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on c:\Users\Flores\Desktop\facu\ce2\TP-TA138-G7\Documentación\Informe\build\informe.pdf (14 pages, 1064805 bytes).
+ <C:\Users\Flores\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0700.pk> <C:\Users\Flores\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1000.pk> <C:\Users\Flores\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk> <C:\Users\Flores\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\Flores\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\Flores\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\Flores\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\Flores\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc2488.pk> <C:\Users\Flores\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc1440.pk> <C:\Users\Flores\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1728.pk><C:/Users/Flores/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbsy10.pfb><C:/Users/Flores/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Flores/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Flores/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Flores/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/Flores/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/Flores/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Flores/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/Flores/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Flores/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Flores/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
+Output written on c:\Users\Flores\Desktop\facu\ce2\TP-TA138-G7\Documentación\Informe\build\informe.pdf (15 pages, 1099256 bytes).
 PDF statistics:
- 422 PDF objects out of 1000 (max. 8388607)
+ 445 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  48 words of extra memory for PDF output out of 10000 (max. 10000000)
 

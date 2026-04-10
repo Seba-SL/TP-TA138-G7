@@ -4,20 +4,23 @@
 \contentsline {subsection}{\numberline {2.1}Fuente de alimentación conmutada}{2}{}%
 \contentsline {subsection}{\numberline {2.2}Regulador de baja caída (LDO,Low Dropout Regulator)}{2}{}%
 \contentsline {subsubsection}{\numberline {2.2.1}Especificaciones e implementación}{2}{}%
-\contentsline {subsubsection}{\numberline {2.2.2}Tensión de referencia $V_{Ref-t}$}{4}{}%
-\contentsline {subsubsection}{\numberline {2.2.3}Tensión de referencia $V_{Ref-c}$}{5}{}%
-\contentsline {subsubsection}{\numberline {2.2.4}El transistor de paso (Tipo MOS)}{7}{}%
-\contentsline {subsubsection}{\numberline {2.2.5}Lazo de tensión}{7}{}%
-\contentsline {subsubsection}{\numberline {2.2.6}Tensión de referencia}{9}{}%
-\contentsline {subsubsection}{\numberline {2.2.7}Lazo de Corriente}{9}{}%
-\contentsline {subsubsection}{\numberline {2.2.8}Limitador de corriente shunt}{9}{}%
-\contentsline {subsubsection}{\numberline {2.2.9}Simulaciones}{9}{}%
-\contentsline {subsubsection}{\numberline {2.2.10}Estabilización de tensión }{10}{}%
-\contentsline {subsubsection}{\numberline {2.2.11}Regulación de Linea}{10}{}%
-\contentsline {subsubsection}{\numberline {2.2.12}Regulación de carga}{11}{}%
-\contentsline {subsubsection}{\numberline {2.2.13}Eficiencia}{11}{}%
-\contentsline {section}{\numberline {3}Conclusiones}{11}{}%
-\contentsline {section}{\numberline {A}Apéndice simulaciones}{12}{}%
-\contentsline {subsection}{\numberline {A.1}LDO}{12}{}%
-\contentsline {section}{\numberline {B}Apéndice esquemáticos}{13}{}%
-\contentsline {subsection}{\numberline {B.1}LDO}{13}{}%
+\contentsline {subsubsection}{\numberline {2.2.2}El transistor de paso (Tipo MOS)}{3}{}%
+\contentsline {subsubsection}{\numberline {2.2.3}Lazo de Tensión}{4}{}%
+\contentsline {subsubsection}{\numberline {2.2.4}Tensión de referencia $V_{Ref-t}$}{6}{}%
+\contentsline {subsubsection}{\numberline {2.2.5}Lazo de Corriente}{7}{}%
+\contentsline {subsubsection}{\numberline {2.2.6}Tensión de referencia $V_{Ref-c}$}{8}{}%
+\contentsline {subsubsection}{\numberline {2.2.7}Llave electrónica}{9}{}%
+\contentsline {subsubsection}{\numberline {2.2.8}Limitador de corriente shunt}{10}{}%
+\contentsline {subsubsection}{\numberline {2.2.9}Problemas y mejoras posibles}{10}{}%
+\contentsline {subsubsection}{\numberline {2.2.10}Simulaciones}{10}{}%
+\contentsline {paragraph}{Estabilización de tensión }{10}{}%
+\contentsline {paragraph}{Regulación de Linea}{10}{}%
+\contentsline {paragraph}{Regulación de carga}{11}{}%
+\contentsline {paragraph}{$V_o$ en función de $I_L$}{12}{}%
+\contentsline {paragraph}{Eficiencia}{12}{}%
+\contentsline {subsubsection}{\numberline {2.2.11}Especificaciones obtenidas por simulación}{12}{}%
+\contentsline {section}{\numberline {3}Conclusiones}{12}{}%
+\contentsline {section}{\numberline {A}Apéndice simulaciones}{13}{}%
+\contentsline {subsection}{\numberline {A.1}LDO}{13}{}%
+\contentsline {section}{\numberline {B}Apéndice esquemáticos}{14}{}%
+\contentsline {subsection}{\numberline {B.1}LDO}{14}{}%
