@@ -874,7 +874,7 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 	La polarización de este circuito es sencilla. Se espera a la entrada una tensión nominal de $V_{cc} = \SI{9.5}{V}$, por ende 
 	
 	\begin{equation}
-		I{c1/4} \approx \frac{V_{cc}-vbe_{on}}{R_1},
+		I{c1/4} \approx \frac{V_{cc}-vbe_{on}}{R_{1/3}},
 	\end{equation}
 	
 	y para valores de lazo de control esperables de $\sim \SI{5}{V}$, se puede obtener una corriente de polarización 
@@ -883,15 +883,11 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 	I_{c1/4} \approx \SI{1}{mA} \rightarrow R_{1/3} = \SI{10}{k\ohm}.
 	\end{equation}
 	
-	Lo mismo ocurre para los resistores $R_{2/4}$, pero en este caso se busca una corriente de $\sim \SI{2}{mA}$. Nuevamente, para valores de control $v_{control} \approx \SI{5}{V}$, se obtiene 
+	Para los resistores $R_{2/4}$, se buscará polarizar fuertemente el transistor que conduce, para ello, se busca una corriente alta $I_{R4}$. Nuevamente, para valores de control $v_{control} \approx \SI{5}{V}$, se obtiene 
 	\begin{equation}
-	I_{R4} \approx \SI{2}{mA} \rightarrow R_4 = \SI{2.2}{k\ohm}
+	I_{R4} \approx \SI{2}{mA} \rightarrow R_4 = \SI{10}{k\ohm},
 	\end{equation}
-	y
-	\begin{equation}
-	I_{R2} \approx \SI{2}{mA} = \frac{V_{cc} - (\SI{5}{V} + vbe_{on})}{R_2} \rightarrow R_2 = \SI{2.2}{k\ohm}
-	\end{equation}
-
+	pero la caída sobre $R_2$ no debe ser tan alta, para admitir mayor excursión de $V_{cc}$, por ello se elije un resistor más chico $R_2 = \SI{1}{\kilo\ohm}$.
 
 	\subsubsection{Simulaciones - Modo estático}
 	
