@@ -10,17 +10,16 @@
 \contentsline {subsubsection}{\numberline {2.2.5}Lazo de Corriente}{7}{}%
 \contentsline {subsubsection}{\numberline {2.2.6}Tensión de referencia $V_{Ref-c}$}{8}{}%
 \contentsline {subsubsection}{\numberline {2.2.7}Llave electrónica}{9}{}%
-\contentsline {subsubsection}{\numberline {2.2.8}Limitador de corriente shunt}{10}{}%
-\contentsline {subsubsection}{\numberline {2.2.9}Problemas y mejoras posibles}{10}{}%
-\contentsline {subsubsection}{\numberline {2.2.10}Simulaciones}{10}{}%
-\contentsline {paragraph}{Estabilización de tensión }{10}{}%
-\contentsline {paragraph}{Regulación de Linea}{10}{}%
-\contentsline {paragraph}{Regulación de carga}{11}{}%
-\contentsline {paragraph}{$V_o$ en función de $I_L$}{12}{}%
-\contentsline {paragraph}{Eficiencia}{12}{}%
-\contentsline {subsubsection}{\numberline {2.2.11}Especificaciones obtenidas por simulación}{12}{}%
-\contentsline {section}{\numberline {3}Conclusiones}{12}{}%
-\contentsline {section}{\numberline {A}Apéndice simulaciones}{13}{}%
-\contentsline {subsection}{\numberline {A.1}LDO}{13}{}%
-\contentsline {section}{\numberline {B}Apéndice esquemáticos}{14}{}%
-\contentsline {subsection}{\numberline {B.1}LDO}{14}{}%
+\contentsline {subsubsection}{\numberline {2.2.8}Simulaciones - Modo estático}{10}{}%
+\contentsline {paragraph}{Estabilización de tensión: }{10}{}%
+\contentsline {paragraph}{Regulación de Linea:}{11}{}%
+\contentsline {paragraph}{Regulación de carga:}{12}{}%
+\contentsline {paragraph}{$V_o$ en función de $I_L$:}{13}{}%
+\contentsline {paragraph}{Eficiencia:}{13}{}%
+\contentsline {subsubsection}{\numberline {2.2.9}Mejoras:}{14}{}%
+\contentsline {section}{\numberline {3}Conclusiones}{15}{}%
+\contentsline {subsection}{\numberline {3.1}Regulador Lineal LDO}{15}{}%
+\contentsline {section}{\numberline {A}Apéndice I: Simulaciones}{16}{}%
+\contentsline {subsection}{\numberline {A.1}LDO}{16}{}%
+\contentsline {section}{\numberline {B}Apéndice II: Esquemáticos}{17}{}%
+\contentsline {subsection}{\numberline {B.1}LDO}{17}{}%

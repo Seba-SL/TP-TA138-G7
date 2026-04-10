@@ -97,3 +97,25 @@ plt.legend(fontsize=12)
 
 plt.savefig(os.path.join(capturas_dir, "LDO_regulacion_linea.png"), dpi=300)
 plt.show()
+
+# ---------- 4 Eficiencia ----------
+
+archivo = os.path.join(datos_dir, "eficiencia.txt")
+data = np.loadtxt(archivo, skiprows=1)
+
+V = data[:,0]
+ef = data[:,1]
+
+plt.figure()
+plt.plot(V, ef, linewidth=2, color='red')
+plt.xlim(0, 24)
+plt.ylim(0, 70)
+
+plt.xlabel("Tensión de entrada $V_{cc}$ [V]")
+plt.ylabel("Eficiencia [%]")
+plt.title("Eficiencia del LDO")
+plt.grid(True)
+
+plt.savefig(os.path.join(capturas_dir, "LDO_eficiencia.png"), dpi=300)
+plt.show()
+
