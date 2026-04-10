@@ -77,16 +77,23 @@ data = np.loadtxt(archivo, skiprows=1)
 Vcc = data[:,1]
 Vo = data[:,2]
 
-plt.figure()
-plt.plot(Vcc, Vo, linewidth = 2, color = "blue")
-plt.plot(Vcc, Vcc, linewidth = 2, color = "red")
+v_reg = 6.0
 
+plt.figure()
+plt.plot(Vcc, Vo, linewidth=3, label="Vo")
+plt.plot(Vcc, Vcc, linewidth=3, label="Vcc")
+
+plt.axvline(x=v_reg, linestyle='--', linewidth=2, label=f"Inicio regulación ≈ {v_reg} V")
 
 plt.xlabel("Tensión de entrada $V_{cc}$ (V)")
 plt.ylabel("Tensión de salida $V_O$ (V)")
 plt.title("Regulación de línea del LDO")
+
+ 
+#plt.yticks(np.arange(0, 10, 0.2))  
+
 plt.grid(True)
+plt.legend(fontsize=12)
 
 plt.savefig(os.path.join(capturas_dir, "LDO_regulacion_linea.png"), dpi=300)
-
 plt.show()
