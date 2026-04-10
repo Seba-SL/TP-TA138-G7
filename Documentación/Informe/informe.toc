@@ -14,12 +14,13 @@
 \contentsline {subsubsection}{\numberline {2.2.9}Problemas y mejoras posibles}{10}{}%
 \contentsline {subsubsection}{\numberline {2.2.10}Simulaciones}{10}{}%
 \contentsline {paragraph}{Estabilización de tensión }{10}{}%
-\contentsline {paragraph}{Regulación de Linea}{11}{}%
+\contentsline {paragraph}{Regulación de Linea}{10}{}%
 \contentsline {paragraph}{Regulación de carga}{11}{}%
+\contentsline {paragraph}{$V_o$ en función de $I_L$}{12}{}%
 \contentsline {paragraph}{Eficiencia}{12}{}%
 \contentsline {subsubsection}{\numberline {2.2.11}Especificaciones obtenidas por simulación}{12}{}%
 \contentsline {section}{\numberline {3}Conclusiones}{12}{}%
-\contentsline {section}{\numberline {A}Apéndice simulaciones}{12}{}%
-\contentsline {subsection}{\numberline {A.1}LDO}{12}{}%
-\contentsline {section}{\numberline {B}Apéndice esquemáticos}{13}{}%
-\contentsline {subsection}{\numberline {B.1}LDO}{13}{}%
+\contentsline {section}{\numberline {A}Apéndice simulaciones}{13}{}%
+\contentsline {subsection}{\numberline {A.1}LDO}{13}{}%
+\contentsline {section}{\numberline {B}Apéndice esquemáticos}{14}{}%
+\contentsline {subsection}{\numberline {B.1}LDO}{14}{}%

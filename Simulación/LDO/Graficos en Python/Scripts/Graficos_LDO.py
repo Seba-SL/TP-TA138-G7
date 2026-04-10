@@ -22,15 +22,30 @@ t = data[:,0]
 vcc = data[:,1]
 vo = data[:,2]
 
+vcc_mean = np.mean(vcc)
+vo_mean = np.mean(vo)
+
+vcc_ac = vcc - np.mean(vcc)
+vo_ac  = vo  - np.mean(vo)
+
 plt.figure()
-plt.plot(t*1e6, vcc, label="Vcc")
-plt.plot(t*1e6, vo, label="Vo")
+plt.plot(t*1e6, vcc_ac, label="Vcc (AC)", linewidth = 3)
+plt.plot(t*1e6, vo_ac, label="Vo (AC)", linewidth = 3)
 
 plt.xlabel("Tiempo (µs)")
-plt.ylabel("Tensión (V)")
-plt.title("Respuesta temporal del LDO")
+plt.ylabel("Variación de tensión (V)")
+plt.title("Ripple en Vcc y Vo (componentes AC)")
 plt.grid(True)
-plt.legend()
+plt.legend(fontsize=12)
+
+
+# Texto en el gráfico
+texto = f"Vcc medio = {vcc_mean:.3f} V\nVo medio = {vo_mean:.3f} V"
+plt.text(0.4, 0.95, texto,
+         transform=plt.gca().transAxes,
+         fontsize=12,
+         verticalalignment='top',
+         bbox=dict(boxstyle="round", facecolor="white", alpha=0.8))
 
 plt.savefig(os.path.join(capturas_dir, "LDO_Vcc_Vo.png"), dpi=300)
 

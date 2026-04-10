@@ -884,28 +884,70 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 		
 	\paragraph{Estabilización de tensión }
 	
+	En la simulación temporal se verifica la estabilización de tensión con respecto a la $Vcc$ prevista, logrando así constatar como se reduce el riple. Se simula tomando un valor de carga dentro del rango de regulación y se toman los valores de tensión en función del tiempo, para el análisis se comparan las componentes alternas de cada señal eliminando el valor medio de ambas, tal como se obvserva en el gráfico de la figura \ref{fig:ldovccvo}.
 		
-	\begin{figure}[h]
+	\begin{figure}[H]
 		\centering
 		\includegraphics[width=0.85\linewidth]{"../../Simulación/LDO/Graficos en Python/Capturas/LDO_Vcc_Vo"}
-		\caption{}
+		\caption{Gráfico de la simulación temporal.}
 		\label{fig:ldovccvo}
 	\end{figure}
 			
 	\paragraph{Regulación de Linea}
 	
+	
+	La regulación de línea describe la capacidad del regulador para mantener constante la tensión de salida frente a variaciones en la tensión de entrada \(V_{CC}\).
+	
+	Para caracterizar este comportamiento, se realiza un barrido de la tensión de entrada y se gráfica la tensión de salida \(V_O\) en función de \(V_{CC}\).
+	
+	\begin{itemize}
+		\item \textbf{Zona de regulación:}  
+		Para valores suficientemente altos de \(V_{CC}\), el regulador opera en condiciones normales y la tensión de salida permanece aproximadamente constante e igual al valor nominal. En esta región, el lazo de realimentación compensa las variaciones de entrada.
 		
+		\item \textbf{Zona de dropout:}  
+		A medida que \(V_{CC}\) disminuye, se alcanza un punto en el cual el regulador no puede mantener la tensión de salida constante. Esto ocurre cuando el transistor de paso entra en saturación (o pierde margen de control), y la salida comienza a seguir a la entrada.
+		
+		\item \textbf{Transición:}  
+		El punto de transición entre ambas regiones indica el inicio de la condición de dropout.
+	\end{itemize}
+	
+		A partir de esta curva, es posible estimar la tensión de dropout como la diferencia entre la tensión de entrada y la tensión de salida en el punto donde el regulador deja de mantener la regulación:
+		
+		\[
+		V_{dropout} = V_{{CC}_{min}} - V_O
+		\]
+		
+		En consecuencia, la curva de regulación de línea no sólo permite evaluar la estabilidad de la salida frente a perturbaciones en la entrada, sino también identificar el margen mínimo de operación del regulador.
+			
 			
 
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=0.85\linewidth]{"../../Simulación/LDO/Graficos en Python/Capturas/LDO_regulacion_linea"}
-		\caption{}
+		\caption{Gráfico de los datos de simulación de linea,}
 		\label{fig:ldoregulacionlinea}
 	\end{figure}
 			
+			
+			
 	\paragraph{Regulación de carga}
 
+	La regulación de carga puede analizarse evaluando la variación de la tensión de salida \(V_O\) frente a cambios en la resistencia de carga \(R_L\).
+	
+	Para ello, se realiza un barrido del valor de \(R_L\) y se observa la respuesta del regulador.
+	
+	\begin{itemize}
+		\item \textbf{Altos valores de \(R_L\):}  
+		Corresponden a condiciones de baja corriente de carga. En esta región, el regulador mantiene la tensión de salida cercana a su valor nominal.
+		
+		\item \textbf{Disminución de \(R_L\):}  
+		A medida que la resistencia de carga disminuye, la corriente demandada aumenta. Idealmente, el regulador debería mantener \(V_O\) constante.
+		
+		\item \textbf{Comportamiento real:}  
+		En la práctica, se observa una leve caída de la tensión de salida debido a la resistencia de salida finita del regulador y a las limitaciones del transistor de paso.
+	\end{itemize}
+	
+	Este análisis permite evaluar la capacidad del regulador para sostener la tensión de salida frente a variaciones en la carga, aunque resulta menos directo que el análisis en función de la corriente.
 		
 	\begin{figure}[H]
 		\centering
@@ -914,6 +956,8 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 		\label{fig:ldoregulacioncarga}
 	\end{figure}
 	
+	
+	\paragraph{$V_o$ en función de $I_L$}
 
 	\paragraph{Eficiencia}
 	
