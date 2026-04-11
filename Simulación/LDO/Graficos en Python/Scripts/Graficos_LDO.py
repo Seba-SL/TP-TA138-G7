@@ -25,29 +25,54 @@ vo = data[:,2]
 vcc_mean = np.mean(vcc)
 vo_mean = np.mean(vo)
 
-vcc_ac = vcc - np.mean(vcc)
-vo_ac  = vo  - np.mean(vo)
+vcc_ac = vcc - vcc_mean
+vo_ac  = vo  - vo_mean
 
 plt.figure()
-plt.plot(t*1e6, vcc_ac, label="Vcc (AC)", linewidth = 3)
-plt.plot(t*1e6, vo_ac, label="Vo (AC)", linewidth = 3)
+plt.xlim(1000, 1030)
+plt.ylim(-0.3, 0.3)
+
+# Defino estilos explícitos
+color_vcc = "tab:blue"
+color_vo  = "tab:orange"
+
+line_vcc, = plt.plot(t*1e6, vcc_ac, label="Vcc (AC)",linewidth=3, linestyle="--", color=color_vcc)
+
+line_vo,  = plt.plot(t*1e6, vo_ac, label="Vo (AC)",linewidth=3, linestyle="-", color=color_vo)
 
 plt.xlabel("Tiempo (µs)")
 plt.ylabel("Variación de tensión (V)")
-plt.title("Ripple en Vcc y Vo (componentes AC)")
+plt.title("Ripple en Vcc y Vo (componentes AC) ")
 plt.grid(True)
 plt.legend(fontsize=12)
 
+# Posición base
+x0, y0 = 0.2, 0.95
 
-# Texto en el gráfico
-texto = f"Vcc medio = {vcc_mean:.3f} V\nVo medio = {vo_mean:.3f} V"
-plt.text(0.4, 0.95, texto,
+# Línea Vcc
+plt.text(x0, y0,
+         f"■ Vcc medio = {vcc_mean:.3f} V  (punteada)",
          transform=plt.gca().transAxes,
          fontsize=12,
          verticalalignment='top',
+         color=color_vcc,
          bbox=dict(boxstyle="round", facecolor="white", alpha=0.8))
 
+# Línea Vo (un poco más abajo)
+plt.text(x0+0.2, y0-0.85,
+         f"■ Vo medio = {vo_mean:.3f} V  (continua)",
+         transform=plt.gca().transAxes,
+         fontsize=12,
+         verticalalignment='top',
+         color=color_vo, 
+         bbox=dict(boxstyle="round", facecolor="white", alpha=0.8))
+
+
 plt.savefig(os.path.join(capturas_dir, "LDO_Vcc_Vo.png"), dpi=300)
+
+
+
+
 
 
 # ---------- 2 Regulación de carga ----------
@@ -59,12 +84,17 @@ IL = data[:,0]
 Vo = data[:,1]
 
 plt.figure()
-plt.plot(IL, Vo, linewidth = 2)
+plt.plot(IL, Vo, linewidth = 3)
+
+plt.ylim(0, 6)
+plt.xlim(0, 1.8)
 
 plt.xlabel("Corriente de carga $I_L$ (A)")
 plt.ylabel("Voltaje de salida $V_O$ (V)")
 plt.title("Regulación de carga del LDO")
 plt.grid(True)
+
+
 
 plt.savefig(os.path.join(capturas_dir, "LDO_regulacion_carga.png"), dpi=300)
 
@@ -107,7 +137,7 @@ V = data[:,0]
 ef = data[:,1]
 
 plt.figure()
-plt.plot(V, ef, linewidth=2, color='red')
+plt.plot(V, ef, linewidth=3, alpha = 0.85, color='red')
 plt.xlim(0, 24)
 plt.ylim(0, 70)
 
