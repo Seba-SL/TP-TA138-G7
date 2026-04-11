@@ -107,7 +107,7 @@ data = np.loadtxt(archivo, skiprows=1)
 Vcc = data[:,1]
 Vo = data[:,2]
 
-v_reg = 6.0
+v_reg = 5.0
 
 plt.figure()
 plt.plot(Vcc, Vo, linewidth=3, label="Vo")
