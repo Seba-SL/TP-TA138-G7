@@ -6,20 +6,22 @@
 \contentsline {subsubsection}{\numberline {2.2.1}Especificaciones e implementación}{2}{}%
 \contentsline {subsubsection}{\numberline {2.2.2}El transistor de paso (Tipo MOS)}{3}{}%
 \contentsline {subsubsection}{\numberline {2.2.3}Lazo de Tensión}{4}{}%
-\contentsline {subsubsection}{\numberline {2.2.4}Tensión de referencia $V_{Ref-t}$}{6}{}%
+\contentsline {subsubsection}{\numberline {2.2.4}Tensión de referencia $V_{Ref}$}{6}{}%
 \contentsline {subsubsection}{\numberline {2.2.5}Lazo de Corriente}{7}{}%
 \contentsline {subsubsection}{\numberline {2.2.6}Tensión de referencia $V_{Ref-c}$}{8}{}%
 \contentsline {subsubsection}{\numberline {2.2.7}Llave electrónica}{9}{}%
-\contentsline {subsubsection}{\numberline {2.2.8}Simulaciones - Modo estático}{10}{}%
-\contentsline {paragraph}{Estabilización de tensión: }{10}{}%
-\contentsline {paragraph}{Regulación de Linea:}{11}{}%
-\contentsline {paragraph}{Regulación de carga:}{12}{}%
-\contentsline {paragraph}{$V_o$ en función de $I_L$:}{13}{}%
-\contentsline {paragraph}{Eficiencia:}{13}{}%
-\contentsline {subsubsection}{\numberline {2.2.9}Mejoras:}{14}{}%
+\contentsline {subsection}{\numberline {2.3}Limitador de corriente shunt}{10}{}%
+\contentsline {subsubsection}{\numberline {2.3.1}Simulaciones - Modo estático}{11}{}%
+\contentsline {paragraph}{Ganancias de lazo: }{11}{}%
+\contentsline {paragraph}{Estabilización de tensión: }{11}{}%
+\contentsline {paragraph}{Regulación de Linea:}{12}{}%
+\contentsline {paragraph}{Regulación de carga:}{13}{}%
+\contentsline {paragraph}{$V_o$ en función de $I_L$:}{14}{}%
+\contentsline {paragraph}{Eficiencia:}{14}{}%
+\contentsline {subsubsection}{\numberline {2.3.2}Mejoras:}{15}{}%
 \contentsline {section}{\numberline {3}Conclusiones}{15}{}%
 \contentsline {subsection}{\numberline {3.1}Regulador Lineal LDO}{15}{}%
-\contentsline {section}{\numberline {A}Apéndice I: Simulaciones}{16}{}%
-\contentsline {subsection}{\numberline {A.1}LDO}{16}{}%
-\contentsline {section}{\numberline {B}Apéndice II: Esquemáticos}{17}{}%
-\contentsline {subsection}{\numberline {B.1}LDO}{17}{}%
+\contentsline {section}{\numberline {A}Apéndice I: Simulaciones}{17}{}%
+\contentsline {subsection}{\numberline {A.1}LDO}{17}{}%
+\contentsline {section}{\numberline {B}Apéndice II: Esquemáticos}{18}{}%
+\contentsline {subsection}{\numberline {B.1}LDO}{18}{}%
