@@ -6,14 +6,14 @@
 El regulador lineal diseñado cumple con las especificaciones de la tabla \ref{tabla:especificaciones_ldo}, sin embargo, no es ideal:
 
 \begin{itemize}
-	\item El rechazo de ripple de la fuente de alimentación no es bueno, y ronda valores de $1/2$.
+	\item El rechazo de ripple de la fuente de alimentación no es bueno, y prácticamente permite el paso de toda la oscilación de entrada. Este punto debe ser analizado con mayor detalle al realizar la compensación del circuito.
 	\item El lazo de corriente es lento, ya que cuenta con muchas etapas.
 \end{itemize}
 
 Asimismo, cuenta con algunas virtudes:
 \begin{itemize}
 	\item La regulación de línea es excelente, así como la regulación de carga.
-	\item La eficiencia es muy buena para tratarse de un regulador lineal.
+	\item La eficiencia es muy buena para tratarse de un regulador lineal, sobre todo para resistencias de carga bajas.
 	\item El valor de $V_{DO}$ es muy bueno.
 \end{itemize}
 

@@ -23,6 +23,7 @@
 \usepackage{siunitx}
 \usepackage{circuitikz}
 \usepackage{pdflscape}
+\usepackage{subcaption}
 
 \addto\captionsspanish{
 	\renewcommand{\tablename}{Tabla}
@@ -677,14 +678,15 @@ Para la implementación de este tipo de fuente, sin embargo, hace falta algo má
 La elección de resistores se hace en función al compromiso $V_{DO}$-Efectividad del lazo. En este caso, se asigna $R_{s} = \SI{0.2}{\ohm}$. Para una corriente máxima, generará una caída de tensión de $V_{Rs} = \SI{0.3}{V}$, es decir, $V_{DOmax}=\SI{0.3}{V}$.
 
 Antes de continuar, es importante observar que, si bien el diferencial de tensión generado por $R_s$ es muy pequeño, ambos terminales se encuentran muy cercados a $V=V_{reg}$. Al alimentar al amplificador, se estará muy cerca de exceder el rango de tensión de modo común RTMC.
+Para solucionar este problema, se agrega un nuevo divisor resistivo a la entrada del amplificador. 
 
-Para solucionar este problema, se agrega un nuevo divisor resistivo a la entrada del amplificador. Como se quiere tener control sobre el valor final de $V_{Rs}$, se realimenta para obtener 
+Como se quiere tener control sobre el valor final de $V_{Rs}$, se realimenta para obtener 
 
 \begin{equation}
 	v_f = (I_o \cdot R_s) \cdot \frac{R_2}{R_1}
 \end{equation}
 
-Se busca una tensión $v_f$ para corriente máxima $v_{fmax} < V_{reg}$. A tal efecto se asignan $(R_2 = \SI{10}{k\ohm},R_1 = \SI{1}{k\ohm}) \rightarrow v_{fmax} = \SI{3}{V}$.
+Se busca una tensión $v_f$ para corriente máxima $v_{fmax} < V_{reg}$. A tal efecto se asignan $(R_2 = \SI{6.8}{k\ohm},R_1 = \SI{1}{k\ohm}) \rightarrow v_{fmax} = \SI{2.04}{V}$. Es importante que este valor sea bajo para que el par diferencial no sature en tensiones de alimentación $V_{cc} \approx \SI{5}{V}$, del mismo modo que se hace con $v_{ref-t}$.
 
 Finalmente, el amplificador de control se encargará de asegurar $a_o\cdot f \gg 1$. Notar que, si $I_o ^\uparrow \rightarrow v_{f} ^\uparrow \rightarrow v_g ^\uparrow \rightarrow I_o ^\downarrow$, cerrando el lazo de realimentación negativa. El valor de $I_o$ se estabilizará cuando $V_{ref-c} = v_f$.
 
@@ -710,23 +712,20 @@ Esto dota al lazo de una parte fija, que determina la corriente mínima absoluta
 En nuestro caso, se esperará una corriente mínima $I_{FBCK} = \SI{400}{mA}$ y una máxima de $I_{max} = \SI{1.5}{A}$.
 
 Para la corriente mínima, se espera una salida de tensión nula,
-$$v_{ref-c} = \alpha v_{ref} = v_{fmin} = I_{FBCK} \cdot R_s \cdot \frac{R2}{R1} \rightarrow \SI{0.8}{V},$$
+$$v_{ref-c} = \alpha v_{ref} = v_{fmin} = I_{FBCK} \cdot R_s \cdot \frac{R2}{R1} \rightarrow \SI{544}{mV},$$
 entonces, 
 
 \begin{equation}
-\alpha = 0.32 = \frac{R_{\alpha2}}{R_{\alpha1} + R_{\alpha2}}.
+\alpha = 0.218 = \frac{R_{\alpha2}}{R_{\alpha1} + R_{\alpha2}}.
 \end{equation}
 
 Del mismo modo, para la corriente máxima, se esperará que $v_o = V_{reg}$. Como tal
 
-$$v_{ref-c} = \alpha v_{ref} + \beta v_o = v_{fmax} = I_{max} \cdot R_s \cdot \frac{R2}{R1} \rightarrow \SI{3}{V},$$
+$$v_{ref-c} = \alpha v_{ref} + \beta v_o = v_{fmax} = I_{max} \cdot R_s \cdot \frac{R2}{R1} \rightarrow \SI{2.04}{V},$$
 que define
 \begin{equation}
-\beta = 0.44 = \frac{R_{\beta2}}{R_{\beta1} + R_{\beta2}}.
+\beta = 0.3 = \frac{R_{\beta2}}{R_{\beta1} + R_{\beta2}}.
 \end{equation}
-
-
-Notar que en este caso $f_A$, la ganancia del elemento realimentador, no
 
 \begin{figure}[H]
 	\centering
@@ -932,7 +931,7 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 	
 	El resultado final es que, para $I_o \cdot R_s \approx \SI{0.7}{V}$, $v_{gs}$ tiende a reducirse, limitando la corriente de salida.
 	
-	Para nuestro valor de $R_s$, $I_{omax} \approx \SI{3.3}{A}$.
+	Para nuestro valor de $R_s$, $I_{omax} \approx \SI{3.3}{A}$, aunque en las simulaciones se verá un valor menor, lo cuál es aun mejor (figura \ref{fig:ldoregulacioncarga}).
 	
 	Es importante tener en cuenta que el transistor de paso deberá poder soportar, como máximo, $P_{max} = (\SI{9.5}{V} - \SI{5}{V}) \cdot \SI{3.3}{A} = \SI{14.85}{W}$, durante cortos períodos de tiempo. El modelo elegido puede hacerlo.
 	
@@ -985,6 +984,25 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 	
 	Para tal efecto, se utiliza una estructura como la de la figura \ref{fig:rompelazo} para conservar el circuito de contínua, pero romper el lazo en señal.
 	
+	\begin{figure}[H]
+		\centering
+		\begin{tikzpicture}[transform shape]
+			% Paths, nodes and wires:
+			\draw (3, 2.75) to[american voltage source, l={$v_p$}] (3, 0.75);
+			\draw (5, 4) to[american inductor, mirror, l={$L$}] (3, 4);
+			\draw (3, 2.75) to[capacitor, l={$C$}] (3, 4);
+			\draw (3, 4) -- (1, 4);
+			\node[tlground] at (3, 0.75){};
+			\node[circ] at (3, 4){};
+			\node[inputarrow, xscale=-1, yscale=-1] at (1, 4){};
+			\node[circ](N1) at (5, 4){} node[anchor=west] at (N1.text){$v_o$};
+		\end{tikzpicture}
+		\caption{Circuito de prueba para cortar lazo.}
+		\label{fig:rompelazo}
+	\end{figure}
+	
+	
+	
 
 	\paragraph{Estabilización de tensión: }
 	
@@ -1002,7 +1020,7 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 	
 	La regulación de línea describe la capacidad del regulador para mantener constante la tensión de salida frente a variaciones en la tensión de entrada \(V_{CC}\).
 	
-	Para caracterizar este comportamiento, se realiza un barrido de la tensión de entrada y se gráfica la tensión de salida \(V_O\) en función de \(V_{CC}\).
+	Para caracterizar este comportamiento, se realiza un barrido de la tensión de entrada y se gráfica la tensión de salida \(V_O\) en función de \(V_{CC}\), para una carga fija de $R_L = \SI{10}{\kilo\ohm}$.
 	
 	\begin{itemize}
 		\item \textbf{Zona de regulación:}  
@@ -1018,23 +1036,34 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 		A partir de esta curva, es posible estimar la tensión de dropout como la diferencia entre la tensión de entrada y la tensión de salida en el punto donde el regulador deja de mantener la regulación:
 		
 		\[
-		V_{dropout} = V_{{CC}_{min}} - V_O
+		V_{dropout} = V_{{CC}_{min}} - V_O \approx \SI{320}{mV}
 		\]
 		
 		En consecuencia, la curva de regulación de línea no sólo permite evaluar la estabilidad de la salida frente a perturbaciones en la entrada, sino también identificar el margen mínimo de operación del regulador.
 		
-		En la figura \ref{fig:ldoregulacionlinea} puede verse la curva de salida en función de la entrada para $\SI{0}{V} < V_{cc} < \SI{4}{V}$. De la simulación se obtiene
+		En la figura \ref{fig:ldoregulacionlinea} puede verse la curva de salida en función de la entrada para $\SI{0}{V} < V_{cc} < \SI{24}{V}$ y en mayor precisión la zona de Dropout. De la simulación se obtiene
 		
 		\begin{equation}
-			Regulacion \ de \ Linea = 260,67 \frac{\si{\micro V}}{\si{V}},
+			Regulacion \ de \ Linea = \num{447.68} \frac{\si{\micro V}}{\si{V}},
 		\end{equation}
 		
-		con un pequeño offset $V_{offset} = \SI{20}{mV}$, resultante de $V_ref-t = \SI{2.49}{V} \ne \SI{2.5}{V}$.
+		con un pequeño offset $V_{offset} = \SI{90}{mV}$, resultante de $V_ref-t = \SI{1.242}{V} \ne \SI{1.25}{V}$, fácilmente corregible mediante el preset implementado.
+		
+		Además, se ve que la tensión de dropout tiene valor $\SI{100}{mV} < V_{DO} < \SI{320}{mV}$, con su valor máximo alcanzado cuando $V_{cc} = \SI{5.27}{V}$. (Esto ocurre porque, debido al offset de $v_{ref-t}$, el valor de regulación no es \SI{5}{V} exactamente).
 
 	\begin{figure}[H]
 		\centering
-		\includegraphics[width=0.85\linewidth]{"../../Simulación/LDO/Graficos en Python/Capturas/LDO_regulacion_linea"}
-		\caption{Gráfico de los datos de simulación de linea,}
+		\begin{subfigure}{0.45\linewidth}
+			\includegraphics[width=\linewidth]{"../../Simulación/LDO/Graficos en Python/Capturas/LDO_regulacion_linea"}
+			\caption{Regulación de línea para $\SI{0}{V} < V_{cc} < \SI{24}{V}$.}
+		\end{subfigure}
+		\hfill
+		\begin{subfigure}{0.45\linewidth}
+			\includegraphics[width=\linewidth]{"../../Simulación/LDO/Graficos en Python/Capturas/LDO_regulacion_linea_zoom"}
+			\caption{Zoom para $\SI{3.5}{V} < V_{cc} < \SI{5.5}{V}$.}
+		\end{subfigure}
+
+		\caption{Gráfico de los datos de simulación de línea.}
 		\label{fig:ldoregulacionlinea}
 	\end{figure}
 			
@@ -1042,7 +1071,7 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 			
 	\paragraph{Regulación de carga:}
 
-	La regulación de carga puede analizarse evaluando la variación de la tensión de salida \(V_O\) frente a cambios en la resistencia de carga \(R_L\).
+	La regulación de carga puede analizarse evaluando la variación de la tensión de salida \(V_O\) frente a cambios en la resistencia de carga \(R_L\). Esto se analiza insertando una fuente de corriente a la salida, para una $V_{cc} = \SI{9.5}{V}$ constante, y desconectando el lazo de corriente.
 	
 	Para ello, se realiza un barrido del valor de \(R_L\) y se observa la respuesta del regulador.
 	
@@ -1059,17 +1088,17 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 	
 	Este análisis permite evaluar la capacidad del regulador para sostener la tensión de salida frente a variaciones en la carga, aunque resulta menos directo que el análisis en función de la corriente.
 	
-	En la figura \ref{fig:ldoregulacioncarga} puede verse la gráfica resultante. Notar que, al poseer un lazo de corriente, modificar la corriente de entrada directamente puede dar resultados inexactos, como valores de tensión $V_o$ negativos. Aun así, para la zona de control propia del lazo de tensión, pueden obtenerse resultados:
+	En la figura \ref{fig:ldoregulacioncarga} puede verse la gráfica resultante. Notar que, al poseer un lazo de corriente shunt aún activo, modificar la corriente de entrada directamente provoca una abrupta caída de tensión para $I_o > \SI{2.25}{A}$. Aun así, para la zona de control propia del lazo de tensión, pueden obtenerse resultados:
 	
 	\begin{equation}
-		\frac{\Delta V}{\Delta I} = -931,7 \frac{\si{\micro V}}{\si{A}} = R_T
+		\frac{\Delta V}{\Delta I} = -1,36 \frac{\si{mV}}{\si{A}} = R_T
 	\end{equation}
 
 	Notar que $R_T$ es negativa por disminuir $V_o$ al aumentar $I_o$.
 		
 	\begin{figure}[H]
 		\centering
-		\includegraphics[width=0.85\linewidth]{"../../Simulación/LDO/Graficos en Python/Capturas/LDO_regulacion_carga"}
+		\includegraphics[width=0.60\linewidth]{"../../Simulación/LDO/Graficos en Python/Capturas/LDO_regulacion_carga"}
 		\caption{Regulación de carga del regulador lineal.}
 		\label{fig:ldoregulacioncarga}
 	\end{figure}
@@ -1083,14 +1112,14 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 	
 	\begin{figure}[H]
 		\centering
-		\includegraphics[width=0.85\linewidth]{"../../Simulación/LDO/Graficos en Python/Capturas/V vs I"}
+		\includegraphics[width=0.6\linewidth]{"../../Simulación/LDO/Graficos en Python/Capturas/V vs I"}
 		\caption{Curva de salida característica estática regulador LDO.}
 		\label{fig:VvsI}
 	\end{figure}
 	
 
 	\paragraph{Eficiencia:}
-	Para medir la eficiencia del circuito, se ingresan diferentes valores de tensión de entrada $V_{cc}$ y se evalúa la potencia de entregada y la potencia sobre la carga. El resultado se observa en la figuar \ref{fig:ldoeficiencia}.
+	Para medir la eficiencia del circuito, se ingresan diferentes valores de tensión de entrada $V_{cc}$ y se evalúa la potencia de entregada y la potencia sobre la carga, para una $R_L = \SI{100}{\ohm}$. El resultado se observa en la figuar \ref{fig:ldoeficiencia}.
 	
 	Como es de esperar para un regulador lineal, la eficiencia no es buena, y es fuertemente dependiente de la tensión de entrada. Esto se debe a que el transistor de paso disipa la potencia no útil:
 	
@@ -1098,7 +1127,7 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 		P_{Tpaso} = (V_{cc} - V_{reg}) * (V_{reg}/R_L)
 	\end{equation}
 	
-	Como tal, se espera una eficiencia máxima para valores $V_{cc}$ cercanos a $V_{reg}$ y resistencias de carga $R_L$ altas.
+	Como tal, se espera una eficiencia máxima para valores $V_{cc}$ cercanos a $V_{reg}$ y resistencias de carga $R_L$ bajas. Al aumentar $R_L$, la eficiencia aumenta hasta el punto donde la corriente que circula por el circuito de control se hace comparable con la que circula por $R_L$.
 	
 	\begin{figure}[H]
 		\centering

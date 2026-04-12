@@ -1,0 +1,118 @@
+{
+    "version": "0.1",
+    "tikzSettings": {},
+    "components": [
+        {
+            "type": "path",
+            "points": [
+                {
+                    "x": 113.386,
+                    "y": -103.937
+                },
+                {
+                    "x": 113.386,
+                    "y": -28.346
+                }
+            ],
+            "label": {
+                "value": "v_p"
+            },
+            "id": "american voltage source"
+        },
+        {
+            "type": "path",
+            "points": [
+                {
+                    "x": 188.976,
+                    "y": -151.181
+                },
+                {
+                    "x": 113.386,
+                    "y": -151.181
+                }
+            ],
+            "label": {
+                "value": "L"
+            },
+            "id": "american inductor",
+            "scale": {
+                "x": 1,
+                "y": -1
+            }
+        },
+        {
+            "type": "path",
+            "points": [
+                {
+                    "x": 113.386,
+                    "y": -103.937
+                },
+                {
+                    "x": 113.386,
+                    "y": -151.181
+                }
+            ],
+            "label": {
+                "value": "C"
+            },
+            "id": "capacitor"
+        },
+        {
+            "type": "wire",
+            "points": [
+                {
+                    "x": 113.386,
+                    "y": -151.181
+                },
+                {
+                    "x": 37.795,
+                    "y": -151.181
+                }
+            ],
+            "stroke": {
+                "width": "0.4pt"
+            },
+            "directions": [
+                "-|"
+            ]
+        },
+        {
+            "type": "node",
+            "position": {
+                "x": 113.386,
+                "y": -28.346
+            },
+            "id": "tlground"
+        },
+        {
+            "type": "node",
+            "position": {
+                "x": 113.386,
+                "y": -151.181
+            },
+            "id": "circ"
+        },
+        {
+            "type": "node",
+            "position": {
+                "x": 37.795,
+                "y": -151.181
+            },
+            "rotation": -180,
+            "id": "inputarrow"
+        },
+        {
+            "type": "node",
+            "label": {
+                "value": "v_o",
+                "anchor": "west",
+                "position": "default"
+            },
+            "position": {
+                "x": 188.976,
+                "y": -151.181
+            },
+            "id": "circ"
+        }
+    ]
+}
