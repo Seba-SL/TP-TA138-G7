@@ -99,7 +99,86 @@ plt.grid(True)
 plt.savefig(os.path.join(capturas_dir, "LDO_regulacion_carga.png"), dpi=300)
 
 
-# ---------- 3 Regulación de línea ----------
+
+
+# ---------- 3 Diagrama de Bode - Lazo de tensión ----------
+
+archivo = os.path.join(datos_dir, "Bode_lazo_tension.txt")
+
+# Leer archivo con formato especial
+freq = []
+mag_db = []
+fase_deg = []
+
+with open(archivo, 'r') as f:
+    # Saltar encabezado
+    next(f)
+    for line in f:
+        parts = line.strip().split('\t')
+        if len(parts) == 2:
+            frequency = float(parts[0])
+            # Parse formato complejo: (magnitud dB, fase°)
+            complex_str = parts[1].replace('(', '').replace(')', '').replace('°', '').replace('dB', '')
+            values = complex_str.split(',')
+            magnitude_db = float(values[0])
+            phase_deg = float(values[1])
+            
+            freq.append(frequency)
+            mag_db.append(magnitude_db)
+            fase_deg.append(phase_deg)
+
+freq = np.array(freq)
+mag_db = np.array(mag_db)
+
+# Gráfico de magnitud
+plt.figure()
+plt.semilogx(freq, mag_db, linewidth=3, color="tab:blue")
+plt.xlabel("Frecuencia (Hz)")
+plt.ylabel("Magnitud (dB)")
+plt.title("Diagrama de Bode - Lazo de Tensión")
+plt.grid(True, which="both", alpha=0.3)
+
+plt.savefig(os.path.join(capturas_dir, "LDO_Bode_lazo_tension.png"), dpi=300)
+
+
+# ---------- 4 Diagrama de Bode - Lazo de corriente ----------
+
+archivo = os.path.join(datos_dir, "Bode_lazo_corriente.txt")
+
+# Leer archivo con formato especial
+freq = []
+mag_db = []
+
+with open(archivo, 'r') as f:
+    # Saltar encabezado
+    next(f)
+    for line in f:
+        parts = line.strip().split('\t')
+        if len(parts) == 2:
+            frequency = float(parts[0])
+            # Parse formato complejo: (magnitud dB, fase°)
+            complex_str = parts[1].replace('(', '').replace(')', '').replace('°', '').replace('dB', '')
+            values = complex_str.split(',')
+            magnitude_db = float(values[0])
+            
+            freq.append(frequency)
+            mag_db.append(magnitude_db)
+
+freq = np.array(freq)
+mag_db = np.array(mag_db)
+
+# Gráfico de magnitud
+plt.figure()
+plt.semilogx(freq, mag_db, linewidth=3, color="tab:green")
+plt.xlabel("Frecuencia (Hz)")
+plt.ylabel("Magnitud (dB)")
+plt.title("Diagrama de Bode - Lazo de Corriente")
+plt.grid(True, which="both", alpha=0.3)
+
+plt.savefig(os.path.join(capturas_dir, "LDO_Bode_lazo_corriente.png"), dpi=300)
+
+
+# ---------- 5 Regulación de línea ----------
 
 archivo = os.path.join(datos_dir, "regulaciondeLinea_Vo_vs_Vc.txt")
 data = np.loadtxt(archivo, skiprows=1)
@@ -144,7 +223,7 @@ plt.legend(fontsize=12)
 plt.savefig(os.path.join(capturas_dir, "LDO_regulacion_linea_zoom.png"), dpi=300)
 plt.show()
 
-# ---------- 4 Eficiencia ----------
+# ---------- 6 Eficiencia ----------
 
 archivo = os.path.join(datos_dir, "eficiencia.txt")
 data = np.loadtxt(archivo, skiprows=1)
@@ -165,7 +244,7 @@ plt.grid(True)
 plt.savefig(os.path.join(capturas_dir, "LDO_eficiencia.png"), dpi=300)
 plt.show()
 
-# ---------- 5 V_vs_I ----------
+# ---------- 7 V_vs_I ----------
 archivo = os.path.join(datos_dir, "VvsI.txt")
 
 data = np.loadtxt(archivo, skiprows=1)

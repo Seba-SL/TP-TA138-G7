@@ -1001,8 +1001,57 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 		\label{fig:rompelazo}
 	\end{figure}
 	
+	\textbf{Lazo de tensión:}\\
+	Se anulan ambos lazos de corriente (shunt y foldback), aunque no se encuentren operativos para la resistencia de carga $R_L = \SI{100}{\ohm}$ elegida, y se coloca la estructura de la figura \ref{fig:rompelazo}. Adicionalmente, se agregan las resistencias vistas desde cada lado del lazo para que, en señal, el corte sea limpio. Esto implica colocar una resistencia 
 	
+	\begin{equation}
+		R_{eq} \approx \SI{1}{k\ohm} // (\SI{3}{k\ohm} +\SI{100}{k\ohm} )
+	\end{equation}
 	
+	del lado del generador de señal. Debido a la alta impedancia de la resistencia vista desde la base del transistor del par diferencial, no es necesario agregar más. En la figura \ref{fig:corte_lazo_tension} puede verse el circuito de medición.
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.85\linewidth]{img/LDO/Corte_lazo_tension}
+		\caption{Circuito utilizado para la medición de $T_v$.}
+		\label{fig:corte_lazo_tension}
+	\end{figure}
+	
+	El resultado es un gráfico de Bode como el de la figura \ref{fig:bode_corte_tension}. Que da una ganancia para bajas frecuencias $T_v \SI{86}{dB}$. Esto es suficiente para asegurar $a_o.f_v \gg 1$.
+	
+	\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.85\linewidth]{"../../Simulación/LDO/Graficos en Python/Capturas/LDO_Bode_lazo_tension"}
+	\caption{Bode resultante de la medición de $T_v$. Notar el polo en $f \sim \SI{10}{k\ohm}$.}
+	\label{fig:bode_corte_tension}
+\end{figure}
+	
+	En este gráfico queda en evidencia el por qué de la oscilación para la regulación de línea (\ref{fig:ldovccvo}), pues la frecuencia de ruido $\sim \SI{100}{k\hertz}$ seguramente se encuentre en un punto con ganancia $|T| > 1$ y fase negativa, produciendo realimentación positiva y oscilaciones.
+	
+	\textbf{Lazo de corriente:}\\
+	En este caso, se realiza el procedimiento inverso. Se anula el lazo de tensión y shunt, y se corta el lazo de corriente en un punto de alta impedancia, como la base del transistor de paso. En este caso se escoge una resistencia de carga $R_L = \SI{2.5}{\ohm}$ para no obtener corrientes ni muy bajas ni excesivas. Se inserta una resistencia reflejada de
+	
+	\begin{equation}
+	R_{eq} \approx \SI{10}{k\ohm}
+	\end{equation}
+	
+	del lado del generador de señal, proveniente de la llave de control. Debido a la alta impedancia de la resistencia vista desde la base del transistor de paso, no es necesario agregar más elementos reflejados. En la figura \ref{fig:corte_lazo_corriente} puede verse el circuito de medición.
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\linewidth]{img/LDO/Corte_lazo_corriente}
+		\caption{Circuito utilizado para la medición de $T_A$.}
+		\label{fig:corte_lazo_corriente}
+	\end{figure}
+	
+	El resultado es un gráfico de Bode como el de la figura \ref{fig:bode_corte_corriente}. Que da una ganancia para bajas frecuencias $T_v \SI{67}{dB}$. Esto es suficiente para asegurar $a_o.f_A \gg 1$.
+	
+	\begin{figure}[H]
+	\centering
+		\includegraphics[width=0.85\linewidth]{"../../Simulación/LDO/Graficos en Python/Capturas/LDO_Bode_lazo_corriente"}
+		\caption{Bode resultante de la medición de $T_A$. Notar el polo en $\SI{10}{k\ohm}<f<\SI{100}{k\ohm}$.}
+	\label{fig:bode_corte_corriente}
+	\end{figure}
 
 	\paragraph{Estabilización de tensión: }
 	
