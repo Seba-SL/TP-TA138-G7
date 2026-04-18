@@ -1,0 +1,6 @@
+C:\users\sebastian\Documents\LTspice\thyristr.lib(2611): Expected ")" here.
+Emain3   cnhold  0       TABLE {v(main1,0)*v(main2,0)} (0 0 (1 10)
+                                                           ^^^^^^^
+C:\users\sebastian\Documents\LTspice\thyristr.lib(2619): Expected ")" here.
+Emain3r  cnholdr  0       TABLE {v(main1r,0)*v(main2r,0)} (0 0 (1 10)
+                                                              ^^^^^^^
