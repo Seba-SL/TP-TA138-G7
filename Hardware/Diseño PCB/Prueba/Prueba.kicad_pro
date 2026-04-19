@@ -646,7 +646,7 @@
         "uuid": "70bda0a3-0c17-43ce-af47-54d014630cec"
       }
     ],
-    "used_designators": "#PWR21,U2-4",
+    "used_designators": "V_voltage_test1,V_ref_test1,V_ref_c_test1,V_current_test1,#PWR21,V_Rs_test1,U2-4",
     "variants": []
   },
   "sheets": [

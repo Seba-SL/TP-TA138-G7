@@ -7166,8 +7166,8 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "2e95c866-d057-4871-8c41-9c80809c0c48")
-		(property "Reference" "J3"
-			(at 21.844 42.164 0)
+		(property "Reference" "V_current_test"
+			(at 19.812 32.258 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7230,7 +7230,7 @@
 		(instances
 			(project "Prueba"
 				(path "/70bda0a3-0c17-43ce-af47-54d014630cec"
-					(reference "J3")
+					(reference "V_current_test")
 					(unit 1)
 				)
 			)
@@ -10203,8 +10203,8 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "becabc1f-c814-40fc-95bd-8ea85e9bdf34")
-		(property "Reference" "J4"
-			(at 21.844 54.864 0)
+		(property "Reference" "V_voltage_test"
+			(at 20.066 50.292 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -10267,7 +10267,7 @@
 		(instances
 			(project "Prueba"
 				(path "/70bda0a3-0c17-43ce-af47-54d014630cec"
-					(reference "J4")
+					(reference "V_voltage_test")
 					(unit 1)
 				)
 			)
@@ -10627,8 +10627,8 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "c373a2a4-782c-4bf9-81fe-6f61893ada3a")
-		(property "Reference" "J6"
-			(at 19.304 85.344 0)
+		(property "Reference" "V_ref_c_test"
+			(at 18.034 79.756 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -10691,7 +10691,7 @@
 		(instances
 			(project "Prueba"
 				(path "/70bda0a3-0c17-43ce-af47-54d014630cec"
-					(reference "J6")
+					(reference "V_ref_c_test")
 					(unit 1)
 				)
 			)
@@ -10877,8 +10877,8 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "c7fb2fd8-6431-4380-9332-8bad2e5a95fa")
-		(property "Reference" "J2"
-			(at 18.034 29.972 0)
+		(property "Reference" "V_Rs_test"
+			(at 19.05 17.78 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -10941,7 +10941,7 @@
 		(instances
 			(project "Prueba"
 				(path "/70bda0a3-0c17-43ce-af47-54d014630cec"
-					(reference "J2")
+					(reference "V_Rs_test")
 					(unit 1)
 				)
 			)
@@ -12111,8 +12111,8 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "ff548186-abac-4e93-b9e9-72b817d4ea05")
-		(property "Reference" "J5"
-			(at 21.844 71.374 0)
+		(property "Reference" "V_ref_test"
+			(at 20.32 67.564 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -12175,7 +12175,7 @@
 		(instances
 			(project "Prueba"
 				(path "/70bda0a3-0c17-43ce-af47-54d014630cec"
-					(reference "J5")
+					(reference "V_ref_test")
 					(unit 1)
 				)
 			)
