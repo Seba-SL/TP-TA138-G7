@@ -62,7 +62,7 @@ citestyle=apa
 		%{\scshape\Huge Trabajo Pr\'actico \par}
 		{\scshape\Huge Diseño de Fuente de Alimentación \par}
 		\vspace{2cm}
-		{\scshape\Large Checkpoint 1: Diseño de Regulador Lineal LDO \par}
+		{\scshape\Large Checkpoint 2: Compensación de lazos y análisis térmico. \par}
 		
 		
 		\vspace{2cm}
@@ -923,7 +923,7 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 	pero la caída sobre $R_2$ no debe ser tan alta, para admitir mayor excursión de $V_{cc}$, por ello se elije un resistor más chico $R_2 = \SI{1}{\kilo\ohm}$.
 
 
-	\subsection{Limitador de corriente shunt}
+	\subsubsection{Limitador de corriente shunt}
 	
 	El último módulo por analizar es el regulador de corriente shunt. La función que cumple es actuar rápidamente ante variaciones rápidas en la carga, y es especialmente importante para esta implementación, pues el regulador foldback es lento.
 	
@@ -967,17 +967,50 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 		\label{fig:shunt}
 	\end{figure}
 
-	\subsubsection{Simulaciones - Modo estático}
+	\subsubsection{Compensación de lazos}
+	Para finalizar el anállisis de diseño circuital de esta etapa, se debe evaluar su comportamiento en frecuencia. Para ello, se debe evaluar el peso de los nodos al circular por cada lazo de realimentación, procurando que 
+	se cumplan dos condiciones de diseño fundamentales:
+	
+	\begin{equation}
+		|T(j\omega)| < 1 \qquad \angle T(j\omega) > 30^\circ
+	\end{equation}
+	
+	Estos dos parámetros, \textit{el margen de ganancia} y el \textit{el margen de fase}, respectivamente, garantizan que para una señal de frecuencia $f_h \Big/ |T(j\omega)| = 1$, la ganancia de lazo nunca se invertirá, provocando una realimentación negativa.
+	
+	Debido a que la ganancia de lazo se puede aproximar a un sistema de primer orden, si existe un \textit{polo dominante}, entonces se puede asegurar que no habrá ningun caso en que el circuito oscile.
+	
+	Nuestro análisis, entonces, se dividirá en dos partes: la compensación del lazo de tensión, con ganancia $T_v$, y la compensación del lazo de corriente, con ganancia $T_A$.
+	
+	\subsubsection{Análisis térmico}
+	\subsubsection{Consideraciones de fabricación PCB}
+
+	
+	\subsubsection{Mejoras:}
+	Aunque el regulador lineal satisface las especificaciones de la tabla \ref{tabla:especificaciones_ldo}, hay algunas mejoras que pueden realizarse al circuito para mejorar aun más su desempeño:
+	
+	\begin{itemize}
+		\item \textbf{Mejora de rechazo al ruido:} Se observó que el rechazo al ripple de altas frecuencias (\SI{100}{\kilo\hertz}) no es bueno (ver figura \ref{fig:ldovccvo}). Algunos elementos que favorecen este comportamiento es la alimentación de varios módulos pertenecientes a lazos de realimentación con la fuente de entrada $V_{cc}$. Si se hiciera una relación de compromiso y se limitara $V_{cc max}$, podría alimentarse los lazos con fuentes controladas estables.
+		
+		Adicionalmente, la tensión de control $V_{gs}$ se ve referida a la fuente de tensión, por lo que, por muy estable que sea $v_g$, seguirá habiendo fluctuaciones. Esta es una limitación importante del transistor de paso canal P. Una forma de contrarestarlo sería hacer la respuesta de los lazos más rápida.
+		
+		\item \textbf{Lazo de corriente:} El lazo de corriente contiene un máximo de tres etapas amplificadoras, y 5 en total. La implementación más rudimentaria de regulación foldback utiliza tan solo un transistor y tres resistencias. Buscar un modo de reducir la circuitería haría el circuito más rápido, eficiente y simple. Una ventaja de mantener la configuración actual es la precisión de regulación estacionaria.
+		
+		\item \textbf{Par darlington:} Utilizar un par darlington en los pares diferenciales aumenta enormemente la resistencia $R_{diff}$, así como la ganancia $A_{d}$, por mejorar el valor de $gm$.
+	\end{itemize}
+	
+	\section{Simulaciones}
+	\subsection{Simulaciones del regulador lineal LDO}
+	\subsubsection{Modo estático}
 	
 	
 	Para verificar el diseño se realizan simulación en el software LtSpice utilizando los modelos necesarios y las conexiones detalladas en el apéndice \ref{sec:apendice_simulaciónes} en la captura de la figura \ref{fig:ldoregulacionlinea}.
-
+	
 	En particular, se evaluaron distintos aspectos fundamentales del desempeño del regulador LDO. En primer lugar, se evaluó la hipótesis $a_o.f \gg 1$ para ambos lazos. Luego se analizó la estabilización de la tensión de salida frente a variaciones temporales de la tensión de entrada y la regulación de línea, que caracteriza la capacidad del regulador para mantener constante la tensión de salida ante cambios en la tensión de entrada. Asimismo, se evaluó la regulación de carga, analizando la variación de la tensión de salida frente a cambios en la corriente demandada por la carga.
 	
 	Adicionalmente, se calculó la eficiencia del regulador, definida como la relación entre la potencia entregada a la carga y la potencia suministrada por la fuente de entrada. Este análisis permite estimar el rendimiento energético del circuito y las pérdidas asociadas al elemento de paso del regulador.
 	
 	Se presentan los resultados obtenidos para cada uno de estos casos.
-		
+	
 	\paragraph{Ganancias de lazo: }
 	
 	Se observó para ambos lazos que el componente $a_o$ es, escencialmente, el amplificador diferencial al final de cada uno sumado al circuito source común generado por el PMOS. A continuación, se rompe el lazo y se simula la amplitud de salida, del otro lado del lazo, para obtener valor numérico de $|T_t|$ y $|T_c|$.
@@ -1020,11 +1053,11 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 	El resultado es un gráfico de Bode como el de la figura \ref{fig:bode_corte_tension}. Que da una ganancia para bajas frecuencias $T_v \SI{86}{dB}$. Esto es suficiente para asegurar $a_o.f_v \gg 1$.
 	
 	\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.85\linewidth]{"../../Simulación/LDO/Graficos en Python/Capturas/LDO_Bode_lazo_tension"}
-	\caption{Bode resultante de la medición de $T_v$. Notar el polo en $f \sim \SI{10}{k\ohm}$.}
-	\label{fig:bode_corte_tension}
-\end{figure}
+		\centering
+		\includegraphics[width=0.85\linewidth]{"../../Simulación/LDO/Graficos en Python/Capturas/LDO_Bode_lazo_tension"}
+		\caption{Bode resultante de la medición de $T_v$. Notar el polo en $f \sim \SI{10}{k\ohm}$.}
+		\label{fig:bode_corte_tension}
+	\end{figure}
 	
 	En este gráfico queda en evidencia el por qué de la oscilación para la regulación de línea (\ref{fig:ldovccvo}), pues la frecuencia de ruido $\sim \SI{100}{k\hertz}$ seguramente se encuentre en un punto con ganancia $|T| > 1$ y fase negativa, produciendo realimentación positiva y oscilaciones.
 	
@@ -1032,7 +1065,7 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 	En este caso, se realiza el procedimiento inverso. Se anula el lazo de tensión y shunt, y se corta el lazo de corriente en un punto de alta impedancia, como la base del transistor de paso. En este caso se escoge una resistencia de carga $R_L = \SI{2.5}{\ohm}$ para no obtener corrientes ni muy bajas ni excesivas. Se inserta una resistencia reflejada de
 	
 	\begin{equation}
-	R_{eq} \approx \SI{10}{k\ohm}
+		R_{eq} \approx \SI{10}{k\ohm}
 	\end{equation}
 	
 	del lado del generador de señal, proveniente de la llave de control. Debido a la alta impedancia de la resistencia vista desde la base del transistor de paso, no es necesario agregar más elementos reflejados. En la figura \ref{fig:corte_lazo_corriente} puede verse el circuito de medición.
@@ -1047,23 +1080,23 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 	El resultado es un gráfico de Bode como el de la figura \ref{fig:bode_corte_corriente}. Que da una ganancia para bajas frecuencias $T_v \SI{67}{dB}$. Esto es suficiente para asegurar $a_o.f_A \gg 1$.
 	
 	\begin{figure}[H]
-	\centering
+		\centering
 		\includegraphics[width=0.85\linewidth]{"../../Simulación/LDO/Graficos en Python/Capturas/LDO_Bode_lazo_corriente"}
 		\caption{Bode resultante de la medición de $T_A$. Notar el polo en $\SI{10}{k\ohm}<f<\SI{100}{k\ohm}$.}
-	\label{fig:bode_corte_corriente}
+		\label{fig:bode_corte_corriente}
 	\end{figure}
-
+	
 	\paragraph{Estabilización de tensión: }
 	
 	En la simulación temporal se verifica la estabilización de tensión con respecto a la $Vcc$ prevista, utilizando un valor de carga dentro dentro de la zona de regulación estimada, logrando así constatar como se reduce el riple. Se simula tomando un valor de carga dentro del rango de regulación y se toman los valores de tensión en función del tiempo, para el análisis se comparan las componentes alternas de cada señal eliminando el valor medio de ambas, tal como se obvserva en el gráfico de la figura \ref{fig:ldovccvo}.
-		
+	
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=0.85\linewidth]{"../../Simulación/LDO/Graficos en Python/Capturas/LDO_Vcc_Vo"}
 		\caption{Gráfico de la simulación temporal con ruido a la entrada $V_{pp} = \SI{0.4}{V} , f = \SI{100}{\kilo H}$.}
 		\label{fig:ldovccvo}
 	\end{figure}
-			
+	
 	\paragraph{Regulación de Linea:}
 	
 	
@@ -1082,24 +1115,24 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 		El punto de transición entre ambas regiones indica el inicio de la condición de dropout.
 	\end{itemize}
 	
-		A partir de esta curva, es posible estimar la tensión de dropout como la diferencia entre la tensión de entrada y la tensión de salida en el punto donde el regulador deja de mantener la regulación:
-		
-		\[
-		V_{dropout} = V_{{CC}_{min}} - V_O \approx \SI{320}{mV}
-		\]
-		
-		En consecuencia, la curva de regulación de línea no sólo permite evaluar la estabilidad de la salida frente a perturbaciones en la entrada, sino también identificar el margen mínimo de operación del regulador.
-		
-		En la figura \ref{fig:ldoregulacionlinea} puede verse la curva de salida en función de la entrada para $\SI{0}{V} < V_{cc} < \SI{24}{V}$ y en mayor precisión la zona de Dropout. De la simulación se obtiene
-		
-		\begin{equation}
-			Regulacion \ de \ Linea = \num{447.68} \frac{\si{\micro V}}{\si{V}},
-		\end{equation}
-		
-		con un pequeño offset $V_{offset} = \SI{90}{mV}$, resultante de $V_ref-t = \SI{1.242}{V} \ne \SI{1.25}{V}$, fácilmente corregible mediante el preset implementado.
-		
-		Además, se ve que la tensión de dropout tiene valor $\SI{100}{mV} < V_{DO} < \SI{320}{mV}$, con su valor máximo alcanzado cuando $V_{cc} = \SI{5.27}{V}$. (Esto ocurre porque, debido al offset de $v_{ref-t}$, el valor de regulación no es \SI{5}{V} exactamente).
-
+	A partir de esta curva, es posible estimar la tensión de dropout como la diferencia entre la tensión de entrada y la tensión de salida en el punto donde el regulador deja de mantener la regulación:
+	
+	\[
+	V_{dropout} = V_{{CC}_{min}} - V_O \approx \SI{320}{mV}
+	\]
+	
+	En consecuencia, la curva de regulación de línea no sólo permite evaluar la estabilidad de la salida frente a perturbaciones en la entrada, sino también identificar el margen mínimo de operación del regulador.
+	
+	En la figura \ref{fig:ldoregulacionlinea} puede verse la curva de salida en función de la entrada para $\SI{0}{V} < V_{cc} < \SI{24}{V}$ y en mayor precisión la zona de Dropout. De la simulación se obtiene
+	
+	\begin{equation}
+		Regulacion \ de \ Linea = \num{447.68} \frac{\si{\micro V}}{\si{V}},
+	\end{equation}
+	
+	con un pequeño offset $V_{offset} = \SI{90}{mV}$, resultante de $V_ref-t = \SI{1.242}{V} \ne \SI{1.25}{V}$, fácilmente corregible mediante el preset implementado.
+	
+	Además, se ve que la tensión de dropout tiene valor $\SI{100}{mV} < V_{DO} < \SI{320}{mV}$, con su valor máximo alcanzado cuando $V_{cc} = \SI{5.27}{V}$. (Esto ocurre porque, debido al offset de $v_{ref-t}$, el valor de regulación no es \SI{5}{V} exactamente).
+	
 	\begin{figure}[H]
 		\centering
 		\begin{subfigure}{0.45\linewidth}
@@ -1111,15 +1144,15 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 			\includegraphics[width=\linewidth]{"../../Simulación/LDO/Graficos en Python/Capturas/LDO_regulacion_linea_zoom"}
 			\caption{Zoom para $\SI{3.5}{V} < V_{cc} < \SI{5.5}{V}$.}
 		\end{subfigure}
-
+		
 		\caption{Gráfico de los datos de simulación de línea.}
 		\label{fig:ldoregulacionlinea}
 	\end{figure}
-			
-			
-			
+	
+	
+	
 	\paragraph{Regulación de carga:}
-
+	
 	La regulación de carga puede analizarse evaluando la variación de la tensión de salida \(V_O\) frente a cambios en la resistencia de carga \(R_L\). Esto se analiza insertando una fuente de corriente a la salida, para una $V_{cc} = \SI{9.5}{V}$ constante, y desconectando el lazo de corriente.
 	
 	Para ello, se realiza un barrido del valor de \(R_L\) y se observa la respuesta del regulador.
@@ -1142,9 +1175,9 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 	\begin{equation}
 		\frac{\Delta V}{\Delta I} = -1,36 \frac{\si{mV}}{\si{A}} = R_T
 	\end{equation}
-
+	
 	Notar que $R_T$ es negativa por disminuir $V_o$ al aumentar $I_o$.
-		
+	
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=0.60\linewidth]{"../../Simulación/LDO/Graficos en Python/Capturas/LDO_regulacion_carga"}
@@ -1166,7 +1199,7 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 		\label{fig:VvsI}
 	\end{figure}
 	
-
+	
 	\paragraph{Eficiencia:}
 	Para medir la eficiencia del circuito, se ingresan diferentes valores de tensión de entrada $V_{cc}$ y se evalúa la potencia de entregada y la potencia sobre la carga, para una $R_L = \SI{100}{\ohm}$. El resultado se observa en la figuar \ref{fig:ldoeficiencia}.
 	
@@ -1185,20 +1218,9 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 		\label{fig:ldoeficiencia}
 	\end{figure}
 	
-	
-	\subsubsection{Mejoras:}
-	Aunque el regulador lineal satisface las especificaciones de la tabla \ref{tabla:especificaciones_ldo}, hay algunas mejoras que pueden realizarse al circuito para mejorar aun más su desempeño:
-	
-	\begin{itemize}
-		\item \textbf{Mejora de rechazo al ruido:} Se observó que el rechazo al ripple de altas frecuencias (\SI{100}{\kilo\hertz}) no es bueno (ver figura \ref{fig:ldovccvo}). Algunos elementos que favorecen este comportamiento es la alimentación de varios módulos pertenecientes a lazos de realimentación con la fuente de entrada $V_{cc}$. Si se hiciera una relación de compromiso y se limitara $V_{cc max}$, podría alimentarse los lazos con fuentes controladas estables.
-		
-		Adicionalmente, la tensión de control $V_{gs}$ se ve referida a la fuente de tensión, por lo que, por muy estable que sea $v_g$, seguirá habiendo fluctuaciones. Esta es una limitación importante del transistor de paso canal P. Una forma de contrarestarlo sería hacer la respuesta de los lazos más rápida.
-		
-		\item \textbf{Lazo de corriente:} El lazo de corriente contiene un máximo de tres etapas amplificadoras, y 5 en total. La implementación más rudimentaria de regulación foldback utiliza tan solo un transistor y tres resistencias. Buscar un modo de reducir la circuitería haría el circuito más rápido, eficiente y simple. Una ventaja de mantener la configuración actual es la precisión de regulación estacionaria.
-		
-		\item \textbf{Par darlington:} Utilizar un par darlington en los pares diferenciales aumenta enormemente la resistencia $R_{diff}$, así como la ganancia $A_{d}$, por mejorar el valor de $gm$.
-	\end{itemize}
-	
+	\subsubsection{Modo Dinámico}
+	\subsection{Simulaciones de fuente switching}
+	aaa
 	
 	\input{conclusiones}
 
