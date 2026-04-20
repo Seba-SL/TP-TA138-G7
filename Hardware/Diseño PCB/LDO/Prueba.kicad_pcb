@@ -923,11 +923,11 @@
 			)
 		)
 	)
-	(footprint "Package_DIP:DIP-16_W10.16mm_LongPads"
+	(footprint "Package_DIP:DIP-14_W10.16mm_LongPads"
 		(layer "F.Cu")
 		(uuid "19869e03-4c27-4077-93e2-73955b67d7c4")
-		(at 155.22 107.66 90)
-		(descr "16-lead though-hole mounted DIP package, row spacing 10.16mm (400 mils), LongPads")
+		(at 192.575412 102.909815 90)
+		(descr "14-lead though-hole mounted DIP package, row spacing 10.16mm (400 mils), LongPads")
 		(tags "THT DIP DIL PDIP 2.54mm 10.16mm 400mil LongPads")
 		(property "Reference" "U4"
 			(at 5.08 -2.33 90)
@@ -941,7 +941,7 @@
 			)
 		)
 		(property "Value" "LM324"
-			(at 5.08 20.11 90)
+			(at 5.08 17.57 90)
 			(layer "F.Fab")
 			(uuid "f4e55105-8b7a-4c06-a70e-ce9ec6fc1ec7")
 			(effects
@@ -1035,7 +1035,7 @@
 		)
 		(fp_line
 			(start 1.845 -1.33)
-			(end 1.845 19.11)
+			(end 1.845 16.57)
 			(stroke
 				(width 0.12)
 				(type solid)
@@ -1044,7 +1044,7 @@
 			(uuid "da4a0c05-88fb-4a72-97aa-bc6ae7012eb6")
 		)
 		(fp_line
-			(start 8.315 19.11)
+			(start 8.315 16.57)
 			(end 8.315 -1.33)
 			(stroke
 				(width 0.12)
@@ -1054,8 +1054,8 @@
 			(uuid "6e7c7f15-4a4f-4b26-93ea-a83203d56aab")
 		)
 		(fp_line
-			(start 1.845 19.11)
-			(end 8.315 19.11)
+			(start 1.845 16.57)
+			(end 8.315 16.57)
 			(stroke
 				(width 0.12)
 				(type solid)
@@ -1075,8 +1075,8 @@
 			(uuid "5261f03e-50f8-49b4-9e6b-b3935cf62bca")
 		)
 		(fp_rect
-			(start -1.46 -1.52)
-			(end 11.61 19.3)
+			(start -1.46 -1.53)
+			(end 11.61 16.77)
 			(stroke
 				(width 0.05)
 				(type solid)
@@ -1087,7 +1087,7 @@
 		)
 		(fp_line
 			(start 8.255 -1.27)
-			(end 8.255 19.05)
+			(end 8.255 16.51)
 			(stroke
 				(width 0.1)
 				(type solid)
@@ -1116,8 +1116,8 @@
 			(uuid "736c7a1f-2a2b-46c8-a757-378219dc060d")
 		)
 		(fp_line
-			(start 8.255 19.05)
-			(end 1.905 19.05)
+			(start 8.255 16.51)
+			(end 1.905 16.51)
 			(stroke
 				(width 0.1)
 				(type solid)
@@ -1126,7 +1126,7 @@
 			(uuid "3006da60-daf5-4158-8f84-15eb9eaedd76")
 		)
 		(fp_line
-			(start 1.905 19.05)
+			(start 1.905 16.51)
 			(end 1.905 -0.27)
 			(stroke
 				(width 0.1)
@@ -1136,7 +1136,7 @@
 			(uuid "ffc2377e-8eb0-4bcd-9ccf-4e780f3ffcc7")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 5.08 8.89 0)
+			(at 5.08 7.62 180)
 			(layer "F.Fab")
 			(uuid "d96bd60a-dca8-43e8-95b3-3767252a4127")
 			(effects
@@ -1147,7 +1147,7 @@
 			)
 		)
 		(point
-			(at 164.11 102.58)
+			(at 200.195412 97.829815)
 			(size 1.27)
 			(layer "F.Fab")
 			(uuid "ed4dc01c-adc1-4d1c-9d21-6497186c0c33")
@@ -1229,7 +1229,7 @@
 			(uuid "587b6b74-a38e-428f-a334-bed77257fb9e")
 		)
 		(pad "8" thru_hole oval
-			(at 0 17.78 90)
+			(at 10.16 15.24 90)
 			(size 2.4 1.6)
 			(drill 0.8)
 			(layers "*.Cu" "*.Mask")
@@ -1239,7 +1239,7 @@
 			(uuid "a57150d5-c82c-4214-b9a9-b506545aabcc")
 		)
 		(pad "9" thru_hole oval
-			(at 10.16 17.78 90)
+			(at 10.16 12.7 90)
 			(size 2.4 1.6)
 			(drill 0.8)
 			(layers "*.Cu" "*.Mask")
@@ -1250,7 +1250,7 @@
 			(uuid "b052f8d9-fce0-485f-a669-4740c5422c1a")
 		)
 		(pad "10" thru_hole oval
-			(at 10.16 15.24 90)
+			(at 10.16 10.16 90)
 			(size 2.4 1.6)
 			(drill 0.8)
 			(layers "*.Cu" "*.Mask")
@@ -1261,7 +1261,7 @@
 			(uuid "63ed49c6-520a-4240-ba11-9948e4a711e3")
 		)
 		(pad "11" thru_hole oval
-			(at 10.16 12.7 90)
+			(at 10.16 7.62 90)
 			(size 2.4 1.6)
 			(drill 0.8)
 			(layers "*.Cu" "*.Mask")
@@ -1272,7 +1272,7 @@
 			(uuid "397bd07c-7016-44f3-91e1-87ec4ef7e42f")
 		)
 		(pad "12" thru_hole oval
-			(at 10.16 10.16 90)
+			(at 10.16 5.08 90)
 			(size 2.4 1.6)
 			(drill 0.8)
 			(layers "*.Cu" "*.Mask")
@@ -1283,7 +1283,7 @@
 			(uuid "4f81a14f-ed83-43b6-a07e-3bf435bd2cef")
 		)
 		(pad "13" thru_hole oval
-			(at 10.16 7.62 90)
+			(at 10.16 2.54 90)
 			(size 2.4 1.6)
 			(drill 0.8)
 			(layers "*.Cu" "*.Mask")
@@ -1294,7 +1294,7 @@
 			(uuid "d01bdcff-3c4d-4a27-8107-2766a9889319")
 		)
 		(pad "14" thru_hole oval
-			(at 10.16 5.08 90)
+			(at 10.16 0 90)
 			(size 2.4 1.6)
 			(drill 0.8)
 			(layers "*.Cu" "*.Mask")
@@ -1303,24 +1303,8 @@
 			(pintype "output")
 			(uuid "934d7d1b-ee26-4a9e-b1a4-022af0c8b538")
 		)
-		(pad "15" thru_hole oval
-			(at 10.16 2.54 90)
-			(size 2.4 1.6)
-			(drill 0.8)
-			(layers "*.Cu" "*.Mask")
-			(remove_unused_layers no)
-			(uuid "e3985167-24d9-4530-a240-6bc21373e4e0")
-		)
-		(pad "16" thru_hole oval
-			(at 10.16 0 90)
-			(size 2.4 1.6)
-			(drill 0.8)
-			(layers "*.Cu" "*.Mask")
-			(remove_unused_layers no)
-			(uuid "e8b6acf9-0cc0-424e-ba8f-171619faeafe")
-		)
 		(embedded_fonts no)
-		(model "${KICAD10_3DMODEL_DIR}/Package_DIP.3dshapes/DIP-16_W10.16mm.step"
+		(model "${KICAD10_3DMODEL_DIR}/Package_DIP.3dshapes/DIP-14_W10.16mm.step"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -11658,7 +11642,7 @@
 	)
 	(gr_poly
 		(pts
-			(xy 157.228511 105.5) (xy 158.953099 103.750185) (xy 160.728511 105.5)
+			(xy 194.275412 100.749815) (xy 196 99) (xy 197.775412 100.749815)
 		)
 		(stroke
 			(width 0.2)
@@ -11670,19 +11654,7 @@
 	)
 	(gr_poly
 		(pts
-			(xy 165 105.249815) (xy 166.724588 103.5) (xy 168.5 105.249815)
-		)
-		(stroke
-			(width 0.2)
-			(type solid)
-		)
-		(fill yes)
-		(layer "Cmts.User")
-		(uuid "8cd25653-ab9b-43f1-b2d6-b02e91edae64")
-	)
-	(gr_poly
-		(pts
-			(xy 165.724588 99.750185) (xy 164 101.5) (xy 162.224588 99.750185)
+			(xy 198.275412 95) (xy 196.550824 96.749815) (xy 194.775412 95)
 		)
 		(stroke
 			(width 0.2)
@@ -11694,7 +11666,19 @@
 	)
 	(gr_poly
 		(pts
-			(xy 173.724588 100.250185) (xy 172 102) (xy 170.224588 100.250185)
+			(xy 203.050824 100.49963) (xy 204.775412 98.749815) (xy 206.550824 100.49963)
+		)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(fill yes)
+		(layer "Cmts.User")
+		(uuid "8cd25653-ab9b-43f1-b2d6-b02e91edae64")
+	)
+	(gr_poly
+		(pts
+			(xy 206 95) (xy 204.275412 96.749815) (xy 202.5 95)
 		)
 		(stroke
 			(width 0.2)
@@ -11770,36 +11754,6 @@
 		(layer "Cmts.User")
 		(uuid "84f1fbcb-cfef-4da3-b52c-3a0eaa9d5494")
 	)
-	(gr_line
-		(start 155 103.750185)
-		(end 155 106)
-		(stroke
-			(width 0.1)
-			(type default)
-		)
-		(layer "Cmts.User")
-		(uuid "d56ae52d-ae21-40fd-9def-ff0d81a84ecd")
-	)
-	(gr_line
-		(start 158.953099 103.750185)
-		(end 155 103.750185)
-		(stroke
-			(width 0.1)
-			(type default)
-		)
-		(layer "Cmts.User")
-		(uuid "25e9c7bb-20c6-4a28-adc0-863f02115b2e")
-	)
-	(gr_line
-		(start 160.5 102)
-		(end 160.5 99.5)
-		(stroke
-			(width 0.2)
-			(type solid)
-		)
-		(layer "Cmts.User")
-		(uuid "975fb42f-8a91-4bd7-a2b0-ec48f6fff3f9")
-	)
 	(gr_rect
 		(start 162 62.263305)
 		(end 183 78.736694)
@@ -11810,36 +11764,6 @@
 		(fill no)
 		(layer "Cmts.User")
 		(uuid "d73b7321-f1f3-46e2-ae4d-e2ba346f9cb3")
-	)
-	(gr_line
-		(start 164 101.5)
-		(end 164 102)
-		(stroke
-			(width 0.2)
-			(type solid)
-		)
-		(layer "Cmts.User")
-		(uuid "5d22587a-60c8-46ce-b3ce-40fe34507577")
-	)
-	(gr_line
-		(start 164 102)
-		(end 160.5 102)
-		(stroke
-			(width 0.2)
-			(type solid)
-		)
-		(layer "Cmts.User")
-		(uuid "ec2521ae-3e92-41d6-858b-fd5c536c8da8")
-	)
-	(gr_line
-		(start 166.724588 103.5)
-		(end 170.5 103.5)
-		(stroke
-			(width 0.1)
-			(type default)
-		)
-		(layer "Cmts.User")
-		(uuid "e52e7dea-b97c-4994-8ab8-e97840921ee2")
 	)
 	(gr_rect
 		(start 169.509604 19.907961)
@@ -11852,55 +11776,16 @@
 		(layer "Cmts.User")
 		(uuid "f60f9b9a-3aa3-47b4-9566-359735ead382")
 	)
-	(gr_line
-		(start 170.5 105.5)
-		(end 170.5 103.5)
+	(gr_rect
+		(start 187.5 87.475256)
+		(end 224.476562 110)
 		(stroke
-			(width 0.1)
-			(type default)
+			(width 0.2)
+			(type solid)
 		)
+		(fill no)
 		(layer "Cmts.User")
-		(uuid "270ab697-6b83-4cc4-8415-6ffa2cabac75")
-	)
-	(gr_line
-		(start 172 102)
-		(end 172 103)
-		(stroke
-			(width 0.1)
-			(type default)
-		)
-		(layer "Cmts.User")
-		(uuid "77b7be69-fe3b-4910-ada2-eb73094ddcf7")
-	)
-	(gr_line
-		(start 172 103)
-		(end 173 103)
-		(stroke
-			(width 0.1)
-			(type default)
-		)
-		(layer "Cmts.User")
-		(uuid "7d32dcc1-6bcc-4c0f-b47d-587dcd78771d")
-	)
-	(gr_line
-		(start 173 103)
-		(end 173 105.5)
-		(stroke
-			(width 0.1)
-			(type default)
-		)
-		(layer "Cmts.User")
-		(uuid "1828683b-7cd5-476b-8df8-2d0a52ac5503")
-	)
-	(gr_line
-		(start 173 105.5)
-		(end 173 106)
-		(stroke
-			(width 0.1)
-			(type default)
-		)
-		(layer "Cmts.User")
-		(uuid "65cff46f-5169-41f7-af0a-a0193c7794cc")
+		(uuid "7aa813e4-b578-40d9-aa9c-5ce65627615f")
 	)
 	(gr_rect
 		(start 189 50)
@@ -11912,6 +11797,106 @@
 		(fill no)
 		(layer "Cmts.User")
 		(uuid "ccc173dc-f931-45c9-a578-8c42cff49f16")
+	)
+	(gr_line
+		(start 192.046901 99)
+		(end 192.046901 101.249815)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "Cmts.User")
+		(uuid "d56ae52d-ae21-40fd-9def-ff0d81a84ecd")
+	)
+	(gr_line
+		(start 192.275412 95.249815)
+		(end 192.275412 96.749815)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "Cmts.User")
+		(uuid "1626f094-3177-4f02-91f9-d027094dd6af")
+	)
+	(gr_line
+		(start 192.275412 96.749815)
+		(end 192.275412 95.249815)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "Cmts.User")
+		(uuid "699673ac-11fe-4240-9779-aa16163d1971")
+	)
+	(gr_line
+		(start 192.275412 96.749815)
+		(end 196.550824 96.749815)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "Cmts.User")
+		(uuid "735b85c8-6e53-40ed-8c13-fcfee791463f")
+	)
+	(gr_line
+		(start 196 99)
+		(end 192.046901 99)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "Cmts.User")
+		(uuid "25e9c7bb-20c6-4a28-adc0-863f02115b2e")
+	)
+	(gr_line
+		(start 204.275412 97.249815)
+		(end 204.275412 96.749815)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "Cmts.User")
+		(uuid "b786b3a1-7857-4082-9ab3-c5905e36f59f")
+	)
+	(gr_line
+		(start 204.775412 98.749815)
+		(end 208.550824 98.749815)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "Cmts.User")
+		(uuid "e52e7dea-b97c-4994-8ab8-e97840921ee2")
+	)
+	(gr_line
+		(start 207.525412 97.249815)
+		(end 204.275412 97.249815)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "Cmts.User")
+		(uuid "2048d5aa-db31-4e8a-a734-76bb356ef673")
+	)
+	(gr_line
+		(start 207.525412 97.249815)
+		(end 207.525412 95.249815)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "Cmts.User")
+		(uuid "8f5a7170-ef7c-4af2-a938-d1dcb0c321e6")
+	)
+	(gr_line
+		(start 208.550824 100.749815)
+		(end 208.550824 98.749815)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "Cmts.User")
+		(uuid "270ab697-6b83-4cc4-8415-6ffa2cabac75")
 	)
 	(gr_rect
 		(start 210.504802 27.5)
@@ -12102,19 +12087,6 @@
 			(justify left bottom)
 		)
 	)
-	(gr_text "Amplificadores Operacionales"
-		(at 154.5 113 0)
-		(layer "Cmts.User")
-		(uuid "a5427b40-a7f2-4762-823d-37a885b3066b")
-		(effects
-			(font
-				(size 1.5 1.5)
-				(thickness 0.3)
-				(bold yes)
-			)
-			(justify left bottom)
-		)
-	)
 	(gr_text "Lazo Tensión\n"
 		(at 166.5 74.236694 0)
 		(layer "Cmts.User")
@@ -12132,6 +12104,19 @@
 		(at 171 24.5 0)
 		(layer "Cmts.User")
 		(uuid "93ff4937-9e47-4be3-b08d-8300cbe1db82")
+		(effects
+			(font
+				(size 1.5 1.5)
+				(thickness 0.3)
+				(bold yes)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "Amplificadores Operacionales"
+		(at 189.275412 108.249815 0)
+		(layer "Cmts.User")
+		(uuid "a5427b40-a7f2-4762-823d-37a885b3066b")
 		(effects
 			(font
 				(size 1.5 1.5)
