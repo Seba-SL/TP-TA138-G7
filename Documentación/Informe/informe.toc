@@ -15,9 +15,9 @@
 \contentsline {subsubsection}{\numberline {2.2.10}Análisis térmico}{11}{}%
 \contentsline {subsubsection}{\numberline {2.2.11}Consideraciones de fabricación PCB}{11}{}%
 \contentsline {subsubsection}{\numberline {2.2.12}Mejoras:}{11}{}%
-\contentsline {section}{\numberline {3}Simulaciones}{11}{}%
-\contentsline {subsection}{\numberline {3.1}Simulaciones del regulador lineal LDO}{11}{}%
-\contentsline {subsubsection}{\numberline {3.1.1}Modo estático}{11}{}%
+\contentsline {section}{\numberline {3}Simulaciones}{12}{}%
+\contentsline {subsection}{\numberline {3.1}Simulaciones del regulador lineal LDO}{12}{}%
+\contentsline {subsubsection}{\numberline {3.1.1}Modo estático}{12}{}%
 \contentsline {paragraph}{Ganancias de lazo: }{12}{}%
 \contentsline {paragraph}{Estabilización de tensión: }{14}{}%
 \contentsline {paragraph}{Regulación de Linea:}{15}{}%
