@@ -1815,7 +1815,7 @@
 	(footprint "Connector_PinHeader_2.00mm:PinHeader_1x01_P2.00mm_Vertical"
 		(layer "F.Cu")
 		(uuid "268a96ea-b8c5-4f56-be80-7e15ecffc9d0")
-		(at 83.905 33)
+		(at 89.5 33)
 		(descr "Through hole straight pin header, 1x01, 2.00mm pitch, single row")
 		(tags "Through hole pin header THT 1x01 2.00mm single row")
 		(property "Reference" "V_voltage_test1"
@@ -1875,7 +1875,6 @@
 			)
 		)
 		(property ki_fp_filters "Connector*:*_1x??_*")
-		(path "/becabc1f-c814-40fc-95bd-8ea85e9bdf34")
 		(sheetname "/")
 		(sheetfile "Prueba.kicad_sch")
 		(units
@@ -3767,7 +3766,7 @@
 	(footprint "Connector_PinHeader_2.00mm:PinHeader_1x01_P2.00mm_Vertical"
 		(layer "F.Cu")
 		(uuid "64a1d4ac-cd46-4872-9525-5fb2e0f45db1")
-		(at 90 33)
+		(at 77.5 32.5)
 		(descr "Through hole straight pin header, 1x01, 2.00mm pitch, single row")
 		(tags "Through hole pin header THT 1x01 2.00mm single row")
 		(property "Reference" "V_ref_test1"
@@ -3827,7 +3826,6 @@
 			)
 		)
 		(property ki_fp_filters "Connector*:*_1x??_*")
-		(path "/ff548186-abac-4e93-b9e9-72b817d4ea05")
 		(sheetname "/")
 		(sheetfile "Prueba.kicad_sch")
 		(units
@@ -4606,7 +4604,7 @@
 	(footprint "Connector_PinHeader_2.00mm:PinHeader_1x01_P2.00mm_Vertical"
 		(layer "F.Cu")
 		(uuid "7a0d3887-ffde-4c10-8c85-7bf36626da6a")
-		(at 102.19 33)
+		(at 96.0675 33)
 		(descr "Through hole straight pin header, 1x01, 2.00mm pitch, single row")
 		(tags "Through hole pin header THT 1x01 2.00mm single row")
 		(property "Reference" "V_current_test1"
@@ -4666,7 +4664,6 @@
 			)
 		)
 		(property ki_fp_filters "Connector*:*_1x??_*")
-		(path "/2e95c866-d057-4871-8c41-9c80809c0c48")
 		(sheetname "/")
 		(sheetfile "Prueba.kicad_sch")
 		(units
@@ -4836,7 +4833,7 @@
 	(footprint "Connector_PinHeader_2.00mm:PinHeader_1x01_P2.00mm_Vertical"
 		(layer "F.Cu")
 		(uuid "7a624920-6169-4347-91ef-c0f36351bf4b")
-		(at 96.095 33)
+		(at 83.9325 32.5)
 		(descr "Through hole straight pin header, 1x01, 2.00mm pitch, single row")
 		(tags "Through hole pin header THT 1x01 2.00mm single row")
 		(property "Reference" "V_ref_c_test1"
@@ -4896,7 +4893,6 @@
 			)
 		)
 		(property ki_fp_filters "Connector*:*_1x??_*")
-		(path "/c373a2a4-782c-4bf9-81fe-6f61893ada3a")
 		(sheetname "/")
 		(sheetfile "Prueba.kicad_sch")
 		(units
@@ -8983,7 +8979,7 @@
 	(footprint "Connector_PinHeader_2.00mm:PinHeader_1x01_P2.00mm_Vertical"
 		(layer "F.Cu")
 		(uuid "c69b243e-147f-4c16-99d5-c5fec6ed37b8")
-		(at 71.715 33)
+		(at 69 33)
 		(descr "Through hole straight pin header, 1x01, 2.00mm pitch, single row")
 		(tags "Through hole pin header THT 1x01 2.00mm single row")
 		(property "Reference" "GND1"
@@ -9974,16 +9970,16 @@
 			)
 		)
 	)
-	(footprint "Connector_PinHeader_2.00mm:PinHeader_1x01_P2.00mm_Vertical"
+	(footprint "Connector_PinHeader_2.00mm:PinHeader_1x02_P2.00mm_Vertical"
 		(layer "F.Cu")
 		(uuid "dfcd7f68-0e47-4d77-946c-afa629433917")
-		(at 77.81 33)
-		(descr "Through hole straight pin header, 1x01, 2.00mm pitch, single row")
-		(tags "Through hole pin header THT 1x01 2.00mm single row")
+		(at 102.5 33 90)
+		(descr "Through hole straight pin header, 1x02, 2.00mm pitch, single row")
+		(tags "Through hole pin header THT 1x02 2.00mm single row")
 		(property "Reference" "V_Rs_test1"
-			(at 0 -2.11 0)
+			(at 0 -2.11 90)
 			(layer "F.SilkS")
-			(uuid "54c0e6e6-2541-4237-95a3-045b8dfc98af")
+			(uuid "aac85bd1-3973-4426-a8d5-91b9179e0d13")
 			(effects
 				(font
 					(size 1 1)
@@ -9992,9 +9988,9 @@
 			)
 		)
 		(property "Value" "V_Rs_test"
-			(at 0 2.11 0)
+			(at 0 4.11 90)
 			(layer "F.Fab")
-			(uuid "e2738b01-25d9-4ceb-acad-5b8fdab94c49")
+			(uuid "d4f473db-f9ab-4bc0-81ec-7aa38867aaa8")
 			(effects
 				(font
 					(size 1 1)
@@ -10003,10 +9999,10 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 0 0 0)
+			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "c7519627-986c-480e-a3fc-59b09b748b41")
+			(uuid "2dbe9350-198b-44d7-b923-d9f2003596f0")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10014,10 +10010,10 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x02, script generated"
-			(at 0 0 0)
+			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "0891c60c-5f6e-4859-95a8-fdabcab88655")
+			(uuid "5c28ef11-aff4-4e1c-9103-bed062cb4614")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10025,7 +10021,7 @@
 			)
 		)
 		(property "KiLib_Generator" "connector/pin_header_socket"
-			(at 0 0 0)
+			(at 0 0 90)
 			(layer "F.SilkS")
 			(hide yes)
 			(uuid "c01253e2-1541-4634-a9c3-1b28337f2655")
@@ -10069,14 +10065,14 @@
 			(uuid "9e554596-503c-491c-9bc9-6f181a7a3a78")
 		)
 		(fp_line
-			(start -1.11 1)
-			(end -1.11 1.11)
+			(start 1.11 1)
+			(end 1.11 3.11)
 			(stroke
 				(width 0.12)
 				(type solid)
 			)
 			(layer "F.SilkS")
-			(uuid "8e6234c6-57b4-48d4-9ca9-73308f804ebb")
+			(uuid "22ec3ed1-db24-4dcf-93e3-937c473ef89e")
 		)
 		(fp_line
 			(start -1.11 1)
@@ -10089,8 +10085,18 @@
 			(uuid "079ddc3b-1a14-4c37-bd74-16c410abeef5")
 		)
 		(fp_line
-			(start -1.11 1.11)
-			(end 1.11 1.11)
+			(start -1.11 1)
+			(end -1.11 3.11)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "8e6234c6-57b4-48d4-9ca9-73308f804ebb")
+		)
+		(fp_line
+			(start -1.11 3.11)
+			(end 1.11 3.11)
 			(stroke
 				(width 0.12)
 				(type solid)
@@ -10098,19 +10104,9 @@
 			(layer "F.SilkS")
 			(uuid "4abac139-d98c-4b65-8e30-98a59f385662")
 		)
-		(fp_line
-			(start 1.11 1)
-			(end 1.11 1.11)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(layer "F.SilkS")
-			(uuid "22ec3ed1-db24-4dcf-93e3-937c473ef89e")
-		)
 		(fp_rect
 			(start -1.5 -1.5)
-			(end 1.5 1.5)
+			(end 1.5 3.5)
 			(stroke
 				(width 0.05)
 				(type solid)
@@ -10120,24 +10116,14 @@
 			(uuid "c9e0ae62-fa85-4338-b558-15a55105ea20")
 		)
 		(fp_line
-			(start -1 -0.5)
-			(end -0.5 -1)
+			(start 1 -1)
+			(end 1 3)
 			(stroke
 				(width 0.1)
 				(type solid)
 			)
 			(layer "F.Fab")
-			(uuid "19b0f4ef-0723-4fe4-a0c8-04837aae0281")
-		)
-		(fp_line
-			(start -1 1)
-			(end -1 -0.5)
-			(stroke
-				(width 0.1)
-				(type solid)
-			)
-			(layer "F.Fab")
-			(uuid "4850b451-7d62-416e-9eae-6d191ef1de7b")
+			(uuid "690fa9e1-541d-4945-81da-61f8fe2ebf7a")
 		)
 		(fp_line
 			(start -0.5 -1)
@@ -10150,18 +10136,18 @@
 			(uuid "53a043aa-7671-4abd-b2a2-9550c1b02814")
 		)
 		(fp_line
-			(start 1 -1)
-			(end 1 1)
+			(start -1 -0.5)
+			(end -0.5 -1)
 			(stroke
 				(width 0.1)
 				(type solid)
 			)
 			(layer "F.Fab")
-			(uuid "690fa9e1-541d-4945-81da-61f8fe2ebf7a")
+			(uuid "19b0f4ef-0723-4fe4-a0c8-04837aae0281")
 		)
 		(fp_line
-			(start 1 1)
-			(end -1 1)
+			(start 1 3)
+			(end -1 3)
 			(stroke
 				(width 0.1)
 				(type solid)
@@ -10169,8 +10155,18 @@
 			(layer "F.Fab")
 			(uuid "9c51d1dc-d40f-467c-9876-b1374cff7aae")
 		)
+		(fp_line
+			(start -1 3)
+			(end -1 -0.5)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(layer "F.Fab")
+			(uuid "4850b451-7d62-416e-9eae-6d191ef1de7b")
+		)
 		(fp_text user "${REFERENCE}"
-			(at 0 0 90)
+			(at 0 1 0)
 			(layer "F.Fab")
 			(uuid "f6015ac7-4a79-41fb-ac76-b7fb05a20213")
 			(effects
@@ -10181,7 +10177,7 @@
 			)
 		)
 		(pad "1" thru_hole rect
-			(at 0 0)
+			(at 0 0 90)
 			(size 1.35 1.35)
 			(drill 0.8)
 			(layers "*.Cu" "*.Mask")
@@ -10191,8 +10187,19 @@
 			(pintype "passive")
 			(uuid "3dc25ca7-3804-4f48-b10a-dfcafb3d6d00")
 		)
+		(pad "2" thru_hole circle
+			(at 0 2 90)
+			(size 1.35 1.35)
+			(drill 0.8)
+			(layers "*.Cu" "*.Mask")
+			(remove_unused_layers no)
+			(net "-V_Rs")
+			(pinfunction "Pin_2_2")
+			(pintype "passive")
+			(uuid "52a36c3d-5c10-4add-82d1-447f22215ac9")
+		)
 		(embedded_fonts no)
-		(model "${KICAD10_3DMODEL_DIR}/Connector_PinHeader_2.00mm.3dshapes/PinHeader_1x01_P2.00mm_Vertical.step"
+		(model "${KICAD10_3DMODEL_DIR}/Connector_PinHeader_2.00mm.3dshapes/PinHeader_1x02_P2.00mm_Vertical.step"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -11649,9 +11656,68 @@
 			)
 		)
 	)
+	(gr_poly
+		(pts
+			(xy 157.228511 105.5) (xy 158.953099 103.750185) (xy 160.728511 105.5)
+		)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(fill yes)
+		(layer "Cmts.User")
+		(uuid "a6ba49f3-7d8c-4d6b-8a6f-93a89fa9dffc")
+	)
+	(gr_poly
+		(pts
+			(xy 165 105.249815) (xy 166.724588 103.5) (xy 168.5 105.249815)
+		)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(fill yes)
+		(layer "Cmts.User")
+		(uuid "8cd25653-ab9b-43f1-b2d6-b02e91edae64")
+	)
+	(gr_poly
+		(pts
+			(xy 165.724588 99.750185) (xy 164 101.5) (xy 162.224588 99.750185)
+		)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(fill yes)
+		(layer "Cmts.User")
+		(uuid "c0e81e94-98fe-4250-a624-8c4c9fd098b7")
+	)
+	(gr_poly
+		(pts
+			(xy 173.724588 100.250185) (xy 172 102) (xy 170.224588 100.250185)
+		)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(fill yes)
+		(layer "Cmts.User")
+		(uuid "e852e4cf-606f-4381-98ea-7ed646ee6aaf")
+	)
 	(gr_rect
-		(start 69 25.32202)
-		(end 106.930422 38)
+		(start 65.5 25)
+		(end 72 38)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(fill no)
+		(layer "Cmts.User")
+		(uuid "92a91e95-4acb-4f1e-9fd5-5ab872c7d189")
+	)
+	(gr_rect
+		(start 72 25)
+		(end 106.930422 37.83899)
 		(stroke
 			(width 0.2)
 			(type solid)
@@ -11704,6 +11770,36 @@
 		(layer "Cmts.User")
 		(uuid "84f1fbcb-cfef-4da3-b52c-3a0eaa9d5494")
 	)
+	(gr_line
+		(start 155 103.750185)
+		(end 155 106)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "Cmts.User")
+		(uuid "d56ae52d-ae21-40fd-9def-ff0d81a84ecd")
+	)
+	(gr_line
+		(start 158.953099 103.750185)
+		(end 155 103.750185)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "Cmts.User")
+		(uuid "25e9c7bb-20c6-4a28-adc0-863f02115b2e")
+	)
+	(gr_line
+		(start 160.5 102)
+		(end 160.5 99.5)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(layer "Cmts.User")
+		(uuid "975fb42f-8a91-4bd7-a2b0-ec48f6fff3f9")
+	)
 	(gr_rect
 		(start 162 62.263305)
 		(end 183 78.736694)
@@ -11715,6 +11811,36 @@
 		(layer "Cmts.User")
 		(uuid "d73b7321-f1f3-46e2-ae4d-e2ba346f9cb3")
 	)
+	(gr_line
+		(start 164 101.5)
+		(end 164 102)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(layer "Cmts.User")
+		(uuid "5d22587a-60c8-46ce-b3ce-40fe34507577")
+	)
+	(gr_line
+		(start 164 102)
+		(end 160.5 102)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(layer "Cmts.User")
+		(uuid "ec2521ae-3e92-41d6-858b-fd5c536c8da8")
+	)
+	(gr_line
+		(start 166.724588 103.5)
+		(end 170.5 103.5)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "Cmts.User")
+		(uuid "e52e7dea-b97c-4994-8ab8-e97840921ee2")
+	)
 	(gr_rect
 		(start 169.509604 19.907961)
 		(end 199.351572 45.625121)
@@ -11725,6 +11851,56 @@
 		(fill no)
 		(layer "Cmts.User")
 		(uuid "f60f9b9a-3aa3-47b4-9566-359735ead382")
+	)
+	(gr_line
+		(start 170.5 105.5)
+		(end 170.5 103.5)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "Cmts.User")
+		(uuid "270ab697-6b83-4cc4-8415-6ffa2cabac75")
+	)
+	(gr_line
+		(start 172 102)
+		(end 172 103)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "Cmts.User")
+		(uuid "77b7be69-fe3b-4910-ada2-eb73094ddcf7")
+	)
+	(gr_line
+		(start 172 103)
+		(end 173 103)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "Cmts.User")
+		(uuid "7d32dcc1-6bcc-4c0f-b47d-587dcd78771d")
+	)
+	(gr_line
+		(start 173 103)
+		(end 173 105.5)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "Cmts.User")
+		(uuid "1828683b-7cd5-476b-8df8-2d0a52ac5503")
+	)
+	(gr_line
+		(start 173 105.5)
+		(end 173 106)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "Cmts.User")
+		(uuid "65cff46f-5169-41f7-af0a-a0193c7794cc")
 	)
 	(gr_rect
 		(start 189 50)
@@ -11750,7 +11926,7 @@
 	)
 	(gr_rect
 		(start 240.509604 73.749757)
-		(end 256.988911 82.02209)
+		(end 253.938865 86.066656)
 		(stroke
 			(width 0.2)
 			(type solid)
@@ -11771,7 +11947,7 @@
 		(uuid "615fe17b-5741-4320-a6a1-472d4b6c5ab8")
 	)
 	(gr_text "Tension de referencia para lazo de tension\nQ1\nR1,R2\nTL431\n\nTension de referencia lazo de corriente\nLM324 U4B, U4C, U4D\nR17,R18,R19,R20,R21,R22,R23,R24\n\nLazo regulador de corriente:\nLM324 UA\nR12, R9 , R8 , R7 , Rs1 , R11, R10\n\nLazo reg de tension\nR6, R5\n\n\nAmplificador aT\nQ3,Q2,Q4,Q5,Q6,Q7\nR13,R3,R4\n\nAmplificador aC\nQ14,Q18,Q15,Q17,Q16\n\n\n\nConmutador analogico\nR25,R26,R27,R28\nQ9,Q11,Q10,Q12\n\nlimitador de corriente \nQ13, Q19\n\nTransistor de Paso\nQ8\n\n"
-		(at 19.5 106 0)
+		(at 16.785 106 0)
 		(layer "Cmts.User")
 		(uuid "a96572a8-eb90-4164-a89c-f5b16c52ec88")
 		(effects
@@ -11783,10 +11959,36 @@
 			(justify left bottom)
 		)
 	)
-	(gr_text "Tensiónes de referencian"
-		(at 76.5 29 0)
+	(gr_text "GND\n"
+		(at 66.5 27.5 0)
+		(layer "Cmts.User")
+		(uuid "c29d764a-0785-48bf-bb7f-69337ef67f8d")
+		(effects
+			(font
+				(size 1.5 1.5)
+				(thickness 0.3)
+				(bold yes)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "Tensiónes de Test\n"
+		(at 73 27.5 0)
 		(layer "Cmts.User")
 		(uuid "0fd65cc6-0052-45c1-8868-8d6040357cef")
+		(effects
+			(font
+				(size 1.5 1.5)
+				(thickness 0.3)
+				(bold yes)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "V_ref_t\n\n"
+		(at 74 38.5 0)
+		(layer "Cmts.User")
+		(uuid "d4328802-9b25-4881-a5e0-6d880625d205")
 		(effects
 			(font
 				(size 1.5 1.5)
@@ -11813,6 +12015,58 @@
 		(at 77.5 44 0)
 		(layer "Cmts.User")
 		(uuid "20feae45-c0e2-4d47-b587-28717349f69d")
+		(effects
+			(font
+				(size 1.5 1.5)
+				(thickness 0.3)
+				(bold yes)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "V_ref_C\n\n"
+		(at 80 33 0)
+		(layer "Cmts.User")
+		(uuid "57755128-ef49-4750-8d56-c2526f17ab44")
+		(effects
+			(font
+				(size 1.5 1.5)
+				(thickness 0.3)
+				(bold yes)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "Vvoltage\n"
+		(at 85 36.5 0)
+		(layer "Cmts.User")
+		(uuid "f9571758-bbc1-4191-b3d5-1ef792e8032b")
+		(effects
+			(font
+				(size 1.5 1.5)
+				(thickness 0.3)
+				(bold yes)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "Vcurrent\n"
+		(at 91.5 31 0)
+		(layer "Cmts.User")
+		(uuid "b6d1e853-6f55-4e88-8cf3-0912ffdc79fd")
+		(effects
+			(font
+				(size 1.5 1.5)
+				(thickness 0.3)
+				(bold yes)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "Vrs"
+		(at 102 36.5 0)
+		(layer "Cmts.User")
+		(uuid "4972736e-c66c-4e01-9728-bc1724916a72")
 		(effects
 			(font
 				(size 1.5 1.5)
