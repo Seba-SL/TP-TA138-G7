@@ -1799,13 +1799,13 @@
 	(footprint "Connector_PinHeader_2.00mm:PinHeader_1x01_P2.00mm_Vertical"
 		(layer "F.Cu")
 		(uuid "268a96ea-b8c5-4f56-be80-7e15ecffc9d0")
-		(at 120.9325 109)
+		(at 118.5 107.5)
 		(descr "Through hole straight pin header, 1x01, 2.00mm pitch, single row")
 		(tags "Through hole pin header THT 1x01 2.00mm single row")
-		(property "Reference" "V_voltage_test1"
-			(at 0 -2.11 0)
+		(property "Reference" "V_voltage"
+			(at 0 4.5 0)
 			(layer "F.SilkS")
-			(uuid "c7e88826-c1a9-4f8c-929d-2d84cf865b91")
+			(uuid "6a235f3e-4887-435d-9a35-98d356ca5bea")
 			(effects
 				(font
 					(size 1 1)
@@ -1816,7 +1816,7 @@
 		(property "Value" "V_voltage_test"
 			(at 0 2.11 0)
 			(layer "F.Fab")
-			(uuid "e48b65f8-5644-4f71-86fb-bb7bac2ae48f")
+			(uuid "44e81e4d-1bb2-49be-9858-b0abc85c82f8")
 			(effects
 				(font
 					(size 1 1)
@@ -1828,7 +1828,7 @@
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "369be4a5-c4e1-4a37-8c9c-1f00dc704898")
+			(uuid "7b93aca1-650c-47d0-b75b-ecb2a7f107b6")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1839,7 +1839,7 @@
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "0fae5b61-f612-493c-a17d-08ed27c716ba")
+			(uuid "334631c1-058d-4619-af29-5fe6c749ae88")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2255,13 +2255,13 @@
 	(footprint "Package_TO_SOT_THT:TO-92_Inline"
 		(layer "F.Cu")
 		(uuid "39d91d86-b0e4-43f4-b2ee-4610f952d226")
-		(at 81 34 -90)
+		(at 84.588281 33.23 -90)
 		(descr "TO-92 leads in-line, narrow, oval pads, drill 0.75mm (see NXP sot054_po.pdf)")
 		(tags "to-92 sc-43 sc-43a sot54 PA33 transistor")
 		(property "Reference" "U1"
 			(at 1.27 -3.56 90)
 			(layer "F.SilkS")
-			(uuid "367dfa8f-bc76-4a07-aa5b-9520b66ca63b")
+			(uuid "dc44b409-395c-4de6-a8fd-1889d4be5bfc")
 			(effects
 				(font
 					(size 1 1)
@@ -2272,7 +2272,7 @@
 		(property "Value" "TL431LP"
 			(at 1.27 2.79 90)
 			(layer "F.Fab")
-			(uuid "8955cb2c-16a9-4c5a-94c7-99f3c9049ffa")
+			(uuid "bcf5c683-913a-4af8-b561-bf91515e1933")
 			(effects
 				(font
 					(size 1 1)
@@ -2285,7 +2285,7 @@
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "986712db-3aba-4b09-b262-d0db1bcc84ff")
+			(uuid "39264157-df77-40aa-aa96-78b1ca810396")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2298,7 +2298,7 @@
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "b66f6137-ac68-4cf2-96e8-4692c892f096")
+			(uuid "eac18076-a6f7-43a6-ad1e-023d16456b35")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2673,11 +2673,11 @@
 	(footprint "Connector_PinHeader_2.00mm:PinHeader_1x02_P2.00mm_Vertical"
 		(layer "F.Cu")
 		(uuid "3a815cf8-afd0-443c-a07f-c71168840947")
-		(at 162.158449 106.71463)
+		(at 156.158449 106.71463)
 		(descr "Through hole straight pin header, 1x02, 2.00mm pitch, single row")
 		(tags "Through hole pin header THT 1x02 2.00mm single row")
-		(property "Reference" "Vo1"
-			(at 0 -2.11 0)
+		(property "Reference" "Vo"
+			(at 2.841551 1.28537 180)
 			(layer "F.SilkS")
 			(uuid "1597a74e-8161-41b7-92e1-7197e240a819")
 			(effects
@@ -3750,13 +3750,13 @@
 	(footprint "Connector_PinHeader_2.00mm:PinHeader_1x01_P2.00mm_Vertical"
 		(layer "F.Cu")
 		(uuid "64a1d4ac-cd46-4872-9525-5fb2e0f45db1")
-		(at 108.9325 108.5)
+		(at 99 107.5)
 		(descr "Through hole straight pin header, 1x01, 2.00mm pitch, single row")
 		(tags "Through hole pin header THT 1x01 2.00mm single row")
-		(property "Reference" "V_ref_test1"
-			(at 0 -2.11 0)
+		(property "Reference" "V_ref_t"
+			(at -1.5675 4.5 0)
 			(layer "F.SilkS")
-			(uuid "094aa2ec-af16-4d1c-a034-b116acd4284e")
+			(uuid "7d827564-05c2-49d2-af7e-b6ceb905f71c")
 			(effects
 				(font
 					(size 1 1)
@@ -3767,7 +3767,7 @@
 		(property "Value" "V_ref_test"
 			(at 0 2.11 0)
 			(layer "F.Fab")
-			(uuid "6be0593b-a3f2-43d4-abad-ca805dcd3ad2")
+			(uuid "c611c9f6-5c67-42dd-9160-8fb01e5f1c80")
 			(effects
 				(font
 					(size 1 1)
@@ -3779,7 +3779,7 @@
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "e71beca5-c7ff-406b-92f8-ca078735791f")
+			(uuid "b40e30a7-d737-4ff8-8371-a83edced72bf")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3790,7 +3790,7 @@
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "b89d3553-5d10-45da-8732-4b1bbd85722b")
+			(uuid "796735f6-9ec8-4a53-8a5a-ceac36ca1674")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3942,7 +3942,7 @@
 			(uuid "5e7b15cc-43f7-43cd-b510-c278bfd62a37")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 0 90)
+			(at 0 3.5 180)
 			(layer "F.Fab")
 			(uuid "5f0a4164-fff1-4c68-88de-f02095562bca")
 			(effects
@@ -4397,11 +4397,11 @@
 	(footprint "Connector_PinHeader_2.00mm:PinHeader_1x02_P2.00mm_Vertical"
 		(layer "F.Cu")
 		(uuid "7375cda8-5b67-47f5-a952-40d1217b3487")
-		(at 76.5 108.5)
+		(at 80.02821 108.808279)
 		(descr "Through hole straight pin header, 1x02, 2.00mm pitch, single row")
 		(tags "Through hole pin header THT 1x02 2.00mm single row")
-		(property "Reference" "V_in1"
-			(at 0 -2.11 0)
+		(property "Reference" "Vin"
+			(at -3 0.5 0)
 			(layer "F.SilkS")
 			(uuid "1f018a0d-fc18-4bdd-860e-63e73b491394")
 			(effects
@@ -4829,13 +4829,13 @@
 	(footprint "Connector_PinHeader_2.00mm:PinHeader_1x01_P2.00mm_Vertical"
 		(layer "F.Cu")
 		(uuid "7a0d3887-ffde-4c10-8c85-7bf36626da6a")
-		(at 127.5 109)
+		(at 130.5 107.5)
 		(descr "Through hole straight pin header, 1x01, 2.00mm pitch, single row")
 		(tags "Through hole pin header THT 1x01 2.00mm single row")
-		(property "Reference" "V_current_test1"
-			(at 0 -2.11 0)
+		(property "Reference" "V_current"
+			(at 1 4.5 0)
 			(layer "F.SilkS")
-			(uuid "f8f34600-8002-488d-8d19-df077785a3e2")
+			(uuid "b69c3017-ef7a-4fee-ab13-6bfbfc8e7f02")
 			(effects
 				(font
 					(size 1 1)
@@ -4846,7 +4846,7 @@
 		(property "Value" "V_current_test"
 			(at 0 2.11 0)
 			(layer "F.Fab")
-			(uuid "f164d8dc-3ba7-4239-9181-4bd4f13ce263")
+			(uuid "2f427ae1-10ab-4011-910b-8f0e17ad3c65")
 			(effects
 				(font
 					(size 1 1)
@@ -4858,7 +4858,7 @@
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "28c51251-8da9-41c5-9bf0-edefb6941f1e")
+			(uuid "0c04a999-197c-4072-a37f-e2a9f5bf4834")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4869,7 +4869,7 @@
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "733f2ca3-d446-44b0-bb21-f2e343e50224")
+			(uuid "7d3f4ad8-b17b-447d-bdea-5e53fb59bb86")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5021,7 +5021,7 @@
 			(uuid "88a6b84a-d3c0-442c-806b-362f6d519948")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 0 90)
+			(at -0.5 -3 180)
 			(layer "F.Fab")
 			(uuid "a31d7e12-1e16-4fb8-a3b6-377ca9890660")
 			(effects
@@ -5058,13 +5058,13 @@
 	(footprint "Connector_PinHeader_2.00mm:PinHeader_1x01_P2.00mm_Vertical"
 		(layer "F.Cu")
 		(uuid "7a624920-6169-4347-91ef-c0f36351bf4b")
-		(at 115.365 108.5)
+		(at 108 107.5)
 		(descr "Through hole straight pin header, 1x01, 2.00mm pitch, single row")
 		(tags "Through hole pin header THT 1x01 2.00mm single row")
-		(property "Reference" "V_ref_c_test1"
-			(at 0 -2.11 0)
+		(property "Reference" "V_ref_c"
+			(at 1.5675 4.5 0)
 			(layer "F.SilkS")
-			(uuid "e447c20b-d189-4389-ac75-9fa53cdbd5b2")
+			(uuid "4dbb0937-a4f9-4b62-acca-ba80dd904d79")
 			(effects
 				(font
 					(size 1 1)
@@ -5075,7 +5075,7 @@
 		(property "Value" "V_ref_c_test"
 			(at 0 2.11 0)
 			(layer "F.Fab")
-			(uuid "5edee4f2-032d-4b78-b6fc-2f6a0d646e0e")
+			(uuid "12f5de81-892c-4bad-8bf1-119ff107e7c3")
 			(effects
 				(font
 					(size 1 1)
@@ -5087,7 +5087,7 @@
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "2534bf16-501f-406a-9eba-ad5d5a685ba4")
+			(uuid "b79ab9a6-334b-41ef-85a7-bd695159aec4")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5098,7 +5098,7 @@
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "3cffda21-cb57-4054-9ae8-c74af51603eb")
+			(uuid "f15ba583-9168-4695-bc41-ae0b2f979f1e")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5514,13 +5514,13 @@
 	(footprint "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal"
 		(layer "F.Cu")
 		(uuid "7e92ddbb-dc45-4dd4-b394-ffcc74128df3")
-		(at 81.36 21.65 -90)
+		(at 84.948281 20.88 -90)
 		(descr "Resistor, Axial_DIN0204 series, Axial, Horizontal, pin pitch=7.62mm, 0.167W, length*diameter=3.6*1.6mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0204 series Axial Horizontal pin pitch 7.62mm 0.167W length 3.6mm diameter 1.6mm")
 		(property "Reference" "R1"
 			(at 3.81 -1.92 90)
 			(layer "F.SilkS")
-			(uuid "cf9b5894-cff5-4d95-9ffa-40aa0f82e13d")
+			(uuid "d5f65159-3dbb-429d-9a25-4e88522fdbdf")
 			(effects
 				(font
 					(size 1 1)
@@ -5531,7 +5531,7 @@
 		(property "Value" "2.2k"
 			(at 3.81 1.92 90)
 			(layer "F.Fab")
-			(uuid "72bf92e3-c491-44bd-a992-377dcc831d46")
+			(uuid "6f477f4c-79be-4d7c-94b6-e96cc81c1851")
 			(effects
 				(font
 					(size 1 1)
@@ -5543,7 +5543,7 @@
 			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "d57e1d71-e038-4dd4-857e-64114a72304c")
+			(uuid "ac694902-4597-4b03-9ac1-0177d584bdaf")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5554,7 +5554,7 @@
 			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "fa16789e-845b-4315-8a22-6e19b4433768")
+			(uuid "33c8e82f-1261-4f79-93c1-494b28dc9aae")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5705,13 +5705,13 @@
 	(footprint "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal"
 		(layer "F.Cu")
 		(uuid "7f981b10-416a-42c7-a8ae-312a8d68a3ec")
-		(at 75.411719 31.46 -90)
+		(at 79 30.69 -90)
 		(descr "Resistor, Axial_DIN0204 series, Axial, Horizontal, pin pitch=7.62mm, 0.167W, length*diameter=3.6*1.6mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0204 series Axial Horizontal pin pitch 7.62mm 0.167W length 3.6mm diameter 1.6mm")
 		(property "Reference" "R2"
-			(at 3.81 -1.92 90)
+			(at 4.04 1.911719 90)
 			(layer "F.SilkS")
-			(uuid "a767466a-577c-48ab-a6e7-a88e8b19e9c6")
+			(uuid "89fe89cb-ba34-4354-9a60-e078ae7b5dd7")
 			(effects
 				(font
 					(size 1 1)
@@ -5722,7 +5722,7 @@
 		(property "Value" "10k"
 			(at 3.81 1.92 90)
 			(layer "F.Fab")
-			(uuid "e1269da2-bb0c-4c1b-b2c2-82622db9ddd9")
+			(uuid "74c7c5ca-077c-4c5d-a989-5008a3e9606b")
 			(effects
 				(font
 					(size 1 1)
@@ -5734,7 +5734,7 @@
 			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "ce86d469-2525-4e26-894d-23c230e36ad8")
+			(uuid "5277e740-002a-4373-8d95-6c375f385b3e")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5745,7 +5745,7 @@
 			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "117efddb-e0fe-43a1-a39e-b49436f2e230")
+			(uuid "b1a403ef-6cf0-4de1-8960-4941da827c29")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7532,7 +7532,7 @@
 	(footprint "Package_TO_SOT_THT:TO-92_Inline"
 		(layer "F.Cu")
 		(uuid "a56bedde-26da-4825-931b-cdb296310bdd")
-		(at 75.411719 26.73 90)
+		(at 79 25.96 90)
 		(descr "TO-92 leads in-line, narrow, oval pads, drill 0.75mm (see NXP sot054_po.pdf)")
 		(tags "to-92 sc-43 sc-43a sot54 PA33 transistor")
 		(property "Reference" "Q1"
@@ -9204,11 +9204,11 @@
 	(footprint "Connector_PinHeader_2.00mm:PinHeader_1x01_P2.00mm_Vertical"
 		(layer "F.Cu")
 		(uuid "c69b243e-147f-4c16-99d5-c5fec6ed37b8")
-		(at 100.4325 109)
+		(at 90.5 107.5)
 		(descr "Through hole straight pin header, 1x01, 2.00mm pitch, single row")
 		(tags "Through hole pin header THT 1x01 2.00mm single row")
-		(property "Reference" "GND1"
-			(at 0 -2.11 0)
+		(property "Reference" "GND"
+			(at 0 4.5 0)
 			(layer "F.SilkS")
 			(uuid "20a9fbcc-20fd-4043-a64e-0dfa41a0d549")
 			(effects
@@ -10198,13 +10198,13 @@
 	(footprint "Connector_PinHeader_2.00mm:PinHeader_1x02_P2.00mm_Vertical"
 		(layer "F.Cu")
 		(uuid "dfcd7f68-0e47-4d77-946c-afa629433917")
-		(at 133.9325 109 180)
+		(at 142.5 109 180)
 		(descr "Through hole straight pin header, 1x02, 2.00mm pitch, single row")
 		(tags "Through hole pin header THT 1x02 2.00mm single row")
-		(property "Reference" "V_Rs_test1"
-			(at 0 -2.11 0)
+		(property "Reference" "V_Rs"
+			(at 0 -3 0)
 			(layer "F.SilkS")
-			(uuid "af1fdc72-6ec9-42b7-8b51-9639c993d8c8")
+			(uuid "7bc44962-7781-4073-aa53-75db044f6139")
 			(effects
 				(font
 					(size 1 1)
@@ -10215,7 +10215,7 @@
 		(property "Value" "V_Rs_test"
 			(at 0 4.11 0)
 			(layer "F.Fab")
-			(uuid "a274dce9-278f-4496-a081-f0c45f985bed")
+			(uuid "18616fc6-719e-4e9a-bfe2-87fb16c22789")
 			(effects
 				(font
 					(size 1 1)
@@ -10227,7 +10227,7 @@
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "e49e119d-b393-4b14-804e-c7a5c2ebfad8")
+			(uuid "c840275d-031b-4617-8b0e-577f9952fea0")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10238,7 +10238,7 @@
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "3844d679-d9d1-4532-b38e-c138310cc6d6")
+			(uuid "d51525f7-7727-4dbc-8aef-dcf62bc7836e")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10391,7 +10391,7 @@
 			(uuid "19b0f4ef-0723-4fe4-a0c8-04837aae0281")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 1 90)
+			(at -3.5 0 180)
 			(layer "F.Fab")
 			(uuid "f6015ac7-4a79-41fb-ac76-b7fb05a20213")
 			(effects
@@ -11881,6 +11881,71 @@
 			)
 		)
 	)
+	(gr_rect
+		(start 70.5 16.46)
+		(end 89.999999 40.559752)
+		(stroke
+			(width 0.2)
+			(type dash)
+		)
+		(fill no)
+		(layer "F.SilkS")
+		(uuid "02aa02a0-96d5-4ca3-bed3-eb47d7e619d9")
+	)
+	(gr_rect
+		(start 74.47179 100.999999)
+		(end 85.5 114.191722)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.SilkS")
+		(uuid "5a12b1f2-8263-4a1f-bfd8-2e2039a85ccd")
+	)
+	(gr_line
+		(start 79 30.73)
+		(end 75.088281 30.73)
+		(stroke
+			(width 0.5)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "6b808028-a5c7-48f8-b229-ef7d151ab1e9")
+	)
+	(gr_rect
+		(start 86.5 101)
+		(end 93.5 114)
+		(stroke
+			(width 0.2)
+			(type dash_dot)
+		)
+		(fill no)
+		(layer "F.SilkS")
+		(uuid "92a91e95-4acb-4f1e-9fd5-5ab872c7d189")
+	)
+	(gr_rect
+		(start 93.5 101)
+		(end 149.5 114)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.SilkS")
+		(uuid "26501a49-1248-4df1-bbed-373861d85154")
+	)
+	(gr_rect
+		(start 150 100.999999)
+		(end 162.316899 114)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.SilkS")
+		(uuid "4cad4d24-1649-4dda-9b15-5453d435f3d7")
+	)
 	(gr_poly
 		(pts
 			(xy 106.750185 80.775412) (xy 108.5 82.5) (xy 106.750185 84.275412)
@@ -11930,28 +11995,6 @@
 		(uuid "a6ba49f3-7d8c-4d6b-8a6f-93a89fa9dffc")
 	)
 	(gr_rect
-		(start 70.5 16.46)
-		(end 87.551719 41.96)
-		(stroke
-			(width 0.2)
-			(type solid)
-		)
-		(fill no)
-		(layer "Cmts.User")
-		(uuid "02aa02a0-96d5-4ca3-bed3-eb47d7e619d9")
-	)
-	(gr_rect
-		(start 71.44358 101.5)
-		(end 81.5 113.883443)
-		(stroke
-			(width 0.2)
-			(type solid)
-		)
-		(fill no)
-		(layer "Cmts.User")
-		(uuid "5a12b1f2-8263-4a1f-bfd8-2e2039a85ccd")
-	)
-	(gr_rect
 		(start 71.948281 76.532143)
 		(end 99.948281 99.032143)
 		(stroke
@@ -11974,17 +12017,6 @@
 		(uuid "3c2d0a35-e506-4967-b434-a1c9bf058f6d")
 	)
 	(gr_rect
-		(start 96.9325 101)
-		(end 103.4325 114)
-		(stroke
-			(width 0.2)
-			(type solid)
-		)
-		(fill no)
-		(layer "Cmts.User")
-		(uuid "92a91e95-4acb-4f1e-9fd5-5ab872c7d189")
-	)
-	(gr_rect
 		(start 101.750185 74.723694)
 		(end 121.750185 99.275412)
 		(stroke
@@ -11994,17 +12026,6 @@
 		(fill no)
 		(layer "Cmts.User")
 		(uuid "7aa813e4-b578-40d9-aa9c-5ce65627615f")
-	)
-	(gr_rect
-		(start 103.4325 101)
-		(end 138.362922 113.83899)
-		(stroke
-			(width 0.2)
-			(type solid)
-		)
-		(fill no)
-		(layer "Cmts.User")
-		(uuid "26501a49-1248-4df1-bbed-373861d85154")
 	)
 	(gr_line
 		(start 107 94.5)
@@ -12173,17 +12194,6 @@
 		(uuid "142db822-a4de-48fa-886c-faf3dfda45b4")
 	)
 	(gr_rect
-		(start 156 100)
-		(end 168.316899 113.429261)
-		(stroke
-			(width 0.2)
-			(type solid)
-		)
-		(fill no)
-		(layer "Cmts.User")
-		(uuid "4cad4d24-1649-4dda-9b15-5453d435f3d7")
-	)
-	(gr_rect
 		(start 69.633291 15.45256)
 		(end 169.633291 115.45256)
 		(stroke
@@ -12194,10 +12204,23 @@
 		(layer "Edge.Cuts")
 		(uuid "0d4c3ce4-842a-4da8-ae4a-4a9528db71c3")
 	)
-	(gr_text "Tension de referencia para lazo de tension\nQ1\nR1,R2\nTL431\n\nTension de referencia lazo de corriente\nLM324 U4B, U4C, U4D\nR17,R18,R19,R20,R21,R22,R23,R24\n\nLazo regulador de corriente:\nLM324 UA\nR12, R9 , R8 , R7 , Rs1 , R11, R10\n\nLazo reg de tension\nR6, R5\n\n\nAmplificador aT\nQ3,Q2,Q4,Q5,Q6,Q7\nR13,R3,R4\n\nAmplificador aC\nQ14,Q18,Q15,Q17,Q16\n\n\n\nConmutador analogico\nR25,R26,R27,R28\nQ9,Q11,Q10,Q12\n\nlimitador de corriente \nQ13, Q19\n\nTransistor de Paso\nQ8\n\n"
-		(at 16.785 106 0)
-		(layer "Cmts.User")
-		(uuid "a96572a8-eb90-4164-a89c-f5b16c52ec88")
+	(gr_text "Bloque: Vref_t"
+		(at 71 19 0)
+		(layer "F.SilkS")
+		(uuid "20feae45-c0e2-4d47-b587-28717349f69d")
+		(effects
+			(font
+				(size 1.5 1.5)
+				(thickness 0.3)
+				(bold yes)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "Vref_t"
+		(at 71 29.73 0)
+		(layer "F.SilkS")
+		(uuid "4640a6bf-859b-4798-a738-493fed0d0c4d")
 		(effects
 			(font
 				(size 1.5 1.5)
@@ -12208,8 +12231,8 @@
 		)
 	)
 	(gr_text "Entrada\n"
-		(at 72.5 105 0)
-		(layer "Cmts.User")
+		(at 75.5 103.5 0)
+		(layer "F.SilkS")
 		(uuid "ae9008e2-6067-4906-9113-957a5c56abf0")
 		(effects
 			(font
@@ -12220,10 +12243,49 @@
 			(justify left bottom)
 		)
 	)
-	(gr_text "Ref. Vref_t"
-		(at 72.86 18.96 0)
+	(gr_text "GND\n"
+		(at 87.5 103.5 0)
+		(layer "F.SilkS")
+		(uuid "c29d764a-0785-48bf-bb7f-69337ef67f8d")
+		(effects
+			(font
+				(size 1.5 1.5)
+				(thickness 0.3)
+				(bold yes)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "Tensiónes de Testeo\n"
+		(at 107 103.5 0)
+		(layer "F.SilkS")
+		(uuid "0fd65cc6-0052-45c1-8868-8d6040357cef")
+		(effects
+			(font
+				(size 1.5 1.5)
+				(thickness 0.3)
+				(bold yes)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "Salida"
+		(at 153 103.5 0)
+		(layer "F.SilkS")
+		(uuid "8c10dfeb-89f0-44fb-8cd4-0066d88565e7")
+		(effects
+			(font
+				(size 1.5 1.5)
+				(thickness 0.3)
+				(bold yes)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "Tension de referencia para lazo de tension\nQ1\nR1,R2\nTL431\n\nTension de referencia lazo de corriente\nLM324 U4B, U4C, U4D\nR17,R18,R19,R20,R21,R22,R23,R24\n\nLazo regulador de corriente:\nLM324 UA\nR12, R9 , R8 , R7 , Rs1 , R11, R10\n\nLazo reg de tension\nR6, R5\n\n\nAmplificador aT\nQ3,Q2,Q4,Q5,Q6,Q7\nR13,R3,R4\n\nAmplificador aC\nQ14,Q18,Q15,Q17,Q16\n\n\n\nConmutador analogico\nR25,R26,R27,R28\nQ9,Q11,Q10,Q12\n\nlimitador de corriente \nQ13, Q19\n\nTransistor de Paso\nQ8\n\n"
+		(at 16.785 106 0)
 		(layer "Cmts.User")
-		(uuid "20feae45-c0e2-4d47-b587-28717349f69d")
+		(uuid "a96572a8-eb90-4164-a89c-f5b16c52ec88")
 		(effects
 			(font
 				(size 1.5 1.5)
@@ -12259,101 +12321,10 @@
 			(justify left bottom)
 		)
 	)
-	(gr_text "GND\n"
-		(at 97.9325 103.5 0)
-		(layer "Cmts.User")
-		(uuid "c29d764a-0785-48bf-bb7f-69337ef67f8d")
-		(effects
-			(font
-				(size 1.5 1.5)
-				(thickness 0.3)
-				(bold yes)
-			)
-			(justify left bottom)
-		)
-	)
-	(gr_text "Tensiónes de Test\n"
-		(at 104.4325 103.5 0)
-		(layer "Cmts.User")
-		(uuid "0fd65cc6-0052-45c1-8868-8d6040357cef")
-		(effects
-			(font
-				(size 1.5 1.5)
-				(thickness 0.3)
-				(bold yes)
-			)
-			(justify left bottom)
-		)
-	)
-	(gr_text "V_ref_t\n\n"
-		(at 105.4325 114.5 0)
-		(layer "Cmts.User")
-		(uuid "d4328802-9b25-4881-a5e0-6d880625d205")
-		(effects
-			(font
-				(size 1.5 1.5)
-				(thickness 0.3)
-				(bold yes)
-			)
-			(justify left bottom)
-		)
-	)
-	(gr_text "V_ref_C\n\n"
-		(at 111.4325 109 0)
-		(layer "Cmts.User")
-		(uuid "57755128-ef49-4750-8d56-c2526f17ab44")
-		(effects
-			(font
-				(size 1.5 1.5)
-				(thickness 0.3)
-				(bold yes)
-			)
-			(justify left bottom)
-		)
-	)
-	(gr_text "Vvoltage\n"
-		(at 116.4325 112.5 0)
-		(layer "Cmts.User")
-		(uuid "f9571758-bbc1-4191-b3d5-1ef792e8032b")
-		(effects
-			(font
-				(size 1.5 1.5)
-				(thickness 0.3)
-				(bold yes)
-			)
-			(justify left bottom)
-		)
-	)
 	(gr_text "Lazo Tensión\n"
 		(at 118 40.736695 0)
 		(layer "Cmts.User")
 		(uuid "d13d85e9-850c-4d2e-bcf5-5496dd9b78e7")
-		(effects
-			(font
-				(size 1.5 1.5)
-				(thickness 0.3)
-				(bold yes)
-			)
-			(justify left bottom)
-		)
-	)
-	(gr_text "Vcurrent\n"
-		(at 122.9325 107 0)
-		(layer "Cmts.User")
-		(uuid "b6d1e853-6f55-4e88-8cf3-0912ffdc79fd")
-		(effects
-			(font
-				(size 1.5 1.5)
-				(thickness 0.3)
-				(bold yes)
-			)
-			(justify left bottom)
-		)
-	)
-	(gr_text "Vrs"
-		(at 133.4325 112.5 0)
-		(layer "Cmts.User")
-		(uuid "4972736e-c66c-4e01-9728-bc1724916a72")
 		(effects
 			(font
 				(size 1.5 1.5)
@@ -12406,19 +12377,6 @@
 		(at 153.992797 86.500001 0)
 		(layer "Cmts.User")
 		(uuid "b19392bf-f7c6-4177-8717-5ec0981f6535")
-		(effects
-			(font
-				(size 1.5 1.5)
-				(thickness 0.3)
-				(bold yes)
-			)
-			(justify left bottom)
-		)
-	)
-	(gr_text "Salida"
-		(at 159 103.5 0)
-		(layer "Cmts.User")
-		(uuid "8c10dfeb-89f0-44fb-8cd4-0066d88565e7")
 		(effects
 			(font
 				(size 1.5 1.5)
