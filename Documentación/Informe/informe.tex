@@ -1028,7 +1028,149 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 	
 	Debido a que la ganancia de lazo se puede aproximar a un sistema de primer orden, si existe un \textit{polo dominante}, entonces se puede asegurar que no habrá ningun caso en que el circuito oscile.
 	
-	Nuestro análisis, entonces, se dividirá en dos partes: la compensación del lazo de tensión, con ganancia $T_v$, y la compensación del lazo de corriente, con ganancia $T_A$.
+	Nuestro análisis, entonces, se dividirá en dos partes: la compensación del lazo de tensión, con ganancia $T_v$, y la compensación del lazo de corriente, con ganancia $T_A$, partiendo de los gráficos obtenidos en la sección \ref{sec:simulaciones}.(Ganancias de Lazo sin compensación), las figuras \ref{fig:bode_corte_tension} y \ref{fig:bode_corte_corriente}.
+	
+	\textbf{Lazo de tensión:}\\
+	
+	El circuito de lazo de tensión completo incluye el divisor resistivo de ajuste, el amplificador diferencial y la llave electrónica. Teniendo en cuenta el modelo pi para pequeña señal, y la reflexión de Miller, se identifican los nodos potencialmente dominantes de la figura \ref{fig:nodos_lazo_tension}. Notar que la llave electrónica se transforma en dos colectores comunes en serie, con ganancia $|Av| \approx 1$.
+	
+	\begin{figure}[H]
+		\centering
+		\begin{tikzpicture}[transform shape]
+			% Paths, nodes and wires:
+			\node[npn, xscale=0.98, yscale=0.98](N1) at (10, 6.755){} node[anchor=west] at (N1.text){$T_3$};
+			\node[npn, xscale=-0.98, yscale=0.98](N2) at (12, 6.745){} node[anchor=east] at (N2.text){$T_4$};
+			\node[npn, xscale=0.98, yscale=0.98](N3) at (11, 4.755){} node[anchor=west] at (N3.text){$T_5$};
+			\draw (11, 5.509) -| (11, 5.75) -- (10, 5.75) -| (10, 6);
+			\draw (11, 5.75) -- (12, 5.75) -| (12, 6);
+			\node[pnp, xscale=-0.98, yscale=0.98](N4) at (10, 8.495){} node[anchor=east] at (N4.text){$T_1$};
+			\node[pnp, xscale=0.98, yscale=0.98](N5) at (12, 8.495){} node[anchor=west] at (N5.text){$T_2$};
+			\draw (10, 7.509) -- (10, 7.75);
+			\draw (12, 7.5) -| (12, 7.75);
+			\draw (11.177, 8.505) |- (10.823, 8.495);
+			\draw (11.177, 8.5) |- (12, 7.75);
+			\node[pigfetebulk, rotate=90](N6) at (15.23, 9.25){} node[anchor=south] at (N6.text){$T_p$};
+			\draw (13.573, 6.745) to[american resistor, /tikz/circuitikz/bipoles/length=0.840cm, l={$R_4$}] (15.75, 6.75);
+			\draw (13.25, 6.5) to[american resistor, /tikz/circuitikz/bipoles/length=0.840cm, l={$R_5$}] (13.255, 4.323);
+			\draw (13.25, 6.5) -| (13.25, 6.75);
+			\draw (13.255, 4.323) |- (13.25, 4);
+			\draw (16, 6.75) to[american potentiometer, mirror, /tikz/circuitikz/bipoles/length=0.840cm, l={$R_6$}] (16, 4);
+			\draw (15.664, 5.375) -- (15, 5.375);
+			\draw (13.25, 6.75) -- (15, 5.375);
+			\draw (16, 6.75) -- (17, 6.75);
+			\draw (17, 6.75) to[american resistor, /tikz/circuitikz/bipoles/length=1.12cm, l={$R_L$}] (17, 4);
+			\draw (17, 6.75) |- (16, 9.25);
+			\draw (12, 9.25) -- (14.46, 9.25);
+			\draw (15.23, 9.25) -- (14.5, 9.25);
+			\draw (12.823, 6.745) -- (13.573, 6.745);
+			\draw (15.75, 6.75) -- (16, 6.75);
+			\node[circ](N7) at (9, 6.75){} node[anchor=south] at (N7.text){$v_{ref-t}$};
+			\node[circ] at (11, 5.75){};
+			\node[circ] at (10, 7.509){};
+			\node[circ] at (11.177, 8.505){};
+			\node[circ] at (10, 9.25){};
+			\node[circ] at (12, 9.25){};
+			\node[circ] at (12, 7.741){};
+			\node[circ](N8) at (13.25, 6.75){} node[anchor=south] at (N8.text){\textcolor{rgb,255:red,255;green,0;blue,0}{$1$}};
+			\node[circ] at (16, 6.75){};
+			\node[circ] at (17, 6.75){};
+			\draw (12, 9.25) -- (10, 9.25) -- (7, 9.25);
+			\draw (9.177, 6.755) |- (9, 6.75);
+			\node[rground] at (7, 9.25){};
+			\node[rground] at (11, 4){};
+			\node[rground] at (13.25, 4){};
+			\node[rground] at (16, 4){};
+			\node[rground] at (17, 4){};
+			\draw (4, 7.75) to[american resistor, /tikz/circuitikz/bipoles/length=0.840cm, l={$R_2$}] (4, 9.25);
+			\node[npn, xscale=-1](N9) at (4.66, 6.75){} node[anchor=east] at (N9.text){$T_6$};
+			\node[pnp, xscale=-1](N10) at (6, 5.98){} node[anchor=east] at (N10.text){$T_5$};
+			\draw (6, 7.75) to[american resistor, /tikz/circuitikz/bipoles/length=0.840cm, l={$R_3$}] (6, 9.25);
+			\draw (5.5, 6.75) -- (6, 6.75);
+			\draw (6, 7.75) -| (6, 6.75);
+			\draw (4, 7.75) -- (4, 7.52);
+			\draw (4, 4.25) to[american resistor, /tikz/circuitikz/bipoles/length=0.840cm, l={$R_4$}] (4, 5.75);
+			\draw (4, 4.25) -| (4, 4);
+			\node[circ](N11) at (6, 6.75){} node[anchor=west] at (N11.text){\textcolor{rgb,255:red,255;green,0;blue,0}{$3$}};
+			\draw (6.84, 5.98) -| (7, 6);
+			\node[circ](N12) at (3.25, 5.75){} node[anchor=east] at (N12.text){$v_{control}$};
+			\node[circ](N13) at (4, 5.75){} node[anchor=west] at (N13.text){\textcolor{rgb,255:red,255;green,0;blue,0}{$4$}};
+			\draw (10, 7.5) |- (7, 7.5) |- (6.84, 5.98);
+			\node[rground] at (4, 4){};
+			\draw (6, 9.25) -- (7, 9.25);
+			\node[circ] at (6, 9.25){};
+			\draw (4.66, 7.52) -- (4, 7.52);
+			\draw (4, 9.25) -- (6, 9.25);
+			\draw (14.96, 8.27) |- (14.25, 7.75);
+			\draw (3.25, 5.75) -- (4, 5.75);
+			\draw (6, 5.21) -- (6, 4);
+			\node[rground] at (6, 4){};
+			\node[circ](N14) at (14.25, 7.75){} node[anchor=east] at (N14.text){$v_{control}$};
+			\node[circ](N15) at (8, 7.5){} node[anchor=south] at (N15.text){\textcolor{rgb,255:red,255;green,0;blue,0}{$2$}};
+			\node[npn](N16) at (3.34, 6.75){} node[anchor=west] at (N16.text){$T_7$};
+			\draw (3.34, 7.52) -| (4, 7.52);
+			\draw (3.34, 5.98) -| (4, 5.75);
+			\draw (4.66, 5.98) -| (4, 5.75);
+		\end{tikzpicture}
+		\caption{Nodos potencialmente dominantes del lazo de tensión.}
+		\label{fig:nodos_lazo_tension}
+	\end{figure}
+	
+	Dadas las capacidades $C_\pi \approx \SI{10}{pF}$ y $C_\mu \approx \SI{1.7}{pF}$, extraídas de las hojas de datos, se analizan los nodos cualitativamente para buscar, de haber, un nodo dominante:
+	
+	\textbf{1:}\\
+	Sobre el nodo 1 hay dos capacidades parásitas, $C_{\pi}^*$ y $C_\mu^*$, ambas reflejadas según Miller:
+	
+	\begin{equation}
+		C^* = C_{A-B} \cdot (1 - \frac{vb}{va})
+	\end{equation}
+	
+	Al tratarse $T_4$ de un emisor común fuertemente realimentado por $T_5$, con una resistencia de colector equivalente muy chica $\approx 1/gm$, se espera que la tensión de colector sea menor que la de base, conservando $C_\mu^* \approx C_\mu$.
+	Para $C_\pi^*$, se observa una configuración colector común, con ganancia $0 <|A_v| < 1$. Esto resulta en la casi anulación de la misma $C_\pi^* \rightarrow 0$.
+	
+	Como resultado, se espera una frecuencia de corte muy alta, despreciable para el análisis.
+	
+	\textbf{2:}\\
+	En el nodo 2 participan cuatro capacidades, $C_{\pi5}^*$, $C_{\mu5}$, $C_{\mu3}^*$ y $C_{\mu1}^*$.
+	
+	$C_{\pi5}^*$ se encuentra entre los nodos b y c de un seguidor, por lo tanto $C_{\pi5}^* \rightarrow 0$. $C_{\mu3}^*$ y $C_{\mu1}^*$ se encuentran en configuración emisor común invertido, por ende, $|A_v| = 0 \rightarrow C_{\mu}^* = C_{\mu}$. 
+	
+	Es necesario analizar la resistencia asociada al circuito RC equivalente del nodo 2. 
+	Hay tres en paralelo: 
+	$ r_{b3} \approx (r_{\pi 3} + \beta R_3)$, 
+	$ r_{oc3} \to \infty$ 
+	y $ r_{oc1} \approx r_{o1}$, 
+	con un valor máximo de \SI{100}{\kilo\ohm} para la corriente de polarización calculada.
+	
+	El resultado es una constante de tiempo asociada de
+	
+	$$\tau_2 \approx (3\cdot \SI{1.7}{pF}) \cdot (\SI{100}{\kilo\ohm} // \SI{200}{\kilo\ohm}) = \SI{340}{\nano s} \to f_2 \approx \SI{468}{\kilo\hertz}$$
+	
+	\textbf{3:}\\
+	En el nodo 3 participan tres capacidades, $C_{\pi6}^*$, $C_{\mu6}^*$ y $C_{\pi5}^*$.
+	
+	$C_{\pi5}^*$ se encuentra en configuración seguidor inveritido, por ello $|A_v| \to 1$ y $C_{\pi5}^* \to 0$. $C_{\pi6}^*$ se encuentra en configuración seguidor realimentado, se espera que la capacidad $C_{\pi3}^* \to 0$. Finalmente, $C_{\mu6}^*$ se encuentra en configuración emisor común realimentado, con ganancia $|A_v| \approx \frac{gm_3 \cdot R2}{1+gm_3\cdot R4} \approx 0.01$.
+	
+	La resistencia sociada al nodo será $R_3$, por ser ambas resistencias $rb_3$ y $rb_4$ muy superiores.
+	
+	El resultado es una constante de tiempo asociada de
+
+	$$\tau_3 \approx (\SI{1.7}{pF}) \cdot (\SI{10}{\kilo\ohm}) = \SI{17}{\nano s} \to f_2 \approx \SI{9}{\mega\hertz}$$
+	
+	\textbf{4:}\\
+	Finalmente, el nodo 4 tiene cuatro capacidades parásitas asociadas: $C_{\pi6}^*$, $C_{\pi7}^*$ , $C_{\pi tp}$ y $C_{\mu tp}^*$.
+	
+	$C_{\pi6}^* = C_{\pi7}^*$ por simetría de circuito, y se encuentran en configuración seguidor invertido, por lo que tienden a ser nulas.
+	
+	$C_{\pi tp} = \SI{3400}{pF}$ y $C_{\mu tp} = \SI{1400}{pF}$  se obtienen de la datasheet del transistor de paso. Para reflejar $C_{\mu tp}$, se tiene en cuenta que la configuración es source común \textit{sin realimentación}, y por ende la ganancia dependerá de $R_L$, y será alta.
+	
+	La resistencia asociada al nodo será $R_4 // (r_{\pi6} + R_3) / \beta // (r_{\pi7} + R_3) / \beta$, y la estimaremos (de forma muy aproximada) como $R_4//R_3/2 = \SI{3.3}{k\ohm}$.
+	
+	La constante temporal mínima será, entonces:
+	
+	$\tau_4 = (\SI{3.4}{\nano F} + \SI{1.4}{\nano F}) \cdot (\SI{3.3}{k\ohm}) = \SI{16}{\micro s} \to f_{4min} = \SI{10}{\kilo\hertz}$.
+	
+	Este resultado es congruente con lo simulado en la imagen \ref{fig:bode_corte_tension}. Se concluye que el nodo 4 es dominante, pues se encontrará al menos una década por encima del siguiente polo.
+	
 	
 	\subsubsection{Análisis térmico}
 	
@@ -1190,7 +1332,7 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 		\label{fig:corte_lazo_tension}
 	\end{figure}
 	
-	El resultado es un gráfico de Bode como el de la figura \ref{fig:bode_corte_tension}. Que da una ganancia para bajas frecuencias $T_v \SI{86}{dB}$. Esto es suficiente para asegurar $a_o.f_v \gg 1$.
+	El resultado es un gráfico de Bode como el de la figura \ref{fig:bode_corte_tension}. Que da una ganancia para bajas frecuencias $T_v = \SI{86}{dB}$. Esto es suficiente para asegurar $a_o.f_v \gg 1$.
 	
 	\begin{figure}[H]
 		\centering
@@ -1217,7 +1359,7 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 		\label{fig:corte_lazo_corriente}
 	\end{figure}
 	
-	El resultado es un gráfico de Bode como el de la figura \ref{fig:bode_corte_corriente}. Que da una ganancia para bajas frecuencias $T_v \SI{67}{dB}$. Esto es suficiente para asegurar $a_o.f_A \gg 1$.
+	El resultado es un gráfico de Bode como el de la figura \ref{fig:bode_corte_corriente}. Que da una ganancia para bajas frecuencias $T_A = \SI{67}{dB}$. Esto es suficiente para asegurar $a_o.f_A \gg 1$.
 	
 	\begin{figure}[H]
 		\centering

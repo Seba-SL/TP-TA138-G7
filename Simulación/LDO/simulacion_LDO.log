@@ -1,8 +1,8 @@
 LTspice 24.1.5 for Windows
-Circuit: C:\users\sebastian\Desktop\FIUBA-2do Cuatrimestre\Taller de Diseño Electrónico TA138\TP_Taller_de_Diseño_ TA138_G7\Simulación\LDO\simulacion_LDO.net
-Start Time: Sun Apr 19 08:17:21 2026
+Circuit: C:\Users\ramaz\Desktop\Circuitos II\TP-TA138-G7\Simulación\LDO\simulacion_LDO.net
+Start Time: Sun Apr 19 20:14:17 2026
 solver = Normal
-Maximum thread count: 4
+Maximum thread count: 12
 tnom = 27
 temp = 27
 method = trap
@@ -85,16 +85,16 @@ Source Step = 56.0606%
 Source Step = 57.3153%
 Source stepping failed
 
-Pseudo Transient failed in finding the operating point at 15.0817 µs.
+Pseudo Transient failed in finding the operating point at 10.029 µs.
 
 Simulation stopped by user.
-Total elapsed time: 3262.769 seconds.
+Total elapsed time: 6.573 seconds.
 
 Files loaded:
-C:\users\sebastian\Desktop\FIUBA-2do Cuatrimestre\Taller de Diseño Electrónico TA138\TP_Taller_de_Diseño_ TA138_G7\Simulación\LDO\simulacion_LDO.net
-C:\users\sebastian\AppData\Local\LTspice\lib\cmp\standard.bjt
-C:\users\sebastian\Desktop\FIUBA-2do Cuatrimestre\Taller de Diseño Electrónico TA138\TP_Taller_de_Diseño_ TA138_G7\Simulación\LDO\Modelos\irf4905.spi
-C:\users\sebastian\Desktop\FIUBA-2do Cuatrimestre\Taller de Diseño Electrónico TA138\TP_Taller_de_Diseño_ TA138_G7\Simulación\LDO\Modelos\TL431.spi
-C:\users\sebastian\Desktop\FIUBA-2do Cuatrimestre\Taller de Diseño Electrónico TA138\TP_Taller_de_Diseño_ TA138_G7\Simulación\LDO\Modelos\LM358.txt
-C:\users\sebastian\Desktop\FIUBA-2do Cuatrimestre\Taller de Diseño Electrónico TA138\TP_Taller_de_Diseño_ TA138_G7\Simulación\LDO\Modelos\LM324.txt
+C:\Users\ramaz\Desktop\Circuitos II\TP-TA138-G7\Simulación\LDO\simulacion_LDO.net
+C:\Users\ramaz\AppData\Local\LTspice\lib\cmp\standard.bjt
+C:\Users\ramaz\Desktop\Circuitos II\TP-TA138-G7\Simulación\LDO\Modelos\irf4905.spi
+C:\Users\ramaz\Desktop\Circuitos II\TP-TA138-G7\Simulación\LDO\Modelos\TL431.spi
+C:\Users\ramaz\Desktop\Circuitos II\TP-TA138-G7\Simulación\LDO\Modelos\LM358.txt
+C:\Users\ramaz\Desktop\Circuitos II\TP-TA138-G7\Simulación\LDO\Modelos\LM324.txt
 

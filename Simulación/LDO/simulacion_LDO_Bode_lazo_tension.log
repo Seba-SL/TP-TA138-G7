@@ -1,6 +1,6 @@
 LTspice 24.1.5 for Windows
-Circuit: C:\Users\ramaz\Desktop\Circuitos II\TP-TA138-G7\Simulación\LDO\simulacion_LDO_lazos.net
-Start Time: Sun Apr 19 20:14:40 2026
+Circuit: C:\Users\ramaz\Desktop\Circuitos II\TP-TA138-G7\Simulación\LDO\simulacion_LDO_Bode_lazo_tension.net
+Start Time: Tue Apr 21 17:26:31 2026
 solver = Normal
 Maximum thread count: 12
 tnom = 27
@@ -83,86 +83,82 @@ Source Step = 3.0303%
 Source Step = 33.3333%
 Source Step = 63.6364%
 vernier = 0.25
-Source Step = 60.6238%
-Source Step = 60.6534%
-Source Step = 60.683%
-Source Step = 60.7126%
-Source Step = 60.7422%
+Source Step = 68.1818%
+Source Step = 74.4318%
+vernier = 0.015625
+Source Step = 74.2661%
+Source Step = 74.2957%
+Source Step = 74.3253%
+Source Step = 74.3549%
+Source Step = 74.3845%
 vernier = 0.00146484
-Source Step = 60.7747%
-Source Step = 60.8191%
-Source Step = 60.8635%
-Source Step = 60.9079%
-Source Step = 60.9523%
+Source Step = 74.4185%
+Source Step = 74.4629%
+Source Step = 74.5073%
+Source Step = 74.5517%
+Source Step = 74.5961%
 vernier = 0.00219727
-Source Step = 60.9989%
-Source Step = 61.0655%
-Source Step = 61.1321%
-Source Step = 61.1987%
-Source Step = 61.2652%
-Source Step = 61.3318%
+Source Step = 74.6449%
+Source Step = 74.7115%
+Source Step = 74.7781%
+Source Step = 74.8446%
+Source Step = 74.9112%
 vernier = 0.0032959
-Source Step = 61.4317%
-Source Step = 61.5316%
-Source Step = 61.6315%
-Source Step = 61.7313%
-Source Step = 61.8312%
+Source Step = 74.9811%
+Source Step = 75.081%
+Source Step = 75.1809%
+Source Step = 75.2808%
+Source Step = 75.3806%
+Source Step = 75.4805%
 vernier = 0.00494385
-Source Step = 61.976%
-Source Step = 62.1258%
-Source Step = 62.2756%
-Source Step = 62.4255%
-Source Step = 62.5753%
+Source Step = 75.6303%
+Source Step = 75.7801%
+Source Step = 75.93%
+Source Step = 76.0798%
+Source Step = 76.2296%
 vernier = 0.00741577
-Source Step = 62.785%
-Source Step = 63.0097%
-Source Step = 63.2345%
-Source Step = 63.4592%
-Source Step = 63.6839%
+Source Step = 76.4468%
+Source Step = 76.6715%
+Source Step = 76.8963%
+Source Step = 77.121%
+Source Step = 77.3457%
 vernier = 0.0111237
-Source Step = 63.9873%
-Source Step = 64.3244%
-Source Step = 64.6614%
-Source Step = 64.9985%
-Source Step = 65.3356%
+Source Step = 77.6603%
+Source Step = 77.9974%
+Source Step = 78.3345%
+Source Step = 78.6715%
+Source Step = 79.0086%
 vernier = 0.0166855
-Source Step = 65.7738%
-Source Step = 66.2794%
-Source Step = 66.785%
-Source Step = 67.2907%
-Source Step = 67.7963%
+Source Step = 79.4637%
+Source Step = 79.9693%
+Source Step = 80.4749%
+Source Step = 80.9805%
+Source Step = 81.4862%
 vernier = 0.0250282
-Source Step = 68.4283%
-Source Step = 69.1867%
-Source Step = 69.9452%
-Source Step = 70.7036%
-Source Step = 71.462%
+Source Step = 82.1435%
+Source Step = 82.9019%
+Source Step = 83.6603%
+Source Step = 84.4188%
+Source Step = 85.1772%
 vernier = 0.0375423
-Source Step = 72.3721%
-Source Step = 73.5098%
-Source Step = 74.6474%
-Source Step = 75.7851%
-Source Step = 76.9227%
+Source Step = 86.1252%
+Source Step = 87.2629%
+Source Step = 88.4005%
+Source Step = 89.5382%
+Source Step = 90.6758%
 vernier = 0.0563135
-Source Step = 78.231%
-Source Step = 79.9375%
-Source Step = 81.644%
-Source Step = 83.3504%
-Source Step = 85.0569%
+Source Step = 92.041%
+Source Step = 93.7475%
+Source Step = 95.4539%
+Source Step = 97.1604%
+Source Step = 98.8669%
 vernier = 0.0844703
-Source Step = 86.934%
-Source Step = 89.4937%
-Source Step = 92.0534%
-Source Step = 94.6131%
-Source Step = 97.1728%
-vernier = 0.126705
-Source Step = 99.8605%
 Source stepping succeeded in finding the operating point.
 
-Total elapsed time: 3.756 seconds.
+Total elapsed time: 3.510 seconds.
 
 Files loaded:
-C:\Users\ramaz\Desktop\Circuitos II\TP-TA138-G7\Simulación\LDO\simulacion_LDO_lazos.net
+C:\Users\ramaz\Desktop\Circuitos II\TP-TA138-G7\Simulación\LDO\simulacion_LDO_Bode_lazo_tension.net
 C:\Users\ramaz\AppData\Local\LTspice\lib\cmp\standard.bjt
 C:\Users\ramaz\Desktop\Circuitos II\TP-TA138-G7\Simulación\LDO\Modelos\irf4905.spi
 C:\Users\ramaz\Desktop\Circuitos II\TP-TA138-G7\Simulación\LDO\Modelos\TL431.spi

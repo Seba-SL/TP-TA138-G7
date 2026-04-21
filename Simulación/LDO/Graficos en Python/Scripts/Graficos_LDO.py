@@ -99,6 +99,16 @@ plt.grid(True)
 plt.savefig(os.path.join(capturas_dir, "LDO_regulacion_carga.png"), dpi=300)
 
 
+def find_0db_crossing(freq, mag_db):
+    if len(freq) < 2:
+        return None
+    sign = np.sign(mag_db)
+    crossing_indices = np.where(sign[:-1] * sign[1:] < 0)[0]
+    if len(crossing_indices) > 0:
+        i = crossing_indices[0]
+        return np.interp(0.0, mag_db[i:i+2], freq[i:i+2])
+    idx = np.argmin(np.abs(mag_db))
+    return freq[idx]
 
 
 # ---------- 3 Diagrama de Bode - Lazo de tensión ----------
@@ -129,15 +139,38 @@ with open(archivo, 'r') as f:
 
 freq = np.array(freq)
 mag_db = np.array(mag_db)
+fase_deg = np.unwrap(np.deg2rad(fase_deg)) * 180.0 / np.pi
 
-# Gráfico de magnitud
-plt.figure()
-plt.semilogx(freq, mag_db, linewidth=3, color="tab:blue")
-plt.xlabel("Frecuencia (Hz)")
-plt.ylabel("Magnitud (dB)")
-plt.title("Diagrama de Bode - Lazo de Tensión")
-plt.grid(True, which="both", alpha=0.3)
+f_0db = find_0db_crossing(freq, mag_db)
 
+fig, axs = plt.subplots(2, 1, sharex=True, figsize=(8, 8))
+axs[0].semilogx(freq, mag_db, linewidth=3, color="tab:blue", label="Magnitud")
+axs[0].axhline(0, color="gray", linestyle=':', linewidth=1)
+if f_0db is not None:
+    axs[0].axvline(f_0db, color="tab:red", linestyle='--', linewidth=1.5,
+                   label=f"|Av|=1 en {f_0db:.2f} Hz")
+axs[0].set_ylabel("Magnitud (dB)")
+axs[0].set_title("Diagrama de Bode - Lazo de Tensión")
+axs[0].grid(True, which="both", alpha=0.3)
+axs[0].legend(fontsize=10)
+
+# Calcular margen de fase
+phase_margin = None
+if f_0db is not None:
+    phase_margin = np.interp(f_0db, freq, fase_deg)
+    phase_legend = f"Fase (Margen = {phase_margin:.2f}°)"
+else:
+    phase_legend = "Fase"
+
+axs[1].semilogx(freq, fase_deg, linewidth=3, color="tab:green", label=phase_legend)
+if f_0db is not None:
+    axs[1].axvline(f_0db, color="tab:red", linestyle='--', linewidth=1.5)
+axs[1].set_xlabel("Frecuencia (Hz)")
+axs[1].set_ylabel("Fase (°)")
+axs[1].grid(True, which="both", alpha=0.3)
+axs[1].legend(fontsize=10)
+
+plt.tight_layout()
 plt.savefig(os.path.join(capturas_dir, "LDO_Bode_lazo_tension.png"), dpi=300)
 
 
@@ -148,6 +181,7 @@ archivo = os.path.join(datos_dir, "Bode_lazo_corriente.txt")
 # Leer archivo con formato especial
 freq = []
 mag_db = []
+fase_deg = []
 
 with open(archivo, 'r') as f:
     # Saltar encabezado
@@ -160,21 +194,46 @@ with open(archivo, 'r') as f:
             complex_str = parts[1].replace('(', '').replace(')', '').replace('°', '').replace('dB', '')
             values = complex_str.split(',')
             magnitude_db = float(values[0])
+            phase_val = float(values[1])
             
             freq.append(frequency)
             mag_db.append(magnitude_db)
+            fase_deg.append(phase_val)
 
 freq = np.array(freq)
 mag_db = np.array(mag_db)
+fase_deg = np.unwrap(np.deg2rad(fase_deg)) * 180.0 / np.pi
 
-# Gráfico de magnitud
-plt.figure()
-plt.semilogx(freq, mag_db, linewidth=3, color="tab:green")
-plt.xlabel("Frecuencia (Hz)")
-plt.ylabel("Magnitud (dB)")
-plt.title("Diagrama de Bode - Lazo de Corriente")
-plt.grid(True, which="both", alpha=0.3)
+f_0db = find_0db_crossing(freq, mag_db)
 
+fig, axs = plt.subplots(2, 1, sharex=True, figsize=(8, 8))
+axs[0].semilogx(freq, mag_db, linewidth=3, color="tab:green", label="Magnitud")
+axs[0].axhline(0, color="gray", linestyle=':', linewidth=1)
+if f_0db is not None:
+    axs[0].axvline(f_0db, color="tab:red", linestyle='--', linewidth=1.5,
+                   label=f"|Av|=1 en {f_0db:.2f} Hz")
+axs[0].set_ylabel("Magnitud (dB)")
+axs[0].set_title("Diagrama de Bode - Lazo de Corriente")
+axs[0].grid(True, which="both", alpha=0.3)
+axs[0].legend(fontsize=10)
+
+# Calcular margen de fase
+phase_margin = None
+if f_0db is not None:
+    phase_margin = np.interp(f_0db, freq, fase_deg)
+    phase_legend = f"Fase (Margen = {phase_margin:.2f}°)"
+else:
+    phase_legend = "Fase"
+
+axs[1].semilogx(freq, fase_deg, linewidth=3, color="tab:purple", label=phase_legend)
+if f_0db is not None:
+    axs[1].axvline(f_0db, color="tab:red", linestyle='--', linewidth=1.5)
+axs[1].set_xlabel("Frecuencia (Hz)")
+axs[1].set_ylabel("Fase (°)")
+axs[1].grid(True, which="both", alpha=0.3)
+axs[1].legend(fontsize=10)
+
+plt.tight_layout()
 plt.savefig(os.path.join(capturas_dir, "LDO_Bode_lazo_corriente.png"), dpi=300)
 
 
