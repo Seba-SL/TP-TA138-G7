@@ -1051,7 +1051,21 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 	
 	\paragraph{Selección de materiales y encapsulados}
 	
-	Para la placa se utilizó material FR-4 como sustrato, debido a su disponibilidad, bajo costo y adecuadas propiedades dieléctricas para aplicaciones de baja y media frecuencia. Es un compuesto laminado de tela de fibra de vidrio tejida con un aglutinante de resina epoxi, reconocido por ser ignífugo (cumple con la norma UL94V-0), mecánicamente resistente, con excelente aislamiento eléctrico y alta estabilidad dimensional.
+	Para la placa se utilizó material FR-4 como sustrato de espesor 1,6mm, debido a su disponibilidad, bajo costo y adecuadas propiedades dieléctricas para aplicaciones de baja y media frecuencia. Es un compuesto laminado de tela de fibra de vidrio tejida con un aglutinante de resina epoxi, reconocido por ser ignífugo (cumple con la norma UL94V-0), mecánicamente resistente, con excelente aislamiento eléctrico y alta estabilidad dimensional. Dicho sustrato tendrá sobre sus superficies las pistas mediante un laminado de cobre.
+	
+	\begin{table}[h]
+		\centering
+		\caption{Límites máximos de temperatura de operación según clase (estandar IPC-2222).}
+		\begin{tabular}{|c|c|c|c|}
+			\hline
+			\textbf{NEMA} & \textbf{IPC-4101} & \textbf{Espesor dieléctrico (mín)} & \textbf{Temperatura (máx)} \\
+			\hline
+				FR-4 & 21/24/25/27 & 0.1 mm & $120\,^\circ\mathrm{C}$ \\
+			\hline
+				FR-4 & 21/24/25/27 & 0.4 mm & $130\,^\circ\mathrm{C}$\\
+			\hline
+		\end{tabular}
+	\end{table}
 	
 	Se seleccionaron los siguientes encapsulados para cada tipo de componente:
 	\begin{itemize}
