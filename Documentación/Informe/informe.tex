@@ -1031,14 +1031,82 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 	Nuestro análisis, entonces, se dividirá en dos partes: la compensación del lazo de tensión, con ganancia $T_v$, y la compensación del lazo de corriente, con ganancia $T_A$.
 	
 	\subsubsection{Análisis térmico}
+	
 	\subsubsection{Consideraciones de fabricación PCB}
 	
-	Todo diseño tiene sus desafíos, en este caso, al diseñar un circuito impreso se tiene como principal objetivo maximizar el rendimiento del circuito de forma eficiente.
+	Todo diseño presenta desafíos; en este caso, al desarrollar el circuito impreso, el objetivo principal es maximizar el rendimiento, garantizar la robustez y lograr una implementación compacta en una placa adecuada.
 	
+	Debe poseer un tamaño adecuado para su integración en el sistema completo y contemplar tecnologías que ofrezcan la mejor relación entre rendimiento y costo. El uso de estándares y normas, como la IPC-2221, sirve como guía durante el proceso de diseño. Tanto el esquemático como las huellas de los componentes, los modelos 3D y el diseño de la PCB fueron desarrollados utilizando el software KiCad.
 	
-	 Debe ser de tamaño óptimo para la implementación en el sistema completo y debe contar con las tecnológicas con la mejor relación rendimiento respecto al costo. 
 	 
-	 Para este sistema de regulación de tensión con fines académicos se propuso como desafío una placa con una disposición de componentes que respete la modularización del circuito y priorice la identificación de los bloques.
+
+	 
+	\paragraph{Arquitectura general}
+	%Se desarrollaron dos versiones del diseño:
+	\begin{itemize}
+		\item Una PCB de dos capas (top y bottom), orientada a simplicidad de fabricación y bajo costo.
+	%	\item Una PCB multicapa, destinada a mejorar el desempeño y dimensiones.
+	\end{itemize}
+	
+	
+	\paragraph{Selección de materiales y encapsulados}
+	
+	Para la placa se utilizó material FR-4 como sustrato, debido a su disponibilidad, bajo costo y adecuadas propiedades dieléctricas para aplicaciones de baja y media frecuencia. Es un compuesto laminado de tela de fibra de vidrio tejida con un aglutinante de resina epoxi, reconocido por ser ignífugo (cumple con la norma UL94V-0), mecánicamente resistente, con excelente aislamiento eléctrico y alta estabilidad dimensional.
+	
+	Se seleccionaron los siguientes encapsulados para cada tipo de componente:
+	\begin{itemize}
+		\item \textbf{TO-92}: transistores bipolares discretos y regulador zener programable TL431.
+		\item \textbf{TO-220}: transistor PMOS IRF4905.
+		\item \textbf{DIP-8}: amplificadores operacionales LM324.
+	\end{itemize}
+	
+	Cabe resaltar que el uso de componentes integrados, como el LM324 —que incorpora cuatro amplificadores operacionales en un mismo encapsulado—, permite reducir el área de la placa. Asimismo se evitara la selección de encapsulados con pines no conectados (NC, \textit{No Internal Connection}), como en el caso del TL431, lo cual contribuye a un diseño más eficiente. Como mejora se podrían considerar componentes de montaje superficial.
+	
+		
+	\paragraph{Selección de huellas y modelos 3D}
+	
+	\paragraph{Ancho de pistas}
+	El dimensionamiento de las pistas se realizó en función de la corriente máxima esperada (1.5 A) y el aumento de temperatura permitido. Para ello se consideraron normas empíricas asegurando que:
+	
+	\begin{itemize}
+		\item Las pistas de potencia (entrada y salida del LDO) poseen mayor ancho para reducir caída de tensión y disipación.
+		\item Las pistas de señal se diseñaron más delgadas, priorizando densidad de ruteo.
+	\end{itemize}
+	
+%	\paragraph{Planos de masa}
+%	En la versión multicapa se incorporó un plano de masa continuo, lo cual permite:
+%	\begin{itemize}
+%		\item Reducir la impedancia de retorno.
+%		\item Disminuir ruido y acoplamientos indeseados.
+%		\item Mejorar la estabilidad del regulador.
+%	\end{itemize}
+	
+	La masa o tensión de referencia se implementó mediante rellenos de estaño, intentando maximizar su continuidad.
+	
+	\paragraph{Disposición de componentes}
+	Para este sistema de regulación de tensión con fines académicos se propuso como desafío una placa con una disposición de componentes que respete la modularización del circuito y priorice la identificación de los bloques.
+	
+	
+	\paragraph{Consideraciones térmicas}
+	Se contempló la disipación de potencia del regulador:
+	\begin{itemize}
+		\item Se aumentó el área de cobre asociada al encapsulado para mejorar la disipación térmica.
+		\item En la versión multicapa, el plano de masa contribuye a la distribución del calor.
+	\end{itemize}
+	
+	\paragraph{Separación y reglas de diseño}
+	Se respetaron distancias mínimas entre pistas según el nivel de tensión del circuito, evitando riesgos de cortocircuito o corrientes parasitas. Asimismo, se definieron reglas de diseño (DRC) acordes al proceso de fabricación.
+	
+%	\paragraph{Comparación entre diseños}
+	
+%	En el apéndice \ref{sec:apendice_PCB} se pueden apreciar ambos diseños para el regulador lineal LDO.
+	
+%	El diseño multicapa presenta ventajas en términos de integridad de señal, menor ruido y mejor comportamiento térmico, a costa de un mayor costo de fabricación. Por otro lado, la PCB de dos capas resulta adecuada para prototipos y aplicaciones de menor exigencia.
+	
+	
+	
+	
+	
 	
 	% SL : voy a seguir la seccion del diseño de pcb a parte y dsp lo añado
 	\checkpointend{2}
@@ -1312,6 +1380,11 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 		\label{fig:esquematicokicadldo}
 	\end{figure}
 	\end{landscape}
+
+\section{Apéndice III: PCB}
+\label{sec:apendice_PCB}
+	\subsection{LDO}
+
 	
 	
 \end{document}
