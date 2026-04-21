@@ -25,8 +25,51 @@
 \usepackage{pdflscape}
 \usepackage{subcaption}
 
-\addto\captionsspanish{
-	\renewcommand{\tablename}{Tabla}
+\usepackage{tcolorbox}
+\usepackage{xcolor}
+
+\newif\ifcheckpoint
+\checkpointtrue
+
+% función que devuelve color según checkpoint
+\newcommand{\checkpointcolor}[1]{%
+	\ifcase#1
+	yellow%
+	\or blue%
+	\or green%
+	\or red%
+	\or orange%
+	\else gray%
+	\fi
+}
+\newcommand{\checkpointstart}[1]{%
+	\ifcheckpoint
+	\edef\tempcolor{\checkpointcolor{#1}}%
+	\begin{tcolorbox}[
+		colback=\tempcolor!15,
+		colframe=\tempcolor!60!black,
+		boxrule=0pt,
+		arc=0pt,
+		width=\textwidth
+		]
+		\textbf{Inicio checkpoint #1}
+	\end{tcolorbox}
+	\fi
+}
+
+\newcommand{\checkpointend}[1]{%
+	\ifcheckpoint
+	\edef\tempcolor{\checkpointcolor{#1}}%
+	\begin{tcolorbox}[
+		colback=\tempcolor!15,
+		colframe=\tempcolor!60!black,
+		boxrule=0pt,
+		arc=0pt,
+		width=\textwidth
+		]
+		\textbf{Fin checkpoint #1}
+	\end{tcolorbox}
+	\fi
 }
 
 \usepackage{tikz}
@@ -92,6 +135,7 @@ citestyle=apa
 	\tableofcontents \label{Indice}
 	\newpage
 	
+	\checkpointstart{1}
 	\section{Objetivo}
 	
 	Se propone el diseño e implementación de un sistema electrónico capaz de generar una tensión regulada de 5 V a partir de una fuente de alimentación proveniente de una batería cuya tensión puede variar en un amplio rango comprendido entre 12 V y 30 V. Además de garantizar una salida estable, el sistema debe ser energéticamente eficiente, ya que en aplicaciones reales la eficiencia de conversión es un aspecto fundamental para reducir pérdidas de potencia, calentamiento y consumo energético.
@@ -966,6 +1010,11 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 		\caption{Implementación final del regulador shunt.}
 		\label{fig:shunt}
 	\end{figure}
+	
+	\checkpointend{1}
+	
+	\checkpointstart{2}
+	
 
 	\subsubsection{Compensación de lazos}
 	Para finalizar el anállisis de diseño circuital de esta etapa, se debe evaluar su comportamiento en frecuencia. Para ello, se debe evaluar el peso de los nodos al circular por cada lazo de realimentación, procurando que 
@@ -984,10 +1033,15 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 	\subsubsection{Análisis térmico}
 	\subsubsection{Consideraciones de fabricación PCB}
 	
-	Al diseñar una placa de circuito impreso, se debe considerar el conexionado de los componentes mediante pistas conductoras usualmente de cobre, dependiendo de la tecnología estas puedes ser internas o externas de acuerdo a el tipo y cantidad de capas de la placa.
+	Todo diseño tiene sus desafíos, en este caso, al diseñar un circuito impreso se tiene como principal objetivo maximizar el rendimiento del circuito de forma eficiente.
+	
+	
+	 Debe ser de tamaño óptimo para la implementación en el sistema completo y debe contar con las tecnológicas con la mejor relación rendimiento respecto al costo. 
+	 
+	 Para este sistema de regulación de tensión con fines académicos se propuso como desafío una placa con una disposición de componentes que respete la modularización del circuito y priorice la identificación de los bloques.
 	
 	% SL : voy a seguir la seccion del diseño de pcb a parte y dsp lo añado
-
+	\checkpointend{2}
 	
 	\subsubsection{Mejoras:}
 	Aunque el regulador lineal satisface las especificaciones de la tabla \ref{tabla:especificaciones_ldo}, hay algunas mejoras que pueden realizarse al circuito para mejorar aun más su desempeño:

@@ -1,9 +1,9 @@
 \babel@toc {spanish}{}\relax 
 \contentsline {section}{\numberline {1}Objetivo}{2}{}%
 \contentsline {section}{\numberline {2}Desarrollo}{2}{}%
-\contentsline {subsection}{\numberline {2.1}Fuente de alimentación conmutada}{2}{}%
-\contentsline {subsection}{\numberline {2.2}Regulador de baja caída (LDO,Low Dropout Regulator)}{2}{}%
-\contentsline {subsubsection}{\numberline {2.2.1}Especificaciones e implementación}{2}{}%
+\contentsline {subsection}{\numberline {2.1}Fuente de alimentación conmutada}{3}{}%
+\contentsline {subsection}{\numberline {2.2}Regulador de baja caída (LDO,Low Dropout Regulator)}{3}{}%
+\contentsline {subsubsection}{\numberline {2.2.1}Especificaciones e implementación}{3}{}%
 \contentsline {subsubsection}{\numberline {2.2.2}El transistor de paso (Tipo MOS)}{3}{}%
 \contentsline {subsubsection}{\numberline {2.2.3}Lazo de Tensión}{4}{}%
 \contentsline {subsubsection}{\numberline {2.2.4}Tensión de referencia $V_{Ref}$}{6}{}%
