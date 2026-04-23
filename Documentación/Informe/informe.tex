@@ -24,7 +24,7 @@
 \usepackage{circuitikz}
 \usepackage{pdflscape}
 \usepackage{subcaption}
-
+\usepackage{array}
 \usepackage{tcolorbox}
 \usepackage{xcolor}
 
@@ -1481,11 +1481,14 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 	
 	\paragraph{Selección de materiales y encapsulados}
 	
-	Para la placa se utilizó material FR-4 como sustrato de espesor 1,6mm, debido a su disponibilidad, bajo costo y adecuadas propiedades dieléctricas para aplicaciones de baja y media frecuencia. Es un compuesto laminado de tela de fibra de vidrio tejida con un aglutinante de resina epoxi, reconocido por ser ignífugo (cumple con la norma UL94V-0), mecánicamente resistente, con excelente aislamiento eléctrico y alta estabilidad dimensional. Dicho sustrato tendrá sobre sus superficies las pistas mediante un laminado de cobre.
+	Para la placa se utilizó material FR-4 como sustrato de espesor 1,6mm, debido a su disponibilidad, bajo costo y adecuadas propiedades dieléctricas para aplicaciones de baja y media frecuencia. Es un compuesto laminado de tela de fibra de vidrio tejida con un aglutinante de resina epoxi, reconocido por ser ignífugo (cumple con la norma UL94V-0), mecánicamente resistente, con excelente aislamiento eléctrico y alta estabilidad dimensional. Dicho sustrato tendrá sobre sus superficies las pistas mediante un laminado de cobre. La mayoría de los proveedores de laminados ofrecen resinas epoxi con una Tg (temperatura de transición vítrea) de 110 a 120 °C hasta 180 a 190 °C, y algunas de las más utilizadas se encuentran en el rango de 135 a 145 °C. En la tabla \ref{tab:limites_espesor} se especifican los limites de separación entre capas de la PCB, a medida que aumenta el grosor el rango de temperatura soportada aumenta.
 	
-	\begin{table}[h]
+	
+	
+	\begin{table}[H]
 		\centering
 		\caption{Límites máximos de temperatura de operación según clase (estandar IPC-2222).}
+		\label{tab:limites_espesor}
 		\begin{tabular}{|c|c|c|c|}
 			\hline
 			\textbf{NEMA} & \textbf{IPC-4101} & \textbf{Espesor dieléctrico (mín)} & \textbf{Temperatura (máx)} \\
@@ -1498,16 +1501,30 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 	\end{table}
 	
 	Se seleccionaron los siguientes encapsulados para cada tipo de componente:
-	\begin{itemize}
-		\item \textbf{TO-92}: transistores bipolares discretos y regulador zener programable TL431.
-		\item \textbf{TO-220}: transistor PMOS IRF4905.
-		\item \textbf{DIP-8}: amplificadores operacionales LM324.
-	\end{itemize}
 	
-	Cabe resaltar que el uso de componentes integrados, como el LM324 —que incorpora cuatro amplificadores operacionales en un mismo encapsulado—, permite reducir el área de la placa. Asimismo se evitara la selección de encapsulados con pines no conectados (NC, \textit{No Internal Connection}), como en el caso del TL431, lo cual contribuye a un diseño más eficiente. Como mejora se podrían considerar componentes de montaje superficial.
+ \begin{center}
+ 	
+	\begin{tabular}{ c c c c }
+		
+		\textbf{TO-92} & \textbf{TO-220} & \textbf{DIP-8} & \textbf{Axial 1/4 W}\\
+		
+		\includegraphics[width=2cm]{img/Encapsulados/to92_fixed.png} &
+		\includegraphics[width=2cm]{img/Encapsulados/to220_fixed.png} &
+		\includegraphics[width=2cm]{img/Encapsulados/dip8_fixed.png} &
+		\includegraphics[width=2cm]{img/Encapsulados/R_axial_fixed.png}\\
+		
+		BJT / TL431 & IRF4905 & LM324 & Resistor \\
+	\end{tabular}
+\end{center}
+
+	Cabe resaltar que el uso de componentes integrados, como el LM324 que incorpora cuatro amplificadores operacionales en un mismo encapsulado, permite reducir el área de la placa. Asimismo se evitara la selección de encapsulados con pines no conectados (NC, \textit{No Internal Connection}), como en el caso del TL431, lo cual contribuye a un diseño más eficiente. Como mejora se podrían considerar componentes de montaje superficial.
 	
 		
 	\paragraph{Selección de huellas y modelos 3D}
+	
+	Cada componente debe integrarse correctamente en la placa de circuito impreso (PCB). Para ello, el software utiliza un sistema de huellas (footprints), generalmente provistas por los fabricantes o desarrolladas por la comunidad, que definen las dimensiones físicas, la disposición de pines y los orificios necesarios para el montaje de cada componente. Asimismo, el software permite la visualización y edición de estas huellas.
+	
+	Adicionalmente, el entorno de desarrollo ofrece una representación tridimensional de la placa, incorporando modelos 3D de los componentes. Estos modelos pueden organizarse en librerías, escalarse, rotarse y visualizarse dentro del diseño. Sin embargo, la modificación de su geometría no está soportada directamente por el software, por lo que es necesario recurrir a herramientas externas de diseño 3D, tales como :contentReference[oaicite:0]{index=0}, :contentReference[oaicite:1]{index=1} o :contentReference[oaicite:2]{index=2}, entre otras.
 	
 	\paragraph{Ancho de pistas}
 	El dimensionamiento de las pistas se realizó en función de la corriente máxima esperada (1.5 A) y el aumento de temperatura permitido. Para ello se consideraron normas empíricas asegurando que:
@@ -1538,8 +1555,13 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 		\item En la versión multicapa, el plano de masa contribuye a la distribución del calor.
 	\end{itemize}
 	
+	\paragraph{Fijación mecánica }
+	
+	Para la posterior implementación de la placa en el sistema completo, se debe considerar un margen con los orificios para la sujeción mediante tornillos pasantes, otra opción que podría considerarse es una fijación por sistema de encastre respecto a un gabinete final. En nuestro caso consideramos unos orificios de sujeción de 2.05 mm en bordes de 5 mm.
+
+	
 	\paragraph{Separación y reglas de diseño}
-	Se respetaron distancias mínimas entre pistas según el nivel de tensión del circuito, evitando riesgos de cortocircuito o corrientes parasitas. Asimismo, se definieron reglas de diseño (DRC) acordes al proceso de fabricación.
+	Se respetaron distancias mínimas entre pistas según el nivel de tensión del circuito, evitando riesgos de cortocircuito o corrientes parásitas. Asimismo, se definieron reglas de diseño (DRC) acordes al proceso de fabricación.
 	
 %	\paragraph{Comparación entre diseños}
 	

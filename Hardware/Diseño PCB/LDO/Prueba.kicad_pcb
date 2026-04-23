@@ -11907,8 +11907,8 @@
 		(uuid "19981df8-4752-4e6e-9907-b82e13ae586f")
 	)
 	(gr_rect
-		(start 104 51)
-		(end 192 57.499999)
+		(start 104 51.25)
+		(end 192 57.749999)
 		(stroke
 			(width 0.2)
 			(type solid)
@@ -12208,8 +12208,8 @@
 		(uuid "270ab697-6b83-4cc4-8415-6ffa2cabac75")
 	)
 	(gr_rect
-		(start 102.619999 50)
-		(end 193.119999 142.45256)
+		(start 98.999999 46)
+		(end 197.499999 146.5)
 		(stroke
 			(width 0.05)
 			(type solid)
@@ -12217,6 +12217,50 @@
 		(fill no)
 		(layer "Edge.Cuts")
 		(uuid "0d4c3ce4-842a-4da8-ae4a-4a9528db71c3")
+	)
+	(gr_circle
+		(center 101.7 48.5)
+		(end 102.9 48.5)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(fill no)
+		(layer "Edge.Cuts")
+		(uuid "a242ac58-d2a5-4618-8180-96055f1ddcec")
+	)
+	(gr_circle
+		(center 101.7 144.5)
+		(end 102.9 144.5)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(fill no)
+		(layer "Edge.Cuts")
+		(uuid "9201d42f-3bad-4ffd-b4bf-fc6dd2f1c6fa")
+	)
+	(gr_circle
+		(center 195 48.5)
+		(end 196.2 48.5)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(fill no)
+		(layer "Edge.Cuts")
+		(uuid "a5f64c62-ccc7-46f0-b883-30853a1f5257")
+	)
+	(gr_circle
+		(center 195 144.5)
+		(end 196.2 144.5)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(fill no)
+		(layer "Edge.Cuts")
+		(uuid "4aa35223-58c8-4091-9542-23bc9f48afbd")
 	)
 	(gr_text "Tension de Vref_C"
 		(at 104.62 87 0)
@@ -12284,7 +12328,7 @@
 		)
 	)
 	(gr_text "Grupo 7: Regulador de baja caída (LDO,Low Dropout Regulator)"
-		(at 110.5 55 0)
+		(at 110.5 55.25 0)
 		(layer "F.SilkS")
 		(uuid "c8ef71e3-3d6a-4201-abe8-be129f19ae45")
 		(effects

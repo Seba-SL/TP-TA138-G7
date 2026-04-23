@@ -12,32 +12,33 @@
 \contentsline {subsubsection}{\numberline {2.2.7}Llave electrónica}{9}{}%
 \contentsline {subsubsection}{\numberline {2.2.8}Limitador de corriente shunt}{10}{}%
 \contentsline {subsubsection}{\numberline {2.2.9}Compensación de lazos}{11}{}%
-\contentsline {subsubsection}{\numberline {2.2.10}Análisis térmico}{14}{}%
-\contentsline {subsubsection}{\numberline {2.2.11}Consideraciones de fabricación PCB}{14}{}%
-\contentsline {paragraph}{Arquitectura general}{14}{}%
-\contentsline {paragraph}{Selección de materiales y encapsulados}{14}{}%
-\contentsline {paragraph}{Selección de huellas y modelos 3D}{15}{}%
-\contentsline {paragraph}{Ancho de pistas}{15}{}%
-\contentsline {paragraph}{Disposición de componentes}{15}{}%
-\contentsline {paragraph}{Consideraciones térmicas}{15}{}%
-\contentsline {paragraph}{Separación y reglas de diseño}{15}{}%
-\contentsline {subsubsection}{\numberline {2.2.12}Mejoras:}{15}{}%
-\contentsline {section}{\numberline {3}Simulaciones}{15}{}%
-\contentsline {subsection}{\numberline {3.1}Simulaciones del regulador lineal LDO}{15}{}%
-\contentsline {subsubsection}{\numberline {3.1.1}Modo estático}{15}{}%
-\contentsline {paragraph}{Ganancias de lazo: }{16}{}%
-\contentsline {paragraph}{Estabilización de tensión: }{21}{}%
-\contentsline {paragraph}{Regulación de Linea:}{22}{}%
-\contentsline {paragraph}{Regulación de carga:}{23}{}%
-\contentsline {paragraph}{$V_o$ en función de $I_L$:}{24}{}%
-\contentsline {paragraph}{Eficiencia:}{24}{}%
-\contentsline {subsubsection}{\numberline {3.1.2}Modo Dinámico}{25}{}%
-\contentsline {subsection}{\numberline {3.2}Simulaciones de fuente switching}{25}{}%
-\contentsline {section}{\numberline {4}Conclusiones}{25}{}%
-\contentsline {subsection}{\numberline {4.1}Regulador Lineal LDO}{25}{}%
-\contentsline {section}{\numberline {A}Apéndice I: Simulaciones}{26}{}%
-\contentsline {subsection}{\numberline {A.1}LDO}{26}{}%
-\contentsline {section}{\numberline {B}Apéndice II: Esquemáticos}{27}{}%
-\contentsline {subsection}{\numberline {B.1}LDO}{27}{}%
-\contentsline {section}{\numberline {C}Apéndice III: PCB}{28}{}%
-\contentsline {subsection}{\numberline {C.1}LDO}{28}{}%
+\contentsline {subsection}{\numberline {2.3}Analisis termico}{14}{}%
+\contentsline {subsubsection}{\numberline {2.3.1}Consideraciones de fabricación PCB}{15}{}%
+\contentsline {paragraph}{Arquitectura general}{15}{}%
+\contentsline {paragraph}{Selección de materiales y encapsulados}{15}{}%
+\contentsline {paragraph}{Selección de huellas y modelos 3D}{16}{}%
+\contentsline {paragraph}{Ancho de pistas}{16}{}%
+\contentsline {paragraph}{Disposición de componentes}{16}{}%
+\contentsline {paragraph}{Consideraciones térmicas}{16}{}%
+\contentsline {paragraph}{Fijación mecánica }{16}{}%
+\contentsline {paragraph}{Separación y reglas de diseño}{16}{}%
+\contentsline {subsubsection}{\numberline {2.3.2}Mejoras:}{17}{}%
+\contentsline {section}{\numberline {3}Simulaciones}{17}{}%
+\contentsline {subsection}{\numberline {3.1}Simulaciones del regulador lineal LDO}{17}{}%
+\contentsline {subsubsection}{\numberline {3.1.1}Modo estático}{17}{}%
+\contentsline {paragraph}{Ganancias de lazo: }{17}{}%
+\contentsline {paragraph}{Estabilización de tensión: }{23}{}%
+\contentsline {paragraph}{Regulación de Linea:}{24}{}%
+\contentsline {paragraph}{Regulación de carga:}{25}{}%
+\contentsline {paragraph}{$V_o$ en función de $I_L$:}{26}{}%
+\contentsline {paragraph}{Eficiencia:}{26}{}%
+\contentsline {subsubsection}{\numberline {3.1.2}Modo Dinámico}{27}{}%
+\contentsline {subsection}{\numberline {3.2}Simulaciones de fuente switching}{27}{}%
+\contentsline {section}{\numberline {4}Conclusiones}{27}{}%
+\contentsline {subsection}{\numberline {4.1}Regulador Lineal LDO}{27}{}%
+\contentsline {section}{\numberline {A}Apéndice I: Simulaciones}{29}{}%
+\contentsline {subsection}{\numberline {A.1}LDO}{29}{}%
+\contentsline {section}{\numberline {B}Apéndice II: Esquemáticos}{30}{}%
+\contentsline {subsection}{\numberline {B.1}LDO}{30}{}%
+\contentsline {section}{\numberline {C}Apéndice III: PCB}{31}{}%
+\contentsline {subsection}{\numberline {C.1}LDO}{31}{}%
