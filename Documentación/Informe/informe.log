@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2026.1.2)  23 APR 2026 17:59
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2026.1.2)  23 APR 2026 19:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -795,6 +795,46 @@ Package: subcaption 2022/01/07 v1.5 Sub-captions (AR)
 \c@subfigure=\count337
 \c@subtable=\count338
 )
+(/usr/share/texlive/texmf-dist/tex/latex/pdfpages/pdfpages.sty
+Package: pdfpages 2022/12/19 v0.5x Insert pages of external PDF documents (AM)
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count339
+\calc@Bcount=\count340
+\calc@Adimen=\dimen333
+\calc@Bdimen=\dimen334
+\calc@Askip=\skip61
+\calc@Bskip=\skip62
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count341
+\calc@Cskip=\skip63
+)
+(/usr/share/texlive/texmf-dist/tex/latex/eso-pic/eso-pic.sty
+Package: eso-pic 2020/10/14 v3.0a eso-pic (RN)
+\ESO@tempdima=\dimen335
+\ESO@tempdimb=\dimen336
+)
+\AM@pagewidth=\dimen337
+\AM@pageheight=\dimen338
+\AM@fboxrule=\dimen339
+
+(/usr/share/texlive/texmf-dist/tex/latex/pdfpages/pppdftex.def
+File: pppdftex.def 2022/12/19 v0.5x Pdfpages driver for pdfTeX (AM)
+)
+\pdfpages@includegraphics@status=\count342
+\AM@pagebox=\box131
+\AM@global@opts=\toks45
+\AM@pagecnt=\count343
+\AM@toc@title=\toks46
+\AM@lof@heading=\toks47
+\c@AM@survey=\count344
+\AM@templatesizebox=\box132
+)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
 zlibrarypositioning.code.tex
 File: tikzlibrarypositioning.code.tex 2023-01-15 v3.1.10 (3.1.10)
@@ -805,13 +845,13 @@ File: tikzlibrarybabel.code.tex 2023-01-15 v3.1.10 (3.1.10)
 )
 (/usr/share/texlive/texmf-dist/tex/latex/csquotes/csquotes.sty
 Package: csquotes 2022-09-14 v5.2n context-sensitive quotations (JAW)
-\csq@reset=\count339
-\csq@gtype=\count340
-\csq@glevel=\count341
-\csq@qlevel=\count342
-\csq@maxlvl=\count343
-\csq@tshold=\count344
-\csq@ltx@everypar=\toks45
+\csq@reset=\count345
+\csq@gtype=\count346
+\csq@glevel=\count347
+\csq@qlevel=\count348
+\csq@maxlvl=\count349
+\csq@tshold=\count350
+\csq@ltx@everypar=\toks48
 
 (/usr/share/texlive/texmf-dist/tex/latex/csquotes/csquotes.def
 File: csquotes.def 2022-09-14 v5.2n csquotes generic definitions (JAW)
@@ -827,75 +867,72 @@ Package: biblatex 2022/07/12 v3.18b programmable bibliographies (PK/MW)
 
 (/usr/share/texlive/texmf-dist/tex/latex/logreq/logreq.sty
 Package: logreq 2010/08/04 v1.0 xml request logger
-\lrq@indent=\count345
+\lrq@indent=\count351
 
 (/usr/share/texlive/texmf-dist/tex/latex/logreq/logreq.def
 File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
 ))
-(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
-Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
-)
 (/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-\c@tabx@nest=\count346
-\c@listtotal=\count347
-\c@listcount=\count348
-\c@liststart=\count349
-\c@liststop=\count350
-\c@citecount=\count351
-\c@citetotal=\count352
-\c@multicitecount=\count353
-\c@multicitetotal=\count354
-\c@instcount=\count355
-\c@maxnames=\count356
-\c@minnames=\count357
-\c@maxitems=\count358
-\c@minitems=\count359
-\c@citecounter=\count360
-\c@maxcitecounter=\count361
-\c@savedcitecounter=\count362
-\c@uniquelist=\count363
-\c@uniquename=\count364
-\c@refsection=\count365
-\c@refsegment=\count366
-\c@maxextratitle=\count367
-\c@maxextratitleyear=\count368
-\c@maxextraname=\count369
-\c@maxextradate=\count370
-\c@maxextraalpha=\count371
-\c@abbrvpenalty=\count372
-\c@highnamepenalty=\count373
-\c@lownamepenalty=\count374
-\c@maxparens=\count375
-\c@parenlevel=\count376
-\blx@tempcnta=\count377
-\blx@tempcntb=\count378
-\blx@tempcntc=\count379
-\c@blx@maxsection=\count380
-\blx@maxsegment@0=\count381
-\blx@notetype=\count382
-\blx@parenlevel@text=\count383
-\blx@parenlevel@foot=\count384
-\blx@sectionciteorder@0=\count385
-\blx@sectionciteorderinternal@0=\count386
-\blx@entrysetcounter=\count387
-\blx@biblioinstance=\count388
-\labelnumberwidth=\skip61
-\labelalphawidth=\skip62
-\biblabelsep=\skip63
-\bibitemsep=\skip64
-\bibnamesep=\skip65
-\bibinitsep=\skip66
-\bibparsep=\skip67
-\bibhang=\skip68
+\c@tabx@nest=\count352
+\c@listtotal=\count353
+\c@listcount=\count354
+\c@liststart=\count355
+\c@liststop=\count356
+\c@citecount=\count357
+\c@citetotal=\count358
+\c@multicitecount=\count359
+\c@multicitetotal=\count360
+\c@instcount=\count361
+\c@maxnames=\count362
+\c@minnames=\count363
+\c@maxitems=\count364
+\c@minitems=\count365
+\c@citecounter=\count366
+\c@maxcitecounter=\count367
+\c@savedcitecounter=\count368
+\c@uniquelist=\count369
+\c@uniquename=\count370
+\c@refsection=\count371
+\c@refsegment=\count372
+\c@maxextratitle=\count373
+\c@maxextratitleyear=\count374
+\c@maxextraname=\count375
+\c@maxextradate=\count376
+\c@maxextraalpha=\count377
+\c@abbrvpenalty=\count378
+\c@highnamepenalty=\count379
+\c@lownamepenalty=\count380
+\c@maxparens=\count381
+\c@parenlevel=\count382
+\blx@tempcnta=\count383
+\blx@tempcntb=\count384
+\blx@tempcntc=\count385
+\c@blx@maxsection=\count386
+\blx@maxsegment@0=\count387
+\blx@notetype=\count388
+\blx@parenlevel@text=\count389
+\blx@parenlevel@foot=\count390
+\blx@sectionciteorder@0=\count391
+\blx@sectionciteorderinternal@0=\count392
+\blx@entrysetcounter=\count393
+\blx@biblioinstance=\count394
+\labelnumberwidth=\skip64
+\labelalphawidth=\skip65
+\biblabelsep=\skip66
+\bibitemsep=\skip67
+\bibnamesep=\skip68
+\bibinitsep=\skip69
+\bibparsep=\skip70
+\bibhang=\skip71
 \blx@bcfin=\read5
 \blx@bcfout=\write4
 \blx@langwohyphens=\language88
-\c@mincomprange=\count389
-\c@maxcomprange=\count390
-\c@mincompwidth=\count391
+\c@mincomprange=\count395
+\c@maxcomprange=\count396
+\c@mincompwidth=\count397
 Package biblatex Info: Trying to load biblatex default data model...
 Package biblatex Info: ... file 'blx-dm.def' found.
 
@@ -910,98 +947,98 @@ File: apa.dbx 2022/06/22 v9.16 APA biblatex style data model
 )
 Package biblatex Info: Trying to load biblatex custom data model...
 Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
-\c@afterword=\count392
-\c@savedafterword=\count393
-\c@annotator=\count394
-\c@savedannotator=\count395
-\c@author=\count396
-\c@savedauthor=\count397
-\c@bookauthor=\count398
-\c@savedbookauthor=\count399
-\c@commentator=\count400
-\c@savedcommentator=\count401
-\c@editor=\count402
-\c@savededitor=\count403
-\c@editora=\count404
-\c@savededitora=\count405
-\c@editorb=\count406
-\c@savededitorb=\count407
-\c@editorc=\count408
-\c@savededitorc=\count409
-\c@foreword=\count410
-\c@savedforeword=\count411
-\c@holder=\count412
-\c@savedholder=\count413
-\c@introduction=\count414
-\c@savedintroduction=\count415
-\c@namea=\count416
-\c@savednamea=\count417
-\c@nameb=\count418
-\c@savednameb=\count419
-\c@namec=\count420
-\c@savednamec=\count421
-\c@translator=\count422
-\c@savedtranslator=\count423
-\c@shortauthor=\count424
-\c@savedshortauthor=\count425
-\c@shorteditor=\count426
-\c@savedshorteditor=\count427
-\c@narrator=\count428
-\c@savednarrator=\count429
-\c@execproducer=\count430
-\c@savedexecproducer=\count431
-\c@execdirector=\count432
-\c@savedexecdirector=\count433
-\c@with=\count434
-\c@savedwith=\count435
-\c@labelname=\count436
-\c@savedlabelname=\count437
-\c@institution=\count438
-\c@savedinstitution=\count439
-\c@lista=\count440
-\c@savedlista=\count441
-\c@listb=\count442
-\c@savedlistb=\count443
-\c@listc=\count444
-\c@savedlistc=\count445
-\c@listd=\count446
-\c@savedlistd=\count447
-\c@liste=\count448
-\c@savedliste=\count449
-\c@listf=\count450
-\c@savedlistf=\count451
-\c@location=\count452
-\c@savedlocation=\count453
-\c@organization=\count454
-\c@savedorganization=\count455
-\c@origlocation=\count456
-\c@savedoriglocation=\count457
-\c@origpublisher=\count458
-\c@savedorigpublisher=\count459
-\c@publisher=\count460
-\c@savedpublisher=\count461
-\c@language=\count462
-\c@savedlanguage=\count463
-\c@origlanguage=\count464
-\c@savedoriglanguage=\count465
-\c@citation=\count466
-\c@savedcitation=\count467
-\c@pageref=\count468
-\c@savedpageref=\count469
-\shorthandwidth=\skip69
-\shortjournalwidth=\skip70
-\shortserieswidth=\skip71
-\shorttitlewidth=\skip72
-\shortauthorwidth=\skip73
-\shorteditorwidth=\skip74
-\locallabelnumberwidth=\skip75
-\locallabelalphawidth=\skip76
-\localshorthandwidth=\skip77
-\localshortjournalwidth=\skip78
-\localshortserieswidth=\skip79
-\localshorttitlewidth=\skip80
-\localshortauthorwidth=\skip81
-\localshorteditorwidth=\skip82
+\c@afterword=\count398
+\c@savedafterword=\count399
+\c@annotator=\count400
+\c@savedannotator=\count401
+\c@author=\count402
+\c@savedauthor=\count403
+\c@bookauthor=\count404
+\c@savedbookauthor=\count405
+\c@commentator=\count406
+\c@savedcommentator=\count407
+\c@editor=\count408
+\c@savededitor=\count409
+\c@editora=\count410
+\c@savededitora=\count411
+\c@editorb=\count412
+\c@savededitorb=\count413
+\c@editorc=\count414
+\c@savededitorc=\count415
+\c@foreword=\count416
+\c@savedforeword=\count417
+\c@holder=\count418
+\c@savedholder=\count419
+\c@introduction=\count420
+\c@savedintroduction=\count421
+\c@namea=\count422
+\c@savednamea=\count423
+\c@nameb=\count424
+\c@savednameb=\count425
+\c@namec=\count426
+\c@savednamec=\count427
+\c@translator=\count428
+\c@savedtranslator=\count429
+\c@shortauthor=\count430
+\c@savedshortauthor=\count431
+\c@shorteditor=\count432
+\c@savedshorteditor=\count433
+\c@narrator=\count434
+\c@savednarrator=\count435
+\c@execproducer=\count436
+\c@savedexecproducer=\count437
+\c@execdirector=\count438
+\c@savedexecdirector=\count439
+\c@with=\count440
+\c@savedwith=\count441
+\c@labelname=\count442
+\c@savedlabelname=\count443
+\c@institution=\count444
+\c@savedinstitution=\count445
+\c@lista=\count446
+\c@savedlista=\count447
+\c@listb=\count448
+\c@savedlistb=\count449
+\c@listc=\count450
+\c@savedlistc=\count451
+\c@listd=\count452
+\c@savedlistd=\count453
+\c@liste=\count454
+\c@savedliste=\count455
+\c@listf=\count456
+\c@savedlistf=\count457
+\c@location=\count458
+\c@savedlocation=\count459
+\c@organization=\count460
+\c@savedorganization=\count461
+\c@origlocation=\count462
+\c@savedoriglocation=\count463
+\c@origpublisher=\count464
+\c@savedorigpublisher=\count465
+\c@publisher=\count466
+\c@savedpublisher=\count467
+\c@language=\count468
+\c@savedlanguage=\count469
+\c@origlanguage=\count470
+\c@savedoriglanguage=\count471
+\c@citation=\count472
+\c@savedcitation=\count473
+\c@pageref=\count474
+\c@savedpageref=\count475
+\shorthandwidth=\skip72
+\shortjournalwidth=\skip73
+\shortserieswidth=\skip74
+\shorttitlewidth=\skip75
+\shortauthorwidth=\skip76
+\shorteditorwidth=\skip77
+\locallabelnumberwidth=\skip78
+\locallabelalphawidth=\skip79
+\localshorthandwidth=\skip80
+\localshortjournalwidth=\skip81
+\localshortserieswidth=\skip82
+\localshorttitlewidth=\skip83
+\localshortauthorwidth=\skip84
+\localshorteditorwidth=\skip85
 Package biblatex Info: Trying to load compatibility code...
 Package biblatex Info: ... file 'blx-compat.def' found.
 
@@ -1013,19 +1050,19 @@ Package biblatex Info: ... file 'biblatex.def' found.
 
 (/usr/share/texlive/texmf-dist/tex/latex/biblatex/biblatex.def
 File: biblatex.def 2022/07/12 v3.18b biblatex compatibility (PK/MW)
-\c@textcitecount=\count470
-\c@textcitetotal=\count471
-\c@textcitemaxnames=\count472
-\c@biburlbigbreakpenalty=\count473
-\c@biburlbreakpenalty=\count474
-\c@biburlnumpenalty=\count475
-\c@biburlucpenalty=\count476
-\c@biburllcpenalty=\count477
+\c@textcitecount=\count476
+\c@textcitetotal=\count477
+\c@textcitemaxnames=\count478
+\c@biburlbigbreakpenalty=\count479
+\c@biburlbreakpenalty=\count480
+\c@biburlnumpenalty=\count481
+\c@biburlucpenalty=\count482
+\c@biburllcpenalty=\count483
 \biburlbigskip=\muskip18
 \biburlnumskip=\muskip19
 \biburlucskip=\muskip20
 \biburllcskip=\muskip21
-\c@smartand=\count478
+\c@smartand=\count484
 )
 Package biblatex Info: Trying to load bibliography style 'apa'...
 Package biblatex Info: ... file 'apa.bbx' found.
@@ -1037,8 +1074,8 @@ Package biblatex Info: ... file 'standard.bbx' found.
 
 (/usr/share/texlive/texmf-dist/tex/latex/biblatex/bbx/standard.bbx
 File: standard.bbx 2022/07/12 v3.18b biblatex bibliography style (PK/MW)
-\c@bbx:relatedcount=\count479
-\c@bbx:relatedtotal=\count480
+\c@bbx:relatedcount=\count485
+\c@bbx:relatedtotal=\count486
 )
 Package biblatex Info: Delimiter 'nameyeardelim' in context 'bib' already defin
 ed, overwriting.
@@ -1088,8 +1125,8 @@ Package: expl3 2023-01-16 L3 programming layer (loader)
 
 (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count481
-\l__pdf_internal_box=\box131
+\l__color_backend_stack_int=\count487
+\l__pdf_internal_box=\box133
 ))
 Package biblatex Info: ... and expl3
 (biblatex)             2023-01-16 L3 programming layer (loader) 
@@ -1114,34 +1151,34 @@ LaTeX Info: Redefining \% on input line 9.
 )
 \openout1 = `informe.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count482
-\scratchdimen=\dimen333
-\scratchbox=\box132
-\nofMPsegments=\count483
-\nofMParguments=\count484
-\everyMPshowfont=\toks46
-\MPscratchCnt=\count485
-\MPscratchDim=\dimen334
-\MPnumerator=\count486
-\makeMPintoPDFobject=\count487
-\everyMPtoPDFconversion=\toks47
+\scratchcounter=\count488
+\scratchdimen=\dimen340
+\scratchbox=\box134
+\nofMPsegments=\count489
+\nofMParguments=\count490
+\everyMPshowfont=\toks49
+\MPscratchCnt=\count491
+\MPscratchDim=\dimen341
+\MPnumerator=\count492
+\makeMPintoPDFobject=\count493
+\everyMPtoPDFconversion=\toks50
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -1187,8 +1224,8 @@ e
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Info: Redefining \. on input line 90.
-LaTeX Info: Redefining \% on input line 90.
+LaTeX Info: Redefining \. on input line 91.
+LaTeX Info: Redefining \% on input line 91.
 
 (/usr/share/texlive/texmf-dist/tex/latex/translations/translations-basic-dictio
 nary-spanish.trsl
@@ -1196,7 +1233,7 @@ File: translations-basic-dictionary-spanish.trsl (spanish translation file `tra
 nslations-basic-dictionary')
 )
 Package translations Info: loading dictionary `translations-basic-dictionary' f
-or `spanish'. on input line 90.
+or `spanish'. on input line 91.
 Package biblatex Info: Trying to load language 'spanish' -> 'spanish-apa'...
 Package biblatex Info: ... file 'spanish-apa.lbx' found.
 
@@ -1227,19 +1264,19 @@ Package biblatex Warning: File 'informe.bbl' is wrong format version - expected
 
 Package biblatex Info: ... file 'informe.bbl' found.
 (./informe.bbl)
-Package biblatex Info: Reference section=0 on input line 90.
-Package biblatex Info: Reference segment=0 on input line 90.
+Package biblatex Info: Reference section=0 on input line 91.
+Package biblatex Info: Reference segment=0 on input line 91.
 <img/Caratula.jpg, id=4, 868.24374pt x 188.705pt>
 File: img/Caratula.jpg Graphic file (type jpg)
 <use img/Caratula.jpg>
-Package pdftex.def Info: img/Caratula.jpg  used on input line 95.
+Package pdftex.def Info: img/Caratula.jpg  used on input line 96.
 (pdftex.def)             Requested size: 434.1208pt x 94.35226pt.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 113
+LaTeX Font Info:    Trying to load font information for U+msa on input line 114
 .
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 113
+LaTeX Font Info:    Trying to load font information for U+msb on input line 114
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -1260,56 +1297,56 @@ LaTeX Info: Redefining \% on input line 1.
 <img/esquema_general.png, id=22, 596.2275pt x 183.68625pt>
 File: img/esquema_general.png Graphic file (type png)
 <use img/esquema_general.png>
-Package pdftex.def Info: img/esquema_general.png  used on input line 190.
+Package pdftex.def Info: img/esquema_general.png  used on input line 191.
 (pdftex.def)             Requested size: 435.3303pt x 134.11786pt.
 
-Underfull \hbox (badness 3354) in paragraph at lines 216--216
+Underfull \hbox (badness 3354) in paragraph at lines 217--217
 []|$\OT1/cmr/m/n/10 100 [] \OML/cmm/m/it/10 < I[] < \OT1/cmr/m/n/10 1[]5 A$ 
  []
 
 
-Underfull \hbox (badness 1430) in paragraph at lines 225--225
+Underfull \hbox (badness 1430) in paragraph at lines 226--226
 []|\T1/cmr/m/n/10 Corriente de fold-
  []
 
 [2 <./img/esquema_general.png>]
-Overfull \hbox (2.10585pt too wide) in paragraph at lines 287--287
+Overfull \hbox (2.10585pt too wide) in paragraph at lines 288--288
 [][]$\OML/cmm/m/it/10 f[]$  
  []
 
 [3]
-Overfull \hbox (1.91925pt too wide) in paragraph at lines 376--376
+Overfull \hbox (1.91925pt too wide) in paragraph at lines 377--377
 [][]$\OML/cmm/m/it/10 V[]$  
  []
 
 [4] [5] [6] [7] [8]
-Overfull \hbox (1.91925pt too wide) in paragraph at lines 864--864
+Overfull \hbox (1.91925pt too wide) in paragraph at lines 865--865
 [][]$\OML/cmm/m/it/10 V[]$  
  []
 
 
-Overfull \hbox (2.47215pt too wide) in paragraph at lines 874--874
+Overfull \hbox (2.47215pt too wide) in paragraph at lines 875--875
 [][]$\OML/cmm/m/it/10 V[]$  
  []
 
 [9]
-Overfull \hbox (17.41716pt too wide) in paragraph at lines 1007--1007
+Overfull \hbox (17.41716pt too wide) in paragraph at lines 1008--1008
 [][]$\OML/cmm/m/it/10 v[]$  
  []
 
 [10]
 
 LaTeX Warning: Reference `sec:simulaciones' on page 11 undefined on input line 
-1032.
+1033.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1034--1035
+Underfull \hbox (badness 10000) in paragraph at lines 1035--1036
 
  []
 
 [11]
 
-LaTeX Warning: Command \' invalid in math mode on input line 1177.
+LaTeX Warning: Command \' invalid in math mode on input line 1178.
 
 Missing character: There is no � in font cmr7!
 [12] [13] (./analisis_termico.tex
@@ -1348,242 +1385,34 @@ _termico/circuito_termico_con_rsa.png> <./img/analisis_termico/disipador.png>]
 File: img/Encapsulados/to92_fixed.png Graphic file (type png)
 <use img/Encapsulados/to92_fixed.png>
 Package pdftex.def Info: img/Encapsulados/to92_fixed.png  used on input line 15
-11.
+12.
 (pdftex.def)             Requested size: 56.9055pt x 71.12828pt.
 <img/Encapsulados/to220_fixed.png, id=88, 353.32pt x 356.33125pt>
 File: img/Encapsulados/to220_fixed.png Graphic file (type png)
 <use img/Encapsulados/to220_fixed.png>
 Package pdftex.def Info: img/Encapsulados/to220_fixed.png  used on input line 1
-512.
+513.
 (pdftex.def)             Requested size: 56.9055pt x 57.38933pt.
 <img/Encapsulados/dip8_fixed.png, id=89, 500.87125pt x 501.875pt>
 File: img/Encapsulados/dip8_fixed.png Graphic file (type png)
 <use img/Encapsulados/dip8_fixed.png>
 Package pdftex.def Info: img/Encapsulados/dip8_fixed.png  used on input line 15
-13.
+14.
 (pdftex.def)             Requested size: 56.9055pt x 57.0137pt.
 <img/Encapsulados/R_axial_fixed.png, id=90, 1003.75pt x 1003.75pt>
 File: img/Encapsulados/R_axial_fixed.png Graphic file (type png)
 <use img/Encapsulados/R_axial_fixed.png>
 Package pdftex.def Info: img/Encapsulados/R_axial_fixed.png  used on input line
- 1514.
+ 1515.
 (pdftex.def)             Requested size: 56.9055pt x 56.89883pt.
 
 [16 <./img/Encapsulados/to92_fixed.png> <./img/Encapsulados/to220_fixed.png> <.
 /img/Encapsulados/dip8_fixed.png> <./img/Encapsulados/R_axial_fixed.png>]
-[17]
-<img/LDO/PCB_Diseño/pistas.png, id=97, 502.87875pt x 516.93124pt>
+Overfull \hbox (13.12079pt too wide) in paragraph at lines 1620--1645
+ [][] 
+ []
+
+<img/LDO/PCB_Diseño/pistas.png, id=94, 506.89375pt x 516.93124pt>
 File: img/LDO/PCB_Diseño/pistas.png Graphic file (type png)
 <use img/LDO/PCB_Diseño/pistas.png>
-Package pdftex.def Info: img/LDO/PCB_Diseño/pistas.png  used on input line 168
-1.
-(pdftex.def)             Requested size: 256.07481pt x 263.22917pt.
-<img/LDO/PCB_Diseño/render_superior.png, id=98, 586.19pt x 596.2275pt>
-File: img/LDO/PCB_Diseño/render_superior.png Graphic file (type png)
-<use img/LDO/PCB_Diseño/render_superior.png>
-Package pdftex.def Info: img/LDO/PCB_Diseño/render_superior.png  used on input
- line 1687.
-(pdftex.def)             Requested size: 245.82962pt x 250.03174pt.
- [18 <./img/LDO/PCB_Diseño/pistas.png> <./img/LDO/PCB_Diseño/render_superior.
-png>]
-<img/LDO/Corte_lazo_tension.png, id=106, 548.0475pt x 241.65282pt>
-File: img/LDO/Corte_lazo_tension.png Graphic file (type png)
-<use img/LDO/Corte_lazo_tension.png>
-Package pdftex.def Info: img/LDO/Corte_lazo_tension.png  used on input line 176
-5.
-(pdftex.def)             Requested size: 307.2929pt x 135.49796pt.
- [19]
-<../../Simulación/LDO/Graficos en Python/Capturas/LDO_Bode_lazo_tension.png, i
-d=110, 578.16pt x 578.16pt>
-File: ../../Simulación/LDO/Graficos en Python/Capturas/LDO_Bode_lazo_tension.p
-ng Graphic file (type png)
-<use ../../Simulación/LDO/Graficos en Python/Capturas/LDO_Bode_lazo_tension.pn
-g>
-Package pdftex.def Info: ../../Simulación/LDO/Graficos en Python/Capturas/LDO_
-Bode_lazo_tension.png  used on input line 1774.
-(pdftex.def)             Requested size: 435.3303pt x 435.3304pt.
-<../../Simulación/LDO/Graficos en Python/Capturas/LDO_Bode_lazo_tension_compar
-acion.png, id=111, 578.16pt x 578.16pt>
-File: ../../Simulación/LDO/Graficos en Python/Capturas/LDO_Bode_lazo_tension_c
-omparacion.png Graphic file (type png)
-<use ../../Simulación/LDO/Graficos en Python/Capturas/LDO_Bode_lazo_tension_co
-mparacion.png>
-Package pdftex.def Info: ../../Simulación/LDO/Graficos en Python/Capturas/LDO_
-Bode_lazo_tension_comparacion.png  used on input line 1785.
-(pdftex.def)             Requested size: 435.3303pt x 435.3304pt.
- [20 <./img/LDO/Corte_lazo_tension.png> <../../Simulación/LDO/Graficos en Pyth
-on/Capturas/LDO_Bode_lazo_tension.png>]
-<../../Simulación/LDO/Graficos en Python/Capturas/LDO_Bode_lazo_tension_compen
-sado.png, id=117, 722.7pt x 578.16pt>
-File: ../../Simulación/LDO/Graficos en Python/Capturas/LDO_Bode_lazo_tension_c
-ompensado.png Graphic file (type png)
-<use ../../Simulación/LDO/Graficos en Python/Capturas/LDO_Bode_lazo_tension_co
-mpensado.png>
-Package pdftex.def Info: ../../Simulación/LDO/Graficos en Python/Capturas/LDO_
-Bode_lazo_tension_compensado.png  used on input line 1794.
-(pdftex.def)             Requested size: 435.3303pt x 348.26608pt.
- [21 <../../Simulación/LDO/Graficos en Python/Capturas/LDO_Bode_lazo_tension_c
-omparacion.png>]
-<img/LDO/Corte_lazo_corriente.png, id=122, 417.81094pt x 283.0575pt>
-File: img/LDO/Corte_lazo_corriente.png Graphic file (type png)
-<use img/LDO/Corte_lazo_corriente.png>
-Package pdftex.def Info: img/LDO/Corte_lazo_corriente.png  used on input line 1
-810.
-(pdftex.def)             Requested size: 307.2929pt x 208.19807pt.
- [22 <../../Simulación/LDO/Graficos en Python/Capturas/LDO_Bode_lazo_tension_c
-ompensado.png> <./img/LDO/Corte_lazo_corriente.png>]
-<../../Simulación/LDO/Graficos en Python/Capturas/LDO_Bode_lazo_corriente.png,
- id=128, 578.16pt x 578.16pt>
-File: ../../Simulación/LDO/Graficos en Python/Capturas/LDO_Bode_lazo_corriente
-.png Graphic file (type png)
-<use ../../Simulación/LDO/Graficos en Python/Capturas/LDO_Bode_lazo_corriente.
-png>
-Package pdftex.def Info: ../../Simulación/LDO/Graficos en Python/Capturas/LDO_
-Bode_lazo_corriente.png  used on input line 1819.
-(pdftex.def)             Requested size: 435.3303pt x 435.3304pt.
-<../../Simulación/LDO/Graficos en Python/Capturas/LDO_Bode_lazo_corriente_comp
-ensado.png, id=129, 722.7pt x 578.16pt>
-File: ../../Simulación/LDO/Graficos en Python/Capturas/LDO_Bode_lazo_corriente
-_compensado.png Graphic file (type png)
-<use ../../Simulación/LDO/Graficos en Python/Capturas/LDO_Bode_lazo_corriente_
-compensado.png>
-Package pdftex.def Info: ../../Simulación/LDO/Graficos en Python/Capturas/LDO_
-Bode_lazo_corriente_compensado.png  used on input line 1828.
-(pdftex.def)             Requested size: 435.3303pt x 348.26608pt.
- [23 <../../Simulación/LDO/Graficos en Python/Capturas/LDO_Bode_lazo_corriente
-.png>]
-<../../Simulación/LDO/Graficos en Python/Capturas/LDO_Vcc_Vo.png, id=134, 462.
-528pt x 346.896pt>
-File: ../../Simulación/LDO/Graficos en Python/Capturas/LDO_Vcc_Vo.png Graphic 
-file (type png)
-<use ../../Simulación/LDO/Graficos en Python/Capturas/LDO_Vcc_Vo.png>
-Package pdftex.def Info: ../../Simulación/LDO/Graficos en Python/Capturas/LDO_
-Vcc_Vo.png  used on input line 1840.
-(pdftex.def)             Requested size: 332.89412pt x 249.68022pt.
- [24 <../../Simulación/LDO/Graficos en Python/Capturas/LDO_Bode_lazo_corriente
-_compensado.png>]
-<../../Simulación/LDO/Graficos en Python/Capturas/LDO_regulacion_linea.png, id
-=140, 462.528pt x 346.896pt>
-File: ../../Simulación/LDO/Graficos en Python/Capturas/LDO_regulacion_linea.pn
-g Graphic file (type png)
-<use ../../Simulación/LDO/Graficos en Python/Capturas/LDO_regulacion_linea.png
->
-Package pdftex.def Info: ../../Simulación/LDO/Graficos en Python/Capturas/LDO_
-regulacion_linea.png  used on input line 1884.
-(pdftex.def)             Requested size: 230.46576pt x 172.84943pt.
-<../../Simulación/LDO/Graficos en Python/Capturas/LDO_regulacion_linea_zoom.pn
-g, id=141, 462.528pt x 346.896pt>
-File: ../../Simulación/LDO/Graficos en Python/Capturas/LDO_regulacion_linea_zo
-om.png Graphic file (type png)
-<use ../../Simulación/LDO/Graficos en Python/Capturas/LDO_regulacion_linea_zoo
-m.png>
-Package pdftex.def Info: ../../Simulación/LDO/Graficos en Python/Capturas/LDO_
-regulacion_linea_zoom.png  used on input line 1889.
-(pdftex.def)             Requested size: 230.46576pt x 172.84943pt.
- [25 <../../Simulación/LDO/Graficos en Python/Capturas/LDO_Vcc_Vo.png>]
-<../../Simulación/LDO/Graficos en Python/Capturas/LDO_regulacion_carga.png, id
-=147, 462.528pt x 346.896pt>
-File: ../../Simulación/LDO/Graficos en Python/Capturas/LDO_regulacion_carga.pn
-g Graphic file (type png)
-<use ../../Simulación/LDO/Graficos en Python/Capturas/LDO_regulacion_carga.png
->
-Package pdftex.def Info: ../../Simulación/LDO/Graficos en Python/Capturas/LDO_
-regulacion_carga.png  used on input line 1928.
-(pdftex.def)             Requested size: 307.2929pt x 230.4818pt.
- [26 <../../Simulación/LDO/Graficos en Python/Capturas/LDO_regulacion_linea.pn
-g> <../../Simulación/LDO/Graficos en Python/Capturas/LDO_regulacion_linea_zoom
-.png>]
-<../../Simulación/LDO/Graficos en Python/Capturas/V vs I.png, id=156, 722.7pt 
-x 433.62pt>
-File: ../../Simulación/LDO/Graficos en Python/Capturas/V vs I.png Graphic file
- (type png)
-<use ../../Simulación/LDO/Graficos en Python/Capturas/V vs I.png>
-Package pdftex.def Info: ../../Simulación/LDO/Graficos en Python/Capturas/V vs
- I.png  used on input line 1942.
-(pdftex.def)             Requested size: 307.2929pt x 184.37538pt.
-<../../Simulación/LDO/Graficos en Python/Capturas/LDO_eficiencia.png, id=157, 
-462.528pt x 346.896pt>
-File: ../../Simulación/LDO/Graficos en Python/Capturas/LDO_eficiencia.png Grap
-hic file (type png)
-<use ../../Simulación/LDO/Graficos en Python/Capturas/LDO_eficiencia.png>
-Package pdftex.def Info: ../../Simulación/LDO/Graficos en Python/Capturas/LDO_
-eficiencia.png  used on input line 1961.
-(pdftex.def)             Requested size: 358.50317pt x 268.88925pt.
- [27 <../../Simulación/LDO/Graficos en Python/Capturas/LDO_regulacion_carga.pn
-g> <../../Simulación/LDO/Graficos en Python/Capturas/V vs I.png>] (./conclusio
-nes.tex
-[28 <../../Simulación/LDO/Graficos en Python/Capturas/LDO_eficiencia.png>])
-
-LaTeX Warning: Empty bibliography on input line 1975.
-
-[29]
-<img/LDO/Esquematico_LDO_LTSPICE2.png, id=170, 955.31906pt x 612.03656pt>
-File: img/LDO/Esquematico_LDO_LTSPICE2.png Graphic file (type png)
-<use img/LDO/Esquematico_LDO_LTSPICE2.png>
-Package pdftex.def Info: img/LDO/Esquematico_LDO_LTSPICE2.png  used on input li
-ne 1988.
-(pdftex.def)             Requested size: 645.73994pt x 413.6952pt.
-<img/LDO/esquematico_kicad_LDO.png, id=171, 1606.0pt x 1135.24126pt>
-File: img/LDO/esquematico_kicad_LDO.png Graphic file (type png)
-<use img/LDO/esquematico_kicad_LDO.png>
-Package pdftex.def Info: img/LDO/esquematico_kicad_LDO.png  used on input line 
-1999.
-(pdftex.def)             Requested size: 645.73994pt x 456.46162pt.
- [30
-
- <./img/LDO/Esquematico_LDO_LTSPICE2.png>]
-Overfull \vbox (20.67307pt too high) has occurred while \output is active []
-
-
-[31 <./img/LDO/esquematico_kicad_LDO.png>] [32
-
-] (./informe.aux
-LaTeX Info: Redefining \sptext on input line 9.
-LaTeX Info: Redefining \. on input line 9.
-LaTeX Info: Redefining \% on input line 9.
-)
-
-LaTeX Warning: There were undefined references.
-
-Package logreq Info: Writing requests to 'informe.run.xml'.
-\openout1 = `informe.run.xml'.
-
- ) 
-Here is how much of TeX's memory you used:
- 51426 strings out of 476091
- 1274975 string characters out of 5794082
- 2261309 words of memory out of 5000000
- 71251 multiletter control sequences out of 15000+600000
- 532032 words of font info for 79 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 83i,18n,89p,1196b,2811s stack positions out of 10000i,1000n,20000p,200000b,200000s
-{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/share/texmf/
-fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmbsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6
-.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></
-usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
-fonts/symbols/msam10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1000
-.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/tex
-mf/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/publi
-c/cm-super/sfbx1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfcc1440.
-pfb></usr/share/texmf/fonts/type1/public/cm-super/sfcc2488.pfb></usr/share/texm
-f/fonts/type1/public/cm-super/sfrm0700.pfb></usr/share/texmf/fonts/type1/public
-/cm-super/sfrm0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.p
-fb></usr/share/texmf/fonts/type1/public/cm-super/sfti1000.pfb>
-Output written on informe.pdf (33 pages, 4179776 bytes).
-PDF statistics:
- 291 PDF objects out of 1000 (max. 8388607)
- 157 compressed objects within 2 object streams
- 0 named destinations out of 1000 (max. 500000)
- 143 words of extra memory for PDF output out of 10000 (max. 10000000)
-
+Package pd

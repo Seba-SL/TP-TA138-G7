@@ -27,6 +27,7 @@
 \usepackage{array}
 \usepackage{tcolorbox}
 \usepackage{xcolor}
+\usepackage{pdfpages}
 
 \newif\ifcheckpoint
 \checkpointtrue
@@ -1572,8 +1573,7 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 	
 	\begin{itemize}
 		\item Pistas de señal: 0.25 mm a 0.4 mm.
-		\item Pistas de alimentación: 0.6 mm a 1 mm.
-		\item Pistas de potencia (etapa de salida del LDO): $\geq$ 1 mm.
+		\item Pistas de alimentación y potencia: 0.6 mm a 1 mm.
 	\end{itemize}
 	
 	Estos valores garantizan un compromiso adecuado entre capacidad de conducción de corriente, disipación térmica y densidad de ruteo, asegurando el correcto funcionamiento del circuito sin sobrecalentamiento de las pistas.
@@ -1607,9 +1607,12 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 	
 	\paragraph{Características del diseño de la placa impresa del LDO}
 	
-	A continuación en la tabla \ref{tab:parametros_pcb_LDO} se detallan los parámetros y características definidas para el diseño final, el cual se aprecia en el apéndice \ref{sec:apendice_PCB}.
+	A continuación en la tabla \ref{tab:parametros_pcb_LDO} se detallan los parámetros y características definidas para el diseño final mientras que en la tabla \ref{tab:nodos_pistas} se detalla las redes establecidas para el diseño, el cual se aprecia en las figuras \ref{fig:pcb_vistas}y en el apéndice \ref{sec:apendice_PCB}.
 	
-	\begin{table}[H]
+\begin{table}[H]
+	\centering
+	
+	\begin{subtable}[t]{0.48\textwidth}
 		\centering
 		\caption{Parámetros principales de la PCB}
 		\label{tab:parametros_pcb_LDO}
@@ -1618,71 +1621,64 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 			\hline
 			\textbf{Parámetro} & \textbf{Valor} \\
 			\hline
-			
 			Dimensiones de la PCB & 98.5 mm $\times$ 100.5 mm \\
 			Espesor de la PCB & 1.6 mm \\
 			Cantidad de capas & 2 (doble faz) \\
 			Material del sustrato & FR-4 \\
 			\hline
-			
 			Cantidad de componentes THT & 55 \\
 			Cantidad de componentes SMD & 0 \\
 			Cantidad total de agujeros & 137 \\
 			Diámetro mínimo de taladro & 0.7 mm \\
 			\hline
-			
 			Ancho de pista (señal) & 0.4 mm \\
-			Ancho de pista (alimentación) & 1 mm \\
-			Ancho de pista (potencia) & 1 mm \\
+			Ancho de pista (alimentación) & 0.8 mm \\
+			Ancho de pista (potencia) & 0.8 mm \\
 			\hline
-			
-			Plano de masa & [Sí / No] \\
-			Separación mínima de pistas & [completar] \\
+			Plano de masa & Sí (capa inferior) \\
+			Separación mínima de pistas & 0.2 mm \\
 			\hline
-			
 			Tipo de montaje & THT \\
 			Aplicación principal & Regulador LDO \\
 			\hline
-			
 		\end{tabular}
-	\end{table}
-	
-	
-	\begin{table}[H]
+	\end{subtable}
+	\hfill
+	\begin{subtable}[t]{0.48\textwidth}
 		\centering
-		\caption{Clasificación de nodos y dimensionamiento de pistas}
+		\caption{Clasificación de nodos y dimensionamiento}
 		\label{tab:nodos_pistas}
 		\renewcommand{\arraystretch}{1.2}
 		\begin{tabular}{|l|c|c|}
 			\hline
-			\textbf{Nodo} & \textbf{Red} & \textbf{Ancho de pista [mm]} \\
+			\textbf{Nodo} & \textbf{Red} & \textbf{Ancho [mm]} \\
 			\hline
-			
-			Vin & Alimentación & 0.8 -- 1.0 \\
-			Vref & Señal & 0.25 -- 0.4 \\
-			Vref\_t & Señal & 0.25 -- 0.4 \\
-			Vref\_c & Señal & 0.25 -- 0.4 \\
-			V\_voltage & Señal & 0.25 -- 0.4 \\
-			V\_current & Señal & 0.25 -- 0.4 \\
-			V\_Rs & Señal & 0.25 -- 0.4 \\
-			Salida (Vo) & Potencia & 1.0 -- 1.2 \\
-			GND & Alimentación & [plano / $\geq$ 1.0] \\
+			Vin & Alimentación & 0.8 \\
+			Vref & Señal & 0.4 \\
+			Vref\_t & Señal & 0.4 \\
+			Vref\_c & Señal & 0.4 \\
+			V\_voltage & Señal & 0.4 \\
+			V\_current & Señal & 0.4 \\
+			V\_Rs & Señal & 0.4 \\
+			Salida (Vo) & Potencia & 0.8 \\
+			GND & Alimentación & Plano / 0.8 \\
 			\hline
-			
 		\end{tabular}
-	\end{table}
+	\end{subtable}
+	
+\end{table}
 
 	
 	\begin{figure}[H]
 		\centering
 		
-		\begin{subfigure}[t]{0.5\textwidth}
+		\begin{subfigure}[t]{0.49\textwidth}
 			\centering
 			\includegraphics[width=\textwidth]{img/LDO/PCB_Diseño/pistas.png}
 			\caption{Pistas}
 		\end{subfigure}
 		\hfill
-		\begin{subfigure}[t]{0.48\textwidth}
+		\begin{subfigure}[t]{0.49\textwidth}
 			\centering
 			\includegraphics[width=\textwidth]{img/LDO/PCB_Diseño/render_superior.png}
 			\caption{Vista superior}
@@ -2001,11 +1997,15 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 		\label{fig:esquematicokicadldo}
 	\end{figure}
 	\end{landscape}
-
 \section{Apéndice III: PCB}
 \label{sec:apendice_PCB}
-	\subsection{LDO}
 
+\includepdf[
+pages=1,
+pagecommand={
+	\subsection{LDO}
+}
+]{img/LDO/pistas_LDO.pdf}
 	
 	
 \end{document}
