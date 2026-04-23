@@ -6215,7 +6215,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "0518b476-63b8-42d1-89bd-f498d907d0ea")
-		(property "Reference" "C_comp_t"
+		(property "Reference" "C_comp_t1"
 			(at 47.244 34.798 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6237,7 +6237,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_THT:C_Disc_D3.8mm_W2.6mm_P2.50mm"
 			(at 58.1152 41.91 0)
 			(hide yes)
 			(show_name no)
@@ -6279,7 +6279,7 @@
 		(instances
 			(project "Prueba"
 				(path "/70bda0a3-0c17-43ce-af47-54d014630cec"
-					(reference "C_comp_t")
+					(reference "C_comp_t1")
 					(unit 1)
 				)
 			)
@@ -12123,7 +12123,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "dd730905-1780-4e38-a244-d4c51c1223ac")
-		(property "Reference" "C_comp_c"
+		(property "Reference" "C_comp_c1"
 			(at 123.444 56.388 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12145,7 +12145,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_THT:C_Disc_D3.8mm_W2.6mm_P2.50mm"
 			(at 134.3152 63.5 0)
 			(hide yes)
 			(show_name no)
@@ -12187,7 +12187,7 @@
 		(instances
 			(project "Prueba"
 				(path "/70bda0a3-0c17-43ce-af47-54d014630cec"
-					(reference "C_comp_c")
+					(reference "C_comp_c1")
 					(unit 1)
 				)
 			)

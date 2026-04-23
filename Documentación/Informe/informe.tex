@@ -1524,25 +1524,61 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 	
 	Cada componente debe integrarse correctamente en la placa de circuito impreso (PCB). Para ello, el software utiliza un sistema de huellas (footprints), generalmente provistas por los fabricantes o desarrolladas por la comunidad, que definen las dimensiones físicas, la disposición de pines y los orificios necesarios para el montaje de cada componente. Asimismo, el software permite la visualización y edición de estas huellas.
 	
-	Adicionalmente, el entorno de desarrollo ofrece una representación tridimensional de la placa, incorporando modelos 3D de los componentes. Estos modelos pueden organizarse en librerías, escalarse, rotarse y visualizarse dentro del diseño. Sin embargo, la modificación de su geometría no está soportada directamente por el software, por lo que es necesario recurrir a herramientas externas de diseño 3D, tales como :contentReference[oaicite:0]{index=0}, :contentReference[oaicite:1]{index=1} o :contentReference[oaicite:2]{index=2}, entre otras.
+	Adicionalmente, el entorno de desarrollo ofrece una representación tridimensional de la placa, incorporando modelos 3D de los componentes. Estos modelos pueden organizarse en librerías, escalarse, rotarse y visualizarse dentro del diseño. Sin embargo, la modificación de su geometría no está soportada directamente por el software, por lo que es necesario recurrir a herramientas externas de diseño 3D, tales como FreeCad y SolidWorks entre otras.
 	
 	\paragraph{Ancho de pistas}
-	El dimensionamiento de las pistas se realizó en función de la corriente máxima esperada (1.5 A) y el aumento de temperatura permitido. Para ello se consideraron normas empíricas asegurando que:
+	
+	
+	El dimensionamiento de las pistas se realizó en función de la corriente máxima esperada (1.5 A) y del incremento de temperatura admisible en el conductor. Para el presente diseño, las interconexiones se clasificaron en tres categorías: red de señal, red de alimentación y red de potencia.
+	
+	La red de señal corresponde a las conexiones encargadas de transportar niveles de referencia y señales de baja corriente entre etapas de amplificación y comparación, por lo que se priorizó la compacidad del ruteo utilizando anchos de pista reducidos.
+	
+	La red de alimentación incluye las pistas que distribuyen energía a los distintos bloques del circuito. En este caso, se adoptaron anchos de pista mayores con el objetivo de reducir la caída de tensión y mejorar la disipación térmica.
+	
+	Por último, la red de potencia comprende las conexiones asociadas a la entrega de corriente hacia la carga, particularmente en la etapa del transistor de paso del regulador LDO. Estas pistas fueron dimensionadas con el mayor ancho disponible dentro de las restricciones del diseño, a fin de minimizar pérdidas resistivas y evitar sobrecalentamientos.
+	
+	El diseño se realizó siguiendo criterios empíricos basados en buenas prácticas de diseño de PCB, asegurando un compromiso adecuado entre capacidad de conducción de corriente, integridad de señal y densidad de ruteo.
+	
+	
+	\paragraph{Dimensionamiento de pistas}
+	
+	El dimensionamiento de las pistas se realizó en función de la corriente máxima esperada del circuito (1.5 A) y del incremento de temperatura admisible, siguiendo recomendaciones de estándares de diseño como IPC-2221 e IPC-2152.
+	
+	De acuerdo con dichos estándares, la corriente máxima que puede conducir una pista de cobre se relaciona empíricamente con su sección transversal y el aumento de temperatura mediante:
+	
+	\[
+	I = k \cdot (\Delta T)^{0.44} \cdot A^{0.725}
+	\]
+	
+	donde \( I \) es la corriente, \( \Delta T \) el incremento de temperatura permitido y \( A \) el área de la sección transversal de la pista. Para capas externas, se considera \( k \approx 0.048 \).
+	
+	Desde el punto de vista físico, este criterio se fundamenta en el calentamiento resistivo del conductor, descrito por la ley de Joule:
+	
+	\[
+	P = I^2 R
+	\]
+	
+	y la resistencia eléctrica de la pista:
+	
+	\[
+	R = \rho \frac{L}{A}
+	\]
+	
+	De estas expresiones se desprende que un aumento en el área de la sección transversal (mayor ancho de pista) reduce la resistencia eléctrica y, en consecuencia, la potencia disipada en forma de calor, limitando el incremento de temperatura.
+	
+	Considerando una PCB con cobre estándar de 1 oz/ft\(^2\) (espesor aproximado de 35 $\mu$m), una corriente de 1.5 A y un incremento de temperatura de aproximadamente 10 °C, se obtiene un ancho de pista recomendado del orden de 0.8 mm a 1.2 mm para capas externas.
+	
+	En base a este análisis, se adoptaron los siguientes criterios de diseño:
 	
 	\begin{itemize}
-		\item Las pistas de potencia (entrada y salida del LDO) poseen mayor ancho para reducir caída de tensión y disipación.
-		\item Las pistas de señal se diseñaron más delgadas, priorizando densidad de ruteo.
+		\item Pistas de señal: 0.25 mm a 0.4 mm.
+		\item Pistas de alimentación: 0.6 mm a 1 mm.
+		\item Pistas de potencia (etapa de salida del LDO): $\geq$ 1 mm.
 	\end{itemize}
 	
-%	\paragraph{Planos de masa}
-%	En la versión multicapa se incorporó un plano de masa continuo, lo cual permite:
-%	\begin{itemize}
-%		\item Reducir la impedancia de retorno.
-%		\item Disminuir ruido y acoplamientos indeseados.
-%		\item Mejorar la estabilidad del regulador.
-%	\end{itemize}
+	Estos valores garantizan un compromiso adecuado entre capacidad de conducción de corriente, disipación térmica y densidad de ruteo, asegurando el correcto funcionamiento del circuito sin sobrecalentamiento de las pistas.
 	
-	La masa o tensión de referencia se implementó mediante rellenos de estaño, intentando maximizar su continuidad.
+	
 	
 	\paragraph{Disposición de componentes}
 	Para este sistema de regulación de tensión con fines académicos se propuso como desafío una placa con una disposición de componentes que respete la modularización del circuito y priorice la identificación de los bloques.
@@ -1569,12 +1605,81 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 	
 %	El diseño multicapa presenta ventajas en términos de integridad de señal, menor ruido y mejor comportamiento térmico, a costa de un mayor costo de fabricación. Por otro lado, la PCB de dos capas resulta adecuada para prototipos y aplicaciones de menor exigencia.
 	
+	\paragraph{Características del diseño de la placa impresa del LDO}
+	
+	A continuación en la tabla \ref{tab:parametros_pcb_LDO} se detallan los parámetros y características definidas para el diseño final, el cual se aprecia en el apéndice \ref{sec:apendice_PCB}.
+	
+	\begin{table}[H]
+		\centering
+		\caption{Parámetros principales de la PCB}
+		\label{tab:parametros_pcb_LDO}
+		\renewcommand{\arraystretch}{1.2}
+		\begin{tabular}{|l|c|}
+			\hline
+			\textbf{Parámetro} & \textbf{Valor} \\
+			\hline
+			
+			Dimensiones de la PCB & 98.5 mm $\times$ 100.5 mm \\
+			Espesor de la PCB & 1.6 mm \\
+			Cantidad de capas & 2 (doble faz) \\
+			Material del sustrato & FR-4 \\
+			\hline
+			
+			Cantidad de componentes THT & 55 \\
+			Cantidad de componentes SMD & 0 \\
+			Cantidad total de agujeros & 137 \\
+			Diámetro mínimo de taladro & 0.7 mm \\
+			\hline
+			
+			Ancho de pista (señal) & 0.4 mm \\
+			Ancho de pista (alimentación) & 1 mm \\
+			Ancho de pista (potencia) & 1 mm \\
+			\hline
+			
+			Plano de masa & [Sí / No] \\
+			Separación mínima de pistas & [completar] \\
+			\hline
+			
+			Tipo de montaje & THT \\
+			Aplicación principal & Regulador LDO \\
+			\hline
+			
+		\end{tabular}
+	\end{table}
 	
 	
+	\begin{table}[H]
+		\centering
+		\caption{Clasificación de nodos y dimensionamiento de pistas}
+		\label{tab:nodos_pistas}
+		\renewcommand{\arraystretch}{1.2}
+		\begin{tabular}{|l|c|c|}
+			\hline
+			\textbf{Nodo} & \textbf{Red} & \textbf{Ancho de pista [mm]} \\
+			\hline
+			
+			Vin & Alimentación & 0.8 -- 1.0 \\
+			Vref & Señal & 0.25 -- 0.4 \\
+			Vref\_t & Señal & 0.25 -- 0.4 \\
+			Vref\_c & Señal & 0.25 -- 0.4 \\
+			V\_voltage & Señal & 0.25 -- 0.4 \\
+			V\_current & Señal & 0.25 -- 0.4 \\
+			V\_Rs & Señal & 0.25 -- 0.4 \\
+			Salida (Vo) & Potencia & 1.0 -- 1.2 \\
+			GND & Alimentación & [plano / $\geq$ 1.0] \\
+			\hline
+			
+			\textit{[Agregar nodos adicionales]} & & \\
+			\hline
+			
+		\end{tabular}
+	\end{table}
 	
 	
 	
 	% SL : voy a seguir la seccion del diseño de pcb a parte y dsp lo añado
+	
+	
 	\checkpointend{2}
 	
 	\subsubsection{Mejoras:}
