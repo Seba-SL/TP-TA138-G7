@@ -240,6 +240,14 @@ INPUT C:\Users\Flores\AppData\Local\Programs\MiKTeX\tex\generic\circuitikz\pgfci
 INPUT C:\Users\Flores\AppData\Local\Programs\MiKTeX\tex\generic\circuitikz\pgfcircvoltage.tex
 INPUT C:\Users\Flores\AppData\Local\Programs\MiKTeX\tex\generic\circuitikz\pgfcirccurrent.tex
 INPUT C:\Users\Flores\AppData\Local\Programs\MiKTeX\tex\generic\circuitikz\pgfcircflow.tex
+INPUT C:\Users\Flores\AppData\Local\Programs\MiKTeX\tex\latex\pdflscape\pdflscape.sty
+INPUT C:\Users\Flores\AppData\Local\Programs\MiKTeX\tex\latex\pdflscape\pdflscape.sty
+INPUT C:\Users\Flores\AppData\Local\Programs\MiKTeX\tex\latex\pdflscape\pdflscape-nometadata.sty
+INPUT C:\Users\Flores\AppData\Local\Programs\MiKTeX\tex\latex\pdflscape\pdflscape-nometadata.sty
+INPUT C:\Users\Flores\AppData\Local\Programs\MiKTeX\tex\latex\graphics\lscape.sty
+INPUT C:\Users\Flores\AppData\Local\Programs\MiKTeX\tex\latex\graphics\lscape.sty
+INPUT C:\Users\Flores\AppData\Local\Programs\MiKTeX\tex\latex\caption\subcaption.sty
+INPUT C:\Users\Flores\AppData\Local\Programs\MiKTeX\tex\latex\caption\subcaption.sty
 INPUT C:\Users\Flores\AppData\Local\Programs\MiKTeX\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibrarypositioning.code.tex
 INPUT C:\Users\Flores\AppData\Local\Programs\MiKTeX\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibrarypositioning.code.tex
 INPUT C:\Users\Flores\AppData\Local\Programs\MiKTeX\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibrarybabel.code.tex
@@ -373,7 +381,6 @@ INPUT C:\Users\Flores\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ecrm07
 INPUT C:\Users\Flores\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\tcrm0700.tfm
 INPUT C:\Users\Flores\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ecrm0500.tfm
 INPUT C:\Users\Flores\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\tcrm0500.tfm
-INPUT C:\Users\Flores\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ecrm0900.tfm
 INPUT C:\Users\Flores\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx10.tfm
 INPUT C:\Users\Flores\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx7.tfm
 INPUT C:\Users\Flores\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx5.tfm
@@ -384,6 +391,56 @@ INPUT C:\Users\Flores\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbsy10.
 INPUT C:\Users\Flores\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmbsy7.tfm
 INPUT C:\Users\Flores\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmbsy5.tfm
 INPUT C:\Users\Flores\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ecti1000.tfm
+INPUT .\analisis_termico.tex
+INPUT .\analisis_termico.tex
+INPUT .\analisis_termico.tex
+INPUT .\analisis_termico.tex
+INPUT analisis_termico.tex
+INPUT .\img\analisis_termico\circuito_termico_sin_rsa.png
+INPUT .\img\analisis_termico\circuito_termico_sin_rsa.png
+INPUT .\img\analisis_termico\circuito_termico_sin_rsa.png
+INPUT .\img\analisis_termico\circuito_termico_sin_rsa.png
+INPUT .\img\analisis_termico\circuito_termico_sin_rsa.png
+INPUT .\img\analisis_termico\circuito_termico_sin_rsa.png
+INPUT .\img\analisis_termico\circuito_termico_sin_rsa.png
+INPUT .\img\analisis_termico\circuito_termico_con_rsa.png
+INPUT .\img\analisis_termico\circuito_termico_con_rsa.png
+INPUT .\img\analisis_termico\circuito_termico_con_rsa.png
+INPUT .\img\analisis_termico\circuito_termico_con_rsa.png
+INPUT .\img\analisis_termico\circuito_termico_con_rsa.png
+INPUT .\img\analisis_termico\circuito_termico_con_rsa.png
+INPUT .\img\analisis_termico\circuito_termico_con_rsa.png
+INPUT .\img\analisis_termico\disipador.png
+INPUT .\img\analisis_termico\disipador.png
+INPUT .\img\analisis_termico\disipador.png
+INPUT .\img\analisis_termico\disipador.png
+INPUT .\img\analisis_termico\disipador.png
+INPUT .\img\analisis_termico\disipador.png
+INPUT .\img\analisis_termico\disipador.png
+INPUT .\img\LDO\Corte_lazo_tension.png
+INPUT .\img\LDO\Corte_lazo_tension.png
+INPUT .\img\LDO\Corte_lazo_tension.png
+INPUT .\img\LDO\Corte_lazo_tension.png
+INPUT .\img\LDO\Corte_lazo_tension.png
+INPUT .\img\LDO\Corte_lazo_tension.png
+INPUT ..\..\Simulación\LDO\Graficos en Python\Capturas\LDO_Bode_lazo_tension.png
+INPUT ..\..\Simulación\LDO\Graficos en Python\Capturas\LDO_Bode_lazo_tension.png
+INPUT ..\..\Simulación\LDO\Graficos en Python\Capturas\LDO_Bode_lazo_tension.png
+INPUT ..\..\Simulación\LDO\Graficos en Python\Capturas\LDO_Bode_lazo_tension.png
+INPUT ..\..\Simulación\LDO\Graficos en Python\Capturas\LDO_Bode_lazo_tension.png
+INPUT ..\..\Simulación\LDO\Graficos en Python\Capturas\LDO_Bode_lazo_tension.png
+INPUT .\img\LDO\Corte_lazo_corriente.png
+INPUT .\img\LDO\Corte_lazo_corriente.png
+INPUT .\img\LDO\Corte_lazo_corriente.png
+INPUT .\img\LDO\Corte_lazo_corriente.png
+INPUT .\img\LDO\Corte_lazo_corriente.png
+INPUT .\img\LDO\Corte_lazo_corriente.png
+INPUT ..\..\Simulación\LDO\Graficos en Python\Capturas\LDO_Bode_lazo_corriente.png
+INPUT ..\..\Simulación\LDO\Graficos en Python\Capturas\LDO_Bode_lazo_corriente.png
+INPUT ..\..\Simulación\LDO\Graficos en Python\Capturas\LDO_Bode_lazo_corriente.png
+INPUT ..\..\Simulación\LDO\Graficos en Python\Capturas\LDO_Bode_lazo_corriente.png
+INPUT ..\..\Simulación\LDO\Graficos en Python\Capturas\LDO_Bode_lazo_corriente.png
+INPUT ..\..\Simulación\LDO\Graficos en Python\Capturas\LDO_Bode_lazo_corriente.png
 INPUT ..\..\Simulación\LDO\Graficos en Python\Capturas\LDO_Vcc_Vo.png
 INPUT ..\..\Simulación\LDO\Graficos en Python\Capturas\LDO_Vcc_Vo.png
 INPUT ..\..\Simulación\LDO\Graficos en Python\Capturas\LDO_Vcc_Vo.png
@@ -396,24 +453,55 @@ INPUT ..\..\Simulación\LDO\Graficos en Python\Capturas\LDO_regulacion_linea.png
 INPUT ..\..\Simulación\LDO\Graficos en Python\Capturas\LDO_regulacion_linea.png
 INPUT ..\..\Simulación\LDO\Graficos en Python\Capturas\LDO_regulacion_linea.png
 INPUT ..\..\Simulación\LDO\Graficos en Python\Capturas\LDO_regulacion_linea.png
+INPUT C:\Users\Flores\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ecrm0900.tfm
+INPUT C:\Users\Flores\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr9.tfm
+INPUT C:\Users\Flores\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr6.tfm
+INPUT C:\Users\Flores\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmmi9.tfm
+INPUT C:\Users\Flores\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmmi6.tfm
+INPUT C:\Users\Flores\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmsy9.tfm
+INPUT C:\Users\Flores\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmsy6.tfm
+INPUT C:\Users\Flores\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmex9.tfm
+INPUT C:\Users\Flores\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmex7.tfm
+INPUT C:\Users\Flores\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msam10.tfm
+INPUT C:\Users\Flores\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msam7.tfm
+INPUT C:\Users\Flores\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
+INPUT C:\Users\Flores\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm7.tfm
+INPUT ..\..\Simulación\LDO\Graficos en Python\Capturas\LDO_regulacion_linea_zoom.png
+INPUT ..\..\Simulación\LDO\Graficos en Python\Capturas\LDO_regulacion_linea_zoom.png
+INPUT ..\..\Simulación\LDO\Graficos en Python\Capturas\LDO_regulacion_linea_zoom.png
+INPUT ..\..\Simulación\LDO\Graficos en Python\Capturas\LDO_regulacion_linea_zoom.png
+INPUT ..\..\Simulación\LDO\Graficos en Python\Capturas\LDO_regulacion_linea_zoom.png
+INPUT ..\..\Simulación\LDO\Graficos en Python\Capturas\LDO_regulacion_linea_zoom.png
 INPUT ..\..\Simulación\LDO\Graficos en Python\Capturas\LDO_regulacion_carga.png
 INPUT ..\..\Simulación\LDO\Graficos en Python\Capturas\LDO_regulacion_carga.png
 INPUT ..\..\Simulación\LDO\Graficos en Python\Capturas\LDO_regulacion_carga.png
 INPUT ..\..\Simulación\LDO\Graficos en Python\Capturas\LDO_regulacion_carga.png
 INPUT ..\..\Simulación\LDO\Graficos en Python\Capturas\LDO_regulacion_carga.png
 INPUT ..\..\Simulación\LDO\Graficos en Python\Capturas\LDO_regulacion_carga.png
+INPUT ..\..\Simulación\LDO\Graficos en Python\Capturas\V vs I.png
+INPUT ..\..\Simulación\LDO\Graficos en Python\Capturas\V vs I.png
+INPUT ..\..\Simulación\LDO\Graficos en Python\Capturas\V vs I.png
+INPUT ..\..\Simulación\LDO\Graficos en Python\Capturas\V vs I.png
+INPUT ..\..\Simulación\LDO\Graficos en Python\Capturas\V vs I.png
+INPUT ..\..\Simulación\LDO\Graficos en Python\Capturas\V vs I.png
+INPUT ..\..\Simulación\LDO\Graficos en Python\Capturas\LDO_eficiencia.png
+INPUT ..\..\Simulación\LDO\Graficos en Python\Capturas\LDO_eficiencia.png
+INPUT ..\..\Simulación\LDO\Graficos en Python\Capturas\LDO_eficiencia.png
+INPUT ..\..\Simulación\LDO\Graficos en Python\Capturas\LDO_eficiencia.png
+INPUT ..\..\Simulación\LDO\Graficos en Python\Capturas\LDO_eficiencia.png
+INPUT ..\..\Simulación\LDO\Graficos en Python\Capturas\LDO_eficiencia.png
 INPUT .\conclusiones.tex
 INPUT .\conclusiones.tex
 INPUT .\conclusiones.tex
 INPUT .\conclusiones.tex
 INPUT conclusiones.tex
 INPUT C:\Users\Flores\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ecrm0800.tfm
-INPUT .\img\LDO\Esquematico_LDO_LTSPICE.png
-INPUT .\img\LDO\Esquematico_LDO_LTSPICE.png
-INPUT .\img\LDO\Esquematico_LDO_LTSPICE.png
-INPUT .\img\LDO\Esquematico_LDO_LTSPICE.png
-INPUT .\img\LDO\Esquematico_LDO_LTSPICE.png
-INPUT .\img\LDO\Esquematico_LDO_LTSPICE.png
+INPUT .\img\LDO\Esquematico_LDO_LTSPICE2.png
+INPUT .\img\LDO\Esquematico_LDO_LTSPICE2.png
+INPUT .\img\LDO\Esquematico_LDO_LTSPICE2.png
+INPUT .\img\LDO\Esquematico_LDO_LTSPICE2.png
+INPUT .\img\LDO\Esquematico_LDO_LTSPICE2.png
+INPUT .\img\LDO\Esquematico_LDO_LTSPICE2.png
 INPUT .\img\LDO\esquematico_kicad_LDO.png
 INPUT .\img\LDO\esquematico_kicad_LDO.png
 INPUT .\img\LDO\esquematico_kicad_LDO.png
@@ -423,6 +511,8 @@ INPUT .\img\LDO\esquematico_kicad_LDO.png
 INPUT c:\Users\Flores\Desktop\facu\ce2\TP-TA138-G7\Documentación\Informe\build\informe.aux
 INPUT c:\Users\Flores\Desktop\facu\ce2\TP-TA138-G7\Documentación\Informe\build\informe.run.xml
 OUTPUT c:\Users\Flores\Desktop\facu\ce2\TP-TA138-G7\Documentación\Informe\build\informe.run.xml
+INPUT C:\Users\Flores\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm0900.pk
+INPUT C:\Users\Flores\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm0900.pk
 INPUT C:\Users\Flores\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm0700.pk
 INPUT C:\Users\Flores\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm0700.pk
 INPUT C:\Users\Flores\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ecti1000.pk
@@ -453,15 +543,23 @@ INPUT C:\Users\Flores\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\
 INPUT C:\Users\Flores\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi10.pfb
 INPUT C:\Users\Flores\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi5.pfb
 INPUT C:\Users\Flores\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi5.pfb
+INPUT C:\Users\Flores\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi6.pfb
+INPUT C:\Users\Flores\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi6.pfb
 INPUT C:\Users\Flores\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi7.pfb
 INPUT C:\Users\Flores\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi7.pfb
+INPUT C:\Users\Flores\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi9.pfb
+INPUT C:\Users\Flores\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi9.pfb
 INPUT C:\Users\Flores\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr10.pfb
 INPUT C:\Users\Flores\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr10.pfb
 INPUT C:\Users\Flores\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr5.pfb
 INPUT C:\Users\Flores\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr5.pfb
 INPUT C:\Users\Flores\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr7.pfb
 INPUT C:\Users\Flores\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr7.pfb
+INPUT C:\Users\Flores\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr9.pfb
+INPUT C:\Users\Flores\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr9.pfb
 INPUT C:\Users\Flores\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy10.pfb
 INPUT C:\Users\Flores\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy10.pfb
 INPUT C:\Users\Flores\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy7.pfb
 INPUT C:\Users\Flores\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy7.pfb
+INPUT C:\Users\Flores\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\symbols\msam10.pfb
+INPUT C:\Users\Flores\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\symbols\msam10.pfb

@@ -1,26 +1,43 @@
 \babel@toc {spanish}{}\relax 
 \contentsline {section}{\numberline {1}Objetivo}{2}{}%
 \contentsline {section}{\numberline {2}Desarrollo}{2}{}%
-\contentsline {subsection}{\numberline {2.1}Fuente de alimentación conmutada}{2}{}%
-\contentsline {subsection}{\numberline {2.2}Regulador de baja caída (LDO,Low Dropout Regulator)}{2}{}%
-\contentsline {subsubsection}{\numberline {2.2.1}Especificaciones e implementación}{2}{}%
+\contentsline {subsection}{\numberline {2.1}Fuente de alimentación conmutada}{3}{}%
+\contentsline {subsection}{\numberline {2.2}Regulador de baja caída (LDO,Low Dropout Regulator)}{3}{}%
+\contentsline {subsubsection}{\numberline {2.2.1}Especificaciones e implementación}{3}{}%
 \contentsline {subsubsection}{\numberline {2.2.2}El transistor de paso (Tipo MOS)}{3}{}%
 \contentsline {subsubsection}{\numberline {2.2.3}Lazo de Tensión}{4}{}%
-\contentsline {subsubsection}{\numberline {2.2.4}Tensión de referencia $V_{Ref-t}$}{6}{}%
+\contentsline {subsubsection}{\numberline {2.2.4}Tensión de referencia $V_{Ref}$}{6}{}%
 \contentsline {subsubsection}{\numberline {2.2.5}Lazo de Corriente}{7}{}%
 \contentsline {subsubsection}{\numberline {2.2.6}Tensión de referencia $V_{Ref-c}$}{8}{}%
 \contentsline {subsubsection}{\numberline {2.2.7}Llave electrónica}{9}{}%
 \contentsline {subsubsection}{\numberline {2.2.8}Limitador de corriente shunt}{10}{}%
-\contentsline {subsubsection}{\numberline {2.2.9}Problemas y mejoras posibles}{10}{}%
-\contentsline {subsubsection}{\numberline {2.2.10}Simulaciones}{10}{}%
-\contentsline {paragraph}{Estabilización de tensión }{10}{}%
-\contentsline {paragraph}{Regulación de Linea}{10}{}%
-\contentsline {paragraph}{Regulación de carga}{11}{}%
-\contentsline {paragraph}{$V_o$ en función de $I_L$}{12}{}%
-\contentsline {paragraph}{Eficiencia}{12}{}%
-\contentsline {subsubsection}{\numberline {2.2.11}Especificaciones obtenidas por simulación}{12}{}%
-\contentsline {section}{\numberline {3}Conclusiones}{12}{}%
-\contentsline {section}{\numberline {A}Apéndice simulaciones}{13}{}%
-\contentsline {subsection}{\numberline {A.1}LDO}{13}{}%
-\contentsline {section}{\numberline {B}Apéndice esquemáticos}{14}{}%
-\contentsline {subsection}{\numberline {B.1}LDO}{14}{}%
+\contentsline {subsubsection}{\numberline {2.2.9}Compensación de lazos}{11}{}%
+\contentsline {subsection}{\numberline {2.3}Analisis termico}{12}{}%
+\contentsline {subsubsection}{\numberline {2.3.1}Consideraciones de fabricación PCB}{13}{}%
+\contentsline {paragraph}{Arquitectura general}{14}{}%
+\contentsline {paragraph}{Selección de materiales y encapsulados}{14}{}%
+\contentsline {paragraph}{Selección de huellas y modelos 3D}{14}{}%
+\contentsline {paragraph}{Ancho de pistas}{14}{}%
+\contentsline {paragraph}{Disposición de componentes}{14}{}%
+\contentsline {paragraph}{Consideraciones térmicas}{14}{}%
+\contentsline {paragraph}{Separación y reglas de diseño}{14}{}%
+\contentsline {subsubsection}{\numberline {2.3.2}Mejoras:}{15}{}%
+\contentsline {section}{\numberline {3}Simulaciones}{15}{}%
+\contentsline {subsection}{\numberline {3.1}Simulaciones del regulador lineal LDO}{15}{}%
+\contentsline {subsubsection}{\numberline {3.1.1}Modo estático}{15}{}%
+\contentsline {paragraph}{Ganancias de lazo: }{15}{}%
+\contentsline {paragraph}{Estabilización de tensión: }{19}{}%
+\contentsline {paragraph}{Regulación de Linea:}{20}{}%
+\contentsline {paragraph}{Regulación de carga:}{21}{}%
+\contentsline {paragraph}{$V_o$ en función de $I_L$:}{22}{}%
+\contentsline {paragraph}{Eficiencia:}{22}{}%
+\contentsline {subsubsection}{\numberline {3.1.2}Modo Dinámico}{23}{}%
+\contentsline {subsection}{\numberline {3.2}Simulaciones de fuente switching}{23}{}%
+\contentsline {section}{\numberline {4}Conclusiones}{23}{}%
+\contentsline {subsection}{\numberline {4.1}Regulador Lineal LDO}{23}{}%
+\contentsline {section}{\numberline {A}Apéndice I: Simulaciones}{24}{}%
+\contentsline {subsection}{\numberline {A.1}LDO}{24}{}%
+\contentsline {section}{\numberline {B}Apéndice II: Esquemáticos}{25}{}%
+\contentsline {subsection}{\numberline {B.1}LDO}{25}{}%
+\contentsline {section}{\numberline {C}Apéndice III: PCB}{26}{}%
+\contentsline {subsection}{\numberline {C.1}LDO}{26}{}%
