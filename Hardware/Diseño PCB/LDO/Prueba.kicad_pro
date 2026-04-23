@@ -660,7 +660,7 @@
         "uuid": "70bda0a3-0c17-43ce-af47-54d014630cec"
       }
     ],
-    "used_designators": "#PWR24-25,C_comp_c1,C1",
+    "used_designators": "Q20,C_comp_t1,#PWR24-25,C_comp_c1,C1",
     "variants": []
   },
   "sheets": [

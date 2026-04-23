@@ -713,7 +713,7 @@
 				)
 			)
 		)
-		(property "Value" "2N3906"
+		(property "Value" "BC557"
 			(at 1.27 2.79 0)
 			(layer "F.Fab")
 			(uuid "9936564a-1211-4588-82aa-6ee933e52ed0")
@@ -929,7 +929,7 @@
 		(at 130.62 112.7 180)
 		(descr "14-lead though-hole mounted DIP package, row spacing 10.16mm (400 mils), LongPads")
 		(tags "THT DIP DIL PDIP 2.54mm 10.16mm 400mil LongPads")
-		(property "Reference" "LM324"
+		(property "Reference" "U4"
 			(at 5.08 -2.33 0)
 			(layer "F.SilkS")
 			(uuid "25a37923-a209-4053-b301-a5c76c86bd26")
@@ -986,7 +986,7 @@
 			)
 		)
 		(property ki_fp_filters "SOIC*3.9x8.7mm*P1.27mm* DIP*W7.62mm* TSSOP*4.4x5mm*P0.65mm* SSOP*5.3x6.2mm*P0.65mm* MSOP*3x3mm*P0.5mm*")
-		(path "/257db720-c2bf-46b4-9586-711daaa5335a")
+		(path "/a82487e9-7257-4581-a53e-0c2bf9dd8a56")
 		(sheetname "/")
 		(sheetfile "Prueba.kicad_sch")
 		(units
@@ -2042,7 +2042,7 @@
 				)
 			)
 		)
-		(property "Value" "2N3904"
+		(property "Value" "BC547"
 			(at 1.27 2.79 0)
 			(layer "F.Fab")
 			(uuid "5437a6e9-2d24-40df-b2ef-6841b757406d")
@@ -2676,7 +2676,7 @@
 		(at 185.778449 133.71463)
 		(descr "Through hole straight pin header, 1x02, 2.00mm pitch, single row")
 		(tags "Through hole pin header THT 1x02 2.00mm single row")
-		(property "Reference" "Vo"
+		(property "Reference" "Vo1"
 			(at 2.841551 1.28537 180)
 			(layer "F.SilkS")
 			(uuid "1597a74e-8161-41b7-92e1-7197e240a819")
@@ -2928,7 +2928,7 @@
 				)
 			)
 		)
-		(property "Value" "2N3904"
+		(property "Value" "BC547"
 			(at 1.27 2.79 90)
 			(layer "F.Fab")
 			(uuid "b8d999c1-4a99-4eae-a7a0-b03e425ae8ae")
@@ -3155,7 +3155,7 @@
 				)
 			)
 		)
-		(property "Value" "2N3904"
+		(property "Value" "BC547"
 			(at 1.27 2.79 90)
 			(layer "F.Fab")
 			(uuid "d2045dfe-45d3-4308-9619-6c28a411f53a")
@@ -3993,7 +3993,7 @@
 				)
 			)
 		)
-		(property "Value" "2N3906"
+		(property "Value" "BC557"
 			(at 1.27 2.79 90)
 			(layer "F.Fab")
 			(uuid "30157cfa-0759-49e3-87bb-df43aef162e7")
@@ -4400,7 +4400,7 @@
 		(at 109.64821 135.808279)
 		(descr "Through hole straight pin header, 1x02, 2.00mm pitch, single row")
 		(tags "Through hole pin header THT 1x02 2.00mm single row")
-		(property "Reference" "Vin"
+		(property "Reference" "V_in1"
 			(at -3 0.5 0)
 			(layer "F.SilkS")
 			(uuid "1f018a0d-fc18-4bdd-860e-63e73b491394")
@@ -5301,7 +5301,7 @@
 				)
 			)
 		)
-		(property "Value" "2N3904"
+		(property "Value" "BC547"
 			(at 1.27 2.79 0)
 			(layer "F.Fab")
 			(uuid "f0034d99-2f0d-47e6-8e91-072e21d36dd8")
@@ -6101,7 +6101,7 @@
 				)
 			)
 		)
-		(property "Value" "2N3904"
+		(property "Value" "BC547"
 			(at 1.27 2.79 90)
 			(layer "F.Fab")
 			(uuid "f3391678-f1bd-4385-a3f0-03d278391105")
@@ -6519,7 +6519,7 @@
 				)
 			)
 		)
-		(property "Value" "2N3904"
+		(property "Value" "BC547"
 			(at 1.27 2.79 0)
 			(layer "F.Fab")
 			(uuid "4f526573-7380-45f5-913e-b50e5b3f468b")
@@ -6746,7 +6746,7 @@
 				)
 			)
 		)
-		(property "Value" "2N3906"
+		(property "Value" "BC557"
 			(at 1.27 2.79 90)
 			(layer "F.Fab")
 			(uuid "6472b0b8-7126-447f-958d-6a322ff799f1")
@@ -8000,7 +8000,7 @@
 				)
 			)
 		)
-		(property "Value" "2N3904"
+		(property "Value" "BC547"
 			(at 1.27 2.79 0)
 			(layer "F.Fab")
 			(uuid "730cc863-081b-4abc-b124-4165af59287f")
@@ -8418,7 +8418,7 @@
 				)
 			)
 		)
-		(property "Value" "2N3904"
+		(property "Value" "BC547"
 			(at 1.27 2.79 90)
 			(layer "F.Fab")
 			(uuid "3e84e243-e7fc-4db4-89e0-0425f31ace59")
@@ -9207,7 +9207,7 @@
 		(at 120.12 134.5)
 		(descr "Through hole straight pin header, 1x01, 2.00mm pitch, single row")
 		(tags "Through hole pin header THT 1x01 2.00mm single row")
-		(property "Reference" "GND"
+		(property "Reference" "GND1"
 			(at 0 4.5 0)
 			(layer "F.SilkS")
 			(uuid "20a9fbcc-20fd-4043-a64e-0dfa41a0d549")
@@ -10201,7 +10201,7 @@
 		(at 172.12 136 180)
 		(descr "Through hole straight pin header, 1x02, 2.00mm pitch, single row")
 		(tags "Through hole pin header THT 1x02 2.00mm single row")
-		(property "Reference" "V_Rs"
+		(property "Reference" "V_Rs_test1"
 			(at 0 -3 0)
 			(layer "F.SilkS")
 			(uuid "7bc44962-7781-4073-aa53-75db044f6139")
@@ -10680,7 +10680,7 @@
 				)
 			)
 		)
-		(property "Value" "2N3906"
+		(property "Value" "BC557"
 			(at 1.27 2.79 90)
 			(layer "F.Fab")
 			(uuid "2ef9ca3f-e8c5-4bc1-896f-7612e8cbea78")
@@ -11289,7 +11289,7 @@
 				)
 			)
 		)
-		(property "Value" "2N3906"
+		(property "Value" "BC557"
 			(at 1.27 2.79 90)
 			(layer "F.Fab")
 			(uuid "0b71c646-edfc-4103-a1b7-86c5e68ac4fa")
