@@ -188,3 +188,60 @@ axs[1].legend(fontsize=10, loc="best")
 plt.tight_layout()
 plt.savefig(os.path.join(capturas_dir, "LDO_Bode_lazo_corriente_compensado.png"), dpi=300)
 plt.show()
+
+
+# ========== Respuesta temporal Vcc vs Vo (compensado) ==========
+
+archivo_temporal = os.path.join(datos_dir, "Vcc_Vo_compensado.txt")
+data_temporal = np.loadtxt(archivo_temporal, skiprows=1)
+
+t = data_temporal[:,0]
+vcc = data_temporal[:,1]
+vo = data_temporal[:,2]
+
+vcc_mean = np.mean(vcc)
+vo_mean = np.mean(vo)
+
+vcc_ac = vcc - vcc_mean
+vo_ac  = vo  - vo_mean
+
+plt.figure(figsize=(10, 6))
+plt.xlim(1000, 1030)
+plt.ylim(-0.3, 0.3)
+
+# Defino estilos explícitos
+color_vcc = "tab:blue"
+color_vo  = "tab:orange"
+
+line_vcc, = plt.plot(t*1e6, vcc_ac, label="$V_{cc}$ (AC)", linewidth=3, linestyle="--", color=color_vcc)
+line_vo,  = plt.plot(t*1e6, vo_ac, label="$V_O$ (AC)", linewidth=3, linestyle="-", color=color_vo)
+
+plt.xlabel("Tiempo (µs)", fontsize=12)
+plt.ylabel("Variación de tensión (V)", fontsize=12)
+plt.title("Ripple en Vcc y Vo (componentes AC) - Compensado", fontsize=14)
+plt.grid(True, alpha=0.3)
+plt.legend(fontsize=12)
+
+# Posición base
+x0, y0 = 0.2, 0.95
+
+# Línea Vcc
+plt.text(x0, y0,
+         f"■ $V_{{cc}}$ medio = {vcc_mean:.3f} V  (punteada)",
+         transform=plt.gca().transAxes,
+         fontsize=11,
+         verticalalignment='top',
+         color=color_vcc,
+         bbox=dict(boxstyle="round", facecolor="white", alpha=0.8))
+
+# Línea Vo (un poco más abajo)
+plt.text(x0+0.2, y0-0.85,
+         f"■ $V_O$ medio = {vo_mean:.3f} V  (continua)",
+         transform=plt.gca().transAxes,
+         fontsize=11,
+         verticalalignment='top',
+         color=color_vo, 
+         bbox=dict(boxstyle="round", facecolor="white", alpha=0.8))
+
+plt.savefig(os.path.join(capturas_dir, "LDO_Vcc_Vo_compensado.png"), dpi=300)
+plt.show()
