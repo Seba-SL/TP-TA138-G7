@@ -12,32 +12,32 @@
 \contentsline {subsubsection}{\numberline {2.2.7}Llave electrónica}{9}{}%
 \contentsline {subsubsection}{\numberline {2.2.8}Limitador de corriente shunt}{10}{}%
 \contentsline {subsubsection}{\numberline {2.2.9}Compensación de lazos}{11}{}%
-\contentsline {subsubsection}{\numberline {2.2.10}Análisis térmico}{12}{}%
-\contentsline {subsubsection}{\numberline {2.2.11}Consideraciones de fabricación PCB}{12}{}%
+\contentsline {subsubsection}{\numberline {2.2.10}Análisis térmico}{13}{}%
+\contentsline {subsubsection}{\numberline {2.2.11}Consideraciones de fabricación PCB}{13}{}%
 \contentsline {paragraph}{Arquitectura general}{13}{}%
 \contentsline {paragraph}{Selección de materiales y encapsulados}{13}{}%
-\contentsline {paragraph}{Selección de huellas y modelos 3D}{13}{}%
-\contentsline {paragraph}{Ancho de pistas}{13}{}%
-\contentsline {paragraph}{Disposición de componentes}{13}{}%
-\contentsline {paragraph}{Consideraciones térmicas}{13}{}%
-\contentsline {paragraph}{Separación y reglas de diseño}{13}{}%
-\contentsline {subsubsection}{\numberline {2.2.12}Mejoras:}{13}{}%
-\contentsline {section}{\numberline {3}Simulaciones}{14}{}%
-\contentsline {subsection}{\numberline {3.1}Simulaciones del regulador lineal LDO}{14}{}%
-\contentsline {subsubsection}{\numberline {3.1.1}Modo estático}{14}{}%
-\contentsline {paragraph}{Ganancias de lazo: }{14}{}%
-\contentsline {paragraph}{Estabilización de tensión: }{17}{}%
-\contentsline {paragraph}{Regulación de Linea:}{18}{}%
-\contentsline {paragraph}{Regulación de carga:}{19}{}%
-\contentsline {paragraph}{$V_o$ en función de $I_L$:}{20}{}%
-\contentsline {paragraph}{Eficiencia:}{20}{}%
-\contentsline {subsubsection}{\numberline {3.1.2}Modo Dinámico}{21}{}%
-\contentsline {subsection}{\numberline {3.2}Simulaciones de fuente switching}{21}{}%
-\contentsline {section}{\numberline {4}Conclusiones}{21}{}%
-\contentsline {subsection}{\numberline {4.1}Regulador Lineal LDO}{21}{}%
-\contentsline {section}{\numberline {A}Apéndice I: Simulaciones}{22}{}%
-\contentsline {subsection}{\numberline {A.1}LDO}{22}{}%
-\contentsline {section}{\numberline {B}Apéndice II: Esquemáticos}{23}{}%
-\contentsline {subsection}{\numberline {B.1}LDO}{23}{}%
-\contentsline {section}{\numberline {C}Apéndice III: PCB}{24}{}%
-\contentsline {subsection}{\numberline {C.1}LDO}{24}{}%
+\contentsline {paragraph}{Selección de huellas y modelos 3D}{14}{}%
+\contentsline {paragraph}{Ancho de pistas}{14}{}%
+\contentsline {paragraph}{Disposición de componentes}{14}{}%
+\contentsline {paragraph}{Consideraciones térmicas}{14}{}%
+\contentsline {paragraph}{Separación y reglas de diseño}{14}{}%
+\contentsline {subsubsection}{\numberline {2.2.12}Mejoras:}{14}{}%
+\contentsline {section}{\numberline {3}Simulaciones}{15}{}%
+\contentsline {subsection}{\numberline {3.1}Simulaciones del regulador lineal LDO}{15}{}%
+\contentsline {subsubsection}{\numberline {3.1.1}Modo estático}{15}{}%
+\contentsline {paragraph}{Ganancias de lazo: }{15}{}%
+\contentsline {paragraph}{Estabilización de tensión: }{20}{}%
+\contentsline {paragraph}{Regulación de Linea:}{21}{}%
+\contentsline {paragraph}{Regulación de carga:}{22}{}%
+\contentsline {paragraph}{$V_o$ en función de $I_L$:}{23}{}%
+\contentsline {paragraph}{Eficiencia:}{23}{}%
+\contentsline {subsubsection}{\numberline {3.1.2}Modo Dinámico}{24}{}%
+\contentsline {subsection}{\numberline {3.2}Simulaciones de fuente switching}{24}{}%
+\contentsline {section}{\numberline {4}Conclusiones}{24}{}%
+\contentsline {subsection}{\numberline {4.1}Regulador Lineal LDO}{24}{}%
+\contentsline {section}{\numberline {A}Apéndice I: Simulaciones}{25}{}%
+\contentsline {subsection}{\numberline {A.1}LDO}{25}{}%
+\contentsline {section}{\numberline {B}Apéndice II: Esquemáticos}{26}{}%
+\contentsline {subsection}{\numberline {B.1}LDO}{26}{}%
+\contentsline {section}{\numberline {C}Apéndice III: PCB}{27}{}%
+\contentsline {subsection}{\numberline {C.1}LDO}{27}{}%

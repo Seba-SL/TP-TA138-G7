@@ -1017,6 +1017,7 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 	
 
 	\subsubsection{Compensación de lazos}
+	\label{sec:compensacion}
 	Para finalizar el anállisis de diseño circuital de esta etapa, se debe evaluar su comportamiento en frecuencia. Para ello, se debe evaluar el peso de los nodos al circular por cada lazo de realimentación, procurando que 
 	se cumplan dos condiciones de diseño fundamentales:
 	
@@ -1167,9 +1168,123 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 	
 	La constante temporal mínima será, entonces:
 	
-	$\tau_4 = (\SI{3.4}{\nano F} + \SI{1.4}{\nano F}) \cdot (\SI{3.3}{k\ohm}) = \SI{16}{\micro s} \to f_{4min} = \SI{10}{\kilo\hertz}$.
+	$$\tau_4 = (\SI{3.4}{\nano F} + \SI{1.4}{\nano F}) \cdot (\SI{3.3}{k\ohm}) = \SI{16}{\micro s} \to f_{4 máx} = \SI{10}{\kilo\hertz}.$$
 	
 	Este resultado es congruente con lo simulado en la imagen \ref{fig:bode_corte_tension}. Se concluye que el nodo 4 es dominante, pues se encontrará al menos una década por encima del siguiente polo.
+	
+	Para atacar el problema y compensar el lazo, se observa la figura \ref{fig:bode_corte_tension2} y se analiza el peor caso posible, es decir, cuando $R_L \to \infty$. Se corre el polo ubicado en $f\approx \SI{450}{\hertz}$ (asociado al nodo 2) y se lo vuelve dominante. De este modo, aumenta drásticamente la zona en la cuál $\angle T_v \approx 0$, y al mismo tiempo se corre la curva de caída de $|T_v|$, ubicándola en esta zona. Para asegurar estabilidad, se agrega una red de adelanto de fase.
+	
+	Para correr el polo correctamente, se observa el punto en el que se encuentra el polo dominante $f \approx \SI{10}{\kilo\hertz}$. Se buscará entonces acercar el polo a una frecuencia tal que el margen de fase sea próximo a nulo. Esto se puede conseguir, dado que la ganancia es próxima a 96dB, y que la caída es de -40dB/dec, colocando el polo, aproximádamente, en $f_h \approx \SI{1}{\kilo\hertz}$.
+	
+	El capacitor de compensación tendrá valor
+	
+	$$\frac{1}{(\SI{5.1}{pF} + C_{comp}) \cdot (\SI{66}{\kilo\ohm}) \cdot 2\pi} = \SI{1}{\kilo\hertz} \to C_{comp} \approx \SI{2.2}{nF}.$$
+	
+	A continuación, se aprovecha la estructura divisor resistivo ($R_4$,$R_5$) como red de adelanto de fase, al agregar un capacitor de compensación en paralelo a $R_4$. Esta red tendrá los siguientes parámetros característicos:
+	
+	$$\tau = R_4 \cdot C_{comp} \qquad \alpha = \frac{R_4 + R_5}{R_5} = 0,25$$
+	
+	y sumará, en la frecuencia calculada,
+	
+	$$\Theta = arcsin\left(\frac{1-\alpha}{1+\alpha}\right) = \SI{36}{\deg}.$$
+	
+	La frecuencia de suma se calcula como
+	
+	$$f_\theta = \frac{1}{2\pi\cdot \tau \sqrt{\alpha}} = \frac{1}{2\pi \cdot R_4 \cdot C_{comp} \sqrt{\alpha}} = \SI{e6}{\hertz} \to C_{comp} \approx \SI{100}{pF}.$$
+	
+	El lazo de tensión compensado final tiene la forma de la figura \ref{fig:lazo_tension_compensado}.
+	
+	\begin{figure}[H]
+		\centering
+		\begin{tikzpicture}[transform shape]
+			% Paths, nodes and wires:
+			\node[npn, xscale=0.98, yscale=0.98](N1) at (10, 6.755){} node[anchor=west] at (N1.text){$T_3$};
+			\node[npn, xscale=-0.98, yscale=0.98](N2) at (12, 6.745){} node[anchor=east] at (N2.text){$T_4$};
+			\node[npn, xscale=0.98, yscale=0.98](N3) at (11, 4.755){} node[anchor=west] at (N3.text){$T_5$};
+			\draw (11, 5.509) -| (11, 5.75) -- (10, 5.75) -| (10, 6);
+			\draw (11, 5.75) -- (12, 5.75) -| (12, 6);
+			\node[pnp, xscale=-0.98, yscale=0.98](N4) at (10, 8.495){} node[anchor=east] at (N4.text){$T_1$};
+			\node[pnp, xscale=0.98, yscale=0.98](N5) at (12, 8.495){} node[anchor=west] at (N5.text){$T_2$};
+			\draw (10, 7.509) -- (10, 7.75);
+			\draw (12, 7.5) -| (12, 7.75);
+			\draw (11.177, 8.505) |- (10.823, 8.495);
+			\draw (11.177, 8.5) |- (12, 7.75);
+			\node[pigfetebulk, rotate=90](N6) at (15.23, 9.25){} node[anchor=south] at (N6.text){$T_p$};
+			\draw (13.573, 6.745) to[american resistor, /tikz/circuitikz/bipoles/length=0.840cm, l_={$R_4$}] (15.75, 6.75);
+			\draw (13.25, 6.5) to[american resistor, /tikz/circuitikz/bipoles/length=0.840cm, l={$R_5$}] (13.255, 4.323);
+			\draw (13.25, 6.5) -| (13.25, 6.75);
+			\draw (13.255, 4.323) |- (13.25, 4);
+			\draw (16, 6.75) to[american potentiometer, mirror, /tikz/circuitikz/bipoles/length=0.840cm, l={$R_6$}] (16, 4);
+			\draw (15.664, 5.375) -- (15, 5.375);
+			\draw (13.25, 6.75) -- (15, 5.375);
+			\draw (16, 6.75) -- (17, 6.75);
+			\draw (17, 6.75) to[american resistor, /tikz/circuitikz/bipoles/length=1.12cm, l={$R_L$}] (17, 4);
+			\draw (17, 6.75) |- (16, 9.25);
+			\draw (12, 9.25) -- (14.46, 9.25);
+			\draw (15.23, 9.25) -- (14.5, 9.25);
+			\draw (12.823, 6.745) -- (13.573, 6.745);
+			\draw (15.75, 6.75) -- (16, 6.75);
+			\node[circ](N7) at (9, 6.75){} node[anchor=south] at (N7.text){$v_{ref-t}$};
+			\node[circ] at (11, 5.75){};
+			\node[circ] at (10, 7.509){};
+			\node[circ] at (11.177, 8.505){};
+			\node[circ] at (10, 9.25){};
+			\node[circ] at (12, 9.25){};
+			\node[circ] at (12, 7.741){};
+			\node[circ](N8) at (13.25, 6.75){} node[anchor=south east] at (N8.text){\textcolor{rgb,255:red,255;green,0;blue,0}{$1$}};
+			\node[circ] at (16, 6.75){};
+			\node[circ] at (17, 6.75){};
+			\draw (12, 9.25) -- (10, 9.25) -- (7, 9.25);
+			\draw (9.177, 6.755) |- (9, 6.75);
+			\node[rground] at (7.75, 9.25){};
+			\node[rground] at (11, 4){};
+			\node[rground] at (13.25, 4){};
+			\node[rground] at (16, 4){};
+			\node[rground] at (17, 4){};
+			\draw (4, 7.75) to[american resistor, /tikz/circuitikz/bipoles/length=0.840cm, l={$R_2$}] (4, 9.25);
+			\node[npn, xscale=-1](N9) at (4.66, 6.75){} node[anchor=east] at (N9.text){$T_6$};
+			\node[pnp, xscale=-1](N10) at (6, 5.98){} node[anchor=east] at (N10.text){$T_5$};
+			\draw (6, 7.75) to[american resistor, /tikz/circuitikz/bipoles/length=0.840cm, l={$R_3$}] (6, 9.25);
+			\draw (5.5, 6.75) -- (6, 6.75);
+			\draw (6, 7.75) -| (6, 6.75);
+			\draw (4, 7.75) -- (4, 7.52);
+			\draw (4, 4.25) to[american resistor, /tikz/circuitikz/bipoles/length=0.840cm, l={$R_4$}] (4, 5.75);
+			\draw (4, 4.25) -| (4, 4);
+			\node[circ](N11) at (6, 6.75){} node[anchor=west] at (N11.text){\textcolor{rgb,255:red,255;green,0;blue,0}{$3$}};
+			\draw (6.84, 5.98) -| (7, 6);
+			\node[circ](N12) at (3.25, 5.75){} node[anchor=east] at (N12.text){$v_{control}$};
+			\node[circ](N13) at (4, 5.75){} node[anchor=north west] at (N13.text){\textcolor{rgb,255:red,255;green,0;blue,0}{$4$}};
+			\draw (10, 7.5) |- (7, 7.5) |- (6.84, 5.98);
+			\node[rground] at (4, 4){};
+			\draw (6, 9.25) -- (7, 9.25);
+			\node[circ] at (6, 9.25){};
+			\draw (4.66, 7.52) -- (4, 7.52);
+			\draw (4, 9.25) -- (6, 9.25);
+			\draw (3.25, 5.75) -- (4, 5.75);
+			\draw (6, 5.21) -- (6, 4);
+			\node[rground] at (6, 4){};
+			\node[circ](N14) at (14.25, 8.25){} node[anchor=east] at (N14.text){$v_{control}$};
+			\node[circ](N15) at (8, 7.5){} node[anchor=south] at (N15.text){\textcolor{rgb,255:red,255;green,0;blue,0}{$2$}};
+			\node[npn](N16) at (3.34, 6.75){} node[anchor=west] at (N16.text){$T_7$};
+			\draw (3.34, 7.52) -| (4, 7.52);
+			\draw (3.34, 5.98) -| (4, 5.75);
+			\draw (4.66, 5.98) -| (4, 5.75);
+			\node[circ] at (7.75, 9.25){};
+			\draw (8, 7.5) to[capacitor, /tikz/circuitikz/bipoles/length=0.980cm, l_={$C_1$}] (8, 4);
+			\draw (14.96, 8.27) |- (14.25, 8.25);
+			\draw (15.25, 7.75) to[capacitor, /tikz/circuitikz/bipoles/length=0.980cm, l={$C_2$}] (14, 7.75);
+			\draw (15.25, 7.75) -| (16, 6.75);
+			\draw (14, 7.75) |- (13.25, 7.75) -| (13.25, 6.75);
+			\node[rground] at (8, 4){};
+		\end{tikzpicture}
+		\caption{Lazo de tensión final compensado}
+		\label{fig:lazo_tension_compensado}
+	\end{figure}
+	
+	\textbf{Lazo de corriente:}\\
+	La respuesta en frecuencia del lazo de corriente puede observarse en la simulación de la figura \ref{fig:bode_corte_corriente}. El análisis de nodos dominantes se vuelve engorroso por la presencia de polos asociados a los amplificadores LM358.
+	
+	
 	
 	
 	\subsubsection{Análisis térmico}
@@ -1320,7 +1435,7 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 	Se anulan ambos lazos de corriente (shunt y foldback), aunque no se encuentren operativos para la resistencia de carga $R_L = \SI{100}{\ohm}$ elegida, y se coloca la estructura de la figura \ref{fig:rompelazo}. Adicionalmente, se agregan las resistencias vistas desde cada lado del lazo para que, en señal, el corte sea limpio. Esto implica colocar una resistencia 
 	
 	\begin{equation}
-		R_{eq} \approx \SI{1}{k\ohm} // (\SI{3}{k\ohm} +\SI{100}{k\ohm} )
+		R_{eq} \approx \SI{1}{k\ohm} // (\SI{3}{k\ohm} +\SI{100}{\ohm} )
 	\end{equation}
 	
 	del lado del generador de señal. Debido a la alta impedancia de la resistencia vista desde la base del transistor del par diferencial, no es necesario agregar más. En la figura \ref{fig:corte_lazo_tension} puede verse el circuito de medición.
@@ -1342,6 +1457,24 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 	\end{figure}
 	
 	En este gráfico queda en evidencia el por qué de la oscilación para la regulación de línea (\ref{fig:ldovccvo}), pues la frecuencia de ruido $\sim \SI{100}{k\hertz}$ seguramente se encuentre en un punto con ganancia $|T| > 1$ y fase negativa, produciendo realimentación positiva y oscilaciones.
+	
+	A continuación se varía la resistencia de carga para buscar el caso más descompensado. Dadas las resistencias $R_3$ y $R_4$, se espera que el peor caso se encuentre en resistencias de carga $R_L \gg R_3 // R_4$. La figura \ref{fig:bode_corte_tension2} muestra el resultado de la simulación.
+	
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.85\linewidth]{"../../Simulación/LDO/Graficos en Python/Capturas/LDO_Bode_lazo_tension_comparacion"}
+		\caption{Bode resultante de la medición de $T_v$ para diferentes valores de $R_L$.}
+		\label{fig:bode_corte_tension2}
+	\end{figure}
+	
+	Una vez compensado el lazo, según se analiza en la sección \ref{sec:compensacion}:Lazo de tensión, el gráfico de bode tendrá la forma de la figura \ref{fig:bode_tension_compensado}.
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.85\linewidth]{"../../Simulación/LDO/Graficos en Python/Capturas/LDO_Bode_lazo_tension_compensado"}
+		\caption{Bode resultante de la medición de $T_v$ para un lazo de tensión compensado con diferentes cargas.}
+		\label{fig:bode_tension_compensado}
+	\end{figure}
 	
 	\textbf{Lazo de corriente:}\\
 	En este caso, se realiza el procedimiento inverso. Se anula el lazo de tensión y shunt, y se corta el lazo de corriente en un punto de alta impedancia, como la base del transistor de paso. En este caso se escoge una resistencia de carga $R_L = \SI{2.5}{\ohm}$ para no obtener corrientes ni muy bajas ni excesivas. Se inserta una resistencia reflejada de
