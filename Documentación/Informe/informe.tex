@@ -139,7 +139,7 @@ citestyle=apa
 	\checkpointstart{1}
 	\section{Objetivo}
 	
-	Se propone el diseño e implementación de un sistema electrónico capaz de generar una tensión regulada de 5 V a partir de una fuente de alimentación proveniente de una batería cuya tensión puede variar en un amplio rango comprendido entre 12 V y 30 V. Además de garantizar una salida estable, el sistema debe ser energéticamente eficiente, ya que en aplicaciones reales la eficiencia de conversión es un aspecto fundamental para reducir pérdidas de potencia, calentamiento y consumo energético.
+	Se propone el diseño, validación e implementación de un sistema electrónico capaz de generar una tensión regulada de 5 V a partir de una fuente de alimentación proveniente de una batería cuya tensión puede variar en un amplio rango comprendido entre 12 V y 30 V. Además de garantizar una salida estable, el sistema debe ser energéticamente eficiente, ya que en aplicaciones reales la eficiencia de conversión es un aspecto fundamental para reducir pérdidas de potencia, calentamiento y consumo energético.
 	
 	
 	El diseño resultante tiene como objetivo combinar alta eficiencia energética, estabilidad de la tensión de salida y confiabilidad operativa, características fundamentales en sistemas de alimentación destinados a cargas como
@@ -161,19 +161,19 @@ citestyle=apa
 			Rango de operación tensión de entrada & VIN &  & 12 & 24 & 30 & V \\
 			\hline
 			
-			VIN UVLO \par arranque & VIN\_UVLO\_START & VIN creciendo &  &  &  & V \\
-			\hline
+		%	VIN UVLO \par arranque & VIN\_UVLO\_START & VIN creciendo &  &  &  & V \\
+		%	\hline
 			
-			VIN UVLO \par apagado & VIN\_UVLO\_STOP & VIN decreciendo &  &  &  & V \\
-			\hline
+		%	VIN UVLO \par apagado & VIN\_UVLO\_STOP & VIN decreciendo &  &  &  & V \\
+		%	\hline
 			
-			VIN UVLO \par histéresis & VIN\_UVLO\_HYST &  &  &  &  & V \\
-			\hline
+		%	VIN UVLO \par histéresis & VIN\_UVLO\_HYST &  &  &  &  & V \\
+		%	\hline
 			
-			\multirow{2}{3cm}{Corriente de alimentación inactivo} & IQ & VIN=12V &  &  &  & mA \\
-			\cline{2-7}
-			& IQ\_Sleep & ENABLE=0 &  &  &  & mA \\
-			\hline
+		%	\multirow{2}{3cm}{Corriente de alimentación inactivo} & IQ & VIN=12V &  &  &  & mA \\
+		%	\cline{2-7}
+		%	& IQ\_Sleep & ENABLE=0 &  &  &  & mA \\
+		%	\hline
 		\end{tabular}
 		\caption{Especificaciones Generales.}
 	\end{table}
@@ -182,7 +182,7 @@ citestyle=apa
 	
 	La construcción del dispositivo se divide en dos secciones: 
 	\begin{itemize}
-		\item \textbf{Fuente Switching}: Encargada de regular la tensión de forma eficiente desde la fuente de energía hacia el regulador lineal.
+		\item \textbf{Fuente Switching}: Encargada de pre-regular la tensión de forma eficiente desde la fuente de energía hacia el regulador lineal.
 		\item \textbf{Regulador Lineal}: Sacrifica eficiencia a cambio de precisión y control. Interactúa de forma directa con la carga.
 	\end{itemize}
 	
@@ -203,7 +203,7 @@ citestyle=apa
 	
 	El propósito de esta etapa es regular la tensión de salida de la fuente conmutada de forma precisa, sacrificando la eficiencia. Se espera de esta etapa las especificaciones de la tabla \ref{tabla:especificaciones_ldo}.
 	
-	\begin{table}[h]
+	\begin{table}[H]
 		\centering
 		\renewcommand{\arraystretch}{1.5}
 		\begin{tabular}{|p{3cm}|l|p{5cm}|c|c|c|c|}
@@ -225,18 +225,18 @@ citestyle=apa
 			
 			Corriente de foldback & IFBK &  &  & 400 &  & \si{mA} \\
 			\hline
-			
-			\multirow{2}{3cm}{Vo startup time} & t(start) & $C = \SI{2.2}{\micro\farad},\ I = \SI{100}{\milli\ampere}$ &  &  &  & ms \\
-			\cline{2-7}
-			& t(start) & $C = \SI{2.2}{\micro\farad},\ I = \SI{100}{\milli\ampere}$ &  &  &  & ms \\
-			\hline
+		
+			%\multirow{2}{3cm}{Vo startup time} & t(start) & $C = \SI{2.2}{\micro\farad},\ I = \SI{100}{\milli\ampere}$ &  &  &  & ms \\
+			%\cline{2-7}
+			% & t(start) & $C = \SI{2.2}{\micro\farad},\ I = \SI{100}{\milli\ampere}$ &  &  &  & ms \\
+			%\hline
 		\end{tabular}
 		
 		\caption{Especificaciones del regulador lineal LDO.}
 		\label{tabla:especificaciones_ldo}
 	\end{table}
 	
-Para la implementación, se utilizará un transistor de paso, responsable de disipar la potencia de recorte, realimentado por tensión y corriente, de acuerdo a la figura \ref{fig:bloques_ldo}.
+Para la implementación, se utilizará un transistor de paso, responsable de disipar la potencia de recorte, realimentado por tensión y corriente, y se modela la entrada de tensión pre-regulada con una componente continua y una alterna de acuerdo a la figura \ref{fig:bloques_ldo}.
 
 \begin{figure}[H]
 	\centering
@@ -305,7 +305,7 @@ Para la implementación, se utilizará un transistor de paso, responsable de dis
 
 \subsubsection{El transistor de paso (Tipo MOS)}
 
-La elección del transistor de paso es el primer paso de diseño, y para su elección deben tenerse en cuenta los siguientes puntos:
+La elección del transistor de paso es nuestro primer paso de diseño, y para su elección deben tenerse en cuenta los siguientes puntos:
 
 \textbf{Canal} \par
 
@@ -324,13 +324,13 @@ El canal del transistor determinará sobre dónde se efectúa el control.
 		\node[circ](N5) at (11.79, 6.5){} node[anchor=south] at (N5.text){$v_s$};
 		\node[circ](N6) at (10.25, 6.5){} node[anchor=south] at (N6.text){$v_d$};
 	\end{tikzpicture}
-	\caption{Transitor de paso tipo MOS canal N y canal P.}
+	\caption{Transitor de paso tipo MOS canal P y canal N.}
 	\label{fig:transistor_PN}
 \end{figure}
 
-Se conoce que la eficiencia de un transistor canal N es superior a la que exhibe un canal P. Sin embargo, no necesariamente esto lo hace una elección atractiva para la implementación.\\ En este caso, al tratarse de una fuente controlada LDO, se espera que la alimentación de la fuente sea tan solo $V_{DO}$ mayor a $V_{o}$ para que comience a regular, y por ende se espera que el circuito de control opere con tensiones menores o lo más cercanas posibles a $V_{o}$.
+Se conoce que la eficiencia de un transistor canal N es superior a la que exhibe un canal P (siendo ambos del mismo tamaño y características equiparables). Sin embargo, no necesariamente esto lo hace una elección atractiva para la implementación.\\ En este caso, al tratarse de una fuente controlada LDO, se espera que la alimentación de la fuente sea tan solo $V_{DO}$ mayor a $V_{o}$ para que comience a regular, y por ende se espera que el circuito de control opere con tensiones menores o lo más cercanas posibles a $V_{o}$.
 
-En este caso, de la observación de la figura \ref{fig:transistor_PN}, se observa que para el control efectivo del transistor canal N, $v_g$ deberá ser al menos $v_o + V_{th}$ para polarizarlo en modo triodo y poder hacer un control de tensión y corriente. Esto implica que el circuito de control requerirá \textit{al menos} de una tensión de alimentación de $v_o + V_th$. Esto significa $V_{DO} > V_{th}$. Para valores comerciales, esto significa más de \SI{4}{V}.
+En este caso, en la figura \ref{fig:transistor_PN} se observa que para el control efectivo del transistor canal N, $v_g$ deberá ser al menos $v_o + V_{th}$ para polarizarlo en modo triodo y poder hacer un control de tensión y corriente. Esto implica que el circuito de control requerirá \textit{al menos} de una tensión de alimentación de $v_o + V_th$. Esto significa $V_{DO} > V_{th}$. Para valores comerciales, esto significa más de \SI{4}{V}.
 
 En consecuencia, el canal debe ser P, para simplificar el circuito y hacer posible un $V_{DO} < \SI{1}{V}$.
 
@@ -340,9 +340,9 @@ La elección del modelo, en este caso, no es complicada debido a la escasa ofert
 
 Fundamental es que las tensiones y corrientes de operación se encuentren en el rango operativo del regulador, es decir
 
-$$V_{DSmax} = \SI{32}{V} \qquad I_{DSmax} = \SI{1.5}{A}.$$
+$$V_{DSmax} = V_i - V_o \approx 4,5 \,V \qquad I_{DSmax} = \SI{1.5}{A}.$$
 
-Además, debe operar dentro de la zona de operación segura SOA.
+Además, debe operar dentro de la zona de operación segura (SOA).
 
 Con estas cosas en mente, se escoge el modelo \textbf{IRF4905}. Es un transistor que no sobredimensiona en gran medida la capacidad del regulador, normalmente pensado para switching pero aun así apto para la tarea.
 
@@ -351,7 +351,7 @@ Una de las complicaciones de elegir este tipo de canal es que $\|V_{th}\|$ puede
 \subsubsection{Lazo de Tensión}
 \label{sec:lazo_tension}
 
-Cuando se tiene como objetivo estabilizar un valor de tensión es necesario utilizar un sistema con realimentación negativa, que muestree la señal de salida y ante cambios en la misma, se sume a la señal de control un incremento opuesto al cambio. Como primer aproximación tenemos el esquema de la figura \ref{fig:ldo_primera_aprox}, allí se observa que la señal de control viene dada por la salida de un operacional: $ \quad V_{ctrl} = a_{o} (V^+ - V^-) = a_{o}( VRef - V_F)\quad $ , dicha señal de controla un transistor de paso el cual brinda la corriente necesaria para obtener la tensión que se busca establecer, dicha tensión de salida $V_o$ se muestreara mediante un divisor resistivo formado de tal modo que idealmente $V_o\frac{R_1}{ R_1 + R_2 } = V_o \cdot f $.
+Cuando se tiene como objetivo estabilizar un valor de tensión es usual utilizar un sistema con realimentación negativa, que muestree la señal de salida y, ante cambios en la misma, se sume a la señal de control un incremento opuesto al cambio. Como primer aproximación tenemos el esquema de la figura \ref{fig:ldo_primera_aprox}, allí se observa que la señal de control viene dada por la salida de un operacional: $ \quad V_{ctrl} = a_{o} (V^+ - V^-) = a_{o}( VRef - V_F)\quad $ , dicha señal controla un transistor de paso el cual brinda la corriente necesaria para obtener la tensión que se busca establecer, dicha tensión de salida $V_o$ se muestreara mediante un divisor resistivo formado de tal modo que idealmente $V_o\frac{R_1}{ R_1 + R_2 } = V_o \cdot f $.
 
 
 \begin{figure}[H]
@@ -449,11 +449,11 @@ Siendo $a_o$ la ganancia del operacional y siguiendo el esquema, se puede llegar
 Si se cumple que $a_o\cdot f \gg 1 $
 
 \begin{equation}
-	A = \frac{1}{f}  = \frac{ R_4 + R_5}{ R_5 }
+	A \approx \frac{1}{f}  = \frac{ R_4 + R_5}{ R_5 }
 \end{equation}
 
 
-De esta forma la tensión de salida se puede regular mediante los resistores. 
+De esta forma la tensión de salida se puede ajustar mediante los resistores. 
 
 \begin{equation}	
 	Vo = A \cdot V_{Ref}
@@ -468,27 +468,27 @@ Finalmente, se diseña el amplificador diferencial. El diseño final puede verse
 	\centering
 \begin{tikzpicture}[transform shape]
 	% Paths, nodes and wires:
-	\node[npn, xscale=0.98, yscale=0.98](N1) at (10, 6.755){} node[anchor=west] at (N1.text){$T_3$};
+	\node[npn, xscale=0.98, yscale=0.98](N1) at (10, 6.755){} node[anchor=west] at (N1.text){$Q_3$};
 	\draw (7, 5.5) to[american resistor, /tikz/circuitikz/bipoles/length=0.840cm, l={$R_r$}] (7, 6.75);
 	\draw (7, 6.75) to[american resistor, /tikz/circuitikz/bipoles/length=0.840cm, l={$R_1$}] (9.177, 6.755);
-	\node[npn, xscale=-0.98, yscale=0.98](N2) at (12, 6.745){} node[anchor=east] at (N2.text){$T_4$};
-	\node[npn, xscale=0.98, yscale=0.98](N3) at (11, 4.755){} node[anchor=west] at (N3.text){$T_5$};
+	\node[npn, xscale=-0.98, yscale=0.98](N2) at (12, 6.745){} node[anchor=east] at (N2.text){$Q_4$};
+	\node[npn, xscale=0.98, yscale=0.98](N3) at (11, 4.755){} node[anchor=west] at (N3.text){$Q_5$};
 	\draw (11, 5.509) -| (11, 5.75) -- (10, 5.75) -| (10, 6);
 	\draw (11, 5.75) -- (12, 5.75) -| (12, 6);
-	\node[npn, xscale=-0.98, yscale=0.98](N4) at (7, 4.745){} node[anchor=east] at (N4.text){$T_6$};
+	\node[npn, xscale=-0.98, yscale=0.98](N4) at (7, 4.745){} node[anchor=east] at (N4.text){$Q_6$};
 	\draw (9, 6.75) to[american resistor, /tikz/circuitikz/bipoles/length=0.840cm, l_={$R_2$}] (9, 5.5);
 	\node[tlground] at (9, 5.5){};
 	\draw (7, 5.5) -- (8, 5.5) -| (8, 4.75) -| (10.177, 4.755);
 	\draw (8, 4.75) |- (7.823, 4.745);
 	\draw (7, 6.75) -| (7, 7.25);
 	\node[rground, xscale=-0.88, yscale=-0.88](N5) at (7, 7.25){} node[anchor=north] at ([yshift=0.82cm]N5.text){$v_{ref}$};
-	\node[pnp, xscale=-0.98, yscale=0.98](N6) at (10, 8.495){} node[anchor=east] at (N6.text){$T_1$};
-	\node[pnp, xscale=0.98, yscale=0.98](N7) at (12, 8.495){} node[anchor=west] at (N7.text){$T_2$};
+	\node[pnp, xscale=-0.98, yscale=0.98](N6) at (10, 8.495){} node[anchor=east] at (N6.text){$Q_1$};
+	\node[pnp, xscale=0.98, yscale=0.98](N7) at (12, 8.495){} node[anchor=west] at (N7.text){$Q_2$};
 	\draw (10, 7.509) |- (10, 7.75);
 	\draw (12, 7.5) -| (12, 7.75);
 	\draw (11.177, 8.505) |- (10.823, 8.495);
 	\draw (11.177, 8.5) |- (12, 7.75);
-	\node[pigfetebulk, rotate=90](N8) at (15.23, 9.25){} node[anchor=south] at (N8.text){$T_p$};
+	\node[pigfetebulk, rotate=90](N8) at (15.23, 9.25){} node[anchor=south] at (N8.text){$Q_p$};
 	\draw (13.573, 6.745) to[american resistor, /tikz/circuitikz/bipoles/length=0.840cm, l={$R_4$}] (15.75, 6.75);
 	\draw (7, 3.991) -| (17, 4);
 	\draw (13.25, 6.5) to[american resistor, /tikz/circuitikz/bipoles/length=0.840cm, l={$R_5$}] (13.255, 4.323);
@@ -545,7 +545,22 @@ Rápidamente, las ecuaciones que definen la ganancia de la etapa son las siguien
 	Av_{c} = \frac{gm_4 \cdot 1/gm_2}{1+2 gm_3 \cdot ro_5 }
 \end{equation}
 
-Es fácil de ver que, para resistencias $r_o > \SI{100}{\kilo\ohm}$, siempre se dará $a_o\gg1$.
+
+A partir de la expresión general de salida:
+
+\[
+v_o = v_{ic} \cdot A_{vc} + v_{id} \cdot A_{vd}
+\]
+
+
+En condiciones ideales, se desea que la ganancia en modo común sea nula (\(A_{vc} \approx 0\)), de modo que la salida dependa exclusivamente de la señal diferencial, siendo esta la ganancia a considerar:
+
+\[
+v_o \approx v_{id} \cdot A_{vd}
+\]
+
+
+Es fácil de ver que, para resistencias $r_o > \SI{100}{\kilo\ohm}$, siempre se dará $a_o \cdot f \gg1$.
 
 Algunas consideraciones de diseño:
 
@@ -633,7 +648,7 @@ como tal, se utiliza una resistencia $R_s = \SI{2,2}{\kilo\ohm} \rightarrow I_{T
 
 \subsubsection{Lazo de Corriente}
 
-Ya conociendo una regulación básica de tensión, la regulación de corriente requiere un muestreo de la misma, el cual se da al medir la tensión en un resistor de bajo valor de resistencia colocado en serie con la carga. Luego se utiliza un amplificador para lograr obtener la muestra de tensión sin afectar la carga y se realimenta negativamente, a menor tensión menor corriente sobre la carga, tal como muestra la figura \ref{fig:regulador_corriente_basico}.
+Ya conociendo una regulación básica de tensión, la regulación de corriente requiere un muestreo de la misma, el cual se da al medir la tensión en un resistor de bajo valor de resistencia colocado en serie con la carga, usualmente llamado \textit{"shunt"}. Luego se utiliza un amplificador diferencial para lograr obtener la muestra de tensión sin afectar la carga y se realimenta negativamente, a menor tensión menor corriente sobre la carga, tal como muestra la figura \ref{fig:regulador_corriente_basico}.
 
 
 
@@ -716,13 +731,13 @@ Ya conociendo una regulación básica de tensión, la regulación de corriente r
 
 A su vez, se puede lograr limitar la corriente estableciendo un máximo de corriente con el objetivo de proteger la carga de sobre corrientes. Esto se puede establecer dentro de la misma regulación de corriente estableciendo una tensión de referencia que contenga información de la corriente máxima. De allí denotamos $V_{Ref-c}$ la tensión de referencia que establece la corriente máxima y $V_{Ref-t}$ la tensión de referencia que establece la tensión de salida objetivo.
 
-El objetivo de este circuito es aplicar una protección tipo foldback. Esto quiere decir que una vez se alcanza la máxima corriente otorgable por la fuente, $I_{max} \SI{1.5}{A}$, si se sigue reduciendo la carga, entonces la corriente otorgada seguirá disminuyendo. Esto proteje tanto al regulador como a la carga.
+El objetivo de este circuito es aplicar una protección tipo \textit{foldback}. Esto quiere decir que una vez se alcanza la máxima corriente otorgable por la fuente, $I_{max} \SI{1.5}{A}$, si se sigue reduciendo la carga, entonces la corriente otorgada seguirá disminuyendo. Esto proteje tanto al regulador como a la carga.
 
 Para la implementación de este tipo de fuente, sin embargo, hace falta algo más que una simple referencia, pues la corriente objetivo varía con la salida de tensión, creando una relación I-V lineal.
 
 La elección de resistores se hace en función al compromiso $V_{DO}$-Efectividad del lazo. En este caso, se asigna $R_{s} = \SI{0.2}{\ohm}$. Para una corriente máxima, generará una caída de tensión de $V_{Rs} = \SI{0.3}{V}$, es decir, $V_{DOmax}=\SI{0.3}{V}$.
 
-Antes de continuar, es importante observar que, si bien el diferencial de tensión generado por $R_s$ es muy pequeño, ambos terminales se encuentran muy cercados a $V=V_{reg}$. Al alimentar al amplificador, se estará muy cerca de exceder el rango de tensión de modo común RTMC.
+Antes de continuar, es importante observar que, si bien el diferencial de tensión generado por $R_s$ es muy pequeño, ambos terminales se encuentran muy cercados a $V=V_{o}$. Al alimentar al amplificador, se estará muy cerca de exceder el rango de tensión de modo común RTMC.
 Para solucionar este problema, se agrega un nuevo divisor resistivo a la entrada del amplificador. 
 
 Como se quiere tener control sobre el valor final de $V_{Rs}$, se realimenta para obtener 
@@ -970,7 +985,7 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 
 	\subsubsection{Limitador de corriente shunt}
 	
-	El último módulo por analizar es el regulador de corriente shunt. La función que cumple es actuar rápidamente ante variaciones rápidas en la carga, y es especialmente importante para esta implementación, pues el regulador foldback es lento.
+	El último módulo por analizar es el limitador de corriente shunt. La función que cumple es actuar rápidamente ante variaciones rápidas en la carga, y es especialmente importante para esta implementación, pues el regulador foldback es lento.
 	
 	La implementación se ve en la figura \ref{fig:shunt}, y su funcionamiento es muy sencillo. Cuando $I_o \cdot R_s \approx vbe_{on}$, el transistor $T_2$ comienza a conducir y eventualmente satura, lo que toma corriente de la base de $T_1$, que a su vez comienza a conducir, y esto acerca $v_{ctrl}$ a $v_{cc}$.
 	
@@ -1505,16 +1520,17 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 	
  \begin{center}
  	
-	\begin{tabular}{ c c c c }
+	\begin{tabular}{ c c c c c }
 		
-		\textbf{TO-92} & \textbf{TO-220} & \textbf{DIP-8} & \textbf{Axial 1/4 W}\\
+		\textbf{TO-92} & \textbf{TO-220} & \textbf{DIP-8} & \textbf{Axial 1/4 W} & \textbf{Serie 3296} \\
 		
 		\includegraphics[width=2cm]{img/Encapsulados/to92_fixed.png} &
 		\includegraphics[width=2cm]{img/Encapsulados/to220_fixed.png} &
 		\includegraphics[width=2cm]{img/Encapsulados/dip8_fixed.png} &
-		\includegraphics[width=2cm]{img/Encapsulados/R_axial_fixed.png}\\
+		\includegraphics[width=2cm]{img/Encapsulados/R_axial_fixed.png} &
+		\includegraphics[width=2cm]{img/Encapsulados/preset_fixed.png}\\
 		
-		BJT / TL431 & IRF4905 & LM324 & Resistor \\
+		BJT / TL431 & IRF4905 & LM324 & Resistor & Preset \\
 	\end{tabular}
 \end{center}
 
@@ -1588,7 +1604,6 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 	Se contempló la disipación de potencia del regulador:
 	\begin{itemize}
 		\item Se aumentó el área de cobre asociada al encapsulado para mejorar la disipación térmica.
-		\item En la versión multicapa, el plano de masa contribuye a la distribución del calor.
 	\end{itemize}
 	
 	\paragraph{Fijación mecánica }
@@ -1599,11 +1614,6 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 	\paragraph{Separación y reglas de diseño}
 	Se respetaron distancias mínimas entre pistas según el nivel de tensión del circuito, evitando riesgos de cortocircuito o corrientes parásitas. Asimismo, se definieron reglas de diseño (DRC) acordes al proceso de fabricación.
 	
-%	\paragraph{Comparación entre diseños}
-	
-%	En el apéndice \ref{sec:apendice_PCB} se pueden apreciar ambos diseños para el regulador lineal LDO.
-	
-%	El diseño multicapa presenta ventajas en términos de integridad de señal, menor ruido y mejor comportamiento térmico, a costa de un mayor costo de fabricación. Por otro lado, la PCB de dos capas resulta adecuada para prototipos y aplicaciones de menor exigencia.
 	
 	\paragraph{Características del diseño de la placa impresa del LDO}
 	
