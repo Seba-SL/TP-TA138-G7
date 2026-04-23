@@ -1144,7 +1144,10 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 	
 	El resultado es una constante de tiempo asociada de
 	
-	$$\tau_2 \approx (3\cdot \SI{1.7}{pF}) \cdot (\SI{100}{\kilo\ohm} // \SI{200}{\kilo\ohm}) = \SI{340}{\nano s} \to f_2 \approx \SI{468}{\kilo\hertz}$$
+	\begin{equation}
+		\tau_2 \approx (3\cdot \SI{1.7}{pF}) \cdot (\SI{100}{\kilo\ohm} // \SI{200}{\kilo\ohm}) = \SI{340}{\nano s} \to f_2 \approx \SI{468}{\kilo\hertz}
+		\label{eq:tau2}
+	\end{equation}
 	
 	\textbf{3:}\\
 	En el nodo 3 participan tres capacidades, $C_{\pi6}^*$, $C_{\mu6}^*$ y $C_{\pi5}^*$.
@@ -1155,7 +1158,9 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 	
 	El resultado es una constante de tiempo asociada de
 
-	$$\tau_3 \approx (\SI{1.7}{pF}) \cdot (\SI{10}{\kilo\ohm}) = \SI{17}{\nano s} \to f_2 \approx \SI{9}{\mega\hertz}$$
+	\begin{equation}
+		\tau_3 \approx (\SI{1.7}{pF}) \cdot (\SI{10}{\kilo\ohm}) = \SI{17}{\nano s} \to f_2 \approx \SI{9}{\mega\hertz}
+	\end{equation}
 	
 	\textbf{4:}\\
 	Finalmente, el nodo 4 tiene cuatro capacidades parásitas asociadas: $C_{\pi6}^*$, $C_{\pi7}^*$ , $C_{\pi tp}$ y $C_{\mu tp}^*$.
@@ -1168,7 +1173,9 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 	
 	La constante temporal mínima será, entonces:
 	
-	$$\tau_4 = (\SI{3.4}{\nano F} + \SI{1.4}{\nano F}) \cdot (\SI{3.3}{k\ohm}) = \SI{16}{\micro s} \to f_{4 máx} = \SI{10}{\kilo\hertz}.$$
+	\begin{equation}
+		\tau_4 = (\SI{3.4}{\nano F} + \SI{1.4}{\nano F}) \cdot (\SI{3.3}{k\ohm}) = \SI{16}{\micro s} \to f_{4 máx} = \SI{10}{\kilo\hertz}.
+	\end{equation}
 	
 	Este resultado es congruente con lo simulado en la imagen \ref{fig:bode_corte_tension}. Se concluye que el nodo 4 es dominante, pues se encontrará al menos una década por encima del siguiente polo.
 	
@@ -1284,7 +1291,172 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 	\textbf{Lazo de corriente:}\\
 	La respuesta en frecuencia del lazo de corriente puede observarse en la simulación de la figura \ref{fig:bode_corte_corriente}. El análisis de nodos dominantes se vuelve engorroso por la presencia de polos asociados a los amplificadores LM358.
 	
+	Se propone, en este caso, tomar un nodo y volverlo dominante, igual que se hizo con el lazo de tensión. En la figura \ref{fig:nodos_lazo_corriente} pueden verse los posibles nodos a compensar.
 	
+	
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[transform shape]
+		% Paths, nodes and wires:
+		\node[npn, xscale=0.98, yscale=0.98](N1) at (10.529, 6.225){} node[anchor=west] at (N1.text){$T_3$};
+		\node[npn, xscale=-0.98, yscale=0.98](N2) at (12.529, 6.216){} node[anchor=east] at (N2.text){$T_4$};
+		\node[npn, xscale=0.98, yscale=0.98](N3) at (11.529, 4.225){} node[anchor=west] at (N3.text){$T_5$};
+		\draw (11.529, 4.98) -| (11.529, 5.221) -- (10.529, 5.221) -| (10.529, 5.471);
+		\draw (11.529, 5.221) -- (12.529, 5.221) -| (12.529, 5.471);
+		\node[pnp, xscale=-0.98, yscale=0.98](N4) at (10.529, 7.966){} node[anchor=east] at (N4.text){$T_1$};
+		\node[pnp, xscale=0.98, yscale=0.98](N5) at (12.529, 7.966){} node[anchor=west] at (N5.text){$T_2$};
+		\draw (10.529, 6.98) -- (10.529, 7.221);
+		\draw (12.529, 6.971) -| (12.529, 7.221);
+		\draw (11.706, 7.975) |- (11.352, 7.966);
+		\draw (11.706, 7.971) |- (12.529, 7.221);
+		\node[pigfetebulk, rotate=90](N6) at (15.759, 8.721){} node[anchor=south] at (N6.text){$T_p$};
+		\draw (17.5, 5.819) to[american resistor, /tikz/circuitikz/bipoles/length=1.12cm, l={$R_L$}] (17.5, 3.5);
+		\draw (12.529, 8.721) -- (14.989, 8.721);
+		\draw (15.759, 8.721) -- (15.029, 8.721);
+		\node[circ](N7) at (9.529, 6.221){} node[anchor=south] at (N7.text){$v_{ref-c}$};
+		\node[circ] at (11.529, 5.221){};
+		\node[circ] at (10.529, 6.98){};
+		\node[circ] at (11.706, 7.975){};
+		\node[circ] at (10.529, 8.721){};
+		\node[circ] at (12.529, 8.721){};
+		\node[circ] at (12.529, 7.212){};
+		\draw (12.529, 8.721) -- (10.529, 8.721) -- (7.529, 8.721);
+		\node[rground] at (8.279, 8.721){};
+		\node[rground] at (11.529, 3.471){};
+		\node[rground] at (17.5, 3.5){};
+		\draw (4.529, 7.221) to[american resistor, /tikz/circuitikz/bipoles/length=0.840cm, l={$R_2$}] (4.529, 8.721);
+		\node[npn, xscale=-1](N8) at (5.189, 6.221){} node[anchor=east] at (N8.text){$T_6$};
+		\node[pnp, xscale=-1](N9) at (6.529, 5.451){} node[anchor=east] at (N9.text){$T_5$};
+		\draw (6.529, 7.221) to[american resistor, /tikz/circuitikz/bipoles/length=0.840cm, l={$R_3$}] (6.529, 8.721);
+		\draw (6.029, 6.221) -- (6.529, 6.221);
+		\draw (6.529, 7.221) -| (6.529, 6.221);
+		\draw (4.529, 7.221) -- (4.529, 6.991);
+		\draw (4.529, 3.721) to[american resistor, /tikz/circuitikz/bipoles/length=0.840cm, l={$R_4$}] (4.529, 5.221);
+		\draw (4.529, 3.721) -| (4.529, 3.471);
+		\node[circ](N10) at (6.529, 6.221){} node[anchor=west] at (N10.text){\textcolor{rgb,255:red,255;green,0;blue,0}{$2$}};
+		\draw (7.369, 5.451) -| (7.529, 5.471);
+		\node[circ](N11) at (3.779, 5.221){} node[anchor=east] at (N11.text){$v_{control}$};
+		\node[circ] at (4.529, 5.221){};
+		\draw (10.529, 6.971) |- (7.529, 6.971) |- (7.369, 5.451);
+		\node[rground] at (4.529, 3.471){};
+		\draw (6.529, 8.721) -- (7.529, 8.721);
+		\node[circ] at (6.529, 8.721){};
+		\draw (5.189, 6.991) -- (4.529, 6.991);
+		\draw (4.529, 8.721) -- (6.529, 8.721);
+		\draw (3.779, 5.221) -- (4.529, 5.221);
+		\draw (6.529, 4.681) -- (6.529, 3.471);
+		\node[rground] at (6.529, 3.471){};
+		\node[circ](N12) at (14.779, 7.721){} node[anchor=east] at (N12.text){$v_{control}$};
+		\node[circ](N13) at (8.529, 6.971){} node[anchor=south] at (N13.text){\textcolor{rgb,255:red,255;green,0;blue,0}{$1$}};
+		\node[npn](N14) at (3.869, 6.221){} node[anchor=west] at (N14.text){$T_7$};
+		\draw (3.869, 6.991) -| (4.529, 6.991);
+		\draw (3.869, 5.451) -| (4.529, 5.221);
+		\draw (5.189, 5.451) -| (4.529, 5.221);
+		\node[circ] at (8.279, 8.721){};
+		\draw (15.49, 7.741) |- (14.779, 7.721);
+		\draw (17.5, 5.819) to[american resistor, /tikz/circuitikz/bipoles/length=1.12cm, l={$R_s$}] (17.5, 8);
+		\draw (16.529, 8.721) -| (17.5, 8);
+		\draw (9.706, 6.225) -| (9.5, 6.25);
+		\node[op amp, xscale=-0.8, yscale=-0.8] at (14.917, 6.211){};
+		\draw (13.965, 6.211) |- (13.352, 6.216);
+		\draw (15.869, 6.603) -| (16.5, 8) -- (17.5, 8);
+		\draw (15.869, 5.819) -| (17.5, 5.75);
+		\node[circ] at (17.5, 8){};
+		\node[circ] at (17.5, 5.819){};
+		\node[circ] at (4.529, 6.991){};
+	\end{tikzpicture}
+	\caption{Nodos de compensación del lazo de corriente.}
+	\label{fig:nodos_lazo_corriente}
+\end{figure}
+	
+	Dado que el circuito es muy similar al lazo de tensión, se puede hacer una relación directa entre el nodo 1 y el nodo 3 del lazo de tensión, y el nodo 2 y 3 del lazo de tensión. De esta comparación, se deduce que el de mayor constante de tiempo es el nodo 1, y será el que se compensará.
+	
+	El objetivo es desplazar este polo, de tal modo que, para $|T_A| = \SI{0}{dB}$, haya un margen de fase de entre \SI{20}{\deg} y \SI{30}{deg}. El gráfico de la figura \ref{fig:bode_corte_corriente} pone de manifiesto que $\angle T_A \approx \SI{30}{deg}$ para $f \approx \SI{200}{\kilo\hertz}$. Para una ganancia en frecuencias medias de $|T_A| = \SI{67}{dB}$, y con una caída de -20db/dec, el polo deberá ubicarse en $f \approx \SI{2}{\hertz}$.
+	
+	Se analiza entonces la constante de tiempo del nodo 1 (ecuación \ref{eq:tau2}):
+	
+	\begin{equation}
+		\frac{1}{(\SI{5.1}{pF} + C_{comp}) \cdot (\SI{66}{\kilo\ohm}) \cdot 2\pi} = \SI{2}{\hertz} \to C_{comp} \approx \SI{220}{\nano F}
+	\end{equation}
+	
+	El lazo de corriente compensado tiene la forma de la figura \ref{fig:lazo_corriente_compensado}.
+	
+	\begin{figure}[H]
+		\centering
+			\begin{tikzpicture}[transform shape]
+				% Paths, nodes and wires:
+				\node[npn, xscale=0.98, yscale=0.98](N1) at (10.529, 6.225){} node[anchor=west] at (N1.text){$T_3$};
+				\node[npn, xscale=-0.98, yscale=0.98](N2) at (12.529, 6.216){} node[anchor=east] at (N2.text){$T_4$};
+				\node[npn, xscale=0.98, yscale=0.98](N3) at (11.529, 4.225){} node[anchor=west] at (N3.text){$T_5$};
+				\draw (11.529, 4.98) -| (11.529, 5.221) -- (10.529, 5.221) -| (10.529, 5.471);
+				\draw (11.529, 5.221) -- (12.529, 5.221) -| (12.529, 5.471);
+				\node[pnp, xscale=-0.98, yscale=0.98](N4) at (10.529, 7.966){} node[anchor=east] at (N4.text){$T_1$};
+				\node[pnp, xscale=0.98, yscale=0.98](N5) at (12.529, 7.966){} node[anchor=west] at (N5.text){$T_2$};
+				\draw (10.529, 6.98) -- (10.529, 7.221);
+				\draw (12.529, 6.971) -| (12.529, 7.221);
+				\draw (11.706, 7.975) |- (11.352, 7.966);
+				\draw (11.706, 7.971) |- (12.529, 7.221);
+				\node[pigfetebulk, rotate=90](N6) at (15.759, 8.721){} node[anchor=south] at (N6.text){$T_p$};
+				\draw (17.5, 5.819) to[american resistor, /tikz/circuitikz/bipoles/length=1.12cm, l={$R_L$}] (17.5, 3.5);
+				\draw (12.529, 8.721) -- (14.989, 8.721);
+				\draw (15.759, 8.721) -- (15.029, 8.721);
+				\node[circ](N7) at (9.529, 6.221){} node[anchor=south] at (N7.text){$v_{ref-c}$};
+				\node[circ] at (11.529, 5.221){};
+				\node[circ] at (10.529, 6.98){};
+				\node[circ] at (11.706, 7.975){};
+				\node[circ] at (10.529, 8.721){};
+				\node[circ] at (12.529, 8.721){};
+				\node[circ] at (12.529, 7.212){};
+				\draw (12.529, 8.721) -- (10.529, 8.721) -- (7.529, 8.721);
+				\node[rground] at (8.279, 8.721){};
+				\node[rground] at (11.529, 3.471){};
+				\node[rground] at (17.5, 3.5){};
+				\draw (4.529, 7.221) to[american resistor, /tikz/circuitikz/bipoles/length=0.840cm, l={$R_2$}] (4.529, 8.721);
+				\node[npn, xscale=-1](N8) at (5.189, 6.221){} node[anchor=east] at (N8.text){$T_6$};
+				\node[pnp, xscale=-1](N9) at (6.529, 5.451){} node[anchor=east] at (N9.text){$T_5$};
+				\draw (6.529, 7.221) to[american resistor, /tikz/circuitikz/bipoles/length=0.840cm, l={$R_3$}] (6.529, 8.721);
+				\draw (6.029, 6.221) -- (6.529, 6.221);
+				\draw (6.529, 7.221) -| (6.529, 6.221);
+				\draw (4.529, 7.221) -- (4.529, 6.991);
+				\draw (4.529, 3.721) to[american resistor, /tikz/circuitikz/bipoles/length=0.840cm, l={$R_4$}] (4.529, 5.221);
+				\draw (4.529, 3.721) -| (4.529, 3.471);
+				\node[circ](N10) at (6.529, 6.221){} node[anchor=west] at (N10.text){\textcolor{rgb,255:red,255;green,0;blue,0}{$2$}};
+				\draw (7.369, 5.451) -| (7.529, 5.471);
+				\node[circ](N11) at (3.779, 5.221){} node[anchor=east] at (N11.text){$v_{control}$};
+				\node[circ] at (4.529, 5.221){};
+				\draw (10.529, 6.971) |- (7.529, 6.971) |- (7.369, 5.451);
+				\node[rground] at (4.529, 3.471){};
+				\draw (6.529, 8.721) -- (7.529, 8.721);
+				\node[circ] at (6.529, 8.721){};
+				\draw (5.189, 6.991) -- (4.529, 6.991);
+				\draw (4.529, 8.721) -- (6.529, 8.721);
+				\draw (3.779, 5.221) -- (4.529, 5.221);
+				\draw (6.529, 4.681) -- (6.529, 3.471);
+				\node[rground] at (6.529, 3.471){};
+				\node[circ](N12) at (14.779, 7.721){} node[anchor=east] at (N12.text){$v_{control}$};
+				\node[circ](N13) at (8.5, 7){} node[anchor=south] at (N13.text){\textcolor{rgb,255:red,255;green,0;blue,0}{$1$}};
+				\node[npn](N14) at (3.869, 6.221){} node[anchor=west] at (N14.text){$T_7$};
+				\draw (3.869, 6.991) -| (4.529, 6.991);
+				\draw (3.869, 5.451) -| (4.529, 5.221);
+				\draw (5.189, 5.451) -| (4.529, 5.221);
+				\node[circ] at (8.279, 8.721){};
+				\draw (15.49, 7.741) |- (14.779, 7.721);
+				\draw (17.5, 5.819) to[american resistor, /tikz/circuitikz/bipoles/length=1.12cm, l={$R_s$}] (17.5, 8);
+				\draw (16.529, 8.721) -| (17.5, 8);
+				\draw (9.706, 6.225) -| (9.5, 6.25);
+				\node[op amp, xscale=-0.8, yscale=-0.8] at (14.917, 6.211){};
+				\draw (13.965, 6.211) |- (13.352, 6.216);
+				\draw (15.869, 6.603) -| (16.5, 8) -- (17.5, 8);
+				\draw (15.869, 5.819) -| (17.5, 5.75);
+				\node[circ] at (17.5, 8){};
+				\node[circ] at (17.5, 5.819){};
+				\node[circ] at (4.529, 6.991){};
+				\draw (8.5, 7) to[capacitor, /tikz/circuitikz/bipoles/length=1.12cm, l={$C_{comp}$}] (8.5, 3.5);
+				\node[rground] at (8.5, 3.5){};
+			\end{tikzpicture}
+		\caption{Lazo de corriente compensado.}
+		\label{fig:lazo_corriente_compensado}
+	\end{figure}
 	
 	
 	\subsubsection{Análisis térmico}
@@ -1408,6 +1580,8 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 	
 	Se presentan los resultados obtenidos para cada uno de estos casos.
 	
+	\checkpointstart{2}
+	
 	\paragraph{Ganancias de lazo: }
 	
 	Se observó para ambos lazos que el componente $a_o$ es, escencialmente, el amplificador diferencial al final de cada uno sumado al circuito source común generado por el PMOS. A continuación, se rompe el lazo y se simula la amplitud de salida, del otro lado del lazo, para obtener valor numérico de $|T_t|$ y $|T_c|$.
@@ -1442,7 +1616,7 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 	
 	\begin{figure}[H]
 		\centering
-		\includegraphics[width=0.85\linewidth]{img/LDO/Corte_lazo_tension}
+		\includegraphics[width=0.6\linewidth]{img/LDO/Corte_lazo_tension}
 		\caption{Circuito utilizado para la medición de $T_v$.}
 		\label{fig:corte_lazo_tension}
 	\end{figure}
@@ -1487,7 +1661,7 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 	
 	\begin{figure}[H]
 		\centering
-		\includegraphics[width=0.7\linewidth]{img/LDO/Corte_lazo_corriente}
+		\includegraphics[width=0.6\linewidth]{img/LDO/Corte_lazo_corriente}
 		\caption{Circuito utilizado para la medición de $T_A$.}
 		\label{fig:corte_lazo_corriente}
 	\end{figure}
@@ -1497,17 +1671,27 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=0.85\linewidth]{"../../Simulación/LDO/Graficos en Python/Capturas/LDO_Bode_lazo_corriente"}
-		\caption{Bode resultante de la medición de $T_A$. Notar el polo en $\SI{10}{k\ohm}<f<\SI{100}{k\ohm}$.}
+		\caption{Bode resultante de la medición de $T_A$. Notar el polo en $\SI{10}{k\hertz}<f<\SI{100}{k\hertz}$.}
 		\label{fig:bode_corte_corriente}
 	\end{figure}
 	
+	Finalmente, se simula, nuevamente para $R_L = \SI{2.5}{\ohm}$, $T_A$ para el lazo de corriente compensado. El resultado puede verse en la figura \ref{fig:bode_corriente_compensado}
+	
+		\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.85\linewidth]{"../../Simulación/LDO/Graficos en Python/Capturas/LDO_Bode_lazo_corriente_compensado"}
+		\caption{Bode resultante de la medición de $T_A$ para el lazo de corriente compensado.}
+		\label{fig:bode_corriente_compensado}
+	\end{figure}
+	\checkpointend{2}
+	
 	\paragraph{Estabilización de tensión: }
 	
-	En la simulación temporal se verifica la estabilización de tensión con respecto a la $Vcc$ prevista, utilizando un valor de carga dentro dentro de la zona de regulación estimada, logrando así constatar como se reduce el riple. Se simula tomando un valor de carga dentro del rango de regulación y se toman los valores de tensión en función del tiempo, para el análisis se comparan las componentes alternas de cada señal eliminando el valor medio de ambas, tal como se obvserva en el gráfico de la figura \ref{fig:ldovccvo}.
+	En la simulación temporal se verifica la estabilización de tensión con respecto a la $Vcc$ prevista, utilizando un valor de carga dentro dentro de la zona de regulación estimada, logrando así constatar como se reduce el ripple. Se simula tomando un valor de carga dentro del rango de regulación y se toman los valores de tensión en función del tiempo, para el análisis se comparan las componentes alternas de cada señal eliminando el valor medio de ambas, tal como se obvserva en el gráfico de la figura \ref{fig:ldovccvo}.
 	
 	\begin{figure}[H]
 		\centering
-		\includegraphics[width=0.85\linewidth]{"../../Simulación/LDO/Graficos en Python/Capturas/LDO_Vcc_Vo"}
+		\includegraphics[width=0.65\linewidth]{"../../Simulación/LDO/Graficos en Python/Capturas/LDO_Vcc_Vo"}
 		\caption{Gráfico de la simulación temporal con ruido a la entrada $V_{pp} = \SI{0.4}{V} , f = \SI{100}{\kilo H}$.}
 		\label{fig:ldovccvo}
 	\end{figure}
@@ -1633,9 +1817,11 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 		\label{fig:ldoeficiencia}
 	\end{figure}
 	
+	\checkpointstart{2}
 	\subsubsection{Modo Dinámico}
+	\checkpointend{2}
 	\subsection{Simulaciones de fuente switching}
-	aaa
+	Por agregar en futuras entregas.
 	
 	\input{conclusiones}
 

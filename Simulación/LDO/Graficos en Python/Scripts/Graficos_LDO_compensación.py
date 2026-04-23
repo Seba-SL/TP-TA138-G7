@@ -133,4 +133,58 @@ axs[1].legend(fontsize=10, loc="best")
 plt.tight_layout()
 plt.savefig(os.path.join(capturas_dir, "LDO_Bode_lazo_tension_compensado.png"), dpi=300)
 plt.show()
+
+
+# ========== Diagrama de Bode - Lazo de corriente compensado ==========
+
+# Leer archivo
+archivo_corriente = os.path.join(datos_dir, "Bode_lazo_corriente_compensado.txt")
+freq_i, mag_db_i, fase_deg_i = read_bode_file(archivo_corriente)
+
+# Encontrar cruzamiento de 0dB
+f_0db_i = find_0db_crossing(freq_i, mag_db_i)
+
+# Calcular margen de fase
+if f_0db_i is not None:
+    phase_margin_i = np.interp(f_0db_i, freq_i, fase_deg_i)
+else:
+    phase_margin_i = None
+
+
+# ---------- Gráfico combinado: Magnitud y Fase ----------
+fig, axs = plt.subplots(2, 1, sharex=True, figsize=(10, 8))
+
+# Subplot 1: Magnitud
+axs[0].semilogx(freq_i, mag_db_i, linewidth=3, color="tab:green", label=r"$|T_i| \qquad R_L = 2.5 \Omega$")
+
+axs[0].axhline(0, color="gray", linestyle=':', linewidth=1.5, alpha=0.7)
+
+# Marcar cruzamiento de 0dB
+if f_0db_i is not None:
+    axs[0].axvline(f_0db_i, color="tab:green", linestyle='--', linewidth=1.5, alpha=0.6)
+
+axs[0].set_ylabel("Magnitud (dB)", fontsize=12)
+axs[0].set_title("Diagrama de Bode - Lazo de Corriente Compensado", fontsize=14)
+axs[0].grid(True, which="both", alpha=0.3)
+axs[0].legend(fontsize=10, loc="best")
+
+# Subplot 2: Fase
+# Leyenda con margen de fase
+label_i = r"$\angle T_i \qquad R_L = 2.5 \Omega$"
+if phase_margin_i is not None:
+    label_i += f" (Margen = {phase_margin_i:.2f}°)"
+
+axs[1].semilogx(freq_i, fase_deg_i, linewidth=3, color="tab:green", label=label_i)
+
+# Marcar cruzamiento de 0dB
+if f_0db_i is not None:
+    axs[1].axvline(f_0db_i, color="tab:green", linestyle='--', linewidth=1.5, alpha=0.6)
+
+axs[1].set_xlabel("Frecuencia (Hz)", fontsize=12)
+axs[1].set_ylabel("Fase (°)", fontsize=12)
+axs[1].grid(True, which="both", alpha=0.3)
+axs[1].legend(fontsize=10, loc="best")
+
+plt.tight_layout()
+plt.savefig(os.path.join(capturas_dir, "LDO_Bode_lazo_corriente_compensado.png"), dpi=300)
 plt.show()
