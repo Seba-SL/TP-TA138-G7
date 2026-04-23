@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.4.8)  10 APR 2026 11:52
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.4.8)  22 APR 2026 21:44
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -639,18 +639,32 @@ File: pgflibrarycurvilinear.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 \pgf@circ@res@count=\count364
 ) (C:\Users\Flores\AppData\Local\Programs\MiKTeX\tex/generic/circuitikz\pgfcircquadpoles.tex) (C:\Users\Flores\AppData\Local\Programs\MiKTeX\tex/generic/circuitikz\pgfcircmultipoles.tex) (C:\Users\Flores\AppData\Local\Programs\MiKTeX\tex/generic/circuitikz\pgfcirclabel.tex) (C:\Users\Flores\AppData\Local\Programs\MiKTeX\tex/generic/circuitikz\pgfcircvoltage.tex
 \pgfcirc@labelshift=\dimen341
-) (C:\Users\Flores\AppData\Local\Programs\MiKTeX\tex/generic/circuitikz\pgfcirccurrent.tex) (C:\Users\Flores\AppData\Local\Programs\MiKTeX\tex/generic/circuitikz\pgfcircflow.tex)) (C:\Users\Flores\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrarypositioning.code.tex
+) (C:\Users\Flores\AppData\Local\Programs\MiKTeX\tex/generic/circuitikz\pgfcirccurrent.tex) (C:\Users\Flores\AppData\Local\Programs\MiKTeX\tex/generic/circuitikz\pgfcircflow.tex)) (C:\Users\Flores\AppData\Local\Programs\MiKTeX\tex/latex/pdflscape\pdflscape.sty
+Package: pdflscape 2022-10-27 v0.13 Display of landscape pages in PDF
+ (C:\Users\Flores\AppData\Local\Programs\MiKTeX\tex/latex/pdflscape\pdflscape-nometadata.sty
+Package: pdflscape-nometadata 2022-10-28 v0.13 Display of landscape pages in PDF (HO)
+ (C:\Users\Flores\AppData\Local\Programs\MiKTeX\tex/latex/graphics\lscape.sty
+Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
+)
+Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
+)) (C:\Users\Flores\AppData\Local\Programs\MiKTeX\tex/latex/caption\subcaption.sty
+Package: subcaption 2023/07/28 v1.6b Sub-captions (AR)
+Package caption Info: New subtype `subfigure' on input line 238.
+\c@subfigure=\count365
+Package caption Info: New subtype `subtable' on input line 238.
+\c@subtable=\count366
+) (C:\Users\Flores\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrarypositioning.code.tex
 File: tikzlibrarypositioning.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 ) (C:\Users\Flores\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrarybabel.code.tex
 File: tikzlibrarybabel.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 ) (C:\Users\Flores\AppData\Local\Programs\MiKTeX\tex/latex/csquotes\csquotes.sty
 Package: csquotes 2024-04-04 v5.2o context-sensitive quotations (JAW)
-\csq@reset=\count365
-\csq@gtype=\count366
-\csq@glevel=\count367
-\csq@qlevel=\count368
-\csq@maxlvl=\count369
-\csq@tshold=\count370
+\csq@reset=\count367
+\csq@gtype=\count368
+\csq@glevel=\count369
+\csq@qlevel=\count370
+\csq@maxlvl=\count371
+\csq@tshold=\count372
 \csq@ltx@everypar=\toks46
  (C:\Users\Flores\AppData\Local\Programs\MiKTeX\tex/latex/csquotes\csquotes.def
 File: csquotes.def 2024-04-04 v5.2o csquotes generic definitions (JAW)
@@ -663,7 +677,7 @@ File: csquotes.cfg
 Package: biblatex 2025/07/10 v3.21 programmable bibliographies (PK/MW)
  (C:\Users\Flores\AppData\Local\Programs\MiKTeX\tex/latex/logreq\logreq.sty
 Package: logreq 2010/08/04 v1.0 xml request logger
-\lrq@indent=\count371
+\lrq@indent=\count373
  (C:\Users\Flores\AppData\Local\Programs\MiKTeX\tex/latex/logreq\logreq.def
 File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
 )) (C:\Users\Flores\AppData\Local\Programs\MiKTeX\tex/latex/base\ifthen.sty
@@ -672,49 +686,49 @@ Package: ifthen 2024/03/16 v1.1e Standard LaTeX ifthen package (DPC)
 \Urlmuskip=\muskip18
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-\c@tabx@nest=\count372
-\c@listtotal=\count373
-\c@listcount=\count374
-\c@liststart=\count375
-\c@liststop=\count376
-\c@citecount=\count377
-\c@citetotal=\count378
-\c@multicitecount=\count379
-\c@multicitetotal=\count380
-\c@instcount=\count381
-\c@maxnames=\count382
-\c@minnames=\count383
-\c@maxitems=\count384
-\c@minitems=\count385
-\c@citecounter=\count386
-\c@maxcitecounter=\count387
-\c@savedcitecounter=\count388
-\c@uniquelist=\count389
-\c@uniquename=\count390
-\c@refsection=\count391
-\c@refsegment=\count392
-\c@maxextratitle=\count393
-\c@maxextratitleyear=\count394
-\c@maxextraname=\count395
-\c@maxextradate=\count396
-\c@maxextraalpha=\count397
-\c@abbrvpenalty=\count398
-\c@highnamepenalty=\count399
-\c@lownamepenalty=\count400
-\c@maxparens=\count401
-\c@parenlevel=\count402
-\blx@tempcnta=\count403
-\blx@tempcntb=\count404
-\blx@tempcntc=\count405
-\c@blx@maxsection=\count406
-\blx@maxsegment@0=\count407
-\blx@notetype=\count408
-\blx@parenlevel@text=\count409
-\blx@parenlevel@foot=\count410
-\blx@sectionciteorder@0=\count411
-\blx@sectionciteorderinternal@0=\count412
-\blx@entrysetcounter=\count413
-\blx@biblioinstance=\count414
+\c@tabx@nest=\count374
+\c@listtotal=\count375
+\c@listcount=\count376
+\c@liststart=\count377
+\c@liststop=\count378
+\c@citecount=\count379
+\c@citetotal=\count380
+\c@multicitecount=\count381
+\c@multicitetotal=\count382
+\c@instcount=\count383
+\c@maxnames=\count384
+\c@minnames=\count385
+\c@maxitems=\count386
+\c@minitems=\count387
+\c@citecounter=\count388
+\c@maxcitecounter=\count389
+\c@savedcitecounter=\count390
+\c@uniquelist=\count391
+\c@uniquename=\count392
+\c@refsection=\count393
+\c@refsegment=\count394
+\c@maxextratitle=\count395
+\c@maxextratitleyear=\count396
+\c@maxextraname=\count397
+\c@maxextradate=\count398
+\c@maxextraalpha=\count399
+\c@abbrvpenalty=\count400
+\c@highnamepenalty=\count401
+\c@lownamepenalty=\count402
+\c@maxparens=\count403
+\c@parenlevel=\count404
+\blx@tempcnta=\count405
+\blx@tempcntb=\count406
+\blx@tempcntc=\count407
+\c@blx@maxsection=\count408
+\blx@maxsegment@0=\count409
+\blx@notetype=\count410
+\blx@parenlevel@text=\count411
+\blx@parenlevel@foot=\count412
+\blx@sectionciteorder@0=\count413
+\blx@sectionciteorderinternal@0=\count414
+\blx@entrysetcounter=\count415
+\blx@biblioinstance=\count416
 \labelnumberwidth=\skip62
 \labelalphawidth=\skip63
 \biblabelsep=\skip64
@@ -726,9 +740,9 @@ Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 \blx@bcfin=\read5
 \blx@bcfout=\write4
 \blx@langwohyphens=\language80
-\c@mincomprange=\count415
-\c@maxcomprange=\count416
-\c@mincompwidth=\count417
+\c@mincomprange=\count417
+\c@maxcomprange=\count418
+\c@mincompwidth=\count419
 Package biblatex Info: Trying to load biblatex default data model...
 Package biblatex Info: ... file 'blx-dm.def' found.
  (C:\Users\Flores\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\blx-dm.def
@@ -741,84 +755,84 @@ File: apa.dbx 2025/08/27 v9.20 APA biblatex style data model
 )
 Package biblatex Info: Trying to load biblatex custom data model...
 Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
-\c@afterword=\count418
-\c@savedafterword=\count419
-\c@annotator=\count420
-\c@savedannotator=\count421
-\c@author=\count422
-\c@savedauthor=\count423
-\c@bookauthor=\count424
-\c@savedbookauthor=\count425
-\c@commentator=\count426
-\c@savedcommentator=\count427
-\c@editor=\count428
-\c@savededitor=\count429
-\c@editora=\count430
-\c@savededitora=\count431
-\c@editorb=\count432
-\c@savededitorb=\count433
-\c@editorc=\count434
-\c@savededitorc=\count435
-\c@foreword=\count436
-\c@savedforeword=\count437
-\c@holder=\count438
-\c@savedholder=\count439
-\c@introduction=\count440
-\c@savedintroduction=\count441
-\c@namea=\count442
-\c@savednamea=\count443
-\c@nameb=\count444
-\c@savednameb=\count445
-\c@namec=\count446
-\c@savednamec=\count447
-\c@translator=\count448
-\c@savedtranslator=\count449
-\c@shortauthor=\count450
-\c@savedshortauthor=\count451
-\c@shorteditor=\count452
-\c@savedshorteditor=\count453
-\c@narrator=\count454
-\c@savednarrator=\count455
-\c@execproducer=\count456
-\c@savedexecproducer=\count457
-\c@execdirector=\count458
-\c@savedexecdirector=\count459
-\c@with=\count460
-\c@savedwith=\count461
-\c@labelname=\count462
-\c@savedlabelname=\count463
-\c@institution=\count464
-\c@savedinstitution=\count465
-\c@lista=\count466
-\c@savedlista=\count467
-\c@listb=\count468
-\c@savedlistb=\count469
-\c@listc=\count470
-\c@savedlistc=\count471
-\c@listd=\count472
-\c@savedlistd=\count473
-\c@liste=\count474
-\c@savedliste=\count475
-\c@listf=\count476
-\c@savedlistf=\count477
-\c@location=\count478
-\c@savedlocation=\count479
-\c@organization=\count480
-\c@savedorganization=\count481
-\c@origlocation=\count482
-\c@savedoriglocation=\count483
-\c@origpublisher=\count484
-\c@savedorigpublisher=\count485
-\c@publisher=\count486
-\c@savedpublisher=\count487
-\c@language=\count488
-\c@savedlanguage=\count489
-\c@origlanguage=\count490
-\c@savedoriglanguage=\count491
-\c@citation=\count492
-\c@savedcitation=\count493
-\c@pageref=\count494
-\c@savedpageref=\count495
+\c@afterword=\count420
+\c@savedafterword=\count421
+\c@annotator=\count422
+\c@savedannotator=\count423
+\c@author=\count424
+\c@savedauthor=\count425
+\c@bookauthor=\count426
+\c@savedbookauthor=\count427
+\c@commentator=\count428
+\c@savedcommentator=\count429
+\c@editor=\count430
+\c@savededitor=\count431
+\c@editora=\count432
+\c@savededitora=\count433
+\c@editorb=\count434
+\c@savededitorb=\count435
+\c@editorc=\count436
+\c@savededitorc=\count437
+\c@foreword=\count438
+\c@savedforeword=\count439
+\c@holder=\count440
+\c@savedholder=\count441
+\c@introduction=\count442
+\c@savedintroduction=\count443
+\c@namea=\count444
+\c@savednamea=\count445
+\c@nameb=\count446
+\c@savednameb=\count447
+\c@namec=\count448
+\c@savednamec=\count449
+\c@translator=\count450
+\c@savedtranslator=\count451
+\c@shortauthor=\count452
+\c@savedshortauthor=\count453
+\c@shorteditor=\count454
+\c@savedshorteditor=\count455
+\c@narrator=\count456
+\c@savednarrator=\count457
+\c@execproducer=\count458
+\c@savedexecproducer=\count459
+\c@execdirector=\count460
+\c@savedexecdirector=\count461
+\c@with=\count462
+\c@savedwith=\count463
+\c@labelname=\count464
+\c@savedlabelname=\count465
+\c@institution=\count466
+\c@savedinstitution=\count467
+\c@lista=\count468
+\c@savedlista=\count469
+\c@listb=\count470
+\c@savedlistb=\count471
+\c@listc=\count472
+\c@savedlistc=\count473
+\c@listd=\count474
+\c@savedlistd=\count475
+\c@liste=\count476
+\c@savedliste=\count477
+\c@listf=\count478
+\c@savedlistf=\count479
+\c@location=\count480
+\c@savedlocation=\count481
+\c@organization=\count482
+\c@savedorganization=\count483
+\c@origlocation=\count484
+\c@savedoriglocation=\count485
+\c@origpublisher=\count486
+\c@savedorigpublisher=\count487
+\c@publisher=\count488
+\c@savedpublisher=\count489
+\c@language=\count490
+\c@savedlanguage=\count491
+\c@origlanguage=\count492
+\c@savedoriglanguage=\count493
+\c@citation=\count494
+\c@savedcitation=\count495
+\c@pageref=\count496
+\c@savedpageref=\count497
 \shorthandwidth=\skip70
 \shortjournalwidth=\skip71
 \shortserieswidth=\skip72
@@ -842,19 +856,19 @@ Package biblatex Info: Trying to load generic definitions...
 Package biblatex Info: ... file 'biblatex.def' found.
  (C:\Users\Flores\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\biblatex.def
 File: biblatex.def 2025/07/10 v3.21 biblatex compatibility (PK/MW)
-\c@textcitecount=\count496
-\c@textcitetotal=\count497
-\c@textcitemaxnames=\count498
-\c@biburlbigbreakpenalty=\count499
-\c@biburlbreakpenalty=\count500
-\c@biburlnumpenalty=\count501
-\c@biburlucpenalty=\count502
-\c@biburllcpenalty=\count503
+\c@textcitecount=\count498
+\c@textcitetotal=\count499
+\c@textcitemaxnames=\count500
+\c@biburlbigbreakpenalty=\count501
+\c@biburlbreakpenalty=\count502
+\c@biburlnumpenalty=\count503
+\c@biburlucpenalty=\count504
+\c@biburllcpenalty=\count505
 \biburlbigskip=\muskip19
 \biburlnumskip=\muskip20
 \biburlucskip=\muskip21
 \biburllcskip=\muskip22
-\c@smartand=\count504
+\c@smartand=\count506
 )
 Package biblatex Info: Trying to load bibliography style 'apa'...
 Package biblatex Info: ... file 'apa.bbx' found.
@@ -864,8 +878,8 @@ Package biblatex Info: Trying to load bibliography style 'standard'...
 Package biblatex Info: ... file 'standard.bbx' found.
  (C:\Users\Flores\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/bbx\standard.bbx
 File: standard.bbx 2025/07/10 v3.21 biblatex bibliography style (PK/MW)
-\c@bbx:relatedcount=\count505
-\c@bbx:relatedtotal=\count506
+\c@bbx:relatedcount=\count507
+\c@bbx:relatedtotal=\count508
 )
 Package biblatex Info: Delimiter 'nameyeardelim' in context 'bib' already defined, overwriting.
 Package biblatex Info: Delimiter 'nameyeardelim' in context 'biblist' already defined, overwriting.
@@ -905,7 +919,7 @@ Package biblatex Info: Document encoding is UTF8 ....
 Package: expl3 2026-01-19 L3 programming layer (loader) 
  (C:\Users\Flores\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count507
+\l__color_backend_stack_int=\count509
 ))
 Package biblatex Info: ... and expl3
 (biblatex)             2026-01-19 L3 programming layer (loader) 
@@ -928,32 +942,32 @@ Package babel Info: 'spanish' activates 'spanish' shorthands.
 )
 \openout1 = `informe.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 90.
+LaTeX Font Info:    ... okay on input line 90.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 90.
+LaTeX Font Info:    ... okay on input line 90.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 90.
+LaTeX Font Info:    ... okay on input line 90.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 90.
+LaTeX Font Info:    ... okay on input line 90.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 90.
+LaTeX Font Info:    ... okay on input line 90.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 90.
+LaTeX Font Info:    ... okay on input line 90.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 90.
+LaTeX Font Info:    ... okay on input line 90.
  (C:\Users\Flores\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count508
+\scratchcounter=\count510
 \scratchdimen=\dimen342
 \scratchbox=\box135
-\nofMPsegments=\count509
-\nofMParguments=\count510
+\nofMPsegments=\count511
+\nofMParguments=\count512
 \everyMPshowfont=\toks47
-\MPscratchCnt=\count511
+\MPscratchCnt=\count513
 \MPscratchDim=\dimen343
-\MPnumerator=\count512
-\makeMPintoPDFobject=\count513
+\MPnumerator=\count514
+\makeMPintoPDFobject=\count515
 \everyMPtoPDFconversion=\toks48
 ) (C:\Users\Flores\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -997,12 +1011,12 @@ File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Info: Redefining \. on input line 45.
-LaTeX Info: Redefining \% on input line 45.
+LaTeX Info: Redefining \. on input line 90.
+LaTeX Info: Redefining \% on input line 90.
 (C:\Users\Flores\AppData\Local\Programs\MiKTeX\tex/latex/translations/dicts\translations-basic-dictionary-spanish.trsl
 File: translations-basic-dictionary-spanish.trsl (spanish translation file `translations-basic-dictionary')
 )
-Package translations Info: loading dictionary `translations-basic-dictionary' for `spanish'. on input line 45.
+Package translations Info: loading dictionary `translations-basic-dictionary' for `spanish'. on input line 90.
 Package biblatex Info: Trying to load language 'spanish' -> 'spanish-apa'...
 Package biblatex Info: ... file 'spanish-apa.lbx' found.
  (C:\Users\Flores\AppData\Local\Programs\MiKTeX\tex/latex/biblatex-apa\spanish-apa.lbx
@@ -1025,18 +1039,18 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'informe.bbl' found.
  (informe.bbl)
-Package biblatex Info: Reference section=0 on input line 45.
-Package biblatex Info: Reference segment=0 on input line 45.
+Package biblatex Info: Reference section=0 on input line 90.
+Package biblatex Info: Reference segment=0 on input line 90.
 <img/Caratula.jpg, id=4, 868.24374pt x 188.705pt>
 File: img/Caratula.jpg Graphic file (type jpg)
 <use img/Caratula.jpg>
-Package pdftex.def Info: img/Caratula.jpg  used on input line 50.
+Package pdftex.def Info: img/Caratula.jpg  used on input line 95.
 (pdftex.def)             Requested size: 434.1208pt x 94.35226pt.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 68.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 113.
  (C:\Users\Flores\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 68.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 113.
  (C:\Users\Flores\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
@@ -1053,72 +1067,148 @@ LaTeX Info: Redefining \% on input line 1.
 <img/esquema_general.png, id=21, 596.2275pt x 183.68625pt>
 File: img/esquema_general.png Graphic file (type png)
 <use img/esquema_general.png>
-Package pdftex.def Info: img/esquema_general.png  used on input line 144.
+Package pdftex.def Info: img/esquema_general.png  used on input line 190.
 (pdftex.def)             Requested size: 435.3303pt x 134.11786pt.
 
-Underfull \hbox (badness 3354) in paragraph at lines 170--170
+Underfull \hbox (badness 3354) in paragraph at lines 216--216
 []|$\OT1/cmr/m/n/10 100 [] \OML/cmm/m/it/10 < I[] < \OT1/cmr/m/n/10 1[]5 A$ 
  []
 
 
-Underfull \hbox (badness 1430) in paragraph at lines 179--179
+Underfull \hbox (badness 1430) in paragraph at lines 225--225
 []|\T1/cmr/m/n/10 Corriente de fold-
  []
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
 [2 <./img/esquema_general.png>]
+Overfull \hbox (2.10585pt too wide) in paragraph at lines 287--287
+[][]$\OML/cmm/m/it/10 f[]$  
+ []
 
-LaTeX Font Warning: Command \small invalid in math mode on input line 206.
+[3]
+Overfull \hbox (1.91925pt too wide) in paragraph at lines 376--376
+[][]$\OML/cmm/m/it/10 V[]$  
+ []
 
-[3] [4] [5]
-
-LaTeX Warning: Reference `' on page 6 undefined on input line 537.
-
-[6] [7]
-Overfull \hbox (1.91925pt too wide) in paragraph at lines 786--786
+[4] [5] [6] [7] [8]
+Overfull \hbox (1.91925pt too wide) in paragraph at lines 864--864
 [][]$\OML/cmm/m/it/10 V[]$  
  []
 
 
-Overfull \hbox (2.47215pt too wide) in paragraph at lines 796--796
+Overfull \hbox (2.47215pt too wide) in paragraph at lines 874--874
 [][]$\OML/cmm/m/it/10 V[]$  
  []
 
-[8] [9]
-<../../Simulación/LDO/Graficos en Python/Capturas/LDO_Vcc_Vo.png, id=60, 462.528pt x 346.896pt>
+[9]
+Overfull \hbox (17.41716pt too wide) in paragraph at lines 1007--1007
+[][]$\OML/cmm/m/it/10 v[]$  
+ []
+
+[10]
+
+LaTeX Warning: Reference `sec:simulaciones' on page 11 undefined on input line 1031.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1033--1034
+
+ []
+
+[11] (analisis_termico.tex [12]
+<img/analisis_termico/circuito_termico_sin_rsa.png, id=71, 788.19469pt x 481.04718pt>
+File: img/analisis_termico/circuito_termico_sin_rsa.png Graphic file (type png)
+<use img/analisis_termico/circuito_termico_sin_rsa.png>
+Package pdftex.def Info: img/analisis_termico/circuito_termico_sin_rsa.png  used on input line 22.
+(pdftex.def)             Requested size: 245.82962pt x 150.03326pt.
+<img/analisis_termico/circuito_termico_con_rsa.png, id=72, 651.18282pt x 481.04718pt>
+File: img/analisis_termico/circuito_termico_con_rsa.png Graphic file (type png)
+<use img/analisis_termico/circuito_termico_con_rsa.png>
+Package pdftex.def Info: img/analisis_termico/circuito_termico_con_rsa.png  used on input line 50.
+(pdftex.def)             Requested size: 245.82962pt x 181.60338pt.
+<img/analisis_termico/disipador.png, id=73, 539.01375pt x 264.99pt>
+File: img/analisis_termico/disipador.png Graphic file (type png)
+<use img/analisis_termico/disipador.png>
+Package pdftex.def Info: img/analisis_termico/disipador.png  used on input line 75.
+(pdftex.def)             Requested size: 256.07481pt x 125.89177pt.
+) [13 <./img/analisis_termico/circuito_termico_sin_rsa.png> <./img/analisis_termico/circuito_termico_con_rsa.png> <./img/analisis_termico/disipador.png>] [14] [15]
+<img/LDO/Corte_lazo_tension.png, id=86, 548.0475pt x 241.65282pt>
+File: img/LDO/Corte_lazo_tension.png Graphic file (type png)
+<use img/LDO/Corte_lazo_tension.png>
+Package pdftex.def Info: img/LDO/Corte_lazo_tension.png  used on input line 1331.
+(pdftex.def)             Requested size: 435.3303pt x 191.95451pt.
+<../../Simulación/LDO/Graficos en Python/Capturas/LDO_Bode_lazo_tension.png, id=87, 578.16pt x 578.16pt>
+File: ../../Simulación/LDO/Graficos en Python/Capturas/LDO_Bode_lazo_tension.png Graphic file (type png)
+<use ../../Simulación/LDO/Graficos en Python/Capturas/LDO_Bode_lazo_tension.png>
+Package pdftex.def Info: ../../Simulación/LDO/Graficos en Python/Capturas/LDO_Bode_lazo_tension.png  used on input line 1340.
+(pdftex.def)             Requested size: 435.3303pt x 435.3304pt.
+ [16 <./img/LDO/Corte_lazo_tension.png>]
+<img/LDO/Corte_lazo_corriente.png, id=92, 417.81094pt x 283.0575pt>
+File: img/LDO/Corte_lazo_corriente.png Graphic file (type png)
+<use img/LDO/Corte_lazo_corriente.png>
+Package pdftex.def Info: img/LDO/Corte_lazo_corriente.png  used on input line 1358.
+(pdftex.def)             Requested size: 358.50317pt x 242.89343pt.
+ [17 <../../Simulación/LDO/Graficos en Python/Capturas/LDO_Bode_lazo_tension.png>]
+<../../Simulación/LDO/Graficos en Python/Capturas/LDO_Bode_lazo_corriente.png, id=97, 578.16pt x 578.16pt>
+File: ../../Simulación/LDO/Graficos en Python/Capturas/LDO_Bode_lazo_corriente.png Graphic file (type png)
+<use ../../Simulación/LDO/Graficos en Python/Capturas/LDO_Bode_lazo_corriente.png>
+Package pdftex.def Info: ../../Simulación/LDO/Graficos en Python/Capturas/LDO_Bode_lazo_corriente.png  used on input line 1367.
+(pdftex.def)             Requested size: 435.3303pt x 435.3304pt.
+ [18 <./img/LDO/Corte_lazo_corriente.png>]
+<../../Simulación/LDO/Graficos en Python/Capturas/LDO_Vcc_Vo.png, id=103, 462.528pt x 346.896pt>
 File: ../../Simulación/LDO/Graficos en Python/Capturas/LDO_Vcc_Vo.png Graphic file (type png)
 <use ../../Simulación/LDO/Graficos en Python/Capturas/LDO_Vcc_Vo.png>
-Package pdftex.def Info: ../../Simulación/LDO/Graficos en Python/Capturas/LDO_Vcc_Vo.png  used on input line 891.
+Package pdftex.def Info: ../../Simulación/LDO/Graficos en Python/Capturas/LDO_Vcc_Vo.png  used on input line 1378.
 (pdftex.def)             Requested size: 435.3303pt x 326.51631pt.
- [10 <../../Simulación/LDO/Graficos en Python/Capturas/LDO_Vcc_Vo.png>]
-<../../Simulación/LDO/Graficos en Python/Capturas/LDO_regulacion_linea.png, id=65, 987.2082pt x 466.1415pt>
+ [19 <../../Simulación/LDO/Graficos en Python/Capturas/LDO_Bode_lazo_corriente.png>]
+<../../Simulación/LDO/Graficos en Python/Capturas/LDO_regulacion_linea.png, id=108, 462.528pt x 346.896pt>
 File: ../../Simulación/LDO/Graficos en Python/Capturas/LDO_regulacion_linea.png Graphic file (type png)
 <use ../../Simulación/LDO/Graficos en Python/Capturas/LDO_regulacion_linea.png>
-Package pdftex.def Info: ../../Simulación/LDO/Graficos en Python/Capturas/LDO_regulacion_linea.png  used on input line 926.
-(pdftex.def)             Requested size: 435.3303pt x 205.5581pt.
-<../../Simulación/LDO/Graficos en Python/Capturas/LDO_regulacion_carga.png, id=66, 462.528pt x 346.896pt>
+Package pdftex.def Info: ../../Simulación/LDO/Graficos en Python/Capturas/LDO_regulacion_linea.png  used on input line 1422.
+(pdftex.def)             Requested size: 230.46576pt x 172.84943pt.
+<../../Simulación/LDO/Graficos en Python/Capturas/LDO_regulacion_linea_zoom.png, id=109, 462.528pt x 346.896pt>
+File: ../../Simulación/LDO/Graficos en Python/Capturas/LDO_regulacion_linea_zoom.png Graphic file (type png)
+<use ../../Simulación/LDO/Graficos en Python/Capturas/LDO_regulacion_linea_zoom.png>
+Package pdftex.def Info: ../../Simulación/LDO/Graficos en Python/Capturas/LDO_regulacion_linea_zoom.png  used on input line 1427.
+(pdftex.def)             Requested size: 230.46576pt x 172.84943pt.
+ [20 <../../Simulación/LDO/Graficos en Python/Capturas/LDO_Vcc_Vo.png>]
+<../../Simulación/LDO/Graficos en Python/Capturas/LDO_regulacion_carga.png, id=115, 462.528pt x 346.896pt>
 File: ../../Simulación/LDO/Graficos en Python/Capturas/LDO_regulacion_carga.png Graphic file (type png)
 <use ../../Simulación/LDO/Graficos en Python/Capturas/LDO_regulacion_carga.png>
-Package pdftex.def Info: ../../Simulación/LDO/Graficos en Python/Capturas/LDO_regulacion_carga.png  used on input line 954.
-(pdftex.def)             Requested size: 435.3303pt x 326.51631pt.
- [11 <../../Simulación/LDO/Graficos en Python/Capturas/LDO_regulacion_linea.png>] (conclusiones.tex)
+Package pdftex.def Info: ../../Simulación/LDO/Graficos en Python/Capturas/LDO_regulacion_carga.png  used on input line 1466.
+(pdftex.def)             Requested size: 307.2929pt x 230.4818pt.
+ [21 <../../Simulación/LDO/Graficos en Python/Capturas/LDO_regulacion_linea.png> <../../Simulación/LDO/Graficos en Python/Capturas/LDO_regulacion_linea_zoom.png>]
+<../../Simulación/LDO/Graficos en Python/Capturas/V vs I.png, id=125, 722.7pt x 433.62pt>
+File: ../../Simulación/LDO/Graficos en Python/Capturas/V vs I.png Graphic file (type png)
+<use ../../Simulación/LDO/Graficos en Python/Capturas/V vs I.png>
+Package pdftex.def Info: ../../Simulación/LDO/Graficos en Python/Capturas/V vs I.png  used on input line 1480.
+(pdftex.def)             Requested size: 307.2929pt x 184.37538pt.
+<../../Simulación/LDO/Graficos en Python/Capturas/LDO_eficiencia.png, id=126, 462.528pt x 346.896pt>
+File: ../../Simulación/LDO/Graficos en Python/Capturas/LDO_eficiencia.png Graphic file (type png)
+<use ../../Simulación/LDO/Graficos en Python/Capturas/LDO_eficiencia.png>
+Package pdftex.def Info: ../../Simulación/LDO/Graficos en Python/Capturas/LDO_eficiencia.png  used on input line 1499.
+(pdftex.def)             Requested size: 358.50317pt x 268.88925pt.
+ [22 <../../Simulación/LDO/Graficos en Python/Capturas/LDO_regulacion_carga.png> <../../Simulación/LDO/Graficos en Python/Capturas/V vs I.png>] (conclusiones.tex)
 
-LaTeX Warning: Empty bibliography on input line 972.
+LaTeX Warning: Empty bibliography on input line 1511.
 
-<img/LDO/Esquematico_LDO_LTSPICE.png, id=72, 940.51375pt x 598.235pt>
-File: img/LDO/Esquematico_LDO_LTSPICE.png Graphic file (type png)
-<use img/LDO/Esquematico_LDO_LTSPICE.png>
-Package pdftex.def Info: img/LDO/Esquematico_LDO_LTSPICE.png  used on input line 985.
-(pdftex.def)             Requested size: 512.14963pt x 325.76233pt.
-[12 <../../Simulación/LDO/Graficos en Python/Capturas/LDO_regulacion_carga.png>]
-<img/LDO/esquematico_kicad_LDO.png, id=78, 2640.11343pt x 1866.975pt>
+[23 <../../Simulación/LDO/Graficos en Python/Capturas/LDO_eficiencia.png>]
+<img/LDO/Esquematico_LDO_LTSPICE2.png, id=136, 955.31906pt x 612.03656pt>
+File: img/LDO/Esquematico_LDO_LTSPICE2.png Graphic file (type png)
+<use img/LDO/Esquematico_LDO_LTSPICE2.png>
+Package pdftex.def Info: img/LDO/Esquematico_LDO_LTSPICE2.png  used on input line 1524.
+(pdftex.def)             Requested size: 645.73994pt x 413.6952pt.
+<img/LDO/esquematico_kicad_LDO.png, id=137, 1606.0pt x 1135.24126pt>
 File: img/LDO/esquematico_kicad_LDO.png Graphic file (type png)
 <use img/LDO/esquematico_kicad_LDO.png>
-Package pdftex.def Info: img/LDO/esquematico_kicad_LDO.png  used on input line 997.
-(pdftex.def)             Requested size: 512.14963pt x 362.16423pt.
- [13 <./img/LDO/Esquematico_LDO_LTSPICE.png>] [14 <./img/LDO/esquematico_kicad_LDO.png (PNG copy)>] (c:\Users\Flores\Desktop\facu\ce2\TP-TA138-G7\Documentación\Informe\build\informe.aux
+Package pdftex.def Info: img/LDO/esquematico_kicad_LDO.png  used on input line 1535.
+(pdftex.def)             Requested size: 645.73994pt x 456.46162pt.
+ [24
+
+ <./img/LDO/Esquematico_LDO_LTSPICE2.png>]
+Overfull \vbox (20.67307pt too high) has occurred while \output is active []
+
+ [25 <./img/LDO/esquematico_kicad_LDO.png>] [26
+
+] (c:\Users\Flores\Desktop\facu\ce2\TP-TA138-G7\Documentación\Informe\build\informe.aux
 LaTeX Info: Redefining \sptext on input line 9.
 LaTeX Info: Redefining \. on input line 9.
 LaTeX Info: Redefining \% on input line 9.
@@ -1131,22 +1221,27 @@ L3 programming layer <2026-01-19>
 
 LaTeX Warning: There were undefined references.
 
+
+Package biblatex Warning: Please (re)run Biber on the file:
+(biblatex)                informe
+(biblatex)                and rerun LaTeX afterwards.
+
 Package logreq Info: Writing requests to 'informe.run.xml'.
 \openout1 = `informe.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 53348 strings out of 467867
- 1330466 string characters out of 5417851
- 2441884 words of memory out of 5000000
- 81722 multiletter control sequences out of 15000+600000
- 644364 words of font info for 75 fonts, out of 8000000 for 9000
+ 54257 strings out of 467867
+ 1360608 string characters out of 5417851
+ 2458374 words of memory out of 5000000
+ 82609 multiletter control sequences out of 15000+600000
+ 647466 words of font info for 87 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 98i,15n,118p,1264b,2813s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\Flores\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0700.pk> <C:\Users\Flores\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1000.pk> <C:\Users\Flores\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk> <C:\Users\Flores\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\Flores\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\Flores\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\Flores\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\Flores\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc2488.pk> <C:\Users\Flores\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc1440.pk> <C:\Users\Flores\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1728.pk><C:/Users/Flores/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbsy10.pfb><C:/Users/Flores/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Flores/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Flores/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Flores/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/Flores/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/Flores/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Flores/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/Flores/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Flores/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Flores/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on c:\Users\Flores\Desktop\facu\ce2\TP-TA138-G7\Documentación\Informe\build\informe.pdf (15 pages, 1099256 bytes).
+ 98i,18n,118p,1264b,2813s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\Flores\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0900.pk> <C:\Users\Flores\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0700.pk> <C:\Users\Flores\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1000.pk> <C:\Users\Flores\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk> <C:\Users\Flores\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\Flores\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\Flores\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\Flores\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\Flores\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc2488.pk> <C:\Users\Flores\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc1440.pk> <C:\Users\Flores\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1728.pk><C:/Users/Flores/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbsy10.pfb><C:/Users/Flores/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Flores/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Flores/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Flores/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/Flores/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/Flores/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/Flores/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Users/Flores/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Flores/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/Flores/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Flores/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/Flores/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Flores/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/Flores/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb>
+Output written on c:\Users\Flores\Desktop\facu\ce2\TP-TA138-G7\Documentación\Informe\build\informe.pdf (27 pages, 2438185 bytes).
 PDF statistics:
- 445 PDF objects out of 1000 (max. 8388607)
+ 587 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 48 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 98 words of extra memory for PDF output out of 10000 (max. 10000000)
 
