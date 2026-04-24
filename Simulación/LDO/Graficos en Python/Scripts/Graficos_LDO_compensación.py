@@ -245,3 +245,42 @@ plt.text(x0+0.2, y0-0.85,
 
 plt.savefig(os.path.join(capturas_dir, "LDO_Vcc_Vo_compensado.png"), dpi=300)
 plt.show()
+
+
+# ========== Respuesta dinámica - Lazo de tensión vs Lazo de corriente ==========
+
+# Leer archivos de lazo dinámico
+archivo_lazo_tension = os.path.join(datos_dir, "lazo_tension_dinamico.txt")
+data_lazo_tension = np.loadtxt(archivo_lazo_tension, skiprows=1)
+
+t_tension = data_lazo_tension[:, 0]
+v_lazo_tension = data_lazo_tension[:, 1]
+
+archivo_lazo_corriente = os.path.join(datos_dir, "lazo_corriente_dinamico.txt")
+data_lazo_corriente = np.loadtxt(archivo_lazo_corriente, skiprows=1)
+
+t_corriente = data_lazo_corriente[:, 0]
+i_lazo_corriente = data_lazo_corriente[:, 1]
+
+# Crear figura con dos subgráficos
+fig, axs = plt.subplots(2, 1, figsize=(10, 8))
+
+# Gráfico 1: Lazo de Tensión Dinámico
+axs[0].plot(t_tension * 1e6, v_lazo_tension, linewidth=2.5, color="tab:blue", label=r"$V_o$")
+axs[0].set_xlabel("Tiempo (µs)", fontsize=12)
+axs[0].set_ylabel("Voltaje (V)", fontsize=12)
+axs[0].set_title("Respuesta Dinámica - Lazo de Tensión", fontsize=13, fontweight='bold')
+axs[0].grid(True, alpha=0.3)
+axs[0].legend(fontsize=11, loc="best")
+
+# Gráfico 2: Lazo de Corriente Dinámico
+axs[1].plot(t_corriente * 1e6, i_lazo_corriente, linewidth=2.5, color="tab:green", label=r"$I_o$")
+axs[1].set_xlabel("Tiempo (µs)", fontsize=12)
+axs[1].set_ylabel("Corriente (A)", fontsize=12)
+axs[1].set_title("Respuesta Dinámica - Lazo de Corriente", fontsize=13, fontweight='bold')
+axs[1].grid(True, alpha=0.3)
+axs[1].legend(fontsize=11, loc="best")
+
+plt.tight_layout()
+plt.savefig(os.path.join(capturas_dir, "LDO_lazos_dinamicos.png"), dpi=300)
+plt.show()

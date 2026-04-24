@@ -1758,13 +1758,7 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 	\end{figure}
 	
 	\textbf{Lazo de tensión:}\\
-	Se anulan ambos lazos de corriente (shunt y foldback), aunque no se encuentren operativos para la resistencia de carga $R_L = \SI{100}{\ohm}$ elegida, y se coloca la estructura de la figura \ref{fig:rompelazo}. Adicionalmente, se agregan las resistencias vistas desde cada lado del lazo para que, en señal, el corte sea limpio. Esto implica colocar una resistencia 
-	
-	\begin{equation}
-		R_{eq} \approx \SI{1}{k\ohm} // (\SI{3}{k\ohm} +\SI{100}{\ohm} )
-	\end{equation}
-	
-	del lado del generador de señal. Debido a la alta impedancia de la resistencia vista desde la base del transistor del par diferencial, no es necesario agregar más. En la figura \ref{fig:corte_lazo_tension} puede verse el circuito de medición.
+	Se anulan ambos lazos de corriente (shunt y foldback), aunque no se encuentren operativos para la resistencia de carga $R_L = \SI{100}{\ohm}$ elegida, y se coloca la estructura de la figura \ref{fig:rompelazo}. La figura \ref{fig:corte_lazo_tension} muestra el circuito de medición completo.
 	
 	\begin{figure}[H]
 		\centering
@@ -1803,13 +1797,7 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 	\end{figure}
 	
 	\textbf{Lazo de corriente:}\\
-	En este caso, se realiza el procedimiento inverso. Se anula el lazo de tensión y shunt, y se corta el lazo de corriente en un punto de alta impedancia, como la base del transistor de paso. En este caso se escoge una resistencia de carga $R_L = \SI{2.5}{\ohm}$ para no obtener corrientes ni muy bajas ni excesivas. Se inserta una resistencia reflejada de
-	
-	\begin{equation}
-		R_{eq} \approx \SI{10}{k\ohm}
-	\end{equation}
-	
-	del lado del generador de señal, proveniente de la llave de control. Debido a la alta impedancia de la resistencia vista desde la base del transistor de paso, no es necesario agregar más elementos reflejados. En la figura \ref{fig:corte_lazo_corriente} puede verse el circuito de medición.
+	En este caso, se realiza el procedimiento inverso. Se anula el lazo de tensión y shunt, y se corta el lazo de corriente en un punto de alta impedancia, como la base del transistor de paso. En la figura \ref{fig:corte_lazo_corriente} puede verse el circuito de medición completo.
 	
 	\begin{figure}[H]
 		\centering
@@ -1843,7 +1831,7 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 	
 	\begin{figure}[H]
 		\centering
-		\includegraphics[width=0.65\linewidth]{"../../Simulación/LDO/Graficos en Python/Capturas/LDO_Vcc_Vo"}
+		\includegraphics[width=0.55\linewidth]{"../../Simulación/LDO/Graficos en Python/Capturas/LDO_Vcc_Vo"}
 		\caption{Gráfico de la simulación temporal con ruido a la entrada $V_{pp} = \SI{0.4}{V} , f = \SI{100}{\kilo H}$.}
 		\label{fig:ldovccvo}
 	\end{figure}
@@ -1971,6 +1959,38 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 	
 	\checkpointstart{2}
 	\subsubsection{Modo Dinámico}
+	Se evalúa el comportamiento en modo dinámico de ambos lazos de realimentación. El objetivo es corroborar la compensación y observar el tiempo de respuesta de cada uno. Para ello, se debe variar la carga de forma abrupta, provocando una respuesta al escalón.
+	
+	Dicho comportamiento se logra con el componente Switch, controlado por una fuente de tensión(figura \ref{fig:carga_activa}). Luego se observa tensión resultante a la salida.
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.3\linewidth]{img/LDO/Carga_activa}
+		\caption{Circuito de testeo dinámico utilizado como carga activa.}
+		\label{fig:carga_activa}
+	\end{figure}
+	
+	Para el lazo de tensión, se utiliza 
+	
+	$$(R_{20} = \SI{100}{\kilo\ohm},R_{21} = \SI{1}{\kilo\ohm})\to R_{L1} = \SI{100}{\kilo\ohm},R_{L2} = \SI{1}{\kilo\ohm}$$
+	
+	Para el lazo de corriente, se buscará un valor de $0 < R_L < \SI{3.3}{\ohm}$ tal que el lazo de corriente se encuentre activo. En este caso
+	
+	$$(R_{20} = \SI{2.5}{\ohm},R_{21} = \SI{1.5}{\ohm}) \to R_{L1} = \SI{2.5}{\ohm},R_{L2} = \SI{1}{\ohm}$$
+	
+	Los resultados se ven en la figura \ref{fig:simulacion_dinamica}. Notar que la respuesta para el lazo de corriente no tiende al mismo valor de tensión ni corriente, por tratarse de regulación tipo foldback.
+	
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.85\linewidth]{"../../Simulación/LDO/Graficos en Python/Capturas/LDO_lazos_dinamicos"}
+		\caption{Respuesta dinámica del regulador LDO.}
+		\label{fig:simulacion_dinamica}
+	\end{figure}
+	
+	El lazo de tensión exhibe una respuesta de duración aproximada \SI{5}{\micro s}, con una excursión mínima. El lazo de corriente, sin embargo, es más lento, con una duración de respuesta dinámica mínima de \SI{25}{\micro s}.
+	
+	Es de especial importancia el sobrepico de corriente ocasionado por el abrupto cambio de carga. Notar que, si bien será limitado por el regulador de tipo shunt, deberá ser tenido en cuenta a la hora de conectar una carga. La duración del mismo es de \SI{2.5}{\micro\second}.
+	
 	\checkpointend{2}
 	\subsection{Simulaciones de fuente switching}
 	Por agregar en futuras entregas.

@@ -12,8 +12,8 @@
 \contentsline {subsubsection}{\numberline {2.2.7}Llave electrónica}{9}{}%
 \contentsline {subsubsection}{\numberline {2.2.8}Limitador de corriente shunt}{11}{}%
 \contentsline {subsubsection}{\numberline {2.2.9}Compensación de lazos}{11}{}%
-\contentsline {subsection}{\numberline {2.3}Analisis termico}{15}{}%
-\contentsline {subsubsection}{\numberline {2.3.1}Consideraciones de fabricación PCB}{15}{}%
+\contentsline {subsubsection}{\numberline {2.2.10}Analisis termico}{15}{}%
+\contentsline {subsubsection}{\numberline {2.2.11}Consideraciones de fabricación PCB}{15}{}%
 \contentsline {paragraph}{Arquitectura general}{16}{}%
 \contentsline {paragraph}{Selección de materiales y encapsulados}{16}{}%
 \contentsline {paragraph}{Selección de huellas y modelos 3D}{17}{}%
@@ -24,17 +24,17 @@
 \contentsline {paragraph}{Fijación mecánica }{18}{}%
 \contentsline {paragraph}{Separación y reglas de diseño}{18}{}%
 \contentsline {paragraph}{Características del diseño de la placa impresa del LDO}{18}{}%
-\contentsline {subsubsection}{\numberline {2.3.2}Mejoras:}{19}{}%
+\contentsline {subsubsection}{\numberline {2.2.12}Mejoras:}{19}{}%
 \contentsline {section}{\numberline {3}Simulaciones}{19}{}%
 \contentsline {subsection}{\numberline {3.1}Simulaciones del regulador lineal LDO}{19}{}%
 \contentsline {subsubsection}{\numberline {3.1.1}Modo estático}{19}{}%
 \contentsline {paragraph}{Ganancias de lazo: }{20}{}%
 \contentsline {paragraph}{Estabilización de tensión: }{25}{}%
 \contentsline {paragraph}{Regulación de Linea:}{26}{}%
-\contentsline {paragraph}{Regulación de carga:}{27}{}%
-\contentsline {paragraph}{$V_o$ en función de $I_L$:}{28}{}%
-\contentsline {paragraph}{Eficiencia:}{28}{}%
-\contentsline {subsubsection}{\numberline {3.1.2}Modo Dinámico}{29}{}%
+\contentsline {paragraph}{Regulación de carga:}{26}{}%
+\contentsline {paragraph}{$V_o$ en función de $I_L$:}{27}{}%
+\contentsline {paragraph}{Eficiencia:}{27}{}%
+\contentsline {subsubsection}{\numberline {3.1.2}Modo Dinámico}{28}{}%
 \contentsline {subsection}{\numberline {3.2}Simulaciones de fuente switching}{29}{}%
 \contentsline {section}{\numberline {4}Conclusiones}{29}{}%
 \contentsline {subsection}{\numberline {4.1}Regulador Lineal LDO}{29}{}%
