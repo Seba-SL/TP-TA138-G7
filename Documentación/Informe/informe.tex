@@ -1048,7 +1048,7 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 	
 	Debido a que la ganancia de lazo se puede aproximar a un sistema de primer orden, si existe un \textit{polo dominante}, entonces se puede asegurar que no habrá ningun caso en que el circuito oscile.
 	
-	Nuestro análisis, entonces, se dividirá en dos partes: la compensación del lazo de tensión, con ganancia $T_v$, y la compensación del lazo de corriente, con ganancia $T_A$, partiendo de los gráficos obtenidos en la sección \ref{sec:simulaciones}.(Ganancias de Lazo sin compensación), las figuras \ref{fig:bode_corte_tension} y \ref{fig:bode_corte_corriente}.
+	Nuestro análisis, entonces, se dividirá en dos partes: la compensación del lazo de tensión, con ganancia $T_v$, y la compensación del lazo de corriente, con ganancia $T_A$, partiendo de los gráficos obtenidos en la sección \ref{sec:simulaciones} (Ganancias de Lazo sin compensación), las figuras \ref{fig:bode_corte_tension} y \ref{fig:bode_corte_corriente}.
 	
 	\textbf{Lazo de tensión:}\\
 	
@@ -1479,23 +1479,21 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 	
 	
 	\input{analisis_termico}
+	\newpage
 
 \FloatBarrier
 	\subsubsection{Consideraciones de fabricación PCB}
 	\FloatBarrier
 	Todo diseño presenta desafíos; en este caso, al desarrollar el circuito impreso, el objetivo principal es maximizar el rendimiento, garantizar la robustez y lograr una implementación compacta en una placa adecuada.
 	
-	Debe poseer un tamaño adecuado para su integración en el sistema completo y contemplar tecnologías que ofrezcan la mejor relación entre rendimiento y costo. El uso de estándares y normas, como la IPC-2222 para placas rígidas, sirve como guía durante el proceso de diseño. Tanto el esquemático como las huellas de los componentes, los modelos 3D y el diseño de la PCB fueron desarrollados utilizando el software KiCad.
+	Debe poseer un tamaño óptimo para su integración en el sistema completo y contemplar tecnologías que ofrezcan la mejor relación entre rendimiento y costo. El uso de estándares y normas, como la IPC-2222 para placas rígidas, sirve como guía durante el proceso de diseño. Tanto el esquemático como las huellas de los componentes, los modelos 3D y el diseño de la PCB fueron desarrollados utilizando el software KiCad, iniciando con el esquemático presentado en la sección \ref{sec:apendice_esquematicos} y utilizando las distintas herramientas del software.
 	
 	 
 
 	 
 	\paragraph{Arquitectura general}
-	%Se desarrollaron dos versiones del diseño:
-	\begin{itemize}
-		\item Una PCB de dos capas (top y bottom), orientada a simplicidad de fabricación y bajo costo.
-	%	\item Una PCB multicapa, destinada a mejorar el desempeño y dimensiones.
-	\end{itemize}
+	
+	Se diseñará una placa rígida de dos capas, en la cual las pistas conductoras estarán implementadas en la capa superior (F.Cu) y en la capa inferior (B.Cu). Los componentes se conectarán y fijarán mediante tecnología de orificio pasante (THT: through-hole-Technology), utilizando pines que atraviesan la placa. Además, se contemplan serigrafías en la cara superior (F.SilkS) destinadas a la identificación de componentes y bloques funcionales del circuito.
 	
 	
 	\paragraph{Selección de materiales y encapsulados}
@@ -1516,6 +1514,8 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 			\hline
 				FR-4 & 21/24/25/27 & 0.4 mm & $130\,^\circ\mathrm{C}$\\
 			\hline
+				FR-4 & 21/24/25/27 & 1.6mm & $170\,^\circ\mathrm{C}$\\
+			\hline
 		\end{tabular}
 	\end{table}
 	
@@ -1523,21 +1523,23 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 	
  \begin{center}
  	
-	\begin{tabular}{ c c c c c }
+	\begin{tabular}{ c c c c c c c }
 		
-		\textbf{TO-92} & \textbf{TO-220} & \textbf{DIP-8} & \textbf{Axial 1/4 W} & \textbf{Serie 3296} \\
+		\textbf{TO-92} & \textbf{TO-220} & \textbf{DIP-8} & \textbf{Axial 1/4 W} & \textbf{Serie 3296} & \textbf{Cerámico} & \textbf{Bornera} \\
 		
 		\includegraphics[width=2cm]{img/Encapsulados/to92_fixed.png} &
 		\includegraphics[width=2cm]{img/Encapsulados/to220_fixed.png} &
 		\includegraphics[width=2cm]{img/Encapsulados/dip8_fixed.png} &
-		\includegraphics[width=2cm]{img/Encapsulados/R_axial_fixed.png} &
-		\includegraphics[width=2cm]{img/Encapsulados/preset_fixed.png}\\
+		\includegraphics[width=2cm]{img/Encapsulados/R_axial_fixed.png}&
+		\includegraphics[width=2cm]{img/Encapsulados/preset_fixed.png}&
+		\includegraphics[width=2cm]{img/Encapsulados/ceramicos.png}&
+		\includegraphics[width=2cm]{img/Encapsulados/bornera.png}\\
 		
-		BJT / TL431 & IRF4905 & LM324 & Resistor & Preset \\
+		BJT / TL431 & IRF4905 & LM324 & Resistor & Preset & Capacitor & Salida y entrada \\
 	\end{tabular}
 \end{center}
 
-	Cabe resaltar que el uso de componentes integrados, como el LM324 que incorpora cuatro amplificadores operacionales en un mismo encapsulado, permite reducir el área de la placa. Asimismo se evitara la selección de encapsulados con pines no conectados (NC, \textit{No Internal Connection}), como en el caso del TL431, lo cual contribuye a un diseño más eficiente. Como mejora se podrían considerar componentes de montaje superficial.
+	Cabe resaltar que el uso de componentes integrados, como el LM324 que incorpora cuatro amplificadores operacionales en un mismo encapsulado, permite reducir el área de la placa. Asimismo se evitara la selección de encapsulados con pines no conectados (NC, \textit{No Internal Connection}), como en el caso del TL431, lo cual contribuye a un diseño más eficiente. Se utilizan capacitores de tecnología cerámica en su material dieléctrico debido a su respuesta en frecuencia y valores de capacitancia´.
 	
 		
 	\paragraph{Selección de huellas y modelos 3D}
@@ -1617,6 +1619,14 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 	\paragraph{Separación y reglas de diseño}
 	Se respetaron distancias mínimas entre pistas según el nivel de tensión del circuito, evitando riesgos de cortocircuito o corrientes parásitas. Asimismo, se definieron reglas de diseño (DRC) acordes al proceso de fabricación.
 	
+	\paragraph{Análisis de requerimientos eléctricos (seguridad eléctrica y EMC)}
+	
+	El propio kit de desarrollo, cuenta con la ejecución de un control de normas eléctricas de conexionado conocido como Electrical Rules Check (ERC), analiza el esquemático y verifica que las conexiones tengan sentido desde el punto de vista eléctrico y lógico detectando inconsistencias. Luego de establecer el esquemático se realiza este control eliminando errores y contemplando las advertencias del mismo.
+	
+	\paragraph{Auto-ruteo}
+	
+	El software Kicad permite añadir diferentes aplicaciones externas que actúan como \textit{plugins} o añadidos dentro del mismo kit de desarrollo, se utilizo uno de ellos para realizar un autoruteo inicial de pistas para acelerar el tiempo de diseño. \textit{Freerouting} es un \textit{autorouter} externo que utiliza algoritmos tipo \textit{maze routing} (búsqueda de caminos) y optimización iterativa (intenta mejorar rutas), el cual se ejecuta de acuerdo a diferentes especificaciones impuestas por el diseñador. Sin embargo luego de ejecutar dicho ruteo de pistas, es necesario corregir o modificar con criterio ya que los algoritmos no contemplan condiciónes de fabricación o el funcionamiento óptimo de la placa.
+	
 	
 	\paragraph{Características del diseño de la placa impresa del LDO}
 	
@@ -1687,8 +1697,8 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 		
 		\begin{subfigure}[t]{0.49\textwidth}
 			\centering
-			\includegraphics[width=\textwidth]{img/LDO/PCB_Diseño/pistas.png}
-			\caption{Pistas}
+			\includegraphics[width=\textwidth]{img/LDO/PCB_Diseño/pistas_F.png}
+			\caption{Pistas superiores}
 		\end{subfigure}
 		\hfill
 		\begin{subfigure}[t]{0.5\textwidth}
@@ -1723,6 +1733,8 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 	\end{itemize}
 	
 	\section{Simulaciones}
+	\label{sec:simulaciones}
+	
 	\subsection{Simulaciones del regulador lineal LDO}
 	\FloatBarrier
 	\FloatBarrier
@@ -2058,9 +2070,16 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 \includepdf[
 pages=1,
 pagecommand={
-	\subsection{LDO}
+	\subsection{LDO capa superior}
 }
 ]{img/LDO/pistas_LDO.pdf}
-	
+
+\includepdf[
+pages=1,
+pagecommand={
+	\subsection{LDO capa inferior}
+}
+]{img/LDO/pistas_LDO_inferior.pdf}
+
 	
 \end{document}
