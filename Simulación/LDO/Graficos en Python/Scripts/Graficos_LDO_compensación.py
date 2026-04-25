@@ -137,31 +137,45 @@ plt.show()
 
 # ========== Diagrama de Bode - Lazo de corriente compensado ==========
 
-# Leer archivo
-archivo_corriente = os.path.join(datos_dir, "Bode_lazo_corriente_compensado.txt")
-freq_i, mag_db_i, fase_deg_i = read_bode_file(archivo_corriente)
+# Leer primer archivo
+archivo_corriente1 = os.path.join(datos_dir, "Bode_lazo_corriente_compensado.txt")
+freq_i1, mag_db_i1, fase_deg_i1 = read_bode_file(archivo_corriente1)
 
-# Encontrar cruzamiento de 0dB
-f_0db_i = find_0db_crossing(freq_i, mag_db_i)
+# Leer segundo archivo
+archivo_corriente2 = os.path.join(datos_dir, "Bode_lazo_corriente_compensado2.txt")
+freq_i2, mag_db_i2, fase_deg_i2 = read_bode_file(archivo_corriente2)
 
-# Calcular margen de fase
-if f_0db_i is not None:
-    phase_margin_i = np.interp(f_0db_i, freq_i, fase_deg_i)
+# Encontrar cruzamientos de 0dB
+f_0db_i1 = find_0db_crossing(freq_i1, mag_db_i1)
+f_0db_i2 = find_0db_crossing(freq_i2, mag_db_i2)
+
+# Calcular márgenes de fase
+if f_0db_i1 is not None:
+    phase_margin_i1 = np.interp(f_0db_i1, freq_i1, fase_deg_i1)
 else:
-    phase_margin_i = None
+    phase_margin_i1 = None
+
+if f_0db_i2 is not None:
+    phase_margin_i2 = np.interp(f_0db_i2, freq_i2, fase_deg_i2)
+else:
+    phase_margin_i2 = None
 
 
 # ---------- Gráfico combinado: Magnitud y Fase ----------
 fig, axs = plt.subplots(2, 1, sharex=True, figsize=(10, 8))
 
 # Subplot 1: Magnitud
-axs[0].semilogx(freq_i, mag_db_i, linewidth=3, color="tab:green", label=r"$|T_i| \qquad R_L = 2.5 \Omega$")
+axs[0].semilogx(freq_i1, mag_db_i1, linewidth=3, color="tab:green", label=r"$|T_A| \qquad R_L = 2.5 \Omega$")
+axs[0].semilogx(freq_i2, mag_db_i2, linewidth=3, color="tab:red", label=r"$|T_A| \qquad R_L = 1 \Omega$")
 
 axs[0].axhline(0, color="gray", linestyle=':', linewidth=1.5, alpha=0.7)
 
-# Marcar cruzamiento de 0dB
-if f_0db_i is not None:
-    axs[0].axvline(f_0db_i, color="tab:green", linestyle='--', linewidth=1.5, alpha=0.6)
+# Marcar cruzamientos de 0dB
+if f_0db_i1 is not None:
+    axs[0].axvline(f_0db_i1, color="tab:green", linestyle='--', linewidth=1.5, alpha=0.6)
+
+if f_0db_i2 is not None:
+    axs[0].axvline(f_0db_i2, color="tab:red", linestyle='--', linewidth=1.5, alpha=0.6)
 
 axs[0].set_ylabel("Magnitud (dB)", fontsize=12)
 axs[0].set_title("Diagrama de Bode - Lazo de Corriente Compensado", fontsize=14)
@@ -169,16 +183,24 @@ axs[0].grid(True, which="both", alpha=0.3)
 axs[0].legend(fontsize=10, loc="best")
 
 # Subplot 2: Fase
-# Leyenda con margen de fase
-label_i = r"$\angle T_i \qquad R_L = 2.5 \Omega$"
-if phase_margin_i is not None:
-    label_i += f" (Margen = {phase_margin_i:.2f}°)"
+# Leyendas con márgenes de fase
+label_i1 = r"$\angle T_A \qquad R_L = 2.5 \Omega$"
+if phase_margin_i1 is not None:
+    label_i1 += f" (Margen = {phase_margin_i1:.2f}°)"
 
-axs[1].semilogx(freq_i, fase_deg_i, linewidth=3, color="tab:green", label=label_i)
+label_i2 = r"$\angle T_A \qquad R_L = 1 \Omega$"
+if phase_margin_i2 is not None:
+    label_i2 += f" (Margen = {phase_margin_i2:.2f}°)"
 
-# Marcar cruzamiento de 0dB
-if f_0db_i is not None:
-    axs[1].axvline(f_0db_i, color="tab:green", linestyle='--', linewidth=1.5, alpha=0.6)
+axs[1].semilogx(freq_i1, fase_deg_i1, linewidth=3, color="tab:green", label=label_i1)
+axs[1].semilogx(freq_i2, fase_deg_i2, linewidth=3, color="tab:red", label=label_i2)
+
+# Marcar cruzamientos de 0dB
+if f_0db_i1 is not None:
+    axs[1].axvline(f_0db_i1, color="tab:green", linestyle='--', linewidth=1.5, alpha=0.6)
+
+if f_0db_i2 is not None:
+    axs[1].axvline(f_0db_i2, color="tab:red", linestyle='--', linewidth=1.5, alpha=0.6)
 
 axs[1].set_xlabel("Frecuencia (Hz)", fontsize=12)
 axs[1].set_ylabel("Fase (°)", fontsize=12)
@@ -206,7 +228,7 @@ vcc_ac = vcc - vcc_mean
 vo_ac  = vo  - vo_mean
 
 plt.figure(figsize=(10, 6))
-plt.xlim(1000, 1030)
+plt.xlim(50, 100)
 plt.ylim(-0.3, 0.3)
 
 # Defino estilos explícitos

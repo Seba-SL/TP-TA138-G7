@@ -1,11 +1,16 @@
-LTspice 24.1.5 for Windows
-Circuit: C:\Users\ramaz\Desktop\Circuitos II\TP-TA138-G7\Simulaci贸n\LDO\simulacion_LDO_lazo_corriente.net
-Start Time: Wed Apr 22 22:23:13 2026
+LTspice 24.0.12 for Windows
+Circuit: * C:\Users\ramaz\Desktop\Circuitos II\TP-TA138-G7\Simulaci髇\LDO\simulacion_LDO_lazo_corriente.asc
+Start Time: Sat Apr 25 13:45:38 2026
+Warning: Multiple definitions of model "2scr375p" Type: BJT
+Warning: Multiple definitions of model "bc857b" Type: BJT
+Warning: Multiple definitions of model "bc847c" Type: BJT
+Warning: Multiple definitions of model "bc847b" Type: BJT
+irl: both pins shorted together -- ignoring.
 solver = Normal
-Maximum thread count: 12
+Maximum thread count: 8
 tnom = 27
 temp = 27
-method = trap
+method = modified trap
 Direct Newton iteration failed to find .op point.  (Use ".option noopiter" to skip.)
 Starting Gmin stepping
 Gmin = 10
@@ -89,82 +94,74 @@ Source Step = 60.683%
 Source Step = 60.7126%
 Source Step = 60.7422%
 vernier = 0.00146484
-Source Step = 60.7747%
-Source Step = 60.8191%
-Source Step = 60.8635%
-Source Step = 60.9079%
-Source Step = 60.9523%
+Source Step = 60.7777%
+Source Step = 60.8221%
+Source Step = 60.8665%
+Source Step = 60.9109%
+Source Step = 60.9553%
 vernier = 0.00219727
-Source Step = 60.9989%
-Source Step = 61.0655%
-Source Step = 61.1321%
-Source Step = 61.1987%
-Source Step = 61.2652%
-Source Step = 61.3318%
+Source Step = 61.0063%
+Source Step = 61.0729%
+Source Step = 61.1395%
+Source Step = 61.2061%
+Source Step = 61.2726%
 vernier = 0.0032959
-Source Step = 61.4317%
-Source Step = 61.5316%
-Source Step = 61.6315%
-Source Step = 61.7313%
-Source Step = 61.8312%
+Source Step = 61.3459%
+Source Step = 61.4458%
+Source Step = 61.5456%
+Source Step = 61.6455%
+Source Step = 61.7454%
 vernier = 0.00494385
-Source Step = 61.976%
-Source Step = 62.1258%
-Source Step = 62.2756%
-Source Step = 62.4255%
-Source Step = 62.5753%
+Source Step = 61.8503%
+Source Step = 62.0001%
+Source Step = 62.1499%
+Source Step = 62.2997%
+Source Step = 62.4495%
+Source Step = 62.5993%
 vernier = 0.00741577
-Source Step = 62.785%
-Source Step = 63.0097%
-Source Step = 63.2345%
-Source Step = 63.4592%
-Source Step = 63.6839%
+Source Step = 62.824%
+Source Step = 63.0488%
+Source Step = 63.2735%
+Source Step = 63.4982%
+Source Step = 63.7229%
 vernier = 0.0111237
-Source Step = 63.9873%
-Source Step = 64.3244%
-Source Step = 64.6614%
-Source Step = 64.9985%
-Source Step = 65.3356%
+Source Step = 64.0488%
+Source Step = 64.3858%
+Source Step = 64.7229%
+Source Step = 65.06%
+Source Step = 65.3971%
 vernier = 0.0166855
-Source Step = 65.7738%
-Source Step = 66.2794%
-Source Step = 66.785%
-Source Step = 67.2907%
-Source Step = 67.7963%
+Source Step = 65.869%
+Source Step = 66.3746%
+Source Step = 66.8802%
+Source Step = 67.3859%
+Source Step = 67.8915%
 vernier = 0.0250282
-Source Step = 68.4283%
-Source Step = 69.1867%
-Source Step = 69.9452%
-Source Step = 70.7036%
-Source Step = 71.462%
+Source Step = 68.5741%
+Source Step = 69.3325%
+Source Step = 70.0909%
+Source Step = 70.8494%
+Source Step = 71.6078%
 vernier = 0.0375423
-Source Step = 72.3721%
-Source Step = 73.5098%
-Source Step = 74.6474%
-Source Step = 75.7851%
-Source Step = 76.9227%
+Source Step = 72.5938%
+Source Step = 73.7314%
+Source Step = 74.8691%
+Source Step = 76.0067%
+Source Step = 77.1443%
 vernier = 0.0563135
-Source Step = 78.231%
-Source Step = 79.9375%
-Source Step = 81.644%
-Source Step = 83.3504%
-Source Step = 85.0569%
+Source Step = 78.5664%
+Source Step = 80.2729%
+Source Step = 81.9793%
+Source Step = 83.6858%
+Source Step = 85.3923%
 vernier = 0.0844703
-Source Step = 86.934%
-Source Step = 89.4937%
-Source Step = 92.0534%
-Source Step = 94.6131%
-Source Step = 97.1728%
+Source Step = 87.44%
+Source Step = 89.9998%
+Source Step = 92.5595%
+Source Step = 95.1192%
+Source Step = 97.6789%
 vernier = 0.126705
-Source Step = 99.8605%
 Source stepping succeeded in finding the operating point.
 
-Total elapsed time: 3.192 seconds.
-
-Files loaded:
-C:\Users\ramaz\Desktop\Circuitos II\TP-TA138-G7\Simulaci贸n\LDO\simulacion_LDO_lazo_corriente.net
-C:\Users\ramaz\AppData\Local\LTspice\lib\cmp\standard.bjt
-C:\Users\ramaz\Desktop\Circuitos II\TP-TA138-G7\Simulaci贸n\LDO\Modelos\irf4905.spi
-C:\Users\ramaz\Desktop\Circuitos II\TP-TA138-G7\Simulaci贸n\LDO\Modelos\TL431.spi
-C:\Users\ramaz\Desktop\Circuitos II\TP-TA138-G7\Simulaci贸n\LDO\Modelos\LM358.txt
+Total elapsed time: 7.445 seconds.
 

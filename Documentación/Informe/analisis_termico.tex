@@ -1,4 +1,5 @@
 \subsubsection{Analisis termico}
+\FloatBarrier
 
 Por el transistor de paso, en el peor de los casos, va a tener una caída de $V_{SD} = V_{CC} - V_O = 9.5V - 5V = 4.5V$, y va a circular una corriente máxima de $I_{L} = 1.5A$, llegando a tener una $P_{C,MAX} = \SI{6.75}{\watt}$. Por ende es necesario realizar un análisis térmico y ver si requiere agregar un disipador en dicho transistor de paso:
 
@@ -14,7 +15,7 @@ Los siguientes datos fueron obtenidos del datasheet y de nuestro circuito:
 \end{itemize}
 \end{multicols}
 
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
     
     \begin{minipage}{0.48\textwidth}
@@ -85,4 +86,6 @@ La elección de este disipador se justifica debido a que su resistencia térmica
 \end{align}
 
 Por lo tanto, el dispositivo garantiza que la temperatura de juntura del transistor se mantenga dentro de los límites seguros de operación.
+
+\FloatBarrier
 

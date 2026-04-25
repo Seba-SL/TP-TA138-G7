@@ -28,6 +28,7 @@
 \usepackage{tcolorbox}
 \usepackage{xcolor}
 \usepackage{pdfpages}
+\usepackage{placeins}
 
 \newif\ifcheckpoint
 \checkpointtrue
@@ -186,7 +187,7 @@ citestyle=apa
 		\item \textbf{Regulador Lineal}: Sacrifica eficiencia a cambio de precisión y control. Interactúa de forma directa con la carga.
 	\end{itemize}
 	
-	\begin{figure}[H]
+	\begin{figure}[h]
 		\centering
 		\includegraphics[width=0.85\linewidth]{img/esquema_general}
 		\caption{Esquema general del dispositivo.}
@@ -200,10 +201,10 @@ citestyle=apa
 	\subsection{Regulador de baja caída (LDO,Low Dropout Regulator)}
 	
 	\subsubsection{Especificaciones e implementación}
-	
+	\FloatBarrier
 	El propósito de esta etapa es regular la tensión de salida de la fuente conmutada de forma precisa, sacrificando la eficiencia. Se espera de esta etapa las especificaciones de la tabla \ref{tabla:especificaciones_ldo}.
 	
-	\begin{table}[H]
+	\begin{table}[h]
 		\centering
 		\renewcommand{\arraystretch}{1.5}
 		\begin{tabular}{|p{3cm}|l|p{5cm}|c|c|c|c|}
@@ -238,7 +239,7 @@ citestyle=apa
 	
 Para la implementación, se utilizará un transistor de paso, responsable de disipar la potencia de recorte, realimentado por tensión y corriente, y se modela la entrada de tensión pre-regulada con una componente continua y una alterna de acuerdo a la figura \ref{fig:bloques_ldo}.
 
-\begin{figure}[H]
+\begin{figure}[h]
 	\centering
 \begin{tikzpicture}[transform shape]
 	% Paths, nodes and wires:
@@ -302,16 +303,16 @@ Para la implementación, se utilizará un transistor de paso, responsable de dis
 	\caption{Circuito simplificado del circuito regulador LDO.}
 	\label{fig:bloques_ldo}
 \end{figure}
-
+\FloatBarrier
 \subsubsection{El transistor de paso (Tipo MOS)}
-
+\FloatBarrier
 La elección del transistor de paso es nuestro primer paso de diseño, y para su elección deben tenerse en cuenta los siguientes puntos:
 
 \textbf{Canal} \par
 
 El canal del transistor determinará sobre dónde se efectúa el control. 
 
-\begin{figure}[H]
+\begin{figure}[h]
 	\centering
 	\begin{tikzpicture}[transform shape]
 		% Paths, nodes and wires:
@@ -347,14 +348,15 @@ Además, debe operar dentro de la zona de operación segura (SOA).
 Con estas cosas en mente, se escoge el modelo \textbf{IRF4905}. Es un transistor que no sobredimensiona en gran medida la capacidad del regulador, normalmente pensado para switching pero aun así apto para la tarea.
 
 Una de las complicaciones de elegir este tipo de canal es que $\|V_{th}\|$ puede tomar valores de hasta $v_o + V_{DO}$ sin afectar en gran medida el diseño circuital, pero los valores comerciales rondan $V_{th} \approx \SI{4}{V}$. Esto puede perjudicar $V_{DO}$, pues $V_{th} \approx V_{reg}$, sin embargo, es un compromiso de diseño que debe hacerse, pues no hay modelos de fácil acceso con otro valor $V_{th}$.
-
+\FloatBarrier
 \subsubsection{Lazo de Tensión}
 \label{sec:lazo_tension}
+\FloatBarrier
 
 Cuando se tiene como objetivo estabilizar un valor de tensión es usual utilizar un sistema con realimentación negativa, que muestree la señal de salida y, ante cambios en la misma, se sume a la señal de control un incremento opuesto al cambio. Como primer aproximación tenemos el esquema de la figura \ref{fig:ldo_primera_aprox}, allí se observa que la señal de control viene dada por la salida de un operacional: $ \quad V_{ctrl} = a_{o} (V^+ - V^-) = a_{o}( VRef - V_F)\quad $ , dicha señal controla un transistor de paso el cual brinda la corriente necesaria para obtener la tensión que se busca establecer, dicha tensión de salida $V_o$ se muestreara mediante un divisor resistivo formado de tal modo que idealmente $V_o\frac{R_1}{ R_1 + R_2 } = V_o \cdot f $.
 
 
-\begin{figure}[H]
+\begin{figure}[h]
 	\centering
 	\begin{tikzpicture}[transform shape]
 		% Paths, nodes and wires:
@@ -464,7 +466,7 @@ En nuestro caso $V_o = 5\, V $, de allí debemos encontrar valores de resistenci
 
 Finalmente, se diseña el amplificador diferencial. El diseño final puede verse en la figura \ref{fig:lazo_tension2}.
 
-\begin{figure}[H]
+\begin{figure}[h]
 	\centering
 \begin{tikzpicture}[transform shape]
 	% Paths, nodes and wires:
@@ -591,12 +593,12 @@ Se fija $R_r$ en un valor estándar que aporte una corriente de operación norma
 
 \textbf{Agregado de $R_6$}
 El agregado de $R_6$ tiene como propósito la sencilla modificación de $f_v = \frac{R_5}{R_5+R_6}$, de forma lineal. Esto lo hace modificando ambos valores de resistencia simultáneamente. Notar que si se colocara sobre $R_5$ o $R_6$, se corre el riesgo de variar enormemente $f_v$ con pequeñas variaciones mecánicas.
-
+\FloatBarrier
 \subsubsection{Tensión de referencia $V_{Ref}$}
-
+\FloatBarrier
 Para obtener una tensión de referencia se utiliza un circuito basado en un diodo zener en polarización inversa, el cual fija una tensión de acuerdo a la configuración de un divisor resistivo. En este caso se optó por el circuito integrado TL431, el cuál es un regulador de derivación ajustables de tres terminales, con estabilidad térmica especificada en rangos de temperatura aplicables para aplicaciones automotrices y comerciales. La tensión de salida puede ajustarse a cualquier valor entre 2,5 V y 36 V, con dos resistencias externas tal como se observa en el diagrama de la figura \ref{fig:vref_t}.
 
-\begin{figure}[H]
+\begin{figure}[h]
 	\centering
 \begin{tikzpicture}[transform shape]
 	% Paths, nodes and wires:
@@ -645,15 +647,15 @@ I_{TL431} = \frac{V_{cc}-(V_{ref} + vbe_{on})}{R_s},
 \end{equation}
 
 como tal, se utiliza una resistencia $R_s = \SI{2,2}{\kilo\ohm} \rightarrow I_{TL431} = \SI{2.86}{mA}$. Esto permite que, al variar la entrada fuera de los valores de operación normales $V_{cc} = \SI{9.5}{V}$, el dispositivo siga regulando correctamente: $V_{cc} = \SI{6}{V} \rightarrow I_{TL431} = \SI{1.3}{mA}$, pero que no consuma corriente excesiva.
-
+\FloatBarrier
 \subsubsection{Lazo de Corriente}
-
+\FloatBarrier
 Ya conociendo una regulación básica de tensión, la regulación de corriente requiere un muestreo de la misma, el cual se da al medir la tensión en un resistor de bajo valor de resistencia colocado en serie con la carga, usualmente llamado \textit{"shunt"}. Luego se utiliza un amplificador diferencial para lograr obtener la muestra de tensión sin afectar la carga y se realimenta negativamente, a menor tensión menor corriente sobre la carga, tal como muestra la figura \ref{fig:regulador_corriente_basico}.
 
 
 
 
-\begin{figure}[H]
+\begin{figure}[h]
 	\centering
 %	\begin{tikzpicture}[transform shape]
 %		 Paths, nodes and wires:
@@ -753,9 +755,9 @@ Finalmente, el amplificador de control se encargará de asegurar $a_o\cdot f \gg
 Adicionalmente, se debe elegir el modelo de amplificador a utilizar. En este caso se emplea el \textbf{LM358} (o \textbf{LM348}) por su alimentación simple y operación con bajas tensiones de alimentación.
 
 Para el diseño amplificador diferencial final, se utiliza la misma topología del lazo de tensión, de la figura \ref{fig:lazo_tension2}, con carga activa y fuente espejo.
-
+\FloatBarrier
 \subsubsection{Tensión de referencia $V_{Ref-c}$}
-
+\FloatBarrier
 Este circuito genera una referencia modificada que se usa para implementar limitación de corriente tipo foldback. La idea es que el límite de corriente dependa de la tensión de salida $V_o$
 
 Cuando la salida cae (por ejemplo en un cortocircuito), el circuito reduce aún más la corriente permitida, protegiendo al transistor de paso y la carga.
@@ -787,7 +789,7 @@ que define
 \beta = 0.3 = \frac{R_{\beta2}}{R_{\beta1} + R_{\beta2}}.
 \end{equation}
 
-\begin{figure}[H]
+\begin{figure}[h]
 	\centering
 	\resizebox{\textwidth}{!}{
 %		\begin{tikzpicture}[transform shape]
@@ -863,12 +865,12 @@ que define
 \end{figure}
 
 
-	
+	\FloatBarrier
 \subsubsection{Llave electrónica}
-	
+	\FloatBarrier
 Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por eso que se debe implementar un conmutador que establezca el accionamiento de uno de los reguladores según las condiciones lo requieran. Esta idea se presenta de forma simplificada en el diagrama \ref{fig:reg_t_reg_c_conmutador}.
 
-\begin{figure}[H]
+\begin{figure}[h]
 	\centering
 	\begin{tikzpicture}[transform shape]
 		% Paths, nodes and wires:
@@ -914,7 +916,7 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 	
 	Una forma de obtener este resultado es utilizando el circuito de la figura \ref{fig:llave}.
 	
-	\begin{figure}[H]
+	\begin{figure}[h]
 		\centering
 		\begin{tikzpicture}[transform shape]
 			% Paths, nodes and wires:
@@ -982,9 +984,9 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 	\end{equation}
 	pero la caída sobre $R_2$ no debe ser tan alta, para admitir mayor excursión de $V_{cc}$, por ello se elije un resistor más chico $R_2 = \SI{1}{\kilo\ohm}$.
 
-
+\FloatBarrier
 	\subsubsection{Limitador de corriente shunt}
-	
+	\FloatBarrier
 	El último módulo por analizar es el limitador de corriente shunt. La función que cumple es actuar rápidamente ante variaciones rápidas en la carga, y es especialmente importante para esta implementación, pues el regulador foldback es lento.
 	
 	La implementación se ve en la figura \ref{fig:shunt}, y su funcionamiento es muy sencillo. Cuando $I_o \cdot R_s \approx vbe_{on}$, el transistor $T_2$ comienza a conducir y eventualmente satura, lo que toma corriente de la base de $T_1$, que a su vez comienza a conducir, y esto acerca $v_{ctrl}$ a $v_{cc}$.
@@ -995,7 +997,7 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 	
 	Es importante tener en cuenta que el transistor de paso deberá poder soportar, como máximo, $P_{max} = (\SI{9.5}{V} - \SI{5}{V}) \cdot \SI{3.3}{A} = \SI{14.85}{W}$, durante cortos períodos de tiempo. El modelo elegido puede hacerlo.
 	
-	\begin{figure}
+	\begin{figure}[h]
 		\centering
 		\begin{tikzpicture}[transform shape]
 			% Paths, nodes and wires:
@@ -1031,9 +1033,10 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 	
 	\checkpointstart{2}
 	
-
+\FloatBarrier
 	\subsubsection{Compensación de lazos}
 	\label{sec:compensacion}
+	\FloatBarrier
 	Para finalizar el anállisis de diseño circuital de esta etapa, se debe evaluar su comportamiento en frecuencia. Para ello, se debe evaluar el peso de los nodos al circular por cada lazo de realimentación, procurando que 
 	se cumplan dos condiciones de diseño fundamentales:
 	
@@ -1051,7 +1054,7 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 	
 	El circuito de lazo de tensión completo incluye el divisor resistivo de ajuste, el amplificador diferencial y la llave electrónica. Teniendo en cuenta el modelo pi para pequeña señal, y la reflexión de Miller, se identifican los nodos potencialmente dominantes de la figura \ref{fig:nodos_lazo_tension}. Notar que la llave electrónica se transforma en dos colectores comunes en serie, con ganancia $|Av| \approx 1$.
 	
-	\begin{figure}[H]
+	\begin{figure}[h]
 		\centering
 		\begin{tikzpicture}[transform shape]
 			% Paths, nodes and wires:
@@ -1217,7 +1220,7 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 	
 	El lazo de tensión compensado final tiene la forma de la figura \ref{fig:lazo_tension_compensado}.
 	
-	\begin{figure}[H]
+	\begin{figure}[h]
 		\centering
 		\begin{tikzpicture}[transform shape]
 			% Paths, nodes and wires:
@@ -1310,7 +1313,7 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 	Se propone, en este caso, tomar un nodo y volverlo dominante, igual que se hizo con el lazo de tensión. En la figura \ref{fig:nodos_lazo_corriente} pueden verse los posibles nodos a compensar.
 	
 	
-\begin{figure}[H]
+\begin{figure}[h]
 	\centering
 	\begin{tikzpicture}[transform shape]
 		% Paths, nodes and wires:
@@ -1385,7 +1388,7 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 	\label{fig:nodos_lazo_corriente}
 \end{figure}
 	
-	Dado que el circuito es muy similar al lazo de tensión, se puede hacer una relación directa entre el nodo 1 y el nodo 3 del lazo de tensión, y el nodo 2 y 3 del lazo de tensión. De esta comparación, se deduce que el de mayor constante de tiempo es el nodo 1, y será el que se compensará.
+	Dado que el circuito es muy similar al lazo de tensión, se puede hacer una relación directa entre el nodo 1 y el nodo 3 del lazo de tensión, y el nodo 2 y 3 del lazo de tensión. De esta comparación, se deduce que el de mayor constante de tiempo es el nodo 1, y será el que se compensará. Notar que el nodo dominante ya no será el asociado al terminal gate del transistor de paso, por haber una resistencia de salida $R_L < \SI{3.3}{\ohm}$ cuando el lazo de corriente se encuentra activo.
 	
 	El objetivo es desplazar este polo, de tal modo que, para $|T_A| = \SI{0}{dB}$, haya un margen de fase de entre \SI{20}{\deg} y \SI{30}{deg}. El gráfico de la figura \ref{fig:bode_corte_corriente} pone de manifiesto que $\angle T_A \approx \SI{30}{deg}$ para $f \approx \SI{200}{\kilo\hertz}$. Para una ganancia en frecuencias medias de $|T_A| = \SI{67}{dB}$, y con una caída de -20db/dec, el polo deberá ubicarse en $f \approx \SI{2}{\hertz}$.
 	
@@ -1395,9 +1398,9 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 		\frac{1}{(\SI{5.1}{pF} + C_{comp}) \cdot (\SI{66}{\kilo\ohm}) \cdot 2\pi} = \SI{2}{\hertz} \to C_{comp} \approx \SI{220}{\nano F}
 	\end{equation}
 	
-	El lazo de corriente compensado tiene la forma de la figura \ref{fig:lazo_corriente_compensado}.
+	El lazo de corriente compensado tiene la forma de la figura \ref{fig:lazo_corriente_compensado}. 
 	
-	\begin{figure}[H]
+	\begin{figure}[h]
 		\centering
 			\begin{tikzpicture}[transform shape]
 				% Paths, nodes and wires:
@@ -1477,9 +1480,9 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 	
 	\input{analisis_termico}
 
-
+\FloatBarrier
 	\subsubsection{Consideraciones de fabricación PCB}
-	
+	\FloatBarrier
 	Todo diseño presenta desafíos; en este caso, al desarrollar el circuito impreso, el objetivo principal es maximizar el rendimiento, garantizar la robustez y lograr una implementación compacta en una placa adecuada.
 	
 	Debe poseer un tamaño adecuado para su integración en el sistema completo y contemplar tecnologías que ofrezcan la mejor relación entre rendimiento y costo. El uso de estándares y normas, como la IPC-2222 para placas rígidas, sirve como guía durante el proceso de diseño. Tanto el esquemático como las huellas de los componentes, los modelos 3D y el diseño de la PCB fueron desarrollados utilizando el software KiCad.
@@ -1501,7 +1504,7 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 	
 	
 	
-	\begin{table}[H]
+	\begin{table}[h]
 		\centering
 		\caption{Límites máximos de temperatura de operación según clase (estandar IPC-2222).}
 		\label{tab:limites_espesor}
@@ -1619,7 +1622,7 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 	
 	A continuación en la tabla \ref{tab:parametros_pcb_LDO} se detallan los parámetros y características definidas para el diseño final mientras que en la tabla \ref{tab:nodos_pistas} se detalla las redes establecidas para el diseño, el cual se aprecia en las figuras \ref{fig:pcb_vistas}y en el apéndice \ref{sec:apendice_PCB}.
 	
-\begin{table}[H]
+\begin{table}[h]
 	\centering
 	
 	\begin{subtable}[t]{0.48\textwidth}
@@ -1679,7 +1682,7 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 \end{table}
 
 	
-	\begin{figure}[H]
+	\begin{figure}[h]
 		\centering
 		
 		\begin{subfigure}[t]{0.49\textwidth}
@@ -1721,8 +1724,10 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 	
 	\section{Simulaciones}
 	\subsection{Simulaciones del regulador lineal LDO}
+	\FloatBarrier
+	\FloatBarrier
 	\subsubsection{Modo estático}
-	
+	\FloatBarrier
 	
 	Para verificar el diseño se realizan simulación en el software LtSpice utilizando los modelos necesarios y las conexiones detalladas en el apéndice \ref{sec:apendice_simulaciónes} en la captura de la figura \ref{fig:ldoregulacionlinea}.
 	
@@ -1733,14 +1738,14 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 	Se presentan los resultados obtenidos para cada uno de estos casos.
 	
 	\checkpointstart{2}
-	
+	\FloatBarrier
 	\paragraph{Ganancias de lazo: }
-	
+	\FloatBarrier
 	Se observó para ambos lazos que el componente $a_o$ es, escencialmente, el amplificador diferencial al final de cada uno sumado al circuito source común generado por el PMOS. A continuación, se rompe el lazo y se simula la amplitud de salida, del otro lado del lazo, para obtener valor numérico de $|T_t|$ y $|T_c|$.
 	
 	Para tal efecto, se utiliza una estructura como la de la figura \ref{fig:rompelazo} para conservar el circuito de contínua, pero romper el lazo en señal.
 	
-	\begin{figure}[H]
+	\begin{figure}[h]
 		\centering
 		\begin{tikzpicture}[transform shape]
 			% Paths, nodes and wires:
@@ -1760,7 +1765,7 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 	\textbf{Lazo de tensión:}\\
 	Se anulan ambos lazos de corriente (shunt y foldback), aunque no se encuentren operativos para la resistencia de carga $R_L = \SI{100}{\ohm}$ elegida, y se coloca la estructura de la figura \ref{fig:rompelazo}. La figura \ref{fig:corte_lazo_tension} muestra el circuito de medición completo.
 	
-	\begin{figure}[H]
+	\begin{figure}[h]
 		\centering
 		\includegraphics[width=0.6\linewidth]{img/LDO/Corte_lazo_tension}
 		\caption{Circuito utilizado para la medición de $T_v$.}
@@ -1769,7 +1774,7 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 	
 	El resultado es un gráfico de Bode como el de la figura \ref{fig:bode_corte_tension}. Que da una ganancia para bajas frecuencias $T_v = \SI{86}{dB}$. Esto es suficiente para asegurar $a_o.f_v \gg 1$.
 	
-	\begin{figure}[H]
+	\begin{figure}[h]
 		\centering
 		\includegraphics[width=0.85\linewidth]{"../../Simulación/LDO/Graficos en Python/Capturas/LDO_Bode_lazo_tension"}
 		\caption{Bode resultante de la medición de $T_v$. Notar el polo en $f \sim \SI{10}{k\ohm}$.}
@@ -1789,7 +1794,7 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 	
 	Una vez compensado el lazo, según se analiza en la sección \ref{sec:compensacion}:Lazo de tensión, el gráfico de bode tendrá la forma de la figura \ref{fig:bode_tension_compensado}.
 	
-	\begin{figure}[H]
+	\begin{figure}[h]
 		\centering
 		\includegraphics[width=0.85\linewidth]{"../../Simulación/LDO/Graficos en Python/Capturas/LDO_Bode_lazo_tension_compensado"}
 		\caption{Bode resultante de la medición de $T_v$ para un lazo de tensión compensado con diferentes cargas.}
@@ -1799,7 +1804,7 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 	\textbf{Lazo de corriente:}\\
 	En este caso, se realiza el procedimiento inverso. Se anula el lazo de tensión y shunt, y se corta el lazo de corriente en un punto de alta impedancia, como la base del transistor de paso. En la figura \ref{fig:corte_lazo_corriente} puede verse el circuito de medición completo.
 	
-	\begin{figure}[H]
+	\begin{figure}[h]
 		\centering
 		\includegraphics[width=0.6\linewidth]{img/LDO/Corte_lazo_corriente}
 		\caption{Circuito utilizado para la medición de $T_A$.}
@@ -1808,36 +1813,48 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 	
 	El resultado es un gráfico de Bode como el de la figura \ref{fig:bode_corte_corriente}. Que da una ganancia para bajas frecuencias $T_A = \SI{67}{dB}$. Esto es suficiente para asegurar $a_o.f_A \gg 1$.
 	
-	\begin{figure}[H]
+	\begin{figure}[h]
 		\centering
-		\includegraphics[width=0.85\linewidth]{"../../Simulación/LDO/Graficos en Python/Capturas/LDO_Bode_lazo_corriente"}
-		\caption{Bode resultante de la medición de $T_A$. Notar el polo en $\SI{10}{k\hertz}<f<\SI{100}{k\hertz}$.}
+		\includegraphics[width=0.85\linewidth]{"../../Simulación/LDO/Graficos en Python/Capturas/LDO_Bode_lazo_corriente_comparacion"}
+		\caption{Bode resultante de la medición de $T_A$ para diferentes valores de $R_L$.}
 		\label{fig:bode_corte_corriente}
 	\end{figure}
 	
-	Finalmente, se simula, nuevamente para $R_L = \SI{2.5}{\ohm}$, $T_A$ para el lazo de corriente compensado. El resultado puede verse en la figura \ref{fig:bode_corriente_compensado}
+	Finalmente, se simula simula bajo las mismas condiciones el lazo de corriente compensado. El resultado puede verse en la figura \ref{fig:bode_corriente_compensado}.
 	
-		\begin{figure}[H]
+		\begin{figure}[h]
 		\centering
 		\includegraphics[width=0.85\linewidth]{"../../Simulación/LDO/Graficos en Python/Capturas/LDO_Bode_lazo_corriente_compensado"}
 		\caption{Bode resultante de la medición de $T_A$ para el lazo de corriente compensado.}
 		\label{fig:bode_corriente_compensado}
 	\end{figure}
 	\checkpointend{2}
-	
+	\FloatBarrier
 	\paragraph{Estabilización de tensión: }
+	\FloatBarrier
+	En la simulación temporal se verifica la estabilización de tensión con respecto a la $Vcc$ prevista, utilizando un valor de carga dentro de la zona de regulación estimada, logrando así constatar cómo se reduce el ripple. Se simula tomando un valor de carga dentro del rango de regulación, y se toman los valores de tensión en función del tiempo, para el análisis se comparan las componentes alternas de cada señal eliminando el valor medio de ambas, tal como se observa en los gráficos de la figura \ref{fig:ldovccvo}.
 	
-	En la simulación temporal se verifica la estabilización de tensión con respecto a la $Vcc$ prevista, utilizando un valor de carga dentro dentro de la zona de regulación estimada, logrando así constatar como se reduce el ripple. Se simula tomando un valor de carga dentro del rango de regulación y se toman los valores de tensión en función del tiempo, para el análisis se comparan las componentes alternas de cada señal eliminando el valor medio de ambas, tal como se obvserva en el gráfico de la figura \ref{fig:ldovccvo}.
+	Notar que la compensación favorece el rechazo al ruido de entrada, al mismo tiempo que evita la oscilación del ciruito.
 	
-	\begin{figure}[H]
+	\begin{figure}[h]
 		\centering
-		\includegraphics[width=0.55\linewidth]{"../../Simulación/LDO/Graficos en Python/Capturas/LDO_Vcc_Vo"}
+		\begin{subfigure}[b]{0.55\linewidth}
+		\includegraphics[width =\linewidth]{"../../Simulación/LDO/Graficos en Python/Capturas/LDO_Vcc_Vo"}
+		\caption{Caso descompensado.}
+		\end{subfigure}
+		\hfill
+		\begin{subfigure}[b]{0.55\linewidth}
+		\includegraphics[width = \linewidth]{"../../Simulación/LDO/Graficos en Python/Capturas/LDO_Vcc_Vo_compensado"}
+		\caption{Caso compensado.}
+	\end{subfigure}
 		\caption{Gráfico de la simulación temporal con ruido a la entrada $V_{pp} = \SI{0.4}{V} , f = \SI{100}{\kilo H}$.}
 		\label{fig:ldovccvo}
 	\end{figure}
 	
-	\paragraph{Regulación de Linea:}
 	
+	\FloatBarrier
+	\paragraph{Regulación de Linea:}
+	\FloatBarrier
 	
 	La regulación de línea describe la capacidad del regulador para mantener constante la tensión de salida frente a variaciones en la tensión de entrada \(V_{CC}\).
 	
@@ -1872,7 +1889,7 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 	
 	Además, se ve que la tensión de dropout tiene valor $\SI{100}{mV} < V_{DO} < \SI{320}{mV}$, con su valor máximo alcanzado cuando $V_{cc} = \SI{5.27}{V}$. (Esto ocurre porque, debido al offset de $v_{ref-t}$, el valor de regulación no es \SI{5}{V} exactamente).
 	
-	\begin{figure}[H]
+	\begin{figure}[h]
 		\centering
 		\begin{subfigure}{0.45\linewidth}
 			\includegraphics[width=\linewidth]{"../../Simulación/LDO/Graficos en Python/Capturas/LDO_regulacion_linea"}
@@ -1889,9 +1906,9 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 	\end{figure}
 	
 	
-	
+	\FloatBarrier
 	\paragraph{Regulación de carga:}
-	
+	\FloatBarrier
 	La regulación de carga puede analizarse evaluando la variación de la tensión de salida \(V_O\) frente a cambios en la resistencia de carga \(R_L\). Esto se analiza insertando una fuente de corriente a la salida, para una $V_{cc} = \SI{9.5}{V}$ constante, y desconectando el lazo de corriente.
 	
 	Para ello, se realiza un barrido del valor de \(R_L\) y se observa la respuesta del regulador.
@@ -1917,29 +1934,30 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 	
 	Notar que $R_T$ es negativa por disminuir $V_o$ al aumentar $I_o$.
 	
-	\begin{figure}[H]
+	\begin{figure}[h]
 		\centering
 		\includegraphics[width=0.60\linewidth]{"../../Simulación/LDO/Graficos en Python/Capturas/LDO_regulacion_carga"}
 		\caption{Regulación de carga del regulador lineal.}
 		\label{fig:ldoregulacioncarga}
 	\end{figure}
 	
-	
+	\FloatBarrier
 	\paragraph{$V_o$ en función de $I_L$:}
-	
+	\FloatBarrier
 	Este gráfico muestra de forma cualitativa la curva característica de la fuente de tensión resultante, es decir, la gráfica $V_o/I_L$ (figura \ref{fig:VvsI}), mediante la variación del valor resistivo de la carga $R_L$.
 	
 	Se observa que la tensión es constante para valores $R_L > \SI{3.3}{\ohm}$, y al cortocircuitar más la carga comienza a caer hacia $V_o = \SI{0}{V}$, siguiendo la curva de corriente $I_o = 400mA + \frac{\SI{1.1}{A}}{\SI{5}{V}} \cdot V_o$.
 	
-	\begin{figure}[H]
+	\begin{figure}[h]
 		\centering
 		\includegraphics[width=0.6\linewidth]{"../../Simulación/LDO/Graficos en Python/Capturas/V vs I"}
 		\caption{Curva de salida característica estática regulador LDO.}
 		\label{fig:VvsI}
 	\end{figure}
 	
-	
+	\FloatBarrier
 	\paragraph{Eficiencia:}
+	\FloatBarrier
 	Para medir la eficiencia del circuito, se ingresan diferentes valores de tensión de entrada $V_{cc}$ y se evalúa la potencia de entregada y la potencia sobre la carga, para una $R_L = \SI{100}{\ohm}$. El resultado se observa en la figuar \ref{fig:ldoeficiencia}.
 	
 	Como es de esperar para un regulador lineal, la eficiencia no es buena, y es fuertemente dependiente de la tensión de entrada. Esto se debe a que el transistor de paso disipa la potencia no útil:
@@ -1950,7 +1968,7 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 	
 	Como tal, se espera una eficiencia máxima para valores $V_{cc}$ cercanos a $V_{reg}$ y resistencias de carga $R_L$ bajas. Al aumentar $R_L$, la eficiencia aumenta hasta el punto donde la corriente que circula por el circuito de control se hace comparable con la que circula por $R_L$.
 	
-	\begin{figure}[H]
+	\begin{figure}[h]
 		\centering
 		\includegraphics[width=0.7\linewidth]{"../../Simulación/LDO/Graficos en Python/Capturas/LDO_eficiencia"}
 		\caption{Eficiencia del regulador para $\SI{0}{V} < V_{cc} < \SI{24}{V}$.}
@@ -1958,12 +1976,14 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 	\end{figure}
 	
 	\checkpointstart{2}
+	\FloatBarrier
 	\subsubsection{Modo Dinámico}
+	\FloatBarrier
 	Se evalúa el comportamiento en modo dinámico de ambos lazos de realimentación. El objetivo es corroborar la compensación y observar el tiempo de respuesta de cada uno. Para ello, se debe variar la carga de forma abrupta, provocando una respuesta al escalón.
 	
 	Dicho comportamiento se logra con el componente Switch, controlado por una fuente de tensión(figura \ref{fig:carga_activa}). Luego se observa tensión resultante a la salida.
 	
-	\begin{figure}[H]
+	\begin{figure}[h]
 		\centering
 		\includegraphics[width=0.3\linewidth]{img/LDO/Carga_activa}
 		\caption{Circuito de testeo dinámico utilizado como carga activa.}
@@ -1987,12 +2007,17 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 		\label{fig:simulacion_dinamica}
 	\end{figure}
 	
-	El lazo de tensión exhibe una respuesta de duración aproximada \SI{5}{\micro s}, con una excursión mínima. El lazo de corriente, sin embargo, es más lento, con una duración de respuesta dinámica mínima de \SI{25}{\micro s}.
+	El lazo de tensión exhibe una respuesta de duración aproximada \SI{5}{\micro s}, con una excursión mínima. El lazo de corriente, sin embargo, es más lento, con una duración de respuesta dinámica de \SI{25}{\micro s}, con tiempos de asentamiento variables.
+	
+	 De la observación de la figura \ref{fig:bode_corriente_compensado}, se observa que el desplazamiento del polo asociado al nodo gate ocasiona un margen de fase dependiente de la resistencia de carga, volviendo el lazo progresivamente inestable hacia $R_L \to \infty$. En nuestro caso, y debido al acotado rango de operación del lazo de corriente, no será necesario tener en cuenta este fenómeno. En la práctica, si el margen de fase se achicara demasiado, bastará con incrementar el capacitor de compensación, a costa de la velocidad de respuesta.
 	
 	Es de especial importancia el sobrepico de corriente ocasionado por el abrupto cambio de carga. Notar que, si bien será limitado por el regulador de tipo shunt, deberá ser tenido en cuenta a la hora de conectar una carga. La duración del mismo es de \SI{2.5}{\micro\second}.
+
 	
 	\checkpointend{2}
+	\FloatBarrier
 	\subsection{Simulaciones de fuente switching}
+	\FloatBarrier
 	Por agregar en futuras entregas.
 	
 	\input{conclusiones}

@@ -338,6 +338,107 @@ plt.tight_layout()
 plt.savefig(os.path.join(capturas_dir, "LDO_Bode_lazo_corriente.png"), dpi=300)
 
 
+# ---------- 4b Diagrama de Bode - Comparación Lazo de Corriente ----------
+
+# Leer primer archivo Bode_lazo_corriente
+archivo1 = os.path.join(datos_dir, "Bode_lazo_corriente.txt")
+freq1 = []
+mag_db1 = []
+fase_deg1 = []
+
+with open(archivo1, 'r') as f:
+    next(f)
+    for line in f:
+        parts = line.strip().split('\t')
+        if len(parts) == 2:
+            frequency = float(parts[0])
+            complex_str = parts[1].replace('(', '').replace(')', '').replace('°', '').replace('dB', '')
+            values = complex_str.split(',')
+            magnitude_db = float(values[0])
+            phase_deg = float(values[1])
+            
+            freq1.append(frequency)
+            mag_db1.append(magnitude_db)
+            fase_deg1.append(phase_deg)
+
+freq1 = np.array(freq1)
+mag_db1 = np.array(mag_db1)
+fase_deg1 = np.unwrap(np.deg2rad(fase_deg1)) * 180.0 / np.pi
+
+# Leer segundo archivo Bode_lazo_corriente2
+archivo2 = os.path.join(datos_dir, "Bode_lazo_corriente2.txt")
+freq2 = []
+mag_db2 = []
+fase_deg2 = []
+
+with open(archivo2, 'r') as f:
+    next(f)
+    for line in f:
+        parts = line.strip().split('\t')
+        if len(parts) == 2:
+            frequency = float(parts[0])
+            complex_str = parts[1].replace('(', '').replace(')', '').replace('°', '').replace('dB', '')
+            values = complex_str.split(',')
+            magnitude_db = float(values[0])
+            phase_deg = float(values[1])
+            
+            freq2.append(frequency)
+            mag_db2.append(magnitude_db)
+            fase_deg2.append(phase_deg)
+
+freq2 = np.array(freq2)
+mag_db2 = np.array(mag_db2)
+fase_deg2 = np.unwrap(np.deg2rad(fase_deg2)) * 180.0 / np.pi
+
+f_0db1 = find_0db_crossing(freq1, mag_db1)
+f_0db2 = find_0db_crossing(freq2, mag_db2)
+
+fig, axs = plt.subplots(2, 1, sharex=True, figsize=(8, 8))
+
+# Gráfico de magnitud
+axs[0].semilogx(freq1, mag_db1, linewidth=3, color="tab:green", label=r"$|T_A| \qquad R_L = 2.5 \Omega$")
+axs[0].semilogx(freq2, mag_db2, linewidth=3, color="tab:red", label=r"$|T_A| \qquad R_L = 1 \Omega$")
+axs[0].axhline(0, color="gray", linestyle=':', linewidth=1)
+if f_0db1 is not None:
+    axs[0].axvline(f_0db1, color="tab:green", linestyle='--', linewidth=1.5, alpha=0.7,
+                   label=f"|T_A|=1 en {f_0db1:.2f} Hz (1)")
+if f_0db2 is not None:
+    axs[0].axvline(f_0db2, color="tab:red", linestyle='--', linewidth=1.5, alpha=0.7,
+                   label=f"|T_A|=1 en {f_0db2:.2f} Hz (2)")
+axs[0].set_ylabel("Magnitud (dB)")
+axs[0].set_title("Diagrama de Bode - Comparación Lazo de Corriente")
+axs[0].grid(True, which="both", alpha=0.3)
+axs[0].legend(fontsize=9)
+
+# Gráfico de fase
+# Calcular márgenes de fase
+phase_margin1 = None
+phase_legend1 = r"$\angle T_A \qquad R_L = 2.5 \Omega$"
+if f_0db1 is not None:
+    phase_margin1 = np.interp(f_0db1, freq1, fase_deg1)
+    phase_legend1 = f"(Margen = {phase_margin1:.2f}°)"
+
+phase_margin2 = None
+phase_legend2 = r"$\angle T_A \qquad R_L = 1 \Omega$"
+if f_0db2 is not None:
+    phase_margin2 = np.interp(f_0db2, freq2, fase_deg2)
+    phase_legend2 = f"(Margen = {phase_margin2:.2f}°)"
+
+axs[1].semilogx(freq1, fase_deg1, linewidth=3, color="tab:green", label=phase_legend1)
+axs[1].semilogx(freq2, fase_deg2, linewidth=3, color="tab:red", label=phase_legend2)
+if f_0db1 is not None:
+    axs[1].axvline(f_0db1, color="tab:green", linestyle='--', linewidth=1.5, alpha=0.7)
+if f_0db2 is not None:
+    axs[1].axvline(f_0db2, color="tab:red", linestyle='--', linewidth=1.5, alpha=0.7)
+axs[1].set_xlabel("Frecuencia (Hz)")
+axs[1].set_ylabel("Fase (°)")
+axs[1].grid(True, which="both", alpha=0.3)
+axs[1].legend(fontsize=9)
+
+plt.tight_layout()
+plt.savefig(os.path.join(capturas_dir, "LDO_Bode_lazo_corriente_comparacion.png"), dpi=300)
+
+
 # ---------- 5 Regulación de línea ----------
 
 archivo = os.path.join(datos_dir, "regulaciondeLinea_Vo_vs_Vc.txt")
