@@ -23,11 +23,13 @@
 \contentsline {paragraph}{Consideraciones térmicas}{18}{}%
 \contentsline {paragraph}{Fijación mecánica }{18}{}%
 \contentsline {paragraph}{Separación y reglas de diseño}{18}{}%
+\contentsline {paragraph}{Análisis de requerimientos eléctricos (seguridad eléctrica y EMC)}{18}{}%
+\contentsline {paragraph}{Auto-ruteo}{18}{}%
 \contentsline {paragraph}{Características del diseño de la placa impresa del LDO}{18}{}%
 \contentsline {subsubsection}{\numberline {2.2.12}Mejoras:}{19}{}%
-\contentsline {section}{\numberline {3}Simulaciones}{19}{}%
-\contentsline {subsection}{\numberline {3.1}Simulaciones del regulador lineal LDO}{19}{}%
-\contentsline {subsubsection}{\numberline {3.1.1}Modo estático}{19}{}%
+\contentsline {section}{\numberline {3}Simulaciones}{20}{}%
+\contentsline {subsection}{\numberline {3.1}Simulaciones del regulador lineal LDO}{20}{}%
+\contentsline {subsubsection}{\numberline {3.1.1}Modo estático}{20}{}%
 \contentsline {paragraph}{Ganancias de lazo: }{20}{}%
 \contentsline {paragraph}{Estabilización de tensión: }{25}{}%
 \contentsline {paragraph}{Regulación de Linea:}{26}{}%
@@ -43,4 +45,5 @@
 \contentsline {section}{\numberline {B}Apéndice II: Esquemáticos}{32}{}%
 \contentsline {subsection}{\numberline {B.1}LDO}{32}{}%
 \contentsline {section}{\numberline {C}Apéndice III: PCB}{33}{}%
-\contentsline {subsection}{\numberline {C.1}LDO}{34}{}%
+\contentsline {subsection}{\numberline {C.1}LDO capa superior}{34}{}%
+\contentsline {subsection}{\numberline {C.2}LDO capa inferior}{35}{}%
