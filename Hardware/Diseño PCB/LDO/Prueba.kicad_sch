@@ -4389,6 +4389,16 @@
 	)
 	(wire
 		(pts
+			(xy 276.86 21.59) (xy 270.51 21.59)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "70bf61ee-9cf3-4b11-854f-2f016e299263")
+	)
+	(wire
+		(pts
 			(xy 229.87 128.27) (xy 227.33 128.27)
 		)
 		(stroke
@@ -5096,6 +5106,16 @@
 			(type default)
 		)
 		(uuid "ca43ed58-589b-442d-92f8-1c7f3d70667b")
+	)
+	(wire
+		(pts
+			(xy 251.46 21.59) (xy 255.27 21.59)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ca77a473-eb50-4d13-9ad6-fa1609c08205")
 	)
 	(wire
 		(pts
@@ -6345,7 +6365,7 @@
 	)
 	(global_label "Vcc"
 		(shape input)
-		(at 255.27 21.59 180)
+		(at 251.46 21.59 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -6355,7 +6375,7 @@
 		)
 		(uuid "db20e78f-0148-4fba-943a-4335bbd360ab")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 249.019 21.59 0)
+			(at 245.209 21.59 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10578,7 +10598,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Potentiometer_THT:Potentiometer_Bourns_3266W_Vertical"
 			(at 120.65 181.61 0)
 			(hide yes)
 			(show_name no)
@@ -11104,7 +11124,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 270.51 21.59 90)
+		(at 276.86 21.59 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -11115,7 +11135,7 @@
 		(fields_autoplaced yes)
 		(uuid "b1e4f8fa-975a-4889-9576-75cde20b4702")
 		(property "Reference" "#PWR021"
-			(at 276.86 21.59 0)
+			(at 283.21 21.59 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11126,7 +11146,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 274.32 21.5899 90)
+			(at 280.67 21.5899 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -11137,7 +11157,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 270.51 21.59 0)
+			(at 276.86 21.59 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11148,7 +11168,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 270.51 21.59 0)
+			(at 276.86 21.59 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11159,7 +11179,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 270.51 21.59 0)
+			(at 276.86 21.59 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11981,7 +12001,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Potentiometer_THT:Potentiometer_Bourns_3266W_Vertical"
 			(at 212.09 31.75 0)
 			(hide yes)
 			(show_name no)

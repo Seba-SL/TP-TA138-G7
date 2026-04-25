@@ -13,7 +13,7 @@
 \contentsline {subsubsection}{\numberline {2.2.8}Limitador de corriente shunt}{11}{}%
 \contentsline {subsubsection}{\numberline {2.2.9}Compensación de lazos}{11}{}%
 \contentsline {subsubsection}{\numberline {2.2.10}Analisis termico}{15}{}%
-\contentsline {subsubsection}{\numberline {2.2.11}Consideraciones de fabricación PCB}{15}{}%
+\contentsline {subsubsection}{\numberline {2.2.11}Consideraciones de fabricación PCB}{16}{}%
 \contentsline {paragraph}{Arquitectura general}{16}{}%
 \contentsline {paragraph}{Selección de materiales y encapsulados}{16}{}%
 \contentsline {paragraph}{Selección de huellas y modelos 3D}{17}{}%
