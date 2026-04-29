@@ -1,0 +1,76 @@
+LTspice 24.1.5 for Windows
+Circuit: C:\users\sebastian\Desktop\FIUBA-2do Cuatrimestre\Taller de Diseño Electrónico TA138\TP_Taller_de_Diseño_ TA138_G7\Simulación\LDO\Draft3.net
+Start Time: Sun Apr 26 22:00:25 2026
+solver = Normal
+Maximum thread count: 4
+tnom = 27
+temp = 27
+method = trap
+WARNING: Node wmas is floating.
+
+Singular matrix:  Check node rmenos
+   Iteration No. 2
+Direct Newton iteration failed to find .op point.  (Use ".option noopiter" to skip.)
+Starting Gmin stepping
+Gmin = 10
+Gmin = 1.07374
+Gmin = 0.115292
+Gmin = 0.0123794
+Gmin = 0.00132923
+Gmin = 0.000142725
+Gmin = 1.5325e-05
+Gmin = 1.6455e-06
+Gmin = 1.76685e-07
+Gmin = 1.89714e-08
+Gmin = 2.03704e-09
+Gmin = 2.18725e-10
+Gmin = 2.34854e-11
+Gmin = 2.52173e-12
+vernier = 0.5
+vernier = 0.666667
+vernier = 0.333333
+Gmin = 1.1195e-12
+vernier = 0.166667
+vernier = 0.0833333
+vernier = 0.0416667
+vernier = 0.0208333
+vernier = 0.0104167
+vernier = 0.00520833
+vernier = 0.00260417
+vernier = 0.00130208
+Gmin = 1.03339e-12
+vernier = 0.000651042
+vernier = 0.000488281
+Gmin = 0
+Gmin stepping failed
+
+Starting source stepping with srcstepmethod=0
+Source Step = 3.0303%
+Source Step = 16.6667%
+Source Step = 20.0758%
+Source Step = 20.6439%
+vernier = 0.00390625
+Source Step = 20.6499%
+Source Step = 20.6795%
+Source Step = 20.709%
+Source Step = 20.7386%
+Source Step = 20.7682%
+Source Step = 20.7978%
+Singular matrix:  Check node rmenos
+   Iteration No. 5
+Singular matrix:  Check node rmenos
+   Iteration No. 4
+Starting source stepping with srcstepmethod=1
+Source Step = 3.0303%
+Singular matrix:  Check node rmenos
+   Iteration No. 4
+Source stepping failed
+
+Singular matrix:  Check node rmenos
+   Iteration No. 2
+Total elapsed time: 0.000 seconds.
+Singular matrix:  check node rmenos
+   Iteration No. 2
+
+This circuit has floating nodes.
+Try menu command View=>SPICE Error Log.
