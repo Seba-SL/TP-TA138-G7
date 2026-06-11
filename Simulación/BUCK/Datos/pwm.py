@@ -32,7 +32,7 @@ ax1.plot(pwm_window['time_us'], pwm_window['V(v_cuad)'], 'b-', linewidth=1.5, la
 ax1.plot(pwm_window['time_us'], pwm_window['V(v_triag)'], 'r-', linewidth=1.5, label='V(v_triag)')
 ax1.set_xlabel('Tiempo (µs)')
 ax1.set_ylabel('Voltaje (V)')
-ax1.set_title('PWM - Señales de PWM y Triangular')
+ax1.set_title('Oscilador triangular')
 ax1.grid(True, alpha=0.3)
 ax1.legend()
 
@@ -72,7 +72,7 @@ ax_pwm2.plot(pwm2_filtered['time_us'], pwm2_filtered['V(vmed)'], 'g-', linewidth
 ax_pwm2.plot(pwm2_filtered['time_us'], pwm2_filtered['V(n003)'], 'm-', linewidth=1.5, label='V(Av*v_sense)')
 ax_pwm2.set_xlabel('Tiempo (µs)')
 ax_pwm2.set_ylabel('Voltaje (V)')
-ax_pwm2.set_title('PWM2 - Múltiples Señales (200-300 µs)')
+ax_pwm2.set_title('Señal de salida PWM')
 ax_pwm2.grid(True, alpha=0.3)
 ax_pwm2.legend()
 fig2.savefig('grafico_pwm2.png', dpi=150, bbox_inches='tight')
