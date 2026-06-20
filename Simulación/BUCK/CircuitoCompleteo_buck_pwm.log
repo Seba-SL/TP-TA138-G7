@@ -1,6 +1,6 @@
 LTspice 24.1.5 for Windows
 Circuit: C:\users\sebastian\Desktop\FIUBA-2do Cuatrimestre\Taller de Diseño Electrónico TA138\TP_Taller_de_Diseño_ TA138_G7\Simulación\BUCK\CircuitoCompleteo_buck_pwm.net
-Start Time: Sun May 31 19:31:08 2026
+Start Time: Sun May 31 22:34:57 2026
 solver = Normal
 Maximum thread count: 4
 tnom = 27
@@ -26,7 +26,7 @@ Gmin = 2.70769e-13
 Gmin = 0
 Gmin stepping succeeded in finding the operating point.
 
-Total elapsed time: 16.434 seconds.
+Total elapsed time: 41.710 seconds.
 
 Files loaded:
 C:\users\sebastian\Desktop\FIUBA-2do Cuatrimestre\Taller de Diseño Electrónico TA138\TP_Taller_de_Diseño_ TA138_G7\Simulación\BUCK\CircuitoCompleteo_buck_pwm.net
