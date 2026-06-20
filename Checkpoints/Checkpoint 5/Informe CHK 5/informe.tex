@@ -140,7 +140,64 @@ citestyle=apa
 	\newpage
 	\section{Introducción}
 	
-
+		En este informe se detallan las diferentes etapas de diseño restantes para el funcionamiento íntegro de la fuente de alimentación switching tipo \textit{Buck}.
+		
+		Ellas incluyen la construcción y verificación del inductor L, la evaluación de funcionamiento a lazo cerrado, y la compensación del circuito.
+		
+		Además, se incluyen las simulaciones que verifican el funcionamiento del diseño propuesto, así como las mediciones de laboratorio del prototipo en funcionamiento.
+	
+	\section{Desarrollo}
+	\subsection{Construcción del inductor $L$}
+	\subsection{Elección del capacitor \textit{Bootstrap}}
+		Para el correcto funcionamiento del lazo de realimentación, es necesario que se controlen los dos transistores NMOS de potencia de forma síncrona. Para tal efecto, se elije el integrado \textbf{IR2111}, que incluye un tiempo muerto compatible con la frecuencia de operación, así como dos \textit{Gate Drivers}. Uno \textit{High-Side} y otro \textit{Low-Side}. La figura \ref{fig:gatedriver} muestra el conexionado del \textit{Gate Driver}.
+		
+		\begin{figure}[H]
+			\centering
+			\begin{tikzpicture}[transform shape]
+				% Paths, nodes and wires:
+				\draw (8.5, 11) to[full Schottky diode, /tikz/circuitikz/bipoles/length=0.840cm, l={$D$}] (11, 11);
+				\node[shape=rectangle, draw, line width=1pt, minimum width=1.465cm, minimum height=1.965cm] at (9.75, 9.25){};
+				\draw (11.75, 11) to[capacitor, /tikz/circuitikz/bipoles/length=0.840cm, l={$C_{bootstrap}$}] (11.75, 9);
+				\draw (11, 11) -- (11.75, 11);
+				\draw (10.5, 10) -| (11, 11);
+				\draw (10.5, 8.5) -- (12.5, 8.5);
+				\draw (10.5, 9) -- (11.75, 9) -- (12.5, 9);
+				\draw (10.5, 9.5) -- (12.5, 9.5);
+				\node[circ] at (11, 11){};
+				\node[circ] at (11.75, 9){};
+				\draw (8.5, 11) -| (8.5, 9.75) -- (9, 9.75);
+				\draw (9, 9) -- (7.75, 9);
+				\draw (9, 8.5) -- (8.5, 8.5) -| (8.5, 8.25);
+				\node[tlground] at (8.5, 8.25){};
+				\node[trarrow](N1) at (7.638, 9){} node[anchor=east] at (N1.text){$PWM$};
+				\node[trarrow](N2) at (12.5, 8.5){} node[anchor=west] at (N2.text){$L_{ctrl}$};
+				\node[trarrow](N3) at (12.5, 9){} node[anchor=west] at (N3.text){$V_s$};
+				\node[trarrow](N4) at (12.5, 9.5){} node[anchor=west] at (N4.text){$H_{ctrl}$};
+				\node[shape=rectangle, minimum width=0.34cm, minimum height=0.34cm] at (9.063, 9.75){} node[anchor=center, align=center, text width=-0.048cm, inner sep=6pt] at (9.063, 9.75){\small $V_{cc}$};
+				\node[shape=rectangle, minimum width=0.34cm, minimum height=0.34cm] at (9.062, 8.5){} node[anchor=center, align=center, text width=-0.048cm, inner sep=6pt] at (9.062, 8.5){\small GND};
+				\node[shape=rectangle, minimum width=0.402cm, minimum height=0.34cm] at (9.125, 9){} node[anchor=center, align=center, text width=0.014cm, inner sep=6pt] at (9.125, 9){\small IN};
+				\node[shape=rectangle, minimum width=0.34cm, minimum height=0.34cm] at (10, 9.937){} node[anchor=center, align=center, text width=-0.048cm, inner sep=6pt] at (10, 9.937){\small $V_B$};
+				\node[shape=rectangle, minimum width=0.34cm, minimum height=0.34cm] at (10, 9.437){} node[anchor=center, align=center, text width=-0.048cm, inner sep=6pt] at (10, 9.437){\small $H_o$};
+				\node[shape=rectangle, minimum width=0.34cm, minimum height=0.34cm] at (10, 8.5){} node[anchor=center, align=center, text width=-0.048cm, inner sep=6pt] at (10, 8.5){\small $L_o$};
+				\node[shape=rectangle, minimum width=0.34cm, minimum height=0.34cm] at (10, 9){} node[anchor=center, align=center, text width=-0.048cm, inner sep=6pt] at (10, 9){\small $V_s$};
+				\node[shape=rectangle, minimum width=1.59cm, minimum height=0.527cm] at (9.625, 8.031){} node[anchor=north west, align=left, text width=1.202cm, inner sep=6pt] at (8.813, 8.312){IR2111};
+			\end{tikzpicture}
+			\caption{Esquemático del \textit{gate-driver}.}
+			\label{fig:gatedriver}
+			
+			
+		\end{figure}
+		
+		
+		
+	\subsection{Diseño de red \textit{Snubber} }
+	\subsection{Compensación}
+	
+	\section{Simulaciones}
+	
+	\section{Mediciones}
+	\subsection{Validación del Inductor}
+	\subsection{Regulación a lazo cerrado}
 	
 	\section{Conclusiones}
 

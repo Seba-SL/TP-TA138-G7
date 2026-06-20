@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.10)  11 JUN 2026 19:49
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.10)  19 JUN 2026 19:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1398,17 +1398,51 @@ LaTeX Info: Redefining \% on input line 1.
 \openout5 = `informe.toc'.
 
  [1]
+Overfull \hbox (13.96999pt too wide) in paragraph at lines 176--176
+ [][]$\OML/cmm/m/it/9 V[]$ 
+ []
 
-LaTeX Warning: Empty bibliography on input line 149.
+
+Overfull \hbox (22.62036pt too wide) in paragraph at lines 177--177
+ [][]\T1/cmr/m/n/9 GND 
+ []
+
+
+Overfull \hbox (9.87393pt too wide) in paragraph at lines 178--178
+ [][]\T1/cmr/m/n/9 IN 
+ []
+
+
+Overfull \hbox (13.10675pt too wide) in paragraph at lines 179--179
+ [][]$\OML/cmm/m/it/9 V[]$ 
+ []
+
+
+Overfull \hbox (13.19217pt too wide) in paragraph at lines 180--180
+ [][]$\OML/cmm/m/it/9 H[]$ 
+ []
+
+
+Overfull \hbox (11.83522pt too wide) in paragraph at lines 181--181
+ [][]$\OML/cmm/m/it/9 L[]$ 
+ []
+
+
+Overfull \hbox (10.76721pt too wide) in paragraph at lines 182--182
+ [][]$\OML/cmm/m/it/9 V[]$ 
+ []
+
+
+LaTeX Warning: Empty bibliography on input line 204.
 
 [2]
 
 pdfTeX warning: pdflatex.exe (file ./img/buck/esquematico_buck.pdf): PDF inclus
 ion: found PDF version <1.7>, but at most version <1.5> allowed
-<img/buck/esquematico_buck.pdf, id=22, 845.04686pt x 597.50786pt>
+<img/buck/esquematico_buck.pdf, id=31, 845.04686pt x 597.50786pt>
 File: img/buck/esquematico_buck.pdf Graphic file (type pdf)
 <use img/buck/esquematico_buck.pdf>
-Package pdftex.def Info: img/buck/esquematico_buck.pdf  used on input line 161.
+Package pdftex.def Info: img/buck/esquematico_buck.pdf  used on input line 216.
 
 (pdftex.def)             Requested size: 845.0448pt x 597.5064pt.
 
@@ -1419,31 +1453,31 @@ ion: found PDF version <1.7>, but at most version <1.5> allowed
 
 pdfTeX warning: pdflatex.exe (file ./img/buck/esquematico_buck.pdf): PDF inclus
 ion: found PDF version <1.7>, but at most version <1.5> allowed
-<img/buck/esquematico_buck.pdf, id=24, page=1, 845.04686pt x 597.50786pt>
+<img/buck/esquematico_buck.pdf, id=33, page=1, 845.04686pt x 597.50786pt>
 File: img/buck/esquematico_buck.pdf Graphic file (type pdf)
 <use img/buck/esquematico_buck.pdf, page 1>
 Package pdftex.def Info: img/buck/esquematico_buck.pdf , page1 used on input li
-ne 161.
+ne 216.
 (pdftex.def)             Requested size: 845.0448pt x 597.5064pt.
 File: img/buck/esquematico_buck.pdf Graphic file (type pdf)
 <use img/buck/esquematico_buck.pdf, page 1>
 Package pdftex.def Info: img/buck/esquematico_buck.pdf , page1 used on input li
-ne 161.
+ne 216.
 (pdftex.def)             Requested size: 845.0448pt x 597.5064pt.
 File: img/buck/esquematico_buck.pdf Graphic file (type pdf)
 <use img/buck/esquematico_buck.pdf, page 1>
 Package pdftex.def Info: img/buck/esquematico_buck.pdf , page1 used on input li
-ne 161.
+ne 216.
 (pdftex.def)             Requested size: 845.0448pt x 597.5064pt.
 File: img/buck/esquematico_buck.pdf Graphic file (type pdf)
 <use img/buck/esquematico_buck.pdf, page 1>
 Package pdftex.def Info: img/buck/esquematico_buck.pdf , page1 used on input li
-ne 161.
+ne 216.
 (pdftex.def)             Requested size: 845.0448pt x 597.5064pt.
 File: img/buck/esquematico_buck.pdf Graphic file (type pdf)
 <use img/buck/esquematico_buck.pdf, page 1>
 Package pdftex.def Info: img/buck/esquematico_buck.pdf , page1 used on input li
-ne 161.
+ne 216.
 (pdftex.def)             Requested size: 845.0448pt x 597.5064pt.
 [3
 
@@ -1451,10 +1485,10 @@ ne 161.
 
 pdfTeX warning: pdflatex.exe (file ./img/buck/pistas_buck.pdf): PDF inclusion: 
 found PDF version <1.7>, but at most version <1.5> allowed
-<img/buck/pistas_buck.pdf, id=31, 597.50786pt x 845.04686pt>
+<img/buck/pistas_buck.pdf, id=39, 597.50786pt x 845.04686pt>
 File: img/buck/pistas_buck.pdf Graphic file (type pdf)
 <use img/buck/pistas_buck.pdf>
-Package pdftex.def Info: img/buck/pistas_buck.pdf  used on input line 168.
+Package pdftex.def Info: img/buck/pistas_buck.pdf  used on input line 223.
 (pdftex.def)             Requested size: 597.5064pt x 845.0448pt.
 
 
@@ -1464,31 +1498,31 @@ found PDF version <1.7>, but at most version <1.5> allowed
 
 pdfTeX warning: pdflatex.exe (file ./img/buck/pistas_buck.pdf): PDF inclusion: 
 found PDF version <1.7>, but at most version <1.5> allowed
-<img/buck/pistas_buck.pdf, id=33, page=1, 597.50786pt x 845.04686pt>
+<img/buck/pistas_buck.pdf, id=41, page=1, 597.50786pt x 845.04686pt>
 File: img/buck/pistas_buck.pdf Graphic file (type pdf)
 <use img/buck/pistas_buck.pdf, page 1>
-Package pdftex.def Info: img/buck/pistas_buck.pdf , page1 used on input line 16
-8.
+Package pdftex.def Info: img/buck/pistas_buck.pdf , page1 used on input line 22
+3.
 (pdftex.def)             Requested size: 597.5064pt x 845.0448pt.
 File: img/buck/pistas_buck.pdf Graphic file (type pdf)
 <use img/buck/pistas_buck.pdf, page 1>
-Package pdftex.def Info: img/buck/pistas_buck.pdf , page1 used on input line 16
-8.
+Package pdftex.def Info: img/buck/pistas_buck.pdf , page1 used on input line 22
+3.
 (pdftex.def)             Requested size: 597.53374pt x 845.08348pt.
 File: img/buck/pistas_buck.pdf Graphic file (type pdf)
 <use img/buck/pistas_buck.pdf, page 1>
-Package pdftex.def Info: img/buck/pistas_buck.pdf , page1 used on input line 16
-8.
+Package pdftex.def Info: img/buck/pistas_buck.pdf , page1 used on input line 22
+3.
 (pdftex.def)             Requested size: 597.53374pt x 845.08348pt.
 File: img/buck/pistas_buck.pdf Graphic file (type pdf)
 <use img/buck/pistas_buck.pdf, page 1>
-Package pdftex.def Info: img/buck/pistas_buck.pdf , page1 used on input line 16
-8.
+Package pdftex.def Info: img/buck/pistas_buck.pdf , page1 used on input line 22
+3.
 (pdftex.def)             Requested size: 597.53374pt x 845.08348pt.
 File: img/buck/pistas_buck.pdf Graphic file (type pdf)
 <use img/buck/pistas_buck.pdf, page 1>
-Package pdftex.def Info: img/buck/pistas_buck.pdf , page1 used on input line 16
-8.
+Package pdftex.def Info: img/buck/pistas_buck.pdf , page1 used on input line 22
+3.
 (pdftex.def)             Requested size: 597.53374pt x 845.08348pt.
 [4 <./img/buck/pistas_buck.pdf>] (informe.aux
 LaTeX Info: Redefining \sptext on input line 9.
@@ -1513,25 +1547,34 @@ Package logreq Info: Writing requests to 'informe.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 52312 strings out of 467870
- 1287019 string characters out of 5418355
- 2422831 words of memory out of 5000000
- 80673 multiletter control sequences out of 15000+600000
- 638335 words of font info for 60 fonts, out of 8000000 for 9000
+ 52740 strings out of 467870
+ 1297504 string characters out of 5418355
+ 2437889 words of memory out of 5000000
+ 81085 multiletter control sequences out of 15000+600000
+ 646675 words of font info for 87 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  98i,19n,118p,1198b,2814s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\ramaz\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx
-1200.pk> <C:\Users\ramaz\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
-0\ecbx1440.pk> <C:\Users\ramaz\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
-/dpi600\ecrm1000.pk> <C:\Users\ramaz\AppData\Local\MiKTeX\fonts/pk/ljfour/jknap
-pen/ec/dpi600\ecbx1000.pk> <C:\Users\ramaz\AppData\Local\MiKTeX\fonts/pk/ljfour
-/jknappen/ec/dpi600\ecsc1440.pk> <C:\Users\ramaz\AppData\Local\MiKTeX\fonts/pk/
-ljfour/jknappen/ec/dpi600\eccc2488.pk> <C:\Users\ramaz\AppData\Local\MiKTeX\fon
-ts/pk/ljfour/jknappen/ec/dpi600\eccc1440.pk> <C:\Users\ramaz\AppData\Local\MiKT
-eX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1728.pk>
-Output written on informe.pdf (5 pages, 423980 bytes).
+ <C:\Users\ramaz\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm
+0900.pk> <C:\Users\ramaz\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
+0\ecbi1200.pk> <C:\Users\ramaz\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
+/dpi600\ecbx1200.pk> <C:\Users\ramaz\AppData\Local\MiKTeX\fonts/pk/ljfour/jknap
+pen/ec/dpi600\ecti1000.pk> <C:\Users\ramaz\AppData\Local\MiKTeX\fonts/pk/ljfour
+/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\ramaz\AppData\Local\MiKTeX\fonts/pk/
+ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\ramaz\AppData\Local\MiKTeX\fon
+ts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\ramaz\AppData\Local\MiKT
+eX\fonts/pk/ljfour/jknappen/ec/dpi600\ecsc1440.pk> <C:\Users\ramaz\AppData\Loca
+l\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc2488.pk> <C:\Users\ramaz\AppDat
+a\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc1440.pk> <C:\Users\ramaz\
+AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1728.pk><C:/Users/r
+amaz/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C
+:/Users/ramaz/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi
+12.pfb><C:/Users/ramaz/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfont
+s/cm/cmmi6.pfb><C:/Users/ramaz/AppData/Local/Programs/MiKTeX/fonts/type1/public
+/amsfonts/cm/cmmi7.pfb><C:/Users/ramaz/AppData/Local/Programs/MiKTeX/fonts/type
+1/public/amsfonts/cm/cmmi9.pfb>
+Output written on informe.pdf (5 pages, 504400 bytes).
 PDF statistics:
- 248 PDF objects out of 1000 (max. 8388607)
+ 369 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  48 words of extra memory for PDF output out of 10000 (max. 10000000)
 
