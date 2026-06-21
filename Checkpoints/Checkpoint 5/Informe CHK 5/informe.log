@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2026.1.2)  21 JUN 2026 16:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2026.1.2)  21 JUN 2026 16:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1470,7 +1470,7 @@ Package logreq Info: Writing requests to 'informe.run.xml'.
 Here is how much of TeX's memory you used:
  49294 strings out of 476091
  1190754 string characters out of 5794082
- 2212438 words of memory out of 5000000
+ 2211438 words of memory out of 5000000
  69128 multiletter control sequences out of 15000+600000
  535250 words of font info for 86 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1496,7 +1496,7 @@ re/texmf/fonts/type1/public/cm-super/sfcc2488.pfb></usr/share/texmf/fonts/type1
 m1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsc1440.pfb></usr/shar
 e/texmf/fonts/type1/public/cm-super/sfti0900.pfb></usr/share/texmf/fonts/type1/
 public/cm-super/sfti1000.pfb>
-Output written on informe.pdf (6 pages, 718147 bytes).
+Output written on informe.pdf (6 pages, 717078 bytes).
 PDF statistics:
  162 PDF objects out of 1000 (max. 8388607)
  95 compressed objects within 1 object stream
