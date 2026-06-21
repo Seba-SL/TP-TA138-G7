@@ -159,13 +159,57 @@ citestyle=apa
 	\section{Desarrollo}
 	\subsection{Construcción del inductor $L$}
 	
-	En la entrega anterior se diseño un inductor apropiado mediante el método de diseño iterativo de Erickson, cuyas caracteristicas finales se encuentran en la tabla \ref{}. Para llevar a cabo la construcción del inductor 
+	En la entrega anterior se diseño un inductor apropiado mediante el método de diseño iterativo de Erickson, cuyas caracteristicas finales se encuentran en la tabla \ref{tab:diseno_inductor}. Para llevar a cabo la construcción del inductor 
+	
+	
+	\begin{table}[H]
+		\centering
+		\renewcommand{\arraystretch}{1.3}
+		\begin{tabular}{|l|c|}
+			\hline
+			\multicolumn{2}{|c|}{\textbf{Diseño del Inductor}} \\
+			\hline
+			\textbf{Parámetro} & \textbf{Valor} \\
+			\hline
+			Tipo de material & N87 \\
+			\hline
+			Tipo de núcleo & EE19 \\
+			\hline
+			Entrehierro (gap) & $l_g=\SI{0.082}{\milli\meter}$ \\
+			\hline
+			Número de vueltas & $n_l=13$ \\
+			\hline
+			Tipo de alambre & AWG\#20 \\
+			\hline
+		\end{tabular}
+		\caption{Parámetros de diseño del inductor de $L=\SI{50}{\micro\henry}$}
+		\label{tab:diseno_inductor}
+	\end{table}
+	
+	
 	
 
 	
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.35\linewidth]{img/diseño_inductor/nucleo_EE19}
+	
+	\begin{minipage}{0.28\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{img/diseño_inductor/nucleo_EE19}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.65\textwidth}
+		\small
+		El núcleo \textbf{EE19} está compuesto por dos mitades con forma de
+		letra \textit{E}, cuya unión conforma un circuito magnético cerrado.
+		La denominación ``EE'' hace referencia a esta geometría, mientras que
+		el número ``19'' identifica el tamaño principal del núcleo, de
+		aproximadamente \SI{19}{mm}. Este tipo de núcleo de ferrita es
+		ampliamente utilizado en inductores y transformadores de fuentes
+		conmutadas debido a su facilidad de bobinado y buen aprovechamiento
+		del flujo magnético.
+	\end{minipage}
+	
 	\caption{Núcleo EE19 sin ensamblar.}
 	\label{fig:nucleoee19}
 \end{figure}
