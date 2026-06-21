@@ -3,7 +3,7 @@
 \contentsline {section}{\numberline {2}Objetivo}{2}{}%
 \contentsline {section}{\numberline {3}Desarrollo}{2}{}%
 \contentsline {subsection}{\numberline {3.1}Construcción del inductor $L$}{2}{}%
-\contentsline {subsection}{\numberline {3.2}Elección del capacitor \textit {Bootstrap}}{2}{}%
+\contentsline {subsection}{\numberline {3.2}Elección del capacitor \textit {Bootstrap}}{3}{}%
 \contentsline {subsection}{\numberline {3.3}Diseño de red \textit {Snubber} }{3}{}%
 \contentsline {subsection}{\numberline {3.4}Compensación}{3}{}%
 \contentsline {section}{\numberline {4}Simulaciones}{3}{}%
