@@ -227,9 +227,9 @@ citestyle=apa
 \end{figure}
 	
 	
-	\subsection{Limitador de PWM}
+	\subsection{Limitador de duty}
 	
-	Una de las características por corregir del diseño de fuente conmutada es el duty máximo. La necesidad de fijar este valor surge de la necesidad de cargar el capacitor de \textit{bootstrap} para que este pueda polarizar el transistor \textit{high-side}.
+	Una de las características por corregir del diseño de fuente conmutada es el duty máximo. Fijar este valor surge de la necesidad de cargar el capacitor de \textit{bootstrap} para que este pueda polarizar el transistor \textit{high-side}. Si se exige un duty demasiado alto, el capacitor de bootstrap no se cargará nunca, haciendo caer la salida a 0V de forma indefinida.
 	
 	Para conseguir esta limitación, que se fija a 90\%, se actúa directamente sobre el comparador PWM, de tal modo que la señal amplificada de error no supere nunca $v_{triag\_min} + 0.9 (v_{triag\_max} - {triag\_min})$. Dados los valores obtenidos durante el diseño del generador PWM, $v_{triag\_max} = \SI{3.2}{V} $ y $v_{triag\_min} = \SI{1.8}{V}$, se debe limitar $v_{sense} < \SI{3.05}{V}$
 	
