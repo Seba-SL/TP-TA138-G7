@@ -226,45 +226,107 @@ citestyle=apa
 	\label{fig:nucleoee19}
 \end{figure}
 	
+	
+	\subsection{Limitador de PWM}
+	
+	Una de las características por corregir del diseño de fuente conmutada es el duty máximo. La necesidad de fijar este valor surge de la necesidad de cargar el capacitor de \textit{bootstrap} para que este pueda polarizar el transistor \textit{high-side}.
+	
+	Para conseguir esta limitación, que se fija a 90\%, se actúa directamente sobre el comparador PWM, de tal modo que la señal amplificada de error no supere nunca $v_{triag\_min} + 0.9 (v_{triag\_max} - {triag\_min})$. Dados los valores obtenidos durante el diseño del generador PWM, $v_{triag\_max} = \SI{3.2}{V} $ y $v_{triag\_min} = \SI{1.8}{V}$, se debe limitar $v_{sense} < \SI{3.05}{V}$
+	
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[transform shape]
+		% Paths, nodes and wires:
+		\node[op amp](N1) at (7.81, 8){} node[anchor=center] at (N1.text){$TL082$};
+		\draw (11.5, 9.5) to[american resistor, l={$R_4$}] (14.5, 9.5);
+		\draw (11.75, 8) to[american resistor, l={$R_3$}] (9, 8);
+		\node[op amp, yscale=-1](N2) at (12.94, 7.51){} node[anchor=center] at (N2.text){$LM319$};
+		\draw (6.5, 10) to[american resistor, l={$R_2$}] (9.25, 10);
+		\draw (6.5, 8.5) to[american resistor, l={$R_1$}] (3.75, 8.5);
+		\draw (11.5, 9.5) -| (11.5, 8);
+		\draw (14.13, 7.51) -| (14.5, 9.5);
+		\draw (14.5, 7.51) -| (16, 7.5);
+		\draw (9.25, 10) -- (9.25, 8);
+		\draw (6.5, 10) |- (6.62, 8.49);
+		\node[circ] at (11.5, 8){};
+		\node[circ] at (14.5, 7.5){};
+		\node[circ] at (9.25, 8){};
+		\node[circ] at (6.5, 8.49){};
+		\node[circ](N3) at (16, 7.5){} node[anchor=west] at ([xshift=-0.02cm]N3.text){$PWM$};
+		\node[inputarrow](N4) at (6.62, 7.51){} node[anchor=east] at ([xshift=-0.07cm]N4.text){$v_{med}$};
+		\node[inputarrow](N5) at (3.75, 8.5){} node[anchor=east] at ([xshift=-0.09cm]N5.text){$v_{sense}$};
+		\node[inputarrow](N6) at (11.75, 7.02){} node[anchor=east] at ([xshift=-0.07cm]N6.text){$v_{med}$};
+		\node[ground] at (7.727, 7.461){};
+		\node[ground] at (12.857, 6.971){};
+		\node[rground, xscale=-1, yscale=-1](N7) at (7.727, 8.539){} node[anchor=south] at ([yshift=0.32cm]N7.text){$V_{5V}$};
+		\node[rground, xscale=-1, yscale=-1](N8) at (12.857, 8.049){} node[anchor=south] at ([yshift=0.32cm]N8.text){$V_{5V}$};
+		\draw (15.25, 9.5) to[american resistor, l={$R_{pu}$}] (15.25, 7.5);
+		\node[rground, xscale=-1, yscale=-1](N9) at (15.25, 9.5){} node[anchor=south] at ([yshift=0.32cm]N9.text){$V_{5V}$};
+		\node[circ] at (15.25, 7.5){};
+	\end{tikzpicture}
+	\caption{Esquemático del amplificador y generador PWM.}
+	\label{fig:amp_error}
+\end{figure}
+	
 	\subsection{Elección del capacitor \textit{Bootstrap}}
 		Para el correcto funcionamiento del lazo de realimentación, es necesario que se controlen los dos transistores NMOS de potencia de forma síncrona. Para tal efecto, se elije el integrado \textbf{IR2111}, que incluye un tiempo muerto compatible con la frecuencia de operación, así como dos \textit{Gate Drivers}. Uno \textit{High-Side} y otro \textit{Low-Side}. La figura \ref{fig:gatedriver} muestra el conexionado del \textit{Gate Driver}.
 		
 		\begin{figure}[H]
 			\centering
-			\begin{tikzpicture}[transform shape]
-				% Paths, nodes and wires:
-				\draw (8.5, 11) to[full Schottky diode, /tikz/circuitikz/bipoles/length=0.840cm, l={$D$}] (11, 11);
-				\node[shape=rectangle, draw, line width=1pt, minimum width=1.465cm, minimum height=1.965cm] at (9.75, 9.25){};
-				\draw (11.75, 11) to[capacitor, /tikz/circuitikz/bipoles/length=0.840cm, l={$C_{bootstrap}$}] (11.75, 9);
-				\draw (11, 11) -- (11.75, 11);
-				\draw (10.5, 10) -| (11, 11);
-				\draw (10.5, 8.5) -- (12.5, 8.5);
-				\draw (10.5, 9) -- (11.75, 9) -- (12.5, 9);
-				\draw (10.5, 9.5) -- (12.5, 9.5);
-				\node[circ] at (11, 11){};
-				\node[circ] at (11.75, 9){};
-				\draw (8.5, 11) -| (8.5, 9.75) -- (9, 9.75);
-				\draw (9, 9) -- (7.75, 9);
-				\draw (9, 8.5) -- (8.5, 8.5) -| (8.5, 8.25);
-				\node[tlground] at (8.5, 8.25){};
-				\node[trarrow](N1) at (7.638, 9){} node[anchor=east] at (N1.text){$PWM$};
-				\node[trarrow](N2) at (12.5, 8.5){} node[anchor=west] at (N2.text){$L_{ctrl}$};
-				\node[trarrow](N3) at (12.5, 9){} node[anchor=west] at (N3.text){$V_s$};
-				\node[trarrow](N4) at (12.5, 9.5){} node[anchor=west] at (N4.text){$H_{ctrl}$};
-				\node[shape=rectangle, minimum width=0.34cm, minimum height=0.34cm] at (9.063, 9.75){} node[anchor=center, align=center, text width=-0.048cm, inner sep=6pt] at (9.063, 9.75){\small $V_{cc}$};
-				\node[shape=rectangle, minimum width=0.34cm, minimum height=0.34cm] at (9.062, 8.5){} node[anchor=center, align=center, text width=-0.048cm, inner sep=6pt] at (9.062, 8.5){\small GND};
-				\node[shape=rectangle, minimum width=0.402cm, minimum height=0.34cm] at (9.125, 9){} node[anchor=center, align=center, text width=0.014cm, inner sep=6pt] at (9.125, 9){\small IN};
-				\node[shape=rectangle, minimum width=0.34cm, minimum height=0.34cm] at (10, 9.937){} node[anchor=center, align=center, text width=-0.048cm, inner sep=6pt] at (10, 9.937){\small $V_B$};
-				\node[shape=rectangle, minimum width=0.34cm, minimum height=0.34cm] at (10, 9.437){} node[anchor=center, align=center, text width=-0.048cm, inner sep=6pt] at (10, 9.437){\small $H_o$};
-				\node[shape=rectangle, minimum width=0.34cm, minimum height=0.34cm] at (10, 8.5){} node[anchor=center, align=center, text width=-0.048cm, inner sep=6pt] at (10, 8.5){\small $L_o$};
-				\node[shape=rectangle, minimum width=0.34cm, minimum height=0.34cm] at (10, 9){} node[anchor=center, align=center, text width=-0.048cm, inner sep=6pt] at (10, 9){\small $V_s$};
-				\node[shape=rectangle, minimum width=1.59cm, minimum height=0.527cm] at (9.625, 8.031){} node[anchor=north west, align=left, text width=1.202cm, inner sep=6pt] at (8.813, 8.312){IR2111};
-			\end{tikzpicture}
+\begin{tikzpicture}[transform shape]
+	% Paths, nodes and wires:
+	\draw (9.937, 12.063) to[full Schottky diode, /tikz/circuitikz/bipoles/length=0.840cm, l={$D$}] (12.437, 12.063);
+	\node[shape=rectangle, draw, line width=1pt, minimum width=1.465cm, minimum height=1.965cm] at (11.187, 10.313){};
+	\draw (13.187, 12.063) to[capacitor, /tikz/circuitikz/bipoles/length=0.840cm, l={$C$}] (13.187, 10.063);
+	\draw (12.437, 12.063) -- (13.187, 12.063);
+	\draw (11.937, 11.063) -| (12.437, 12.063);
+	\draw (11.937, 9.563) -- (13.937, 9.563);
+	\draw (11.937, 10.063) -- (13.187, 10.063) -- (13.937, 10.063);
+	\draw (11.937, 10.563) -- (13.937, 10.563);
+	\node[circ] at (12.437, 12.063){};
+	\node[circ] at (13.187, 10.063){};
+	\draw (9.937, 12.063) -| (9.937, 10.813) -- (10.437, 10.813);
+	\draw (10.437, 10.063) -- (9.187, 10.063);
+	\draw (10.437, 9.563) -- (9.937, 9.563) -| (9.937, 9.313);
+	\node[tlground] at (9.937, 9.313){};
+	\node[trarrow](N1) at (9.075, 10.063){} node[anchor=east] at (N1.text){$PWM$};
+	\node[trarrow](N2) at (13.937, 9.563){} node[anchor=west] at (N2.text){$L_{ctrl}$};
+	\node[trarrow](N3) at (13.937, 10.063){} node[anchor=west] at (N3.text){$V_s$};
+	\node[trarrow](N4) at (13.937, 10.563){} node[anchor=west] at (N4.text){$H_{ctrl}$};
+	\node[shape=rectangle, minimum width=0.34cm, minimum height=0.34cm] at (10.494, 10.804){} node[anchor=center, align=center, text width=-0.048cm, inner sep=6pt] at (10.494, 10.804){\footnotesize $V_{cc}$};
+	\node[shape=rectangle, minimum width=0.34cm, minimum height=0.34cm] at (10.491, 9.558){} node[anchor=center, align=center, text width=-0.048cm, inner sep=6pt] at (10.491, 9.558){\footnotesize GND};
+	\node[shape=rectangle, minimum width=0.402cm, minimum height=0.34cm] at (10.601, 10.071){} node[anchor=center, align=center, text width=0.014cm, inner sep=6pt] at (10.601, 10.071){\footnotesize IN};
+	\node[shape=rectangle, minimum width=0.34cm, minimum height=0.34cm] at (11.482, 11.067){} node[anchor=center, align=center, text width=-0.048cm, inner sep=6pt] at (11.482, 11.067){\footnotesize $V_B$};
+	\node[shape=rectangle, minimum width=0.34cm, minimum height=0.34cm] at (11.482, 10.504){} node[anchor=center, align=center, text width=-0.048cm, inner sep=6pt] at (11.482, 10.504){\footnotesize $H_o$};
+	\node[shape=rectangle, minimum width=0.34cm, minimum height=0.34cm] at (11.494, 9.567){} node[anchor=center, align=center, text width=-0.048cm, inner sep=6pt] at (11.494, 9.567){\footnotesize $L_o$};
+	\node[shape=rectangle, minimum width=0.34cm, minimum height=0.34cm] at (11.494, 10.067){} node[anchor=center, align=center, text width=-0.048cm, inner sep=6pt] at (11.494, 10.067){\footnotesize $V_s$};
+	\node[shape=rectangle, minimum width=1.59cm, minimum height=0.527cm] at (11.062, 9.094){} node[anchor=north west, align=left, text width=1.202cm, inner sep=6pt] at (10.25, 9.375){IR2111};
+	\node[circ] at (9.937, 10.813){};
+	\draw (8.937, 10.813) -- (9.937, 10.813);
+	\node[trarrow](N5) at (8.937, 10.813){} node[anchor=east] at (N5.text){$V_{cc12}$};
+\end{tikzpicture}
 			\caption{Esquemático del \textit{gate-driver}.}
 			\label{fig:gatedriver}
-			
-			
 		\end{figure}
+		Para la elección del capacitor, se debe tener en cuenta la frecuencia de operación, el mínimo tiempo de carga, y la cantidad de carga que debe contener para sostener su valor de tensión.
+		
+		Dado que la frecuencia de operación será $f\approx\SI{130}{\kilo\hertz}$, podrá usarse un capacitor cerámico sin ningún inconveniente. Teniendo en cuenta un duty máximo de 90\%, se espera un tiempo mínimo de carga de $\approx 0.1 \cdot \SI{7.7}{\micro s} = \SI{770}{\nano s}$
+		
+		Durante el tiempo que se encuentra encendido, tendrá que cargar la compuerta \textit{gate} del transistor de paso, de unos \SI{200}{nC}, así como alimentar al controlador \textit{high-side} del IR2111, que consume, como máximo, \SI{100}{\micro\ampere}.
+		
+		La carga total a suministrar en el tiempo será de 
+		
+		\begin{equation}
+			Q_{tot} = \SI{200}{nC} + \SI{100}{\micro\ampere} \cdot \SI{7.7}{\micro s} \cdot 0.9 = \SI{200.6}{nC}.
+		\end{equation}
+		
+		Para calcular la capacidad mínima requerida, consideramos una caída de tensión máxima de \SI{0.5}{V} para mantener el transistor saturado:
+		
+		\begin{equation}
+			C_{bootstrap\_min} = \frac{\SI{200.6}{nC}}{\SI{0.5}{V}} =  \SI{400}{nF}.
+		\end{equation}
+		
+		Se elije entonces un capacitor cerámico de valor \SI{470}{nF}.
 		
 		
 		
