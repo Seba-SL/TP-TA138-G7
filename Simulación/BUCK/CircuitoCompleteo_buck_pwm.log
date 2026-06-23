@@ -1,6 +1,6 @@
 LTspice 24.1.5 for Windows
 Circuit: C:\Users\ramaz\Desktop\Circuitos II\TP-TA138-G7\Simulación\BUCK\CircuitoCompleteo_buck_pwm.net
-Start Time: Sun Jun 21 20:48:21 2026
+Start Time: Mon Jun 22 17:40:34 2026
 Options: gmin=1e-10  abstol=1e-10  reltol=0.003  cshunt=1e-15
 solver = Normal
 Maximum thread count: 12
@@ -31,7 +31,7 @@ Gmin = 6.72131
 Gmin = 0
 Gmin stepping succeeded in finding the operating point.
 
-Total elapsed time: 21.337 seconds.
+Total elapsed time: 20.557 seconds.
 
 Files loaded:
 C:\Users\ramaz\Desktop\Circuitos II\TP-TA138-G7\Simulación\BUCK\CircuitoCompleteo_buck_pwm.net

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.10)  21 JUN 2026 21:01
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.10)  22 JUN 2026 17:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1556,7 +1556,7 @@ Package logreq Info: Writing requests to 'informe.run.xml'.
 Here is how much of TeX's memory you used:
  53030 strings out of 467870
  1305054 string characters out of 5418355
- 2461030 words of memory out of 5000000
+ 2461031 words of memory out of 5000000
  81359 multiletter control sequences out of 15000+600000
  653441 words of font info for 103 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1592,9 +1592,9 @@ nts/cm/cmr7.pfb><C:/Users/ramaz/AppData/Local/Programs/MiKTeX/fonts/type1/publi
 c/amsfonts/cm/cmr9.pfb><C:/Users/ramaz/AppData/Local/Programs/MiKTeX/fonts/type
 1/public/amsfonts/cm/cmsy10.pfb><C:/Users/ramaz/AppData/Local/Programs/MiKTeX/f
 onts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on informe.pdf (7 pages, 669361 bytes).
+Output written on informe.pdf (7 pages, 668970 bytes).
 PDF statistics:
- 514 PDF objects out of 1000 (max. 8388607)
+ 513 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  53 words of extra memory for PDF output out of 10000 (max. 10000000)
 
