@@ -1,0 +1,121 @@
+LTspice 24.0.12 for Windows
+Circuit: * C:\Users\ramaz\Desktop\Circuitos II\TP-TA138-G7\Simulación\BUCK\Compensación.asc
+Start Time: Tue Jun 23 18:50:22 2026
+Warning: Multiple definitions of model "2scr375p" Type: BJT
+Warning: Multiple definitions of model "bc857b" Type: BJT
+Warning: Multiple definitions of model "bc847c" Type: BJT
+Warning: Multiple definitions of model "bc847b" Type: BJT
+solver = Normal
+Maximum thread count: 8
+tnom = 27
+temp = 27
+method = modified trap
+gmin = 1e-10
+abstol = 1e-10
+reltol = 0.003
+Limiting rise time of source vgenerador to 3e-07
+Limiting fall time of source vgenerador to 3e-07
+WARNING: Less than two connections to node vgenerador.  This node is used by vgenerador.
+WARNING: Less than two connections to node v_triag_2.  This node is used by v2.
+Direct Newton iteration failed to find .op point.  (Use ".option noopiter" to skip.)
+Starting Gmin stepping
+Gmin = 10
+Gmin = 1.07374
+Gmin = 0.115292
+Gmin = 0.0123794
+Gmin = 0.00132923
+Gmin = 0.000142725
+vernier = 0.5
+vernier = 0.25
+vernier = 0.125
+vernier = 0.0625
+Gmin = 8.09136e-05
+vernier = 0.03125
+vernier = 0.015625
+vernier = 0.0078125
+vernier = 0.00390625
+vernier = 0.00195312
+vernier = 0.000976562
+vernier = 0.000488281
+Gmin = 0
+Gmin stepping failed
+
+Starting source stepping with srcstepmethod=0
+Source Step = 3.0303%
+Source Step = 33.3333%
+Source Step = 43.9512%
+Source Step = 44.0696%
+Source Step = 44.188%
+Source Step = 44.3063%
+Source Step = 44.4247%
+Source Step = 44.5431%
+vernier = 0.00585938
+Source Step = 44.7206%
+Source Step = 44.8982%
+Source Step = 45.0758%
+Source Step = 45.2533%
+Source Step = 45.4309%
+vernier = 0.00878906
+Source Step = 45.6883%
+Source Step = 45.9547%
+Source Step = 46.221%
+Source Step = 46.4873%
+Source Step = 46.7537%
+vernier = 0.0131836
+Source Step = 47.1265%
+Source Step = 47.526%
+Source Step = 47.9255%
+Source Step = 48.325%
+Source Step = 48.7246%
+vernier = 0.0197754
+Source Step = 49.2639%
+Source Step = 49.8631%
+Source Step = 50.4624%
+Source Step = 51.0616%
+Source Step = 51.6609%
+vernier = 0.0296631
+Source Step = 52.4399%
+Source Step = 53.3388%
+Source Step = 54.2377%
+Source Step = 55.1366%
+Source Step = 56.0355%
+vernier = 0.0444946
+Source Step = 57.1591%
+Source Step = 58.5074%
+Source Step = 59.8557%
+Source Step = 61.204%
+Source Step = 62.5523%
+vernier = 0.0667419
+Source Step = 64.1703%
+Source Step = 66.1928%
+Source Step = 68.2153%
+Source Step = 70.2378%
+Source Step = 72.2603%
+vernier = 0.100113
+Source Step = 74.5861%
+Source Step = 77.6198%
+Source Step = 80.6536%
+Source Step = 83.6873%
+Source Step = 86.721%
+vernier = 0.150169
+Source Step = 90.0581%
+Source Step = 94.6087%
+Source Step = 99.1593%
+Source stepping succeeded in finding the operating point.
+
+Ignoring empty pin current: Ix(u1:1)
+Ignoring empty pin current: Ix(u1:2)
+Ignoring empty pin current: Ix(u1:3)
+Ignoring empty pin current: Ix(u1:5)
+Ignoring empty pin current: Ix(u3:vc)
+Ignoring empty pin current: Ix(u2:c)
+Ignoring empty pin current: Ix(u2:vssin)
+Ignoring empty pin current: Ix(u1:1)
+Ignoring empty pin current: Ix(u1:2)
+Ignoring empty pin current: Ix(u1:3)
+Ignoring empty pin current: Ix(u1:5)
+Ignoring empty pin current: Ix(u3:vc)
+Ignoring empty pin current: Ix(u2:c)
+Ignoring empty pin current: Ix(u2:vssin)
+Total elapsed time: 0.245 seconds.
+
