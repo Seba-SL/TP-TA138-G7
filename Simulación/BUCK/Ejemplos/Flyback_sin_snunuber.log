@@ -1,0 +1,6 @@
+LTspice 24.1.5 for Windows
+Circuit: C:\Users\ramaz\Desktop\Circuitos II\TP-TA138-G7\Simulación\BUCK\Ejemplos\Flyback_sin_snunuber.net
+Start Time: Tue Jun 23 13:46:03 2026
+C:\Users\ramaz\Desktop\Circuitos II\TP-TA138-G7\Simulación\BUCK\Ejemplos\Flyback_sin_snunuber.net(7): Undefined model "rbr5l40a".
+D1 N001 OUT RBR5L40A
+            ^^^^^^^^
