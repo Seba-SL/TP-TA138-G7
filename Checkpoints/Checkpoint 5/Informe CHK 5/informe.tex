@@ -343,7 +343,7 @@ citestyle=apa
 Para corroborar el valor final y el correcto funcionamiento del inductor inicialmente se realizo una medida estimativa del valor de inductancia mediante un circuito que releve un valor aproximado de este y también la no saturación del mismo en condiciones similares a las del circuito regulador. Y como verificación final se realizo una medida con el instrumento de medición de inductancia LCR.
 
 
-\paragraph{Método de medición aproximado de valor}
+\paragraph{Método de medición mediante filtro RL:} 
 
 Se realizo un filtro RL y se comprobó la frecuencia de corte, de esta forma se despejo el valor aproximado de L.
 
@@ -404,7 +404,8 @@ inductancia. La frecuencia de corte puede identificarse cuando la amplitud de la
 \end{figure}
 
 
-\paragraph{Método saturación y valor}
+\paragraph{Método contemplando linealidad y saturación: } 
+
 
 La Figura \ref{fig:medicion_L_sat} presenta el circuito utilizado para verificar la linealidad del inductor mediante un ensayo de corriente pulsada (\textit{Pulse Test}). El MOSFET conmuta el inductor mediante una señal PWM, mientras que el diodo proporciona un camino de circulación para la corriente durante el apagado del transistor. La corriente del inductor se obtiene midiendo la tensión sobre la resistencia de sensado $R_{sense}$. Incrementando gradualmente la tensión de alimentación o el tiempo de conducción del MOSFET, la corriente alcanza valores cada vez mayores. Mientras el núcleo opere en la región lineal, la corriente presenta una rampa de pendiente constante; la aparición de una curvatura creciente indica el inicio de la saturación del núcleo debido a la disminución de la inductancia efectiva. El valor de L se obtiene calculando la pendiente de dicha curva.
 
@@ -478,7 +479,7 @@ despejando la inductancia se obtiene
 \end{figure}
 
 
-\paragraph{Medición mediante LCR}
+\paragraph{Medición mediante LCR:}
 
 Finalmente, la inductancia como ultima instancia se verificó mediante un medidor LCR, el cual determina el valor del componente aplicando una señal senoidal de pequeña amplitud y midiendo su impedancia compleja. A partir de la reactancia inductiva y la frecuencia de ensayo, el instrumento calcula automáticamente la inductancia. Este método proporciona una medición de mayor precisión y sirve para validar el valor obtenido mediante los métodos anteriores.
 
