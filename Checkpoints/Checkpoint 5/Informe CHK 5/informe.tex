@@ -341,7 +341,51 @@ citestyle=apa
 \subsubsection{Medición y caracterización del inductor fabricado}
 
 Para corroborar el valor final y el correcto funcionamiento del inductor inicialmente se realizo una medida estimativa del valor de inductancia mediante un circuito que releve un valor aproximado de este y también la no saturación del mismo en condiciones similares a las del circuito regulador. Y como verificación final se realizo una medida con el instrumento de medición de inductancia LCR.
-	
+
+
+\paragraph{Método de medición aproximado de valor}
+
+
+
+\paragraph{Método saturación y valor}
+Se realiza la medición \ref{fig: medicion_L_sat} observa la tensión sobre la resistencia de sensado $R_{sense}$ representativa de la corriente en el inductor, la corriente del inductor debe aumentar formando una rampa perfectamente lineal.
+
+\begin{enumerate}
+	\item Se fija una tensión continua relativamente baja (por ejemplo 5–20 V).
+	\item Se excita el MOSFET con PWM de baja frecuencia (100 Hz a algunos kHz).
+	\item Se utiliza un Ton suficientemente largo para que la corriente alcance distintos valores.
+	\item Se mide la tensión sobre $R_{sense}$ 
+	\item Se aumenta gradualmente: la tensión de alimentación, o el tiempo de conducción (Duty).
+\end{enumerate}
+​
+
+Mientras la rampa siga siendo lineal, el núcleo trabaja en la zona lineal.
+
+Cuando aparece curvatura, comenzó la saturación.
+
+\begin{tikzpicture}[transform shape]
+	% Paths, nodes and wires:
+	\draw (5.75, 12) to[empty diode, l={$D$}] (5.75, 14.5);
+	\draw (8.25, 14.75) to[american inductor, l={$L$}] (8.25, 12);
+	\draw (8.25, 11.375) -| (8.25, 11.5);
+	\node[nmos, xscale=-1, yscale=-1](N1) at (8.25, 10.605){} node[anchor=east] at (N1.text){$Q$};
+	\draw (8.25, 9.835) to[american resistor, /tikz/circuitikz/bipoles/length=1.16cm, l={$R_{sense}$}] (8.25, 7.25);
+	\node[ground] at (8.25, 7.25){};
+	\node[ground] at (3.25, 13.75){};
+	\draw (3.25, 15.75) -- (7, 15.75) -| (7, 15.25);
+	\draw (3.25, 15.75) to[american voltage source, l={$V_{cc}$}] (3.25, 13.75);
+	\draw (10.5, 9.25) to[square voltage source, l={$V_s$}] (10.5, 10.25);
+	\node[ground] at (10.5, 9.25){};
+	\draw (9.23, 10.605) -| (10.5, 10.25);
+	\draw (8.25, 14.75) -| (8.25, 15.25) -- (7, 15.25);
+	\draw (5.75, 14.5) -| (5.75, 15.25) -- (7, 15.25);
+	\draw (5.75, 12) -- (8.25, 12);
+	\draw (8.25, 11.5) -| (8.25, 12);
+\end{tikzpicture}
+
+
+\paragraph{Medición mediante LCR}
+
 \subsection{Limitador de duty}
 	
 	Una de las características por corregir del diseño de fuente conmutada es el duty máximo. Fijar este valor surge de la necesidad de cargar el capacitor de \textit{bootstrap} para que este pueda polarizar el transistor \textit{high-side}. Si se exige un duty demasiado alto, el capacitor de bootstrap no se cargará nunca, haciendo caer la salida a 0V de forma indefinida.
