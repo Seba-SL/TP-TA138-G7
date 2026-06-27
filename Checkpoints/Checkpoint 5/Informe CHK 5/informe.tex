@@ -334,12 +334,15 @@ citestyle=apa
 	
 	\end{minipage}
 
-\caption{Núcleo EE19 ensamblado.}
+\caption{Núcleo EE25 ensamblado.}
 \label{fig:nucleoee25_ensaamblado}
 \end{figure}
 	
+\subsubsection{Medición y caracterización del inductor fabricado}
+
+Para corroborar el valor final y el correcto funcionamiento del inductor inicialmente se realizo una medida estimativa del valor de inductancia mediante un circuito que releve un valor aproximado de este y también la no saturación del mismo en condiciones similares a las del circuito regulador. Y como verificación final se realizo una medida con el instrumento de medición de inductancia LCR.
 	
-	\subsection{Limitador de duty}
+\subsection{Limitador de duty}
 	
 	Una de las características por corregir del diseño de fuente conmutada es el duty máximo. Fijar este valor surge de la necesidad de cargar el capacitor de \textit{bootstrap} para que este pueda polarizar el transistor \textit{high-side}. Si se exige un duty demasiado alto, el capacitor de bootstrap no se cargará nunca, haciendo caer la salida a 0V de forma indefinida.
 	
