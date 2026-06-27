@@ -265,27 +265,27 @@ citestyle=apa
 			\hline
 			\textbf{Parámetro} & \textbf{Valor} \\
 			\hline
-			Constante Geométrica $K_g$ & $4.07 \cdot 10^{-3}$\\
+			Constante Geométrica $K_g$ & $20.6 \cdot 10^{-2}$\\
 			\hline 
-			Constante Geométrica $K_{gfe}$ & $1.3 \cdot 10^{-3}$\\
+			Constante Geométrica $K_{gfe}$ & $2.06 \cdot 10^{-3}$\\
 			\hline
 			Tipo de material & N87 \\
 			\hline
-			Tipo de núcleo & EE19 \\
+			Tipo de núcleo & EE25 \\
 			\hline 
-			Sección del núcleo $A_c$ & 0.23 $\, cm^2 $\\
+			Sección del núcleo $A_c$ & 0.518 $\, cm^2 $\\
 			\hline 
-			Área de ancho de la bobina : $ W_A$ & 0.284$\, cm^2 $\\
+			Área de ancho de la bobina : $ W_A$ & 0.300$\, cm^2 $\\
 			\hline
-			Longitud media por vuelta : $MLT $ & 3.69 $\, cm $ \\
+			Longitud media por vuelta : $MLT $ & 4.7 $\, cm $ \\
 			\hline 
-			Peso del núcleo: $g$ & 4.83 $\, g$\\
+			Peso del núcleo: $g$ & 15.1 $\, g$\\
 			\hline
-			Entre hierro (gap) & $l_g=\SI{0.082}{\milli\meter}$ \\
+			Entre hierro (gap) & $l_g=\SI{0.17}{\milli\meter}$ \\
 			\hline
-			Número de vueltas & $n_l=13$ \\
+			Número de vueltas & $n_l=26$ \\
 			\hline
-			Tipo de alambre & AWG\#20 \\
+			Tipo de alambre & AWG\#25 \\
 			\hline
 		\end{tabular}
 		\caption{Parámetros de diseño del inductor de $L=\SI{50}{\micro\henry}$}
@@ -306,18 +306,36 @@ citestyle=apa
 	\hfill
 	\begin{minipage}{0.65\textwidth}
 		\small
-		El núcleo \textbf{EE19} está compuesto por dos mitades con forma de
+		El núcleo \textbf{EE25} está compuesto por dos mitades con forma de
 		letra \textit{E}, cuya unión conforma un circuito magnético cerrado.
 		La denominación ``EE'' hace referencia a esta geometría, mientras que
-		el número ``19'' identifica el tamaño principal del núcleo, de
-		aproximadamente \SI{19}{mm}. Este tipo de núcleo de ferrita es
+		el número ``25'' identifica el tamaño principal del núcleo, de
+		aproximadamente \SI{25}{mm}. Este tipo de núcleo de ferrita es
 		ampliamente utilizado en inductores y transformadores de fuentes
 		conmutadas debido a su facilidad de bobinado y buen aprovechamiento
 		del flujo magnético.
 	\end{minipage}
 	
-	\caption{Núcleo EE19 sin ensamblar.}
+	\caption{Núcleo EE25 sin ensamblar.}
 	\label{fig:nucleoee19}
+	
+
+\end{figure}
+	\begin{figure}[H]
+		\centering
+		
+		\begin{minipage}{0.28\textwidth}
+		\centering
+		\includegraphics[width=0.7\linewidth]{img/BUCK/inductor_fabricado}\end{minipage}
+	\hfill
+	\begin{minipage}{0.65\textwidth}
+	
+	El inductor fue construido realizando el bobinado de forma manual sobre el carrete. Para reducir las pérdidas por efecto pelicular a la frecuencia de conmutación, se emplearon dos conductores esmaltados conectados en paralelo. Finalmente, se incorporó un entrehierro (\textit{gap}) mediante una lámina aislante calibrada entre ambas mitades del núcleo, aumentando la reluctancia del circuito magnético y disminuyendo la inductancia hasta el valor de diseño.
+	
+	\end{minipage}
+
+\caption{Núcleo EE19 ensamblado.}
+\label{fig:nucleoee25_ensaamblado}
 \end{figure}
 	
 	
