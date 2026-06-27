@@ -614,16 +614,87 @@ La siguiente lista detalla las consideraciones para establecer la medición del 
 	
 	\section{Mediciones}
 	
-	\subsection{Regulación de tensión}
+	\subsection{Regulación de linea}
+	La regulación de línea caracteriza la capacidad del convertidor para mantener constante la tensión de salida frente a variaciones en la tensión de entrada, manteniendo constante la carga. Rápidamente se detecto un error en el rendimiento de la fuente, ya que la regulación comienza a partir de una entrada de 13 V, mayor a lo esperado en el diseño el cual regulaba para valores mas bajos llegando a cumplir el requerimiento del rango de entrada desde 12 V hasta 30 V. Por otra parte las mediciones se ven limitadas hasta un valor cercano a 24 V debido a limitación del instrumental utilizado en el laboratorio.
+	
+	
+	
+	Debido a que las variaciones de la tensión de salida son del orden de unos pocos milivoltios, en lugar de medir directamente la tensión de salida se utilizó una fuente de laboratorio auxiliar ajustada a $9.5\,\mathrm{V}$ como referencia. Para cada valor de tensión de entrada se midió la diferencia de potencial entre la salida del convertidor \textit{buck} y la fuente de laboratorio, obteniendo el error $\Delta V_o$. Posteriormente, la tensión de salida se reconstruyó como
+	
+	\[
+	V_o = 9.5\,\mathrm{V} + \Delta V_o,
+	\]
+	
+	lo que permitió representar gráficamente la regulación de línea con mayor resolución.
+	
+	La regulación de línea se estimó a partir de la pendiente promedio de la característica de transferencia,
+	
+	\[
+	\mathrm{Reg}_{\mathrm{L}}=
+	\frac{\Delta V_o}{\Delta V_{in}},
+	\]
+	
+	obteniéndose
+	
+	\[
+	\mathrm{Reg}_{\mathrm{L}}
+	=
+	\frac{66.1\,\mathrm{mV}}{10.78\,\mathrm{V}}
+	=
+	6.13\,\mathrm{mV/V}.
+	\]
+	
+	Este resultado indica que, en promedio, la tensión de salida varía aproximadamente $6.13\,\mathrm{mV}$ por cada voltio de variación de la tensión de entrada, evidenciando un aceptable comportamiento del convertidor frente a perturbaciones en la alimentación.
+	
 	
 	\begin{figure}[H]
 		\centering
-		\includegraphics[width=0.7\linewidth]{img/BUCK/regulacion_tension}
-		\caption{Medición inicial de tensión de salida.}
-		\label{fig:regulaciontension}
+		
+		\begin{minipage}[t]{0.58\textwidth}
+			\centering
+			\includegraphics[width=\linewidth]{img/BUCK/regulacion_tension}
+			\caption{Medición inicial de la regulación para una tensión dentro de entrada de 22 V.}
+			\label{fig:regulaciontension}
+		\end{minipage}
+		\hfill
+		\begin{minipage}[t]{0.38\textwidth}
+			\centering
+			\vspace{-8cm}
+			\captionof{table}{Mediciones de regulación de línea.}
+			\label{tab:regulacion_linea}
+			\begin{tabular}{cc}
+				\toprule
+				$V_{in}$ [V] & $\Delta V_o$ [mV] \\
+				\midrule
+				13.32 & -78.0 \\
+				14.27 & -37.7 \\
+				15.32 & -32.5 \\
+				16.37 & -30.4 \\
+				17.42 & -22.3 \\
+				18.34 & -17.5 \\
+				19.59 & -17.7 \\
+				20.10 & -17.8 \\
+				21.30 & -15.2 \\
+				22.20 & -12.0 \\
+				23.30 & -12.2 \\
+				24.10 & -11.9 \\
+				\bottomrule
+			\end{tabular}
+		\end{minipage}
+		
 	\end{figure}
+
 	
-	
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\linewidth]{img/BUCK/mediciones interpolaciones/regulacion_linea}
+	\caption{Interpolación de los puntos medidos.}
+	\label{fig:regulacionlinea}
+\end{figure}
+
+En función de los resultados obtenidos, apreciables en la tabla \ref{tab:regulacion_linea}, el convertidor mantiene la tensión de salida dentro del rango especificado de 9.3 V a 9.7 V para todas las condiciones de entrada ensayadas, comprendidas entre \(13.32\,\mathrm{V}\) y \(24.10\,\mathrm{V}\). Sin embargo, se verificó experimentalmente que el convertidor no comienza a regular a partir de \(12\,\mathrm{V}\), como se establecía en las especificaciones de diseño, sino aproximadamente desde \(13\,\mathrm{V}\). Asimismo, debido a la limitación de la fuente de alimentación disponible en el laboratorio, no fue posible extender las mediciones hasta \(30\,\mathrm{V}\), por lo que el cumplimiento de la regulación de línea para el intervalo comprendido entre \(24.10\,\mathrm{V}\) y \(30\,\mathrm{V}\) no pudo ser corroborado experimentalmente.
+
+
 	\subsection{Regulación de carga}
 	
 	\begin{figure}[H]

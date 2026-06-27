@@ -17,12 +17,12 @@
 \contentsline {subsection}{\numberline {3.6}Compensación}{7}{}%
 \contentsline {section}{\numberline {4}Simulaciones}{7}{}%
 \contentsline {section}{\numberline {5}Mediciones}{7}{}%
-\contentsline {subsection}{\numberline {5.1}Regulación de tensión}{7}{}%
-\contentsline {subsection}{\numberline {5.2}Regulación de carga}{7}{}%
-\contentsline {subsection}{\numberline {5.3}Red \textit {Snubber}}{8}{}%
-\contentsline {subsection}{\numberline {5.4}Validación del Inductor}{8}{}%
-\contentsline {subsection}{\numberline {5.5}Regulación a lazo cerrado}{8}{}%
-\contentsline {section}{\numberline {6}Conclusiones}{8}{}%
-\contentsline {section}{\numberline {A}Apéndice I: PCB}{9}{}%
-\contentsline {subsection}{\numberline {A.1}Esquematico.}{9}{}%
-\contentsline {subsection}{\numberline {A.2}Pistas}{10}{}%
+\contentsline {subsection}{\numberline {5.1}Regulación de linea}{7}{}%
+\contentsline {subsection}{\numberline {5.2}Regulación de carga}{8}{}%
+\contentsline {subsection}{\numberline {5.3}Red \textit {Snubber}}{9}{}%
+\contentsline {subsection}{\numberline {5.4}Validación del Inductor}{9}{}%
+\contentsline {subsection}{\numberline {5.5}Regulación a lazo cerrado}{9}{}%
+\contentsline {section}{\numberline {6}Conclusiones}{9}{}%
+\contentsline {section}{\numberline {A}Apéndice I: PCB}{10}{}%
+\contentsline {subsection}{\numberline {A.1}Esquematico.}{10}{}%
+\contentsline {subsection}{\numberline {A.2}Pistas}{11}{}%
