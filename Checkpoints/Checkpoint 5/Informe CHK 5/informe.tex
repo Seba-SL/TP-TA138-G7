@@ -163,10 +163,71 @@ citestyle=apa
 	Analizando el diseño previo del circuito se notaron diferentes errores a los que se dieron solución en esta entrega.
 	Previamente se tomo una corriente mínima de salida de un valor erróneamente mas alto, en esta corrección se contemplo $100\,mA$ sen lugar de los $750\,mA$ esto permitió establecer una corriente media menor que garantice la conducción continua y disminuir las perdidas por la resistencia de sangrado.
 	
+	\begin{table}[H]
+		\centering
+		\caption{Parámetros finales del convertidor Buck}
+		\label{tab:buck_parametros}
+		\begin{tabular}{|c|c|c|c|}
+			\hline
+			\textbf{Parámetro} &
+			\textbf{Símbolo} &
+			\textbf{Valor previo} &
+			\textbf{Valor final}
+			\\ \hline
+			
+			Inductor de salida &
+			$L$ &
+			50 $\mu$H &
+			250 $\mu$H
+			\\ \hline
+			
+			
+			Resistencia de carga mínima &
+			$R_c$ &
+			15 $\Omega$ &
+			100 $\Omega$
+			\\ \hline
+			
+			Frecuencia de conmutación &
+			$f_s$ &
+			120 kHz &
+			130 kHz
+			\\ \hline
+			
+	
+			
+		\end{tabular}
+	\end{table}
+	
+	
+	\renewcommand{\arraystretch}{1.3}
+	\begin{table}[H]
+		\centering
+		\caption{Especificaciones del regulador BUCK}
+		\label{tab:spec_buck}
+		\begin{tabular}{|c|c|}
+			\hline
+			Parámetro & Valor \\  \hline \hline
+			Tensión de entrada $V_{IN}$ & \SI{12}{V} -- \SI{30}{V} \\ \hline
+			Tensión regulada $V_{REG}$ & \SI{9.5}{V} nominal \\ \hline
+			Corriente de salida $I_{OUT}$ & \SI{100}{mA} -- \SI{1.5}{A} \\ \hline
+			Eficiencia $\eta$ & 85\% -- 95\% \\ \hline
+			Frecuencia de conmutación $f_{sw}$ & \SI{120}{kHz} -- \SI{140}{kHz} \\ \hline
+		\end{tabular}
+	\end{table}
+	
+	
 	
 	\subsection{Construcción del inductor $L$}
 	
 	En la entrega anterior se diseño un inductor apropiado mediante el método de diseño iterativo de Erickson, cuyas caracteristicas finales se encuentran en la tabla \ref{tab:diseno_inductor}. Para llevar a cabo la construcción del inductor 
+	
+	\subsubsection{Densidad de corriente}
+	
+	\subsubsection{Saturación del núcleo} 
+	
+	
+	\subsubsection{Profundidad de penetración}
 	
 	
 	\begin{table}[H]

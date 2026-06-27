@@ -4,8 +4,11 @@
 \contentsline {section}{\numberline {3}Desarrollo}{2}{}%
 \contentsline {subsection}{\numberline {3.1}Correcciones previas}{2}{}%
 \contentsline {subsection}{\numberline {3.2}Construcción del inductor $L$}{2}{}%
+\contentsline {subsubsection}{\numberline {3.2.1}Densidad de corriente}{3}{}%
+\contentsline {subsubsection}{\numberline {3.2.2}Saturación del núcleo}{3}{}%
+\contentsline {subsubsection}{\numberline {3.2.3}Profundidad de penetración}{3}{}%
 \contentsline {subsection}{\numberline {3.3}Limitador de duty}{3}{}%
-\contentsline {subsection}{\numberline {3.4}Elección del capacitor \textit {Bootstrap}}{3}{}%
+\contentsline {subsection}{\numberline {3.4}Elección del capacitor \textit {Bootstrap}}{4}{}%
 \contentsline {subsection}{\numberline {3.5}Diseño de red \textit {Snubber}}{4}{}%
 \contentsline {subsection}{\numberline {3.6}Compensación}{4}{}%
 \contentsline {section}{\numberline {4}Simulaciones}{4}{}%
