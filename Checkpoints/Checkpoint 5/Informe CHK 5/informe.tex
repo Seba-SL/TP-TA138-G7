@@ -480,6 +480,22 @@ despejando la inductancia se obtiene
 
 \paragraph{Medición mediante LCR}
 
+Finalmente, la inductancia como ultima instancia se verificó mediante un medidor LCR, el cual determina el valor del componente aplicando una señal senoidal de pequeña amplitud y midiendo su impedancia compleja. A partir de la reactancia inductiva y la frecuencia de ensayo, el instrumento calcula automáticamente la inductancia. Este método proporciona una medición de mayor precisión y sirve para validar el valor obtenido mediante los métodos anteriores.
+
+
+
+La siguiente lista detalla las consideraciones para establecer la medición del LCR como la mas precisa.
+\begin{itemize}
+	\item Frecuencia de prueba conocida y estable. El instrumento genera una señal senoidal de amplitud y frecuencia muy precisas (100 Hz, 120 Hz, 1 kHz, 10 kHz o 100 kHz).
+	\item Medición simultánea de tensión y corriente. Mide con gran precisión la amplitud y el desfase entre ambas magnitudes.
+	\item Procesamiento digital. A partir de estas mediciones calcula la impedancia compleja del componente y obtiene directamente la inductancia, la resistencia serie equivalente (ESR) y el factor de calidad (Q).
+	
+	\item Calibración interna. Los medidores LCR compensan las resistencias y capacitancias de los cables mediante procedimientos de calibración (\textit{open} y \textit{short}), reduciendo significativamente el error.
+	
+\end{itemize}
+
+
+
 \subsection{Limitador de duty}
 	
 	Una de las características por corregir del diseño de fuente conmutada es el duty máximo. Fijar este valor surge de la necesidad de cargar el capacitor de \textit{bootstrap} para que este pueda polarizar el transistor \textit{high-side}. Si se exige un duty demasiado alto, el capacitor de bootstrap no se cargará nunca, haciendo caer la salida a 0V de forma indefinida.
