@@ -1,0 +1,16 @@
+LTspice 24.1.5 for Windows
+Circuit: C:\users\sebastian\Desktop\FIUBA-2do Cuatrimestre\Taller de Diseño Electrónico TA138\TP_Taller_de_Diseño_ TA138_G7\Simulación\BUCK\Draft2.net
+Start Time: Sat Jun 27 11:15:39 2026
+solver = Normal
+Maximum thread count: 4
+tnom = 27
+temp = 27
+method = trap
+Direct Newton iteration for .op point succeeded.
+Total elapsed time: 18.563 seconds.
+
+Files loaded:
+C:\users\sebastian\Desktop\FIUBA-2do Cuatrimestre\Taller de Diseño Electrónico TA138\TP_Taller_de_Diseño_ TA138_G7\Simulación\BUCK\Draft2.net
+C:\users\sebastian\AppData\Local\LTspice\lib\cmp\standard.dio
+C:\users\sebastian\AppData\Local\LTspice\lib\cmp\standard.mos
+

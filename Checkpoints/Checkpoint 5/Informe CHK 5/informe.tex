@@ -157,9 +157,103 @@ citestyle=apa
 		
 	
 	\section{Desarrollo}
+	
+	\subsection{Correcciones previas}
+	
+	Analizando el diseño previo del circuito se notaron diferentes errores a los que se dieron solución en esta entrega.
+	
+	\begin{itemize}
+		\item Previamente se tomo una corriente mínima de salida de un valor erróneamente mas alto, en esta corrección se contemplo $100\,mA$ sen lugar de los $750\,mA$ esto permitió establecer una corriente media menor que garantice la conducción continua y disminuir las perdidas por la resistencia de sangrado. 
+		
+		\item Se coloco un diodo de conmutación rápida en paralelo con el transistor de señal \textit{low}, de esta forma se garantiza ofrecer un camino a la corriente del inductor durante los tiempos muertos (dead time) y mejorar la robustez ante transitorios. También ante posibles desajustes o fallas en la generación del tiempo muerto por parte del \textit{gate driver}
+		
+		\item *Justificar cambio en los transistores en el chk4 usabamos IRF3205 y terminamos usando IRF350.
+		
+		\item *mencionar cambio en la frecuencia de conmutación.
+		
+		
+	\end{itemize}
+	
+	Al establecer una corriente mínima diferente de conducción se llego a un nuevo valor de inductancia mínimo, y resistencia máxima que garanticen la conducción continua. Estos nuevos valores junto con las modificaciones respecto a la entrega anterior se aprecian en la tabla \ref{tab:buck_parametros} para las especificaciones \ref{tab:spec_buck}.
+	
+	
+	
+	\begin{table}[H]
+		\centering
+		\caption{Parámetros finales del convertidor Buck}
+		\label{tab:buck_parametros}
+		\begin{tabular}{|c|c|c|c|}
+			\hline
+			\textbf{Parámetro} &
+			\textbf{Símbolo} &
+			\textbf{Valor previo} &
+			\textbf{Valor final}
+			\\ \hline
+			
+			Inductor de salida &
+			$L$ &
+			50 $\mu$H &
+			250 $\mu$H
+			\\ \hline
+			
+			
+			Resistencia de carga mínima &
+			$R_c$ &
+			15 $\Omega$ &
+			100 $\Omega$
+			\\ \hline
+			
+			Transistores (\textit{Low y High})  &
+			$Q_{1,2}$ &
+			N-MOS IRF3205 &N-MOS IRF350
+			
+			\\ \hline
+			
+			Frecuencia de conmutación &
+			$f_s$ &
+			120 kHz &
+			130 kHz
+			\\ \hline
+			
+	
+			
+		\end{tabular}
+	\end{table}
+	
+	
+	\renewcommand{\arraystretch}{1.3}
+	\begin{table}[H]
+		\centering
+		\caption{Especificaciones del regulador BUCK}
+		\label{tab:spec_buck}
+		\begin{tabular}{|c|c|}
+			\hline
+			Parámetro & Valor \\  \hline \hline
+			Tensión de entrada $V_{IN}$ & \SI{12}{V} -- \SI{30}{V} \\ \hline
+			Tensión regulada $V_{REG}$ & \SI{9.5}{V} nominal \\ \hline
+			Corriente de salida $I_{OUT}$ & \SI{100}{mA} -- \SI{1.5}{A} \\ \hline
+			Eficiencia $\eta$ & 85\% -- 95\% \\ \hline
+			Frecuencia de conmutación $f_{sw}$ & \SI{120}{kHz} -- \SI{140}{kHz} \\ \hline
+		\end{tabular}
+	\end{table}
+	
+	
+	
 	\subsection{Construcción del inductor $L$}
 	
-	En la entrega anterior se diseño un inductor apropiado mediante el método de diseño iterativo de Erickson, cuyas caracteristicas finales se encuentran en la tabla \ref{tab:diseno_inductor}. Para llevar a cabo la construcción del inductor 
+	Se reitero el diseño del inductor mediante el método iterativo de Erickson para el nuevo valor de L, cuyas características finales se encuentran en la tabla \ref{tab:diseno_inductor}. El inductor debe diseñarse de forma que opere dentro de la región lineal del núcleo magnético y mantenga sus parámetros eléctricos en las condiciones nominales de operación. Para ello, es necesario considerar las principales limitaciones físicas de un inductor real, las cuales condicionan tanto su desempeño como su eficiencia.
+	
+	\subsubsection{Densidad de corriente}
+	
+	La sección transversal del conductor debe dimensionarse de manera que la densidad de corriente permanezca dentro de los valores recomendados para limitar el incremento de temperatura del bobinado y evitar pérdidas excesivas por efecto Joule.
+	
+	\subsubsection{Saturación del núcleo} 
+	
+	El núcleo magnético debe operar por debajo de la densidad de flujo de saturación del material. De esta manera se asegura que la inductancia permanezca prácticamente constante y se evita la disminución abrupta de la inductancia, el aumento de la corriente y las pérdidas asociadas al funcionamiento en saturación.
+	
+	\subsubsection{Profundidad de penetración}
+	
+	Debido a la elevada frecuencia de conmutación del convertidor, la corriente alterna tiende a concentrarse cerca de la superficie del conductor, fenómeno conocido como efecto pelicular (\textit{skin effect}). Cuando el radio del conductor supera la profundidad de penetración, la resistencia efectiva aumenta y, en consecuencia, también las pérdidas por conducción. Para mitigar este efecto se decidió emplearse conductores de menor diámetro conectados en paralelo o cable tipo \textit{Litz}, incrementando el área efectiva de conducción para la componente alterna de la corriente.
 	
 	
 	\begin{table}[H]
@@ -171,27 +265,27 @@ citestyle=apa
 			\hline
 			\textbf{Parámetro} & \textbf{Valor} \\
 			\hline
-			Constante Geométrica $K_g$ & $4.07 \cdot 10^{-3}$\\
+			Constante Geométrica $K_g$ & $20.6 \cdot 10^{-2}$\\
 			\hline 
-			Constante Geométrica $K_{gfe}$ & $1.3 \cdot 10^{-3}$\\
+			Constante Geométrica $K_{gfe}$ & $2.06 \cdot 10^{-3}$\\
 			\hline
 			Tipo de material & N87 \\
 			\hline
-			Tipo de núcleo & EE19 \\
+			Tipo de núcleo & EE25 \\
 			\hline 
-			Sección del núcleo $A_c$ & 0.23 $\, cm^2 $\\
+			Sección del núcleo $A_c$ & 0.518 $\, cm^2 $\\
 			\hline 
-			Área de ancho de la bobina : $ W_A$ & 0.284$\, cm^2 $\\
+			Área de ancho de la bobina : $ W_A$ & 0.300$\, cm^2 $\\
 			\hline
-			Longitud media por vuelta : $MLT $ & 3.69 $\, cm $ \\
+			Longitud media por vuelta : $MLT $ & 4.7 $\, cm $ \\
 			\hline 
-			Peso del núcleo: $g$ & 4.83 $\, g$\\
+			Peso del núcleo: $g$ & 15.1 $\, g$\\
 			\hline
-			Entre hierro (gap) & $l_g=\SI{0.082}{\milli\meter}$ \\
+			Entre hierro (gap) & $l_g=\SI{0.17}{\milli\meter}$ \\
 			\hline
-			Número de vueltas & $n_l=13$ \\
+			Número de vueltas & $n_l=26$ \\
 			\hline
-			Tipo de alambre & AWG\#20 \\
+			Tipo de alambre & AWG\#25 \\
 			\hline
 		\end{tabular}
 		\caption{Parámetros de diseño del inductor de $L=\SI{50}{\micro\henry}$}
@@ -212,22 +306,198 @@ citestyle=apa
 	\hfill
 	\begin{minipage}{0.65\textwidth}
 		\small
-		El núcleo \textbf{EE19} está compuesto por dos mitades con forma de
+		El núcleo \textbf{EE25} está compuesto por dos mitades con forma de
 		letra \textit{E}, cuya unión conforma un circuito magnético cerrado.
 		La denominación ``EE'' hace referencia a esta geometría, mientras que
-		el número ``19'' identifica el tamaño principal del núcleo, de
-		aproximadamente \SI{19}{mm}. Este tipo de núcleo de ferrita es
+		el número ``25'' identifica el tamaño principal del núcleo, de
+		aproximadamente \SI{25}{mm}. Este tipo de núcleo de ferrita es
 		ampliamente utilizado en inductores y transformadores de fuentes
 		conmutadas debido a su facilidad de bobinado y buen aprovechamiento
 		del flujo magnético.
 	\end{minipage}
 	
-	\caption{Núcleo EE19 sin ensamblar.}
+	\caption{Núcleo EE25 sin ensamblar.}
 	\label{fig:nucleoee19}
+	
+
+\end{figure}
+	\begin{figure}[H]
+		\centering
+		
+		\begin{minipage}{0.28\textwidth}
+		\centering
+		\includegraphics[width=0.7\linewidth]{img/BUCK/inductor_fabricado}\end{minipage}
+	\hfill
+	\begin{minipage}{0.65\textwidth}
+	
+	El inductor fue construido realizando el bobinado de forma manual sobre el carrete. Para reducir las pérdidas por efecto pelicular a la frecuencia de conmutación, se emplearon dos conductores esmaltados conectados en paralelo. Finalmente, se incorporó un entrehierro (\textit{gap}) mediante una lámina aislante calibrada entre ambas mitades del núcleo, aumentando la reluctancia del circuito magnético y disminuyendo la inductancia hasta el valor de diseño.
+	
+	\end{minipage}
+
+\caption{Núcleo EE25 ensamblado.}
+\label{fig:nucleoee25_ensaamblado}
 \end{figure}
 	
+\subsubsection{Medición y caracterización del inductor fabricado}
+
+Para corroborar el valor final y el correcto funcionamiento del inductor inicialmente se realizo una medida estimativa del valor de inductancia mediante un circuito que releve un valor aproximado de este y también la no saturación del mismo en condiciones similares a las del circuito regulador. Y como verificación final se realizo una medida con el instrumento de medición de inductancia LCR.
+
+
+\paragraph{Método de medición mediante filtro RL:} 
+
+Se realizo un filtro RL y se comprobó la frecuencia de corte, de esta forma se despejo el valor aproximado de L.
+
+Para determinar la inductancia se emplea un circuito RL serie, excitado
+mediante una señal senoidal de frecuencia variable. Tomando la salida
+sobre el inductor, el circuito se comporta como un filtro pasa-altos cuya
+función de transferencia está dada por
+
+\begin{equation}
+	H(s)=\frac{V_L(s)}{V_{in}(s)}=
+	\frac{sL}{R+sL}.
+\end{equation}
+
+La frecuencia de corte del filtro se produce cuando la magnitud de la
+impedancia inductiva es igual a la resistencia, es decir,
+
+\begin{equation}
+	\omega_cL=R.
+\end{equation}
+
+Como $\omega_c=2\pi f_c$, la inductancia puede obtenerse despejando
+
+\begin{equation}
+	L=\frac{R}{2\pi f_c}.
+\end{equation}
+
+De esta manera, conociendo el valor de la resistencia y midiendo la
+frecuencia de corte del circuito, es posible determinar el valor de la
+inductancia. La frecuencia de corte puede identificarse cuando la amplitud de la tensión de salida alcanza el $70.7 \%$ de su valor máximo
+($-3\,\mathrm{dB}$).
+\begin{figure}[H]
+	\centering
 	
-	\subsection{Limitador de duty}
+	\begin{minipage}[c]{0.45\textwidth}
+		\centering
+		\begin{tikzpicture}[transform shape, scale=0.85]
+			% Paths, nodes and wires:
+			\draw (5, 10.75) to[sinusoidal voltage source, l_={$Señal$}] (5, 13.75);
+			\node[ground] at (5, 10.75){};
+			\draw (8, 13) to[american resistor, l={$R$}] (8, 15.25);
+			\draw (5, 13.75) -| (5, 15.5) -| (8, 15.25);
+			\draw (9.75, 11) to[oscope, l_={$Osciloscopio$}] (9.75, 13);
+			\draw (8, 13) to[american inductor, l={$L_x$}] (8, 11.25);
+			\node[ground] at (8, 10.75){};
+			\draw (8, 10.75) -- (8, 11.25);
+			\draw (9.75, 11) |- (8, 11);
+			\draw (9.75, 13) -- (8, 13);
+		\end{tikzpicture}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[c]{0.50\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{img/BUCK/inductor_medicion_1}
+	\end{minipage}
+	
+	\caption{Montaje experimental para la medición de la inductancia mediante un circuito RL y captura de la respuesta obtenida en el osciloscopio.}
+	\label{fig:inductormedicion1}
+\end{figure}
+
+
+\paragraph{Método contemplando linealidad y saturación: } 
+
+
+La Figura \ref{fig:medicion_L_sat} presenta el circuito utilizado para verificar la linealidad del inductor mediante un ensayo de corriente pulsada (\textit{Pulse Test}). El MOSFET conmuta el inductor mediante una señal PWM, mientras que el diodo proporciona un camino de circulación para la corriente durante el apagado del transistor. La corriente del inductor se obtiene midiendo la tensión sobre la resistencia de sensado $R_{sense}$. Incrementando gradualmente la tensión de alimentación o el tiempo de conducción del MOSFET, la corriente alcanza valores cada vez mayores. Mientras el núcleo opere en la región lineal, la corriente presenta una rampa de pendiente constante; la aparición de una curvatura creciente indica el inicio de la saturación del núcleo debido a la disminución de la inductancia efectiva. El valor de L se obtiene calculando la pendiente de dicha curva.
+
+Durante el intervalo de conducción del MOSFET, la tensión aplicada al
+inductor puede aproximarse por
+
+\begin{equation}
+	v_L \approx V_{CC}.
+\end{equation}
+
+A partir de la ecuación característica del inductor,
+
+\begin{equation}
+	v_L=L\frac{di_L}{dt},
+\end{equation}
+
+despejando la inductancia se obtiene
+
+\begin{equation}
+	L=\frac{v_L}{\dfrac{di_L}{dt}}
+	\approx
+	\frac{V_{CC}}{\dfrac{di_L}{dt}}.
+\end{equation}
+
+\begin{figure}[H]
+	
+\begin{minipage}[t]{0.42\textwidth}
+		\centering
+		\begin{tikzpicture}[transform shape, scale=0.95]
+			% Paths, nodes and wires:
+			\draw (5.75, 12) to[empty diode, l={$D$}] (5.75, 14.5);
+			\draw (8.25, 14.75) to[american inductor, l={$L$}] (8.25, 12);
+			\draw (8.25, 11.375) -| (8.25, 11.5);
+			\node[nmos, xscale=-1, yscale=-1](N1) at (8.25, 10.605){} node[anchor=east] at (N1.text){$Q$};
+			\draw (8.25, 9.835) to[american resistor, /tikz/circuitikz/bipoles/length=1.16cm, l={$R_{sense}$}] (8.25, 7.25);
+			\node[ground] at (8.25, 7.25){};
+			\node[ground] at (3.25, 13.75){};
+			\draw (3.25, 15.75) -- (7, 15.75) -| (7, 15.25);
+			\draw (3.25, 15.75) to[american voltage source, l={$V_{cc}$}] (3.25, 13.75);
+			\draw (10.5, 9.25) to[square voltage source, l={$V_s$}] (10.5, 10.25);
+			\node[ground] at (10.5, 9.25){};
+			\draw (9.23, 10.605) -| (10.5, 10.25);
+			\draw (8.25, 14.75) -| (8.25, 15.25) -- (7, 15.25);
+			\draw (5.75, 14.5) -| (5.75, 15.25) -- (7, 15.25);
+			\draw (5.75, 12) -- (8.25, 12);
+			\draw (8.25, 11.5) -| (8.25, 12);
+		\end{tikzpicture}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{0.5\textwidth}
+		\vspace*{-6cm}
+		Se observa la tensión sobre la resistencia de sensado
+		$R_{sense}$, proporcional a la corriente del inductor.
+		Mientras el núcleo permanezca en la región lineal, la corriente
+		debe aumentar formando una rampa de pendiente constante.
+		
+		
+		\begin{enumerate}
+			\item Se fija una tensión continua $V_{cc}$.
+			\item Se excita el MOSFET con un PWM de \textit{Duty} ajustable mediante generador digital.
+			\item Medir la tensión sobre $R_{sense}$.
+			\item Incrementar gradualmente $V_{cc}$ o el ciclo de trabajo \textit{Duty}.
+		\end{enumerate}
+		
+		Si la rampa permanece lineal, el núcleo opera fuera de saturación. La aparición de una curvatura creciente indica el inicio de la saturación del núcleo.
+	
+	\end{minipage}
+	
+	\caption{Circuito para la medición de la saturación del inductor mediante corriente pulsada.}
+	\label{fig:medicion_L_sat}
+\end{figure}
+
+
+\paragraph{Medición mediante LCR:}
+
+Finalmente, la inductancia como ultima instancia se verificó mediante un medidor LCR, el cual determina el valor del componente aplicando una señal senoidal de pequeña amplitud y midiendo su impedancia compleja. A partir de la reactancia inductiva y la frecuencia de ensayo, el instrumento calcula automáticamente la inductancia. Este método proporciona una medición de mayor precisión y sirve para validar el valor obtenido mediante los métodos anteriores.
+
+
+
+La siguiente lista detalla las consideraciones para establecer la medición del LCR como la mas precisa.
+\begin{itemize}
+	\item Frecuencia de prueba conocida y estable. El instrumento genera una señal senoidal de amplitud y frecuencia muy precisas (100 Hz, 120 Hz, 1 kHz, 10 kHz o 100 kHz).
+	\item Medición simultánea de tensión y corriente. Mide con gran precisión la amplitud y el desfase entre ambas magnitudes.
+	\item Procesamiento digital. A partir de estas mediciones calcula la impedancia compleja del componente y obtiene directamente la inductancia, la resistencia serie equivalente (ESR) y el factor de calidad (Q).
+	
+	\item Calibración interna. Los medidores LCR compensan las resistencias y capacitancias de los cables mediante procedimientos de calibración (\textit{open} y \textit{short}), reduciendo significativamente el error.
+	
+\end{itemize}
+
+
+
+\subsection{Limitador de duty}
 	
 	Una de las características por corregir del diseño de fuente conmutada es el duty máximo. Fijar este valor surge de la necesidad de cargar el capacitor de \textit{bootstrap} para que este pueda polarizar el transistor \textit{high-side}. Si se exige un duty demasiado alto, el capacitor de bootstrap no se cargará nunca, haciendo caer la salida a 0V de forma indefinida.
 	
@@ -330,15 +600,132 @@ citestyle=apa
 		
 		
 		
-	\subsection{Diseño de red \textit{Snubber}}
+\subsection{Diseño de red \textit{Snubber}}
 	
 	
+	
+
 	
 	\subsection{Compensación}
 	
 	\section{Simulaciones}
 	
+	
+	
 	\section{Mediciones}
+	
+	\subsection{Regulación de linea}
+	
+	La regulación de línea caracteriza la capacidad del convertidor para mantener constante la tensión de salida frente a variaciones en la tensión de entrada, manteniendo constante la carga en este caso de $5 \, k\Omega$. Rápidamente se detecto un error en el rendimiento de la fuente, ya que la regulación comienza a partir de una entrada de 13 V, mayor a lo esperado en el diseño el cual regulaba para valores mas bajos llegando a cumplir el requerimiento del rango de entrada desde 12 V hasta 30 V. Por otra parte las mediciones se ven limitadas hasta un valor cercano a 24 V debido a limitación del instrumental utilizado en el laboratorio.
+	
+	
+	
+	Debido a que las variaciones de la tensión de salida son del orden de unos pocos milivoltios, en lugar de medir directamente la tensión de salida se utilizó una fuente de laboratorio auxiliar ajustada a $9.5\,\mathrm{V}$ como referencia. Para cada valor de tensión de entrada se midió la diferencia de potencial entre la salida del convertidor \textit{buck} y la fuente de laboratorio, obteniendo el error $\Delta V_o$. Posteriormente, la tensión de salida se reconstruyó como
+	
+	\[
+	V_o = 9.5\,\mathrm{V} + \Delta V_o,
+	\]
+	
+	lo que permitió representar gráficamente la regulación de línea con mayor resolución.
+	
+	La regulación de línea se estimó a partir de la pendiente promedio de la característica de transferencia,
+	
+	\[
+	\mathrm{Reg}_{\mathrm{L}}=
+	\frac{\Delta V_o}{\Delta V_{in}},
+	\]
+	
+	obteniéndose
+	
+	\[
+	\mathrm{Reg}_{\mathrm{L}}
+	=
+	\frac{66.1\,\mathrm{mV}}{10.78\,\mathrm{V}}
+	=
+	6.13\,\mathrm{mV/V}.
+	\]
+	
+	Este resultado indica que, en promedio, la tensión de salida varía aproximadamente $6.13\,\mathrm{mV}$ por cada voltio de variación de la tensión de entrada, evidenciando un aceptable comportamiento del convertidor frente a perturbaciones en la alimentación.
+	
+	
+	\begin{figure}[H]
+		\centering
+		
+		\begin{minipage}[t]{0.58\textwidth}
+			\centering
+			\includegraphics[width=\linewidth]{img/BUCK/regulacion_tension}
+			\caption{Medición inicial de la regulación para una tensión dentro de entrada de 22 V.}
+			\label{fig:regulaciontension}
+		\end{minipage}
+		\hfill
+		\begin{minipage}[t]{0.38\textwidth}
+			\centering
+			\vspace{-8cm}
+			\captionof{table}{Mediciones de regulación de línea.}
+			\label{tab:regulacion_linea}
+			\begin{tabular}{cc}
+				\toprule
+				$V_{in}$ [V] & $\Delta V_o$ [mV] \\
+				\midrule
+				13.32 & -78.0 \\
+				14.27 & -37.7 \\
+				15.32 & -32.5 \\
+				16.37 & -30.4 \\
+				17.42 & -22.3 \\
+				18.34 & -17.5 \\
+				19.59 & -17.7 \\
+				20.10 & -17.8 \\
+				21.30 & -15.2 \\
+				22.20 & -12.0 \\
+				23.30 & -12.2 \\
+				24.10 & -11.9 \\
+				\bottomrule
+			\end{tabular}
+		\end{minipage}
+		
+	\end{figure}
+
+	
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\linewidth]{img/BUCK/mediciones interpolaciones/regulacion_linea}
+	\caption{Interpolación de los puntos medidos.}
+	\label{fig:regulacionlinea}
+\end{figure}
+
+En función de los resultados obtenidos, apreciables en la tabla \ref{tab:regulacion_linea}, el convertidor mantiene la tensión de salida dentro del rango especificado de 9.3 V a 9.7 V para todas las condiciones de entrada ensayadas, comprendidas entre \(13.32\,\mathrm{V}\) y \(24.10\,\mathrm{V}\). Sin embargo, se verificó experimentalmente que el convertidor no comienza a regular a partir de \(12\,\mathrm{V}\), como se establecía en las especificaciones de diseño, sino aproximadamente desde \(13\,\mathrm{V}\). Asimismo, debido a la limitación de la fuente de alimentación disponible en el laboratorio, no fue posible extender las mediciones hasta \(30\,\mathrm{V}\), por lo que el cumplimiento de la regulación de línea para el intervalo comprendido entre \(24.10\,\mathrm{V}\) y \(30\,\mathrm{V}\) no pudo ser corroborado experimentalmente.
+
+
+	\subsection{Regulación de carga}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\linewidth]{img/BUCK/banco_medicion_reg_carga}
+		\caption{Banco de medición de regulación de carga.}
+		\label{fig:bancomedicionregcarga}
+	\end{figure}
+	
+	
+	\subsection{Red \textit{Snubber}}
+	
+	\begin{figure}[H]
+		\centering
+		
+		\begin{minipage}{0.48\linewidth}
+			\centering
+			\includegraphics[width=\linewidth]{img/BUCK/medicion_sin_snubber}
+			\caption{Medición sin snubber}
+			\label{fig:medicionsinsnubber}
+		\end{minipage}
+		\hfill
+		\begin{minipage}{0.48\linewidth}
+			\centering
+			\includegraphics[width=\linewidth]{img/BUCK/medicion_con_snubber1}
+			\caption{Medición con snubber}
+			\label{fig:medicionconsnubber}
+		\end{minipage}
+		
+	\end{figure}
 	\subsection{Validación del Inductor}
 	\subsection{Regulación a lazo cerrado}
 	
