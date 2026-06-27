@@ -1,12 +1,15 @@
-LTspice 24.1.5 for Windows
-Circuit: C:\Users\ramaz\Desktop\Circuitos II\TP-TA138-G7\Simulaci贸n\BUCK\pwm.net
-Start Time: Mon Jun  1 00:31:57 2026
-Options: gmin=1e-10  abstol=1e-10  reltol=0.003
+LTspice 24.0.12 for Windows
+Circuit: * C:\Users\ramaz\Desktop\Circuitos II\TP-TA138-G7\Simulaci髇\BUCK\pwm.asc
+Start Time: Thu Jun 25 20:46:41 2026
+Warning: Multiple definitions of model "2scr375p" Type: BJT
+Warning: Multiple definitions of model "bc857b" Type: BJT
+Warning: Multiple definitions of model "bc847c" Type: BJT
+Warning: Multiple definitions of model "bc847b" Type: BJT
 solver = Normal
-Maximum thread count: 12
+Maximum thread count: 8
 tnom = 27
 temp = 27
-method = trap
+method = modified trap
 gmin = 1e-10
 abstol = 1e-10
 reltol = 0.003
@@ -31,16 +34,5 @@ Gmin = 5.50104
 Gmin = 0
 Gmin stepping succeeded in finding the operating point.
 
-Total elapsed time: 1.630 seconds.
-
-Files loaded:
-C:\Users\ramaz\Desktop\Circuitos II\TP-TA138-G7\Simulaci贸n\BUCK\pwm.net
-C:\Users\ramaz\AppData\Local\LTspice\lib\cmp\standard.bjt
-C:\Users\ramaz\Desktop\Circuitos II\TP-TA138-G7\Simulaci贸n\BUCK\Modelos\lm393.lib
-C:\Users\ramaz\Desktop\Circuitos II\TP-TA138-G7\Simulaci贸n\BUCK\Modelos\TL082.txt
-C:\Users\ramaz\Desktop\Circuitos II\TP-TA138-G7\Simulaci贸n\BUCK\Modelos\lm358.txt
-C:\Users\ramaz\Desktop\Circuitos II\TP-TA138-G7\Simulaci贸n\BUCK\Modelos\TL431.spi
-C:\Users\ramaz\Desktop\Circuitos II\TP-TA138-G7\Simulaci贸n\BUCK\LM319.txt
-C:\Users\ramaz\Desktop\Circuitos II\TP-TA138-G7\Simulaci贸n\BUCK\Modelos\irf3205.spi
-C:\Users\ramaz\Desktop\Circuitos II\TP-TA138-G7\Simulaci贸n\BUCK\Modelos\ir2111.lib
+Total elapsed time: 7.338 seconds.
 
