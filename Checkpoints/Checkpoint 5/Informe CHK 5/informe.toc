@@ -8,15 +8,18 @@
 \contentsline {subsubsection}{\numberline {3.2.2}Saturación del núcleo}{3}{}%
 \contentsline {subsubsection}{\numberline {3.2.3}Profundidad de penetración}{3}{}%
 \contentsline {subsubsection}{\numberline {3.2.4}Medición y caracterización del inductor fabricado}{4}{}%
-\contentsline {subsection}{\numberline {3.3}Limitador de duty}{4}{}%
-\contentsline {subsection}{\numberline {3.4}Elección del capacitor \textit {Bootstrap}}{5}{}%
-\contentsline {subsection}{\numberline {3.5}Diseño de red \textit {Snubber}}{6}{}%
-\contentsline {subsection}{\numberline {3.6}Compensación}{6}{}%
-\contentsline {section}{\numberline {4}Simulaciones}{6}{}%
-\contentsline {section}{\numberline {5}Mediciones}{6}{}%
-\contentsline {subsection}{\numberline {5.1}Validación del Inductor}{6}{}%
-\contentsline {subsection}{\numberline {5.2}Regulación a lazo cerrado}{6}{}%
-\contentsline {section}{\numberline {6}Conclusiones}{6}{}%
-\contentsline {section}{\numberline {A}Apéndice I: PCB}{7}{}%
-\contentsline {subsection}{\numberline {A.1}Esquematico.}{7}{}%
-\contentsline {subsection}{\numberline {A.2}Pistas}{8}{}%
+\contentsline {paragraph}{Método de medición aproximado de valor}{4}{}%
+\contentsline {paragraph}{Método saturación y valor}{5}{}%
+\contentsline {paragraph}{Medición mediante LCR}{5}{}%
+\contentsline {subsection}{\numberline {3.3}Limitador de duty}{5}{}%
+\contentsline {subsection}{\numberline {3.4}Elección del capacitor \textit {Bootstrap}}{6}{}%
+\contentsline {subsection}{\numberline {3.5}Diseño de red \textit {Snubber}}{7}{}%
+\contentsline {subsection}{\numberline {3.6}Compensación}{7}{}%
+\contentsline {section}{\numberline {4}Simulaciones}{7}{}%
+\contentsline {section}{\numberline {5}Mediciones}{7}{}%
+\contentsline {subsection}{\numberline {5.1}Validación del Inductor}{7}{}%
+\contentsline {subsection}{\numberline {5.2}Regulación a lazo cerrado}{7}{}%
+\contentsline {section}{\numberline {6}Conclusiones}{7}{}%
+\contentsline {section}{\numberline {A}Apéndice I: PCB}{8}{}%
+\contentsline {subsection}{\numberline {A.1}Esquematico.}{8}{}%
+\contentsline {subsection}{\numberline {A.2}Pistas}{9}{}%

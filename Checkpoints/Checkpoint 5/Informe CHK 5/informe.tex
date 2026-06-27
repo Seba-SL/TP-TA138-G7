@@ -345,43 +345,137 @@ Para corroborar el valor final y el correcto funcionamiento del inductor inicial
 
 \paragraph{Método de medición aproximado de valor}
 
+Se realizo un filtro RL y se comprobó la frecuencia de corte, de esta forma se despejo el valor aproximado de L.
+
+Para determinar la inductancia se emplea un circuito RL serie, excitado
+mediante una señal senoidal de frecuencia variable. Tomando la salida
+sobre el inductor, el circuito se comporta como un filtro pasa-altos cuya
+función de transferencia está dada por
+
+\begin{equation}
+	H(s)=\frac{V_L(s)}{V_{in}(s)}=
+	\frac{sL}{R+sL}.
+\end{equation}
+
+La frecuencia de corte del filtro se produce cuando la magnitud de la
+impedancia inductiva es igual a la resistencia, es decir,
+
+\begin{equation}
+	\omega_cL=R.
+\end{equation}
+
+Como $\omega_c=2\pi f_c$, la inductancia puede obtenerse despejando
+
+\begin{equation}
+	L=\frac{R}{2\pi f_c}.
+\end{equation}
+
+De esta manera, conociendo el valor de la resistencia y midiendo la
+frecuencia de corte del circuito, es posible determinar el valor de la
+inductancia. La frecuencia de corte puede identificarse cuando la amplitud de la tensión de salida alcanza el $70.7 \%$ de su valor máximo
+($-3\,\mathrm{dB}$).
+\begin{figure}[H]
+	\centering
+	
+	\begin{minipage}[c]{0.45\textwidth}
+		\centering
+		\begin{tikzpicture}[transform shape, scale=0.85]
+			% Paths, nodes and wires:
+			\draw (5, 10.75) to[sinusoidal voltage source, l_={$Señal$}] (5, 13.75);
+			\node[ground] at (5, 10.75){};
+			\draw (8, 13) to[american resistor, l={$R$}] (8, 15.25);
+			\draw (5, 13.75) -| (5, 15.5) -| (8, 15.25);
+			\draw (9.75, 11) to[oscope, l_={$Osciloscopio$}] (9.75, 13);
+			\draw (8, 13) to[american inductor, l={$L_x$}] (8, 11.25);
+			\node[ground] at (8, 10.75){};
+			\draw (8, 10.75) -- (8, 11.25);
+			\draw (9.75, 11) |- (8, 11);
+			\draw (9.75, 13) -- (8, 13);
+		\end{tikzpicture}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[c]{0.50\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{img/BUCK/inductor_medicion_1}
+	\end{minipage}
+	
+	\caption{Montaje experimental para la medición de la inductancia mediante un circuito RL y captura de la respuesta obtenida en el osciloscopio.}
+	\label{fig:inductormedicion1}
+\end{figure}
 
 
 \paragraph{Método saturación y valor}
-Se realiza la medición \ref{fig: medicion_L_sat} observa la tensión sobre la resistencia de sensado $R_{sense}$ representativa de la corriente en el inductor, la corriente del inductor debe aumentar formando una rampa perfectamente lineal.
 
-\begin{enumerate}
-	\item Se fija una tensión continua relativamente baja (por ejemplo 5–20 V).
-	\item Se excita el MOSFET con PWM de baja frecuencia (100 Hz a algunos kHz).
-	\item Se utiliza un Ton suficientemente largo para que la corriente alcance distintos valores.
-	\item Se mide la tensión sobre $R_{sense}$ 
-	\item Se aumenta gradualmente: la tensión de alimentación, o el tiempo de conducción (Duty).
-\end{enumerate}
-​
+La Figura \ref{fig:medicion_L_sat} presenta el circuito utilizado para verificar la linealidad del inductor mediante un ensayo de corriente pulsada (\textit{Pulse Test}). El MOSFET conmuta el inductor mediante una señal PWM, mientras que el diodo proporciona un camino de circulación para la corriente durante el apagado del transistor. La corriente del inductor se obtiene midiendo la tensión sobre la resistencia de sensado $R_{sense}$. Incrementando gradualmente la tensión de alimentación o el tiempo de conducción del MOSFET, la corriente alcanza valores cada vez mayores. Mientras el núcleo opere en la región lineal, la corriente presenta una rampa de pendiente constante; la aparición de una curvatura creciente indica el inicio de la saturación del núcleo debido a la disminución de la inductancia efectiva. El valor de L se obtiene calculando la pendiente de dicha curva.
 
-Mientras la rampa siga siendo lineal, el núcleo trabaja en la zona lineal.
+Durante el intervalo de conducción del MOSFET, la tensión aplicada al
+inductor puede aproximarse por
 
-Cuando aparece curvatura, comenzó la saturación.
+\begin{equation}
+	v_L \approx V_{CC}.
+\end{equation}
 
-\begin{tikzpicture}[transform shape]
-	% Paths, nodes and wires:
-	\draw (5.75, 12) to[empty diode, l={$D$}] (5.75, 14.5);
-	\draw (8.25, 14.75) to[american inductor, l={$L$}] (8.25, 12);
-	\draw (8.25, 11.375) -| (8.25, 11.5);
-	\node[nmos, xscale=-1, yscale=-1](N1) at (8.25, 10.605){} node[anchor=east] at (N1.text){$Q$};
-	\draw (8.25, 9.835) to[american resistor, /tikz/circuitikz/bipoles/length=1.16cm, l={$R_{sense}$}] (8.25, 7.25);
-	\node[ground] at (8.25, 7.25){};
-	\node[ground] at (3.25, 13.75){};
-	\draw (3.25, 15.75) -- (7, 15.75) -| (7, 15.25);
-	\draw (3.25, 15.75) to[american voltage source, l={$V_{cc}$}] (3.25, 13.75);
-	\draw (10.5, 9.25) to[square voltage source, l={$V_s$}] (10.5, 10.25);
-	\node[ground] at (10.5, 9.25){};
-	\draw (9.23, 10.605) -| (10.5, 10.25);
-	\draw (8.25, 14.75) -| (8.25, 15.25) -- (7, 15.25);
-	\draw (5.75, 14.5) -| (5.75, 15.25) -- (7, 15.25);
-	\draw (5.75, 12) -- (8.25, 12);
-	\draw (8.25, 11.5) -| (8.25, 12);
-\end{tikzpicture}
+A partir de la ecuación característica del inductor,
+
+\begin{equation}
+	v_L=L\frac{di_L}{dt},
+\end{equation}
+
+despejando la inductancia se obtiene
+
+\begin{equation}
+	L=\frac{v_L}{\dfrac{di_L}{dt}}
+	\approx
+	\frac{V_{CC}}{\dfrac{di_L}{dt}}.
+\end{equation}
+
+\begin{figure}[H]
+	
+\begin{minipage}[t]{0.42\textwidth}
+		\centering
+		\begin{tikzpicture}[transform shape, scale=0.95]
+			% Paths, nodes and wires:
+			\draw (5.75, 12) to[empty diode, l={$D$}] (5.75, 14.5);
+			\draw (8.25, 14.75) to[american inductor, l={$L$}] (8.25, 12);
+			\draw (8.25, 11.375) -| (8.25, 11.5);
+			\node[nmos, xscale=-1, yscale=-1](N1) at (8.25, 10.605){} node[anchor=east] at (N1.text){$Q$};
+			\draw (8.25, 9.835) to[american resistor, /tikz/circuitikz/bipoles/length=1.16cm, l={$R_{sense}$}] (8.25, 7.25);
+			\node[ground] at (8.25, 7.25){};
+			\node[ground] at (3.25, 13.75){};
+			\draw (3.25, 15.75) -- (7, 15.75) -| (7, 15.25);
+			\draw (3.25, 15.75) to[american voltage source, l={$V_{cc}$}] (3.25, 13.75);
+			\draw (10.5, 9.25) to[square voltage source, l={$V_s$}] (10.5, 10.25);
+			\node[ground] at (10.5, 9.25){};
+			\draw (9.23, 10.605) -| (10.5, 10.25);
+			\draw (8.25, 14.75) -| (8.25, 15.25) -- (7, 15.25);
+			\draw (5.75, 14.5) -| (5.75, 15.25) -- (7, 15.25);
+			\draw (5.75, 12) -- (8.25, 12);
+			\draw (8.25, 11.5) -| (8.25, 12);
+		\end{tikzpicture}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{0.5\textwidth}
+		\vspace*{-6cm}
+		Se observa la tensión sobre la resistencia de sensado
+		$R_{sense}$, proporcional a la corriente del inductor.
+		Mientras el núcleo permanezca en la región lineal, la corriente
+		debe aumentar formando una rampa de pendiente constante.
+		
+		
+		\begin{enumerate}
+			\item Se fija una tensión continua $V_{cc}$.
+			\item Se excita el MOSFET con un PWM de \textit{Duty} ajustable mediante generador digital.
+			\item Medir la tensión sobre $R_{sense}$.
+			\item Incrementar gradualmente $V_{cc}$ o el ciclo de trabajo \textit{Duty}.
+		\end{enumerate}
+		
+		Si la rampa permanece lineal, el núcleo opera fuera de saturación. La aparición de una curvatura creciente indica el inicio de la saturación del núcleo.
+	
+	\end{minipage}
+	
+	\caption{Circuito para la medición de la saturación del inductor mediante corriente pulsada.}
+	\label{fig:medicion_L_sat}
+\end{figure}
 
 
 \paragraph{Medición mediante LCR}

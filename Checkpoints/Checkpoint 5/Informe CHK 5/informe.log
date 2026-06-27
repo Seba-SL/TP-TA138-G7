@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2026.1.2)  27 JUN 2026 09:46
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2026.1.2)  27 JUN 2026 10:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1316,55 +1316,66 @@ Package pdftex.def Info: img/BUCK/inductor_fabricado.png  used on input line 32
 (pdftex.def)             Requested size: 100.38043pt x 98.12709pt.
  [3 <./img/diseÃ±o_inductor/nucleo_EE19.png>]
 
-LaTeX Warning: Reference `fig: medicion_L_sat' on page 4 undefined on input lin
-e 345.
+LaTeX Warning: Command \~ invalid in math mode on input line 384.
 
-[4 <./img/BUCK/inductor_fabricado.png>]
-Overfull \hbox (13.52563pt too wide) in paragraph at lines 433--433
+Missing character: There is no ñ in font cmr10!
+<img/BUCK/inductor_medicion_1.png, id=44, 602.25pt x 361.35pt>
+File: img/BUCK/inductor_medicion_1.png Graphic file (type png)
+<use img/BUCK/inductor_medicion_1.png>
+Package pdftex.def Info: img/BUCK/inductor_medicion_1.png  used on input line 3
+99.
+(pdftex.def)             Requested size: 256.07481pt x 153.65166pt.
+[4 <./img/BUCK/inductor_fabricado.png> <./img/BUCK/inductor_medicion_1.png>]
+Overfull \hbox (4.37103pt too wide) in paragraph at lines 454--455
+ [][] 
+ []
+
+[5]
+Overfull \hbox (13.52563pt too wide) in paragraph at lines 549--549
  [][]$\OML/cmm/m/it/8 V[]$ 
  []
 
 
-Overfull \hbox (20.88469pt too wide) in paragraph at lines 434--434
+Overfull \hbox (20.88469pt too wide) in paragraph at lines 550--550
  [][]\T1/cmr/m/n/8 GND 
  []
 
 
-Overfull \hbox (9.02693pt too wide) in paragraph at lines 435--435
+Overfull \hbox (9.02693pt too wide) in paragraph at lines 551--551
  [][]\T1/cmr/m/n/8 IN 
  []
 
 
-Overfull \hbox (12.6624pt too wide) in paragraph at lines 436--436
+Overfull \hbox (12.6624pt too wide) in paragraph at lines 552--552
  [][]$\OML/cmm/m/it/8 V[]$ 
  []
 
 
-Overfull \hbox (12.52356pt too wide) in paragraph at lines 437--437
+Overfull \hbox (12.52356pt too wide) in paragraph at lines 553--553
  [][]$\OML/cmm/m/it/8 H[]$ 
  []
 
 
-Overfull \hbox (11.32147pt too wide) in paragraph at lines 438--438
+Overfull \hbox (11.32147pt too wide) in paragraph at lines 554--554
  [][]$\OML/cmm/m/it/8 L[]$ 
  []
 
 
-Overfull \hbox (10.32286pt too wide) in paragraph at lines 439--439
+Overfull \hbox (10.32286pt too wide) in paragraph at lines 555--555
  [][]$\OML/cmm/m/it/8 V[]$ 
  []
 
 
-LaTeX Warning: Empty bibliography on input line 486.
+LaTeX Warning: Empty bibliography on input line 602.
 
-[5] [6]
+[6] [7]
 
 pdfTeX warning: /usr/bin/pdflatex (file ./img/BUCK/esquematico_buck.pdf): PDF i
 nclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<img/BUCK/esquematico_buck.pdf, id=62, 845.04686pt x 597.50786pt>
+<img/BUCK/esquematico_buck.pdf, id=67, 845.04686pt x 597.50786pt>
 File: img/BUCK/esquematico_buck.pdf Graphic file (type pdf)
 <use img/BUCK/esquematico_buck.pdf>
-Package pdftex.def Info: img/BUCK/esquematico_buck.pdf  used on input line 498.
+Package pdftex.def Info: img/BUCK/esquematico_buck.pdf  used on input line 614.
 
 (pdftex.def)             Requested size: 845.0448pt x 597.5064pt.
 
@@ -1373,7 +1384,7 @@ pdfTeX warning: /usr/bin/pdflatex (file ./img/BUCK/esquematico_buck.pdf): PDF i
 nclusion: found PDF version <1.7>, but at most version <1.5> allowed
 File: img/BUCK/esquematico_buck.pdf Graphic file (type pdf)
 <use img/BUCK/esquematico_buck.pdf>
-Package pdftex.def Info: img/BUCK/esquematico_buck.pdf  used on input line 498.
+Package pdftex.def Info: img/BUCK/esquematico_buck.pdf  used on input line 614.
 
 (pdftex.def)             Requested size: 845.0448pt x 597.5064pt.
 
@@ -1384,40 +1395,40 @@ nclusion: found PDF version <1.7>, but at most version <1.5> allowed
 
 pdfTeX warning: /usr/bin/pdflatex (file ./img/BUCK/esquematico_buck.pdf): PDF i
 nclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<img/BUCK/esquematico_buck.pdf, id=65, page=1, 845.04686pt x 597.50786pt>
+<img/BUCK/esquematico_buck.pdf, id=70, page=1, 845.04686pt x 597.50786pt>
 File: img/BUCK/esquematico_buck.pdf Graphic file (type pdf)
 <use img/BUCK/esquematico_buck.pdf, page 1>
 Package pdftex.def Info: img/BUCK/esquematico_buck.pdf , page1 used on input li
-ne 498.
+ne 614.
 (pdftex.def)             Requested size: 845.0448pt x 597.5064pt.
 File: img/BUCK/esquematico_buck.pdf Graphic file (type pdf)
 <use img/BUCK/esquematico_buck.pdf, page 1>
 Package pdftex.def Info: img/BUCK/esquematico_buck.pdf , page1 used on input li
-ne 498.
+ne 614.
 (pdftex.def)             Requested size: 845.0448pt x 597.5064pt.
 File: img/BUCK/esquematico_buck.pdf Graphic file (type pdf)
 <use img/BUCK/esquematico_buck.pdf, page 1>
 Package pdftex.def Info: img/BUCK/esquematico_buck.pdf , page1 used on input li
-ne 498.
+ne 614.
 (pdftex.def)             Requested size: 845.0448pt x 597.5064pt.
 File: img/BUCK/esquematico_buck.pdf Graphic file (type pdf)
 <use img/BUCK/esquematico_buck.pdf, page 1>
 Package pdftex.def Info: img/BUCK/esquematico_buck.pdf , page1 used on input li
-ne 498.
+ne 614.
 (pdftex.def)             Requested size: 845.0448pt x 597.5064pt.
 File: img/BUCK/esquematico_buck.pdf Graphic file (type pdf)
 <use img/BUCK/esquematico_buck.pdf, page 1>
 Package pdftex.def Info: img/BUCK/esquematico_buck.pdf , page1 used on input li
-ne 498.
+ne 614.
 (pdftex.def)             Requested size: 845.0448pt x 597.5064pt.
-[7 <./img/BUCK/esquematico_buck.pdf>]
+[8 <./img/BUCK/esquematico_buck.pdf>]
 
 pdfTeX warning: /usr/bin/pdflatex (file ./img/BUCK/pistas_buck.pdf): PDF inclus
 ion: found PDF version <1.7>, but at most version <1.5> allowed
-<img/BUCK/pistas_buck.pdf, id=71, 597.50786pt x 845.04686pt>
+<img/BUCK/pistas_buck.pdf, id=76, 597.50786pt x 845.04686pt>
 File: img/BUCK/pistas_buck.pdf Graphic file (type pdf)
 <use img/BUCK/pistas_buck.pdf>
-Package pdftex.def Info: img/BUCK/pistas_buck.pdf  used on input line 505.
+Package pdftex.def Info: img/BUCK/pistas_buck.pdf  used on input line 621.
 (pdftex.def)             Requested size: 597.5064pt x 845.0448pt.
 
 
@@ -1425,7 +1436,7 @@ pdfTeX warning: /usr/bin/pdflatex (file ./img/BUCK/pistas_buck.pdf): PDF inclus
 ion: found PDF version <1.7>, but at most version <1.5> allowed
 File: img/BUCK/pistas_buck.pdf Graphic file (type pdf)
 <use img/BUCK/pistas_buck.pdf>
-Package pdftex.def Info: img/BUCK/pistas_buck.pdf  used on input line 505.
+Package pdftex.def Info: img/BUCK/pistas_buck.pdf  used on input line 621.
 (pdftex.def)             Requested size: 597.5064pt x 845.0448pt.
 
 
@@ -1435,33 +1446,33 @@ ion: found PDF version <1.7>, but at most version <1.5> allowed
 
 pdfTeX warning: /usr/bin/pdflatex (file ./img/BUCK/pistas_buck.pdf): PDF inclus
 ion: found PDF version <1.7>, but at most version <1.5> allowed
-<img/BUCK/pistas_buck.pdf, id=74, page=1, 597.50786pt x 845.04686pt>
+<img/BUCK/pistas_buck.pdf, id=79, page=1, 597.50786pt x 845.04686pt>
 File: img/BUCK/pistas_buck.pdf Graphic file (type pdf)
 <use img/BUCK/pistas_buck.pdf, page 1>
-Package pdftex.def Info: img/BUCK/pistas_buck.pdf , page1 used on input line 50
-5.
+Package pdftex.def Info: img/BUCK/pistas_buck.pdf , page1 used on input line 62
+1.
 (pdftex.def)             Requested size: 597.5064pt x 845.0448pt.
 File: img/BUCK/pistas_buck.pdf Graphic file (type pdf)
 <use img/BUCK/pistas_buck.pdf, page 1>
-Package pdftex.def Info: img/BUCK/pistas_buck.pdf , page1 used on input line 50
-5.
+Package pdftex.def Info: img/BUCK/pistas_buck.pdf , page1 used on input line 62
+1.
 (pdftex.def)             Requested size: 597.53374pt x 845.08348pt.
 File: img/BUCK/pistas_buck.pdf Graphic file (type pdf)
 <use img/BUCK/pistas_buck.pdf, page 1>
-Package pdftex.def Info: img/BUCK/pistas_buck.pdf , page1 used on input line 50
-5.
+Package pdftex.def Info: img/BUCK/pistas_buck.pdf , page1 used on input line 62
+1.
 (pdftex.def)             Requested size: 597.53374pt x 845.08348pt.
 File: img/BUCK/pistas_buck.pdf Graphic file (type pdf)
 <use img/BUCK/pistas_buck.pdf, page 1>
-Package pdftex.def Info: img/BUCK/pistas_buck.pdf , page1 used on input line 50
-5.
+Package pdftex.def Info: img/BUCK/pistas_buck.pdf , page1 used on input line 62
+1.
 (pdftex.def)             Requested size: 597.53374pt x 845.08348pt.
 File: img/BUCK/pistas_buck.pdf Graphic file (type pdf)
 <use img/BUCK/pistas_buck.pdf, page 1>
-Package pdftex.def Info: img/BUCK/pistas_buck.pdf , page1 used on input line 50
-5.
+Package pdftex.def Info: img/BUCK/pistas_buck.pdf , page1 used on input line 62
+1.
 (pdftex.def)             Requested size: 597.53374pt x 845.08348pt.
-[8 <./img/BUCK/pistas_buck.pdf>] (./informe.aux
+[9 <./img/BUCK/pistas_buck.pdf>] (./informe.aux
 LaTeX Info: Redefining \sptext on input line 9.
 LaTeX Info: Redefining \. on input line 9.
 LaTeX Info: Redefining \% on input line 9.
@@ -1479,10 +1490,10 @@ Package logreq Info: Writing requests to 'informe.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 49888 strings out of 476091
- 1207873 string characters out of 5794082
- 2235470 words of memory out of 5000000
- 69712 multiletter control sequences out of 15000+600000
+ 50064 strings out of 476091
+ 1213573 string characters out of 5794082
+ 2235488 words of memory out of 5000000
+ 69887 multiletter control sequences out of 15000+600000
  538007 words of font info for 95 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  83i,19n,89p,1196b,2812s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1510,10 +1521,10 @@ super/sfrm0700.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0800.pfb><
 ts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-s
 uper/sfsc1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti0900.pfb></
 usr/share/texmf/fonts/type1/public/cm-super/sfti1000.pfb>
-Output written on informe.pdf (9 pages, 1064197 bytes).
+Output written on informe.pdf (10 pages, 1220689 bytes).
 PDF statistics:
- 196 PDF objects out of 1000 (max. 8388607)
- 115 compressed objects within 2 object streams
+ 201 PDF objects out of 1000 (max. 8388607)
+ 117 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 68 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 73 words of extra memory for PDF output out of 10000 (max. 10000000)
 
