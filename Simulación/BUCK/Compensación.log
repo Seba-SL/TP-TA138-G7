@@ -1,6 +1,6 @@
 LTspice 24.0.12 for Windows
 Circuit: * C:\Users\ramaz\Desktop\Circuitos II\TP-TA138-G7\Simulación\BUCK\Compensación.asc
-Start Time: Tue Jun 23 18:50:22 2026
+Start Time: Thu Jun 25 12:59:15 2026
 Warning: Multiple definitions of model "2scr375p" Type: BJT
 Warning: Multiple definitions of model "bc857b" Type: BJT
 Warning: Multiple definitions of model "bc847c" Type: BJT
@@ -117,5 +117,5 @@ Ignoring empty pin current: Ix(u1:5)
 Ignoring empty pin current: Ix(u3:vc)
 Ignoring empty pin current: Ix(u2:c)
 Ignoring empty pin current: Ix(u2:vssin)
-Total elapsed time: 0.245 seconds.
+Total elapsed time: 0.362 seconds.
 
