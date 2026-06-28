@@ -1,0 +1,88 @@
+LTspice 24.1.5 for Windows
+Circuit: C:\Users\ramaz\Desktop\Circuitos II\TP-TA138-G7\Simulación\BUCK\Compensacion\boost_average_CL.net
+Start Time: Sun Jun 28 14:26:01 2026
+solver = Normal
+Maximum thread count: 12
+tnom = 27
+temp = 27
+method = trap
+Direct Newton iteration failed to find .op point.  (Use ".option noopiter" to skip.)
+Starting Gmin stepping
+Increasing initial diagonal Gmin to 100
+Increasing initial diagonal Gmin to 1000
+Increasing initial diagonal Gmin to 10000
+Increasing initial diagonal Gmin to 100000
+Increasing initial diagonal Gmin to 1e+06
+Initial Gmin=1e+06 failed
+Gmin stepping failed
+
+Starting source stepping with srcstepmethod=0
+Source Step = 3.0303%
+Source Step = 33.3333%
+Source Step = 42.4598%
+Source Step = 42.5781%
+Source Step = 42.6965%
+Source Step = 42.8149%
+Source Step = 42.9332%
+vernier = 0.00585938
+Source Step = 43.0634%
+Source Step = 43.241%
+Source Step = 43.4186%
+Source Step = 43.5961%
+Source Step = 43.7737%
+vernier = 0.00878906
+Source Step = 43.9601%
+Source Step = 44.2264%
+Source Step = 44.4928%
+Source Step = 44.7591%
+Source Step = 45.0254%
+Source Step = 45.2918%
+vernier = 0.0131836
+Source Step = 45.6913%
+Source Step = 46.0908%
+Source Step = 46.4903%
+Source Step = 46.8898%
+Source Step = 47.2893%
+vernier = 0.0197754
+Source Step = 47.8686%
+Source Step = 48.4678%
+Source Step = 49.0671%
+Source Step = 49.6663%
+Source Step = 50.2656%
+vernier = 0.0296631
+Source Step = 51.1046%
+Source Step = 52.0034%
+Source Step = 52.9023%
+Source Step = 53.8012%
+Source Step = 54.7001%
+vernier = 0.0444946
+Source Step = 55.9136%
+Source Step = 57.2619%
+Source Step = 58.6102%
+Source Step = 59.9585%
+Source Step = 61.3069%
+vernier = 0.0667419
+Source Step = 63.0597%
+Source Step = 65.0822%
+Source Step = 67.1046%
+Source Step = 69.1271%
+Source Step = 71.1496%
+vernier = 0.100113
+Source Step = 73.6777%
+Source Step = 76.7114%
+Source Step = 79.7452%
+Source Step = 82.7789%
+Source Step = 85.8126%
+vernier = 0.150169
+Source Step = 89.4531%
+Source Step = 94.0037%
+Source Step = 98.5543%
+Source stepping succeeded in finding the operating point.
+
+Total elapsed time: 0.341 seconds.
+
+Files loaded:
+C:\Users\ramaz\Desktop\Circuitos II\TP-TA138-G7\Simulación\BUCK\Compensacion\boost_average_CL.net
+C:\Users\ramaz\Desktop\Circuitos II\TP-TA138-G7\Simulación\BUCK\Compensacion\average.lib
+C:\Users\ramaz\AppData\Local\LTspice\lib\sub\LTC.lib
+

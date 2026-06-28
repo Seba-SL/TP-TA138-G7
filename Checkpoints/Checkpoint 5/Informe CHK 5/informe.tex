@@ -535,48 +535,160 @@ La siguiente lista detalla las consideraciones para establecer la medición del 
 	
 \end{itemize}
 
+\subsection{Alimentación de lazo}
 
+Antes de analizar el comportamiento del circuito, se decide modificar la tensión de alimentación del lazo realimentador. Para ello, se toma el regulador lineal ya implementado de la figura \ref{fig:reglin}, y se cambian los resistores de tal modo de obtener una tensión de alimentación $\approx \SI{11.5}{V}$.
+
+	\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[transform shape]
+		% Paths, nodes and wires:
+		\draw (6, 4.75) to[empty Schottky diode, l={$TL431$}] (6, 7.25);
+		\draw (6, 8.25) to[american resistor, /tikz/circuitikz/bipoles/length=0.840cm, l={$1k\Omega$}] (6, 9.75);
+		\draw (8, 6) to[american resistor, /tikz/circuitikz/bipoles/length=0.840cm, l={$R_2$}] (8, 7.5);
+		\draw (8, 4.5) to[american resistor, /tikz/circuitikz/bipoles/length=0.840cm, l={$R_1$}] (8, 6);
+		\draw (10, 6) to[american resistor, /tikz/circuitikz/bipoles/length=0.840cm, l={$100k\Omega$}] (10, 7.5);
+		\draw (10, 4.5) to[american resistor, /tikz/circuitikz/bipoles/length=0.840cm, l={$100k\Omega$}] (10, 6);
+		\node[npn](N1) at (8, 8.27){} node[anchor=west] at (N1.text){$Q_1$};
+		\draw (8, 9.04) -| (8, 10) |- (6, 10);
+		\draw (6, 9.75) -| (6, 10);
+		\draw (6, 8.25) -| (6, 7);
+		\draw (7.16, 8.27) -| (6, 8.25);
+		\draw (8, 7.5) -- (10, 7.5);
+		\draw (10, 4.5) -- (6, 4.5);
+		\draw (6, 4.5) -| (6, 4.75);
+		\draw (8, 6) |- (6.25, 6);
+		\draw (10, 6) -- (11, 6);
+		\node[circ] at (6, 8.25){};
+		\node[circ] at (8, 6){};
+		\node[circ] at (10, 6){};
+		\node[circ] at (8, 7.5){};
+		\node[circ] at (8, 4.5){};
+		\node[rground, xscale=-1, yscale=-1](N2) at (7, 10){} node[anchor=south] at ([yshift=0.32cm]N2.text){$V_E$};
+		\node[circ](N3) at (11, 6){} node[anchor=west] at (N3.text){$V_{med}$};
+		\draw (10, 7.5) -- (11, 7.5);
+		\node[circ] at (10, 7.5){};
+		\node[circ](N4) at (11, 7.5){} node[anchor=west] at (N4.text){$V_{reg}$};
+		\node[tlground] at (8, 4){};
+		\draw (8, 4) -| (8, 4.5);
+		\node[circ] at (7, 10){};
+	\end{tikzpicture}
+	\caption{Esquemático de circuito de alimentación del lazo realimentador.}
+	\label{fig:reglin}
+\end{figure}
+
+El motivo de dicho cambio cumple dos funciones: por un lado, asegurar la polarización de la entrada del gate driver, pues la señal PWM debe tener valor $Vp > \SI{9}{V}$, y por el otro, alimentar al gate driver con una tensión constante, que no puede ser mayor a \SI{20}{V}.
+
+Para conseguirlo, se observa la \textit{datasheet} del TL431, y se reemplaza en la ecuación
+
+\begin{equation}
+	V_{ref} = \SI{2.5}{V} \cdot \left( 1 + \frac{R_2}{R_1}  \right) \label{eq:reg}
+\end{equation}
+
+y se fija $R_1 = \SI{10}{\kilo \ohm}$ y $R_2 = \SI{36}{\kilo \ohm}$, para $V_{reg} = \SI{11.5}{V}$.
+
+Esta modificación también afecta la tensión de sensado, pues $V_{med} = \SI{5.75}{V}$. Para conservar la relación $\SI{9.5}{V} \cdot \frac{R_4}{R_3 + R_4} = V_{med}$, se reemplazan los resistores de la figura \ref{fig:rsense} con $R_3 = \SI{22}{\kilo\ohm}$ y $R_4 = \SI{22}{\kilo\ohm}$.
+
+	\begin{figure}[H]
+	\centering
+\begin{tikzpicture}[transform shape]
+	% Paths, nodes and wires:
+	\draw (12, 11) to[american resistor, /tikz/circuitikz/bipoles/length=0.980cm, l={$R_3$}] (12, 9);
+	\draw (12, 9) to[american resistor, /tikz/circuitikz/bipoles/length=0.980cm, l={$R_4$}] (12, 7);
+	\node[circ] at (12, 9){};
+	\node[circ](N1) at (12, 11){} node[anchor=south] at (N1.text){$V_o$};
+	\node[tlground] at (12, 7){};
+	\node[currarrow, xscale=-1, yscale=-1](N2) at (10.276, 9){} node[anchor=east] at (N2.text){$v_{sense}$};
+	\draw (10.25, 9) -- (12, 9);
+\end{tikzpicture}
+	\caption{Bloque de escalado.}
+	\label{fig:rsense}
+\end{figure}
 
 \subsection{Limitador de duty}
 	
 	Una de las características por corregir del diseño de fuente conmutada es el duty máximo. Fijar este valor surge de la necesidad de cargar el capacitor de \textit{bootstrap} para que este pueda polarizar el transistor \textit{high-side}. Si se exige un duty demasiado alto, el capacitor de bootstrap no se cargará nunca, haciendo caer la salida a 0V de forma indefinida.
 	
-	Para conseguir esta limitación, que se fija a 90\%, se actúa directamente sobre el comparador PWM, de tal modo que la señal amplificada de error no supere nunca $v_{triag\_min} + 0.9 (v_{triag\_max} - {triag\_min})$. Dados los valores obtenidos durante el diseño del generador PWM, $v_{triag\_max} = \SI{3.2}{V} $ y $v_{triag\_min} = \SI{1.8}{V}$, se debe limitar $v_{sense} < \SI{3.05}{V}$
+	Para conseguir esta limitación, que se fija a 90\%, se actúa directamente sobre el comparador PWM, de tal modo que la señal amplificada de error no supere nunca $v_{triag\_min} + 0.9 (v_{triag\_max} - {triag\_min})$. De la modificación de alimentación $\SI{5}{V} \to \SI{11.5}{V}$, se obtienen valores pico para la triangular de $v_{triag\_min} = \SI{3.84}{V}$, $v_{triag\_max} = \SI{7.08}{V}$.
 	
+	El valor de tensión asociado a duty 90\% será entonces
+	
+	\begin{equation}
+		V_{PWM = 90\%} = \SI{3.84}{V}+ 0.9 (\SI{7.08}{V} - \SI{3.84}{V}) = \SI{6.75}{V}.
+	\end{equation}
+	
+	Para que el circuito de la figura \ref{fig:amp_error} limite el PWM al valor previsto, y considerando un diodo tipo \textit{Schottky}, se deberá obtener una tensión constante $V_{lim} \approx V_{PWM = 90\%} - \SI{0.2}{V}  \SI{6.55}{V}$.
+	
+\begin{figure}[H]
+	\centering
+\begin{tikzpicture}[transform shape]
+	% Paths, nodes and wires:
+	\node[op amp](N1) at (6.81, 8){} node[anchor=center] at (N1.text){$TL082$};
+	\draw (11.5, 9.5) to[american resistor, l={$10k\Omega$}] (14.5, 9.5);
+	\draw (11.75, 8) to[american resistor, l={$1k\Omega$}] (9, 8);
+	\node[op amp, yscale=-1](N2) at (12.94, 7.51){} node[anchor=center] at (N2.text){$LM319$};
+	\draw (11.5, 9.5) -| (11.5, 8);
+	\draw (14.13, 7.51) -| (14.5, 9.5);
+	\draw (14.5, 7.51) -| (16, 7.5);
+	\node[circ] at (11.5, 8){};
+	\node[circ] at (14.5, 7.5){};
+	\node[inputarrow](N3) at (5.62, 7.51){} node[anchor=east] at ([xshift=-0.07cm]N3.text){$v_{med}$};
+	\node[inputarrow](N4) at (5.62, 8.49){} node[anchor=east] at ([xshift=-0.09cm]N4.text){$v_{sense}$};
+	\node[inputarrow](N5) at (11.75, 7.02){} node[anchor=east] at ([xshift=-0.07cm]N5.text){$v_{med}$};
+	\node[ground] at (6.727, 7.461){};
+	\node[ground] at (12.857, 6.971){};
+	\node[rground, xscale=-1, yscale=-1](N6) at (6.727, 8.539){} node[anchor=south] at ([yshift=0.32cm]N6.text){$V_{11.5V}$};
+	\node[rground, xscale=-1, yscale=-1](N7) at (12.857, 8.049){} node[anchor=south] at ([yshift=0.32cm]N7.text){$V_{11.5V}$};
+	\draw (15.25, 9.5) to[american resistor, l={$1k\Omega$}] (15.25, 7.5);
+	\node[rground, xscale=-1, yscale=-1](N8) at (15.25, 9.5){} node[anchor=south] at ([yshift=0.32cm]N8.text){$V_{11.5V}$};
+	\node[circ] at (15.25, 7.5){};
+	\draw (8.75, 8) to[empty Schottky diode, /tikz/circuitikz/bipoles/length=0.980cm] (8.75, 9.25);
+	\draw (8, 8) -- (9, 8);
+	\node[circ] at (8.75, 8){};
+	\node[circ](N9) at (8.75, 9.25){} node[anchor=south] at (N9.text){$V_{lim}$};
+	\node[inputarrow](N10) at (16, 7.5){} node[anchor=west] at ([xshift=0.07cm]N10.text){$PWM$};
+\end{tikzpicture}
+	\caption{Esquemático del amplificador y generador PWM.}
+	\label{fig:amp_error}
+\end{figure}
+
+
+Para conseguir una fuente constante de tensión capaz de absorver suficiente corriente para hacer de un efectivo limitador, se utiliza la topología de la figura \ref{fig:reglim}.
+
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[transform shape]
 		% Paths, nodes and wires:
-		\node[op amp](N1) at (7.81, 8){} node[anchor=center] at (N1.text){$TL082$};
-		\draw (11.5, 9.5) to[american resistor, l={$R_4$}] (14.5, 9.5);
-		\draw (11.75, 8) to[american resistor, l={$R_3$}] (9, 8);
-		\node[op amp, yscale=-1](N2) at (12.94, 7.51){} node[anchor=center] at (N2.text){$LM319$};
-		\draw (6.5, 10) to[american resistor, l={$R_2$}] (9.25, 10);
-		\draw (6.5, 8.5) to[american resistor, l={$R_1$}] (3.75, 8.5);
-		\draw (11.5, 9.5) -| (11.5, 8);
-		\draw (14.13, 7.51) -| (14.5, 9.5);
-		\draw (14.5, 7.51) -| (16, 7.5);
-		\draw (9.25, 10) -- (9.25, 8);
-		\draw (6.5, 10) |- (6.62, 8.49);
-		\node[circ] at (11.5, 8){};
-		\node[circ] at (14.5, 7.5){};
-		\node[circ] at (9.25, 8){};
-		\node[circ] at (6.5, 8.49){};
-		\node[circ](N3) at (16, 7.5){} node[anchor=west] at ([xshift=-0.02cm]N3.text){$PWM$};
-		\node[inputarrow](N4) at (6.62, 7.51){} node[anchor=east] at ([xshift=-0.07cm]N4.text){$v_{med}$};
-		\node[inputarrow](N5) at (3.75, 8.5){} node[anchor=east] at ([xshift=-0.09cm]N5.text){$v_{sense}$};
-		\node[inputarrow](N6) at (11.75, 7.02){} node[anchor=east] at ([xshift=-0.07cm]N6.text){$v_{med}$};
-		\node[ground] at (7.727, 7.461){};
-		\node[ground] at (12.857, 6.971){};
-		\node[rground, xscale=-1, yscale=-1](N7) at (7.727, 8.539){} node[anchor=south] at ([yshift=0.32cm]N7.text){$V_{5V}$};
-		\node[rground, xscale=-1, yscale=-1](N8) at (12.857, 8.049){} node[anchor=south] at ([yshift=0.32cm]N8.text){$V_{5V}$};
-		\draw (15.25, 9.5) to[american resistor, l={$R_{pu}$}] (15.25, 7.5);
-		\node[rground, xscale=-1, yscale=-1](N9) at (15.25, 9.5){} node[anchor=south] at ([yshift=0.32cm]N9.text){$V_{5V}$};
-		\node[circ] at (15.25, 7.5){};
+		\draw (8, 4) to[empty Schottky diode, l_={$TL431$}] (8, 7.5);
+		\draw (6, 9) to[american resistor, /tikz/circuitikz/bipoles/length=0.840cm, l={$1k\Omega$}] (6, 10.75);
+		\draw (6, 5.75) to[american resistor, /tikz/circuitikz/bipoles/length=0.840cm, l={$R_2$}] (6, 7.5);
+		\draw (6, 4) to[american resistor, /tikz/circuitikz/bipoles/length=0.840cm, l={$R_3$}] (6, 5.75);
+		\draw (10, 4) -- (6, 4);
+		\node[circ] at (8, 7.5){};
+		\node[circ] at (8, 4){};
+		\node[rground, xscale=-1, yscale=-1](N1) at (6, 10.75){} node[anchor=south] at ([yshift=0.32cm]N1.text){$V_E$};
+		\node[tlground] at (8, 3.5){};
+		\draw (8, 3.5) -| (8, 4);
+		\node[pnp] at (10, 7.5){};
+		\draw (6, 5.75) -- (7.75, 5.75);
+		\draw (10, 4) to[american resistor, /tikz/circuitikz/bipoles/length=0.840cm, l_={$1k\Omega$}] (10, 6.75);
+		\draw (9.16, 7.5) -- (8, 7.5);
+		\draw (6, 9) -- (10, 9);
+		\draw (10, 9) -- (11.25, 9);
+		\draw (6, 7.5) -- (6, 9);
+		\draw (8, 7.5) to[american resistor, /tikz/circuitikz/bipoles/length=0.840cm, l={$1k\Omega$}] (8, 9);
+		\draw (10, 9) -| (10, 8.27);
+		\node[circ] at (6, 9){};
+		\node[circ] at (8, 9){};
+		\node[circ] at (10, 9){};
+		\node[circ] at (6, 5.75){};
+		\node[currarrow](N2) at (11.25, 9){} node[anchor=west] at (N2.text){$V_{lim}$};
 	\end{tikzpicture}
-	\caption{Esquemático del amplificador y generador PWM.}
-	\label{fig:amp_error}
+	\caption{Regulador lineal limitador de PWM.}
+	\label{fig:reglim}
 \end{figure}
+
+La ecuación de $V_{lim}$ es idéntica a (\ref{eq:reg}), se fijan las resistencias $R_2 = \SI{5.6}{\kilo\ohm}$ y $R_1 = \SI{3.3}{\kilo\ohm}$ para $V_{lim} = \SI{6.74}{V}$.
 	
 	\subsection{Elección del capacitor \textit{Bootstrap}}
 		Para el correcto funcionamiento del lazo de realimentación, es necesario que se controlen los dos transistores NMOS de potencia de forma síncrona. Para tal efecto, se elije el integrado \textbf{IR2111}, que incluye un tiempo muerto compatible con la frecuencia de operación, así como dos \textit{Gate Drivers}. Uno \textit{High-Side} y otro \textit{Low-Side}. La figura \ref{fig:gatedriver} muestra el conexionado del \textit{Gate Driver}.
@@ -647,8 +759,6 @@ La siguiente lista detalla las consideraciones para establecer la medición del 
 
 	
 	\subsection{Compensación}
-	
-	\section{Simulaciones}
 	
 	
 	
