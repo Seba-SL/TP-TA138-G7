@@ -243,6 +243,26 @@ citestyle=apa
 	
 	Se reitero el diseño del inductor mediante el método iterativo de Erickson para el nuevo valor de L, cuyas características finales se encuentran en la tabla \ref{tab:diseno_inductor}. El inductor debe diseñarse de forma que opere dentro de la región lineal del núcleo magnético y mantenga sus parámetros eléctricos en las condiciones nominales de operación. Para ello, es necesario considerar las principales limitaciones físicas de un inductor real, las cuales condicionan tanto su desempeño como su eficiencia.
 	
+	Las características operativas requeridas para el componente se resumen en la Tabla~\ref{tab:especificaciones}:
+	
+	\begin{table}[h!]
+		\centering
+		\caption{Parámetros nominales y críticos de diseño.}
+		\label{tab:especificaciones}
+		\begin{tabular}{lccS}
+			\toprule
+			\textbf{Parámetro} & \textbf{Símbolo} & \textbf{Unidad} & {\textbf{Valor Nominal}} \\
+			\midrule
+			Inductancia Nominal         & $L$                        & $\mu \text{H}$ & 250.00 \\
+			Frecuencia de Conmutación   & $f_s$                      & \text{kHz}  & 130.00 \\
+			Corriente Continua (DC)     & $I_{L_{\text{dc}}}$        & \text{A}    & 1.500  \\
+			Corriente Máxima de Pico    & $I_{L_{\text{max}}}$       & \text{A}    & 1.600  \\
+			Pérdidas Máximas en el Cobre& $P_{\text{cu}_{\text{max}}}$& \text{W}    & 1.000  \\
+			\bottomrule
+		\end{tabular}
+	\end{table}
+	
+
 	\subsubsection{Densidad de corriente}
 	
 	La sección transversal del conductor debe dimensionarse de manera que la densidad de corriente permanezca dentro de los valores recomendados para limitar el incremento de temperatura del bobinado y evitar pérdidas excesivas por efecto Joule.
@@ -338,6 +358,26 @@ citestyle=apa
 \label{fig:nucleoee25_ensaamblado}
 \end{figure}
 	
+	
+	\subsubsection{Resistividad del cobre}
+
+Al seleccionar un conductor, en este caso el cobre, junto con su sección se establece una resistencia al paso de cargas. De esta forma se produce la resistencia $R_cu$ como:
+
+\begin{equation}
+	R_{cu} =  \frac{(\rho_{cu} \cdot nl \cdot MLT)}{Aw} = 0.064  \; \Omega\
+\end{equation} 
+
+En la ecuación, $\rho_{cu} $ representa la resistividad eléctrica del cobre, nl el número de espiras del devanado, MLT (Mean Length per Turn) la longitud media de una espira y $A_w$ el área de la sección transversal del conductor empleado.
+
+
+
+Se debe considerar un valor de resistencia máximo como limite superior, en este caso fue el valor dado por la ley de Joule aplicada al devanado del inductor : 
+$ {R_{cu}}_{[max]} = \left( \frac{P_{\text{cu}_{\max}}}{I_{L_{\text{dc}}}} \right)^2 = 1\, W$
+
+Al realizar un bobinado del tipo paralelo la sección del cobre disminuye, lo que favorece una distribución más uniforme de la corriente a altas frecuencias. Si se mantiene constante la sección total de cobre, la resistencia en corriente continua permanece prácticamente inalterada, mientras que la resistencia en corriente alterna disminuye debido a la reducción del efecto pelicular. Con lo cual la expresión sigue siendo valida y se cumple lo requerido.	
+	
+
+
 \subsubsection{Medición y caracterización del inductor fabricado}
 
 Para corroborar el valor final y el correcto funcionamiento del inductor inicialmente se realizo una medida estimativa del valor de inductancia mediante un circuito que releve un valor aproximado de este y también la no saturación del mismo en condiciones similares a las del circuito regulador. Y como verificación final se realizo una medida con el instrumento de medición de inductancia LCR.
