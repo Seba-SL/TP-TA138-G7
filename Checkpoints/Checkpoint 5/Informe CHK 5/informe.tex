@@ -293,9 +293,9 @@ citestyle=apa
 			\hline
 			Tipo de núcleo & EE25 \\
 			\hline 
-			Sección del núcleo $A_c$ & 0.518 $\, cm^2 $\\
+			Sección del núcleo $A_c$ & 0.36 $\, cm^2 $\\
 			\hline 
-			Área de ancho de la bobina : $ W_A$ & 0.300$\, cm^2 $\\
+			Área de ancho de la bobina : $ W_A$ & 0.500$\, cm^2 $\\
 			\hline
 			Longitud media por vuelta : $MLT $ & 4.7 $\, cm $ \\
 			\hline 
@@ -303,7 +303,7 @@ citestyle=apa
 			\hline
 			Entre hierro (gap) & $l_g=\SI{0.17}{\milli\meter}$ \\
 			\hline
-			Número de vueltas & $n_l=26$ \\
+			Número de vueltas & $n_l=37$ \\
 			\hline
 			Tipo de alambre & AWG\#25 \\
 			\hline
@@ -364,7 +364,7 @@ citestyle=apa
 Al seleccionar un conductor, en este caso el cobre, junto con su sección se establece una resistencia al paso de cargas. De esta forma se produce la resistencia $R_cu$ como:
 
 \begin{equation}
-	R_{cu} =  \frac{(\rho_{cu} \cdot nl \cdot MLT)}{Aw} = 0.064  \; \Omega\
+	R_{cu} =  \frac{(\rho_{cu} \cdot nl \cdot MLT)}{Aw} = 0.087  \; \Omega\
 \end{equation} 
 
 En la ecuación, $\rho_{cu} $ representa la resistividad eléctrica del cobre, nl el número de espiras del devanado, MLT (Mean Length per Turn) la longitud media de una espira y $A_w$ el área de la sección transversal del conductor empleado.
@@ -372,7 +372,7 @@ En la ecuación, $\rho_{cu} $ representa la resistividad eléctrica del cobre, n
 
 
 Se debe considerar un valor de resistencia máximo como limite superior, en este caso fue el valor dado por la ley de Joule aplicada al devanado del inductor : 
-$ {R_{cu}}_{[max]} = \left( \frac{P_{\text{cu}_{\max}}}{I_{L_{\text{dc}}}} \right)^2 = 1\, W$
+$ {R_{cu}}_{[max]} = \left( \frac{P_{\text{cu}_{\max}}}{I_{L_{\text{dc}}}} \right)^2 = 0,390\, \Omega$
 
 Al realizar un bobinado del tipo paralelo la sección del cobre disminuye, lo que favorece una distribución más uniforme de la corriente a altas frecuencias. Si se mantiene constante la sección total de cobre, la resistencia en corriente continua permanece prácticamente inalterada, mientras que la resistencia en corriente alterna disminuye debido a la reducción del efecto pelicular. Con lo cual la expresión sigue siendo valida y se cumple lo requerido.	
 	
