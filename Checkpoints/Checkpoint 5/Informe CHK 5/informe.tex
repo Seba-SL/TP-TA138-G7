@@ -965,8 +965,9 @@ En función de los resultados obtenidos, apreciables en la tabla \ref{tab:regula
 	\draw (17.75, 16.25) -- (18, 16.25);
 	\draw (9.5, 16.25) |- (7.25, 16.25) -| (7.25, 16);
 	\draw (13, 12.25) to[ammeter] (13, 13.25);
-\end{tikzpicture}
-		\label{fig:esquematico_med_reg_carga}
+ \end{tikzpicture}
+\caption{Esquemático del banco de ensayo utilizado para la medición de la regulación de carga del convertidor Buck.}
+\label{fig:esquematico_med_reg_carga}
 \end{figure}
 
 
@@ -983,6 +984,53 @@ donde $V_{\text{carga ligera}}$ corresponde a la tensión de salida medida para 
 
 Se espera que la tensión permanezca prácticamente constante al variar la carga entre $100\,\mathrm{mA}$ y $1.5\,\mathrm{A}$. En condiciones normales de funcionamiento, una regulación de carga inferior al $1 \% $  se considera un resultado satisfactorio, correspondiendo a una diferencia de tensión inferior a aproximadamente $95\,\mathrm{mV}$ entre ambos extremos del rango de carga.
 
+
+
+
+\subsection{Eficiencia}
+
+Para el análisis de eficiencia del circuito, se puede retomar el mismo banco de prueba que para la regulación de carga (Fig.\ref{fig:esquematico_med_reg_carga}) dado que la fuente de laboratorio cuenta con amperímetro integrado y podremos conocer $I_{cc}$, se diferenciara de la anterior medición ya que se tomaran rango de valores de interés y también se variara la tensión de entrada, ya que en las especificaciones debemos garantizar una eficiencia de entre $85 \%$ hasta $97 \%$ para los rangos $V_{cc} \in [12,5 \, V ; 30 \, V]$ y $ I_o \in [750 \, mA ; 1.5 \,A]$.
+
+
+La eficiencia se define como la relación entre la potencia entregada a la carga y la potencia absorbida desde la fuente de alimentación. Este parámetro permite cuantificar el aprovechamiento energético del convertidor, considerando las pérdidas presentes en los dispositivos semiconductores, el inductor, el circuito de control y los elementos pasivos.
+
+La eficiencia puede expresarse mediante
+
+\begin{equation}
+	\eta=
+	\frac{P_{\mathrm{salida}}}
+	{P_{\mathrm{entrada}}}
+	\times100 \%
+\end{equation}
+
+donde
+
+\begin{equation}
+	P_{\mathrm{entrada}}=V_{CC}\,I_{CC}
+\end{equation}
+
+y
+
+\begin{equation}
+	P_{\mathrm{salida}}=V_{o}\,I_{o}.
+\end{equation}
+
+Por lo tanto, la eficiencia puede calcularse experimentalmente mediante
+
+\begin{equation}
+	\eta=
+	\frac{V_o I_o}
+	{V_{CC} I_{CC}}
+	\times100 \%
+\end{equation}
+
+Para verificar el cumplimiento de las especificaciones del diseño, se realizarían mediciones de la tensión y corriente de entrada, junto con la tensión y corriente de salida, variando la tensión de alimentación en el intervalo
+
+En cada punto de operación se calcularía la eficiencia mediante la ecuación anterior y posteriormente se gráfica su evolución en función de la tensión de entrada para distintos valores de corriente de carga. De acuerdo con las especificaciones del proyecto, el convertidor debe presentar una eficiencia comprendida dentro de todo el rango de operación especificado.
+
+Idealmente, la eficiencia debería mantenerse elevada en todo el rango de tensiones de entrada, presentando únicamente pequeñas variaciones debido a las pérdidas por conducción del MOSFET y del diodo, las pérdidas de conmutación, las pérdidas magnéticas del inductor y el consumo propio del circuito de control. Como consecuencia, es esperable que la eficiencia disminuya levemente para tensiones de entrada elevadas, debido al incremento de las pérdidas de conmutación, y para cargas reducidas, donde el consumo del circuito de control representa una fracción mayor de la potencia total suministrada.
+
+En cuanto a la curva de eficiencia en función de la tensión de entrada, lo esperable es que la eficiencia se mantenga alta en la mayor parte del rango y disminuya suavemente al aumentar la tensión de entrada. Este comportamiento se explica principalmente por el incremento de las pérdidas de conmutación, por el mayor tiempo de conducción del diodo cuando el ciclo de trabajo disminuye para el \textit{buck} asíncrono y esta característica para el \textit{buck} sincrónico se esperaría que ocurra de forma menos pronunciada. 
 	
 	\subsection{Red \textit{Snubber}}
 	

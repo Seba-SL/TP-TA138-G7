@@ -20,12 +20,13 @@
 \contentsline {section}{\numberline {4}Mediciones}{10}{}%
 \contentsline {subsection}{\numberline {4.1}Regulación de linea}{10}{}%
 \contentsline {subsection}{\numberline {4.2}Regulación de carga}{12}{}%
-\contentsline {subsection}{\numberline {4.3}Red \textit {Snubber}}{14}{}%
-\contentsline {section}{\numberline {5}Problemas encontrados}{14}{}%
-\contentsline {subsection}{\numberline {5.1}Limitación de corriente}{14}{}%
-\contentsline {subsection}{\numberline {5.2}Ruido de conmutación}{14}{}%
-\contentsline {subsection}{\numberline {5.3}Inestabilidad de señal de salida}{14}{}%
-\contentsline {section}{\numberline {6}Conclusiones}{14}{}%
-\contentsline {section}{\numberline {A}Apéndice I: PCB}{15}{}%
-\contentsline {subsection}{\numberline {A.1}Esquematico.}{15}{}%
-\contentsline {subsection}{\numberline {A.2}Pistas}{16}{}%
+\contentsline {subsection}{\numberline {4.3}Eficiencia}{14}{}%
+\contentsline {subsection}{\numberline {4.4}Red \textit {Snubber}}{15}{}%
+\contentsline {section}{\numberline {5}Problemas encontrados}{15}{}%
+\contentsline {subsection}{\numberline {5.1}Limitación de corriente}{15}{}%
+\contentsline {subsection}{\numberline {5.2}Ruido de conmutación}{15}{}%
+\contentsline {subsection}{\numberline {5.3}Inestabilidad de señal de salida}{15}{}%
+\contentsline {section}{\numberline {6}Conclusiones}{15}{}%
+\contentsline {section}{\numberline {A}Apéndice I: PCB}{16}{}%
+\contentsline {subsection}{\numberline {A.1}Esquematico.}{16}{}%
+\contentsline {subsection}{\numberline {A.2}Pistas}{17}{}%
