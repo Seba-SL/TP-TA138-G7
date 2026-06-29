@@ -1,0 +1,31 @@
+\babel@toc {spanish}{}\relax 
+\contentsline {section}{\numberline {1}Introducción}{2}{}%
+\contentsline {section}{\numberline {2}Objetivo}{2}{}%
+\contentsline {section}{\numberline {3}Desarrollo}{2}{}%
+\contentsline {subsection}{\numberline {3.1}Correcciones previas}{2}{}%
+\contentsline {subsection}{\numberline {3.2}Construcción del inductor $L$}{2}{}%
+\contentsline {subsubsection}{\numberline {3.2.1}Densidad de corriente}{3}{}%
+\contentsline {subsubsection}{\numberline {3.2.2}Saturación del núcleo}{3}{}%
+\contentsline {subsubsection}{\numberline {3.2.3}Profundidad de penetración}{3}{}%
+\contentsline {subsubsection}{\numberline {3.2.4}Resistividad del cobre}{4}{}%
+\contentsline {subsubsection}{\numberline {3.2.5}Medición y caracterización del inductor fabricado}{4}{}%
+\contentsline {paragraph}{Método de medición mediante filtro RL:}{4}{}%
+\contentsline {paragraph}{Método contemplando linealidad y saturación: }{5}{}%
+\contentsline {paragraph}{Medición mediante LCR:}{6}{}%
+\contentsline {subsection}{\numberline {3.3}Alimentación de lazo}{7}{}%
+\contentsline {subsection}{\numberline {3.4}Limitador de duty}{7}{}%
+\contentsline {subsection}{\numberline {3.5}Elección del capacitor \textit {Bootstrap}}{8}{}%
+\contentsline {subsection}{\numberline {3.6}Compensación}{9}{}%
+\contentsline {subsection}{\numberline {3.7}Diseño de red \textit {Snubber}}{10}{}%
+\contentsline {section}{\numberline {4}Mediciones}{10}{}%
+\contentsline {subsection}{\numberline {4.1}Regulación de linea}{10}{}%
+\contentsline {subsection}{\numberline {4.2}Regulación de carga}{12}{}%
+\contentsline {subsection}{\numberline {4.3}Red \textit {Snubber}}{14}{}%
+\contentsline {section}{\numberline {5}Problemas encontrados}{14}{}%
+\contentsline {subsection}{\numberline {5.1}Limitación de corriente}{14}{}%
+\contentsline {subsection}{\numberline {5.2}Ruido de conmutación}{14}{}%
+\contentsline {subsection}{\numberline {5.3}Inestabilidad de señal de salida}{14}{}%
+\contentsline {section}{\numberline {6}Conclusiones}{14}{}%
+\contentsline {section}{\numberline {A}Apéndice I: PCB}{15}{}%
+\contentsline {subsection}{\numberline {A.1}Esquematico.}{15}{}%
+\contentsline {subsection}{\numberline {A.2}Pistas}{16}{}%
