@@ -739,44 +739,158 @@ La ecuación de $V_{lim}$ es idéntica a (\ref{eq:reg}), se fijan las resistenci
 \end{tikzpicture}
 			\caption{Esquemático del \textit{gate-driver}.}
 			\label{fig:gatedriver}
-		\end{figure}
-		Para la elección del capacitor, se debe tener en cuenta la frecuencia de operación, el mínimo tiempo de carga, y la cantidad de carga que debe contener para sostener su valor de tensión.
+\end{figure}
+	Para la elección del capacitor, se debe tener en cuenta la frecuencia de operación, el mínimo tiempo de carga, y la cantidad de carga que debe contener para sostener su valor de tensión.
+	
+	Dado que la frecuencia de operación será $f\approx\SI{130}{\kilo\hertz}$, podrá usarse un capacitor cerámico sin ningún inconveniente. Teniendo en cuenta un duty máximo de 90\%, se espera un tiempo mínimo de carga de $\approx 0.1 \cdot \SI{7.7}{\micro s} = \SI{770}{\nano s}$
+	
+	Durante el tiempo que se encuentra encendido, tendrá que cargar la compuerta \textit{gate} del transistor de paso, de unos \SI{200}{nC}, así como alimentar al controlador \textit{high-side} del IR2111, que consume, como máximo, \SI{100}{\micro\ampere}.
+	
+	La carga total a suministrar en el tiempo será de 
+	
+	\begin{equation}
+		Q_{tot} = \SI{200}{nC} + \SI{100}{\micro\ampere} \cdot \SI{7.7}{\micro s} \cdot 0.9 = \SI{200.6}{nC}.
+	\end{equation}
+	
+	Para calcular la capacidad mínima requerida, consideramos una caída de tensión máxima de \SI{0.5}{V} para mantener el transistor saturado:
+	
+	\begin{equation}
+		C_{bootstrap\_min} = \frac{\SI{200.6}{nC}}{\SI{0.5}{V}} =  \SI{400}{nF}.
+	\end{equation}
+	
+	Se elije entonces un capacitor cerámico de valor \SI{470}{nF}.
+	
+	
+	
+	\subsection{Compensación}
+	
+	Para la compensación del lazo realimentador, será necesario aplicar un modelo promediado. Este consiste en evaluar el circuito en sus posibles estados de conmutación (on-off), y obtener un modelo que \textit{promedie} según el tiempo que pasa el circuito en ese estado.
+	
+	Para poder observar la ganancia de lazo en un diagrama de Bode, y así proponer técnicas de compensación, se utiliza la librería \textit{average}, y se reemplaza el generador PWM de la figura \ref{fig:amp_error} y el transistor de paso $Q_2$ por un modelo promediado. El archivo de simulación puede verse en la figura \ref{fig:sim_compensacion}.
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\linewidth]{img/BUCK/sim_compensacion}
+		\caption{Archivo de simulación utilizado para evaluar la ganancia de lazo.}
+		\label{fig:sim_compensacion}
+	\end{figure}
+	
+	Se utiliza el lazo descompensado, cortado por una fuente AC (V3) sin valor de contínua, y se reemplazan los reguladores lineales por fuentes ideales de contínua para ayudar a la convergencia. Además, se utiliza el TL082 en formato fuente partida, debido a que el componente de fuente promediada (CCM2) opera con valores de tensión 0V-1V.
+	
+	Para analizar la ganancia de lazo, se debe evaluar la relación entre V(y) y V(x), teniendo en cuenta un signo negativo por utilizar el terminal inversor del operacional:
+	
+	\begin{equation}
+		-\frac{V(y)}{V(x)} = |T|.
+	\end{equation}
+	
+	El gráfico de bode resultante del circuito descompensado se muestra en la figura \ref{fig:sim_descompensado}. Se evalúa para la mínima y máxima carga admisible, con la fuente de tensión $Vee = \SI{30}{V}$.
+	
+	\begin{figure}[H]
+	\centering
+	\begin{subfigure}{0.7\textwidth}
+		\includegraphics[width=\linewidth]{img/BUCK/bode_descompensado}
+		\caption{Ganancia de lazo del circuito descompensado.}
+	\end{subfigure}
+	\begin{subfigure}{0.7\textwidth}
+		\includegraphics[width=\linewidth]{img/BUCK/respuesta_descompensado}
+		\caption{Respuesta temporal del circuito descompensado.}
+	\end{subfigure}
+	\caption{Análisis temporal y en frecuencia del circuito descompensado.}
+	\label{fig:sim_descompensado}
+	\end{figure}
+
+	La fuente, sin compensar, es fuertemente inestable, con ganancia de lazo abierto \SI{129}{dB}. Para corregir esta situación, se adopta la siguiente técnica:
 		
-		Dado que la frecuencia de operación será $f\approx\SI{130}{\kilo\hertz}$, podrá usarse un capacitor cerámico sin ningún inconveniente. Teniendo en cuenta un duty máximo de 90\%, se espera un tiempo mínimo de carga de $\approx 0.1 \cdot \SI{7.7}{\micro s} = \SI{770}{\nano s}$
-		
-		Durante el tiempo que se encuentra encendido, tendrá que cargar la compuerta \textit{gate} del transistor de paso, de unos \SI{200}{nC}, así como alimentar al controlador \textit{high-side} del IR2111, que consume, como máximo, \SI{100}{\micro\ampere}.
-		
-		La carga total a suministrar en el tiempo será de 
-		
-		\begin{equation}
-			Q_{tot} = \SI{200}{nC} + \SI{100}{\micro\ampere} \cdot \SI{7.7}{\micro s} \cdot 0.9 = \SI{200.6}{nC}.
-		\end{equation}
-		
-		Para calcular la capacidad mínima requerida, consideramos una caída de tensión máxima de \SI{0.5}{V} para mantener el transistor saturado:
-		
-		\begin{equation}
-			C_{bootstrap\_min} = \frac{\SI{200.6}{nC}}{\SI{0.5}{V}} =  \SI{400}{nF}.
-		\end{equation}
-		
-		Se elije entonces un capacitor cerámico de valor \SI{470}{nF}.
-		
-		
-		
-		\subsection{Compensación}
-		
-		Para la compensación del lazo realimentador, será necesario aplicar un modelo promediado. Este consiste en evaluar el circuito en sus posibles estados de conmutación (on-off), y obtener un modelo que \textit{promedie} según el tiempo que pasa el circuito en ese estado.
-		
-		Para poder observar la ganancia de lazo en un diagrama de Bode, y así proponer técnicas de compensación, se utiliza la librería \textit{average}, y se reemplaza el generador PWM de la figura \ref{fig:amp_error} y el transistor de paso $Q_2$ por un modelo promediado. El archivo de simulación puede verse en la figura \ref{fig:sim_compensacion}.
-		
+	En primer lugar, se busca utilizar acción integral (polo en el origen) para eliminar el error estacionario. En segundo lugar, se buscará un adelanto de fase con la implementación de un polo y un cero, formando así un amplificador de tipo II (\cite{compensation}), con transferencia.
+	
+	Adicionalmente, se agrega otra red, esta vez de atraso, que al ser colocada a la entrada del amplificador intercambiará sus polos por sus ceros. Esto forma un amplificador de error de tipo III (figura \ref{fig:compensacion} ). La transferencia final, teniendo en cuenta polos y ceros, tiene la siguiente forma:
+	
+	\begin{equation}
+		|T| = A_{VM} \cdot \frac{\omega_{Z1}}{s} \cdot \frac{1+ \frac{s}{\omega_{Z1}}}{1+ \frac{s}{\omega_{Z2}}} \cdot \frac{1+ \frac{s}{\omega_{P1}}}{1+ \frac{s}{\omega_{P2}}}.
+	\end{equation}
+	
+	Con 
+	
+	\begin{equation}
+		A_{VM} = R_{2}/R_1 \qquad \omega_{Z1} = \frac{1}{R_2 \cdot C_2} \qquad \omega_{Z2} = \frac{1}{\SI{22}{\kilo\ohm} \cdot C_1} \qquad \omega_{P1} = \frac{1}{R_1 \cdot C_1} \qquad \omega_{P2} = \frac{1}{R_2 \cdot C_3}
+	\end{equation}
+	
 		\begin{figure}[H]
+		\centering
+		\begin{tikzpicture}[transform shape]
+			% Paths, nodes and wires:
+			\draw (10, 11) to[american resistor, /tikz/circuitikz/bipoles/length=1.08cm, l={$22k\Omega$}] (10, 8);
+			\draw (10, 8) to[american resistor, /tikz/circuitikz/bipoles/length=1.08cm, l={$33k\Omega$}] (10, 6);
+			\node[tlground] at (10, 6){};
+			\node[rground, xscale=-1, yscale=-1](N1) at (10, 11){} node[anchor=south] at ([yshift=0.29cm]N1.text){$V_o$};
+			\node[circ] at (10, 8){};
+			\draw (10, 8) -- (13, 8);
+			\node[op amp](N2) at (14.19, 7.51){} node[anchor=center] at (N2.text){$TL082$};
+			\node[inputarrow](N3) at (13, 7.02){} node[anchor=east] at ([xshift=-0.07cm]N3.text){$v_{med}$};
+			\node[ground] at (14.107, 6.971){};
+			\node[rground, xscale=-1, yscale=-1](N4) at (14.107, 8.029){} node[anchor=south] at ([yshift=0.32cm]N4.text){$V_{11.5V}$};
+			\draw (8, 9.5) to[american resistor, /tikz/circuitikz/bipoles/length=1.08cm, l={$R_1$}] (8, 8);
+			\draw (8, 8) -- (10, 8);
+			\draw (8, 9.5) to[capacitor, /tikz/circuitikz/bipoles/length=0.980cm, l={$C_1$}] (8, 10.75);
+			\draw (8, 10.75) -- (10, 10.75);
+			\node[circ] at (10, 10.75){};
+			\draw (15.38, 7.51) -| (17.75, 7.5);
+			\node[inputarrow](N5) at (17.75, 7.5){} node[anchor=west] at ([xshift=0.07cm]N5.text){$Generador\ PWM$};
+			\draw (14, 9.5) to[american resistor, /tikz/circuitikz/bipoles/length=1.08cm, l_={$R_2$}] (12, 9.5);
+			\draw (14, 9.5) to[capacitor, /tikz/circuitikz/bipoles/length=0.980cm, l={$C_2$}] (15.25, 9.5);
+			\draw (15.25, 9.5) -- (15.5, 9.5) -| (15.5, 7.5);
+			\draw (12, 9.5) -| (12, 8);
+			\draw (13.25, 11) to[capacitor, /tikz/circuitikz/bipoles/length=0.980cm, l_={$C_3$}] (14.5, 11);
+			\draw (12, 9.5) -| (12, 11) -- (13.25, 11);
+			\draw (14.5, 11) -- (15.5, 11) -| (15.5, 9.5);
+			\node[circ] at (15.5, 7.5){};
+			\node[circ] at (15.5, 9.5){};
+			\node[circ] at (12, 9.5){};
+			\node[circ] at (12, 8){};
+			\node[shape=rectangle, draw, line width=0.5pt, dash pattern={on 2pt off 2pt}, minimum width=1.982cm, minimum height=3.732cm] at (8, 9.375){};
+			\node[shape=rectangle, rotate=-90, draw, line width=0.5pt, dash pattern={on 2pt off 2pt}, minimum width=2.507cm, minimum height=4.323cm] at (13.759, 10.238){};
+		\end{tikzpicture}
+		\caption{Esquemático del circuito amplificador de error compensado.}
+		\label{fig:compensacion}
+	\end{figure}
+	
+	El objetivo será no disminuir el ancho de banda dramáticamente compensando el polo doble en $f \approx \SI{1}{kHz}$ con dos redes de adelanto. Para ello, se fijan valores:
+	
+	\begin{equation}
+		R_1 = \SI{22}{\ohm} \qquad R_2 = \SI{47}{\kilo\ohm} \qquad C_1 = \SI{4.7}{nF} \qquad C_2 = \SI{470}{nF} \qquad C_3 = \SI{470}{pF}
+	\end{equation}
+	
+	Como resultado, se obtienen polos en
+	
+	\begin{equation}
+		\frac{\omega_{P1}}{2\pi} = \SI{1.5}{MHz} \qquad \frac{\omega_{P2}}{2\pi} = \SI{7.2}{\kilo\hertz}
+	\end{equation}
+	
+	y ceros en
+	
+	\begin{equation}
+		\frac{\omega_{Z1}}{2\pi} = \SI{7.2}{Hz} \qquad \frac{\omega_{Z2}}{2\pi} = \SI{1.5}{kHz}.
+	\end{equation}
+	
+	La figura \ref{fig:sim_compensado} muestra la ganancia de lazo y respuesta temporal del sistema, obteniéndose un margen de fase de alrededor de \SI{25}{\deg}.
+	
+
+			\begin{figure}[H]
 			\centering
-			\includegraphics[width=\linewidth]{img/BUCK/sim_compensacion}
-			\caption{Archivo de simulación utilizado para evaluar la ganancia de lazo.}
-			\label{fig:sim_compensacion}
+			\begin{subfigure}{0.7\textwidth}
+				\includegraphics[width=\linewidth]{img/BUCK/bode_compensado}
+				\caption{Ganancia de lazo del circuito compensado.}
+			\end{subfigure}
+			\begin{subfigure}{0.7\textwidth}
+				\includegraphics[width=\linewidth]{img/BUCK/respuesta_compensado}
+				\caption{Respuesta temporal del circuito compensado.}
+			\end{subfigure}
+			\caption{Análisis temporal y en frecuencia del circuito compensado.}
+			\label{fig:sim_compensado}
 		\end{figure}
 		
 		
-		\subsection{Diseño de red \textit{Snubber}}
+	\subsection{Diseño de red \textit{Snubber}}
 		
 		El diseño de la red \textit{Snubber} depende exclusivamente de las capacidades e inductancias parásitas del circuito. Como tal, es difícil de estimar antes de la implementación.
 		
@@ -984,8 +1098,21 @@ donde $V_{\text{carga ligera}}$ corresponde a la tensión de salida medida para 
 
 Se espera que la tensión permanezca prácticamente constante al variar la carga entre $100\,\mathrm{mA}$ y $1.5\,\mathrm{A}$. En condiciones normales de funcionamiento, una regulación de carga inferior al $1 \% $  se considera un resultado satisfactorio, correspondiendo a una diferencia de tensión inferior a aproximadamente $95\,\mathrm{mV}$ entre ambos extremos del rango de carga.
 
-
-
+\textbf{Resultados Parciales}\\
+Tras la estabilización del circuito (sección \ref{sec:ruido}), se realizan mediciones con diferentes valores de carga, para dar una forma aproximada a la curva de regulación de carga:
+\begin{minipage}[t]{0.38\textwidth}
+	\centering
+	\vspace{-8cm}
+	\captionof{table}{Mediciones de regulación de carga.}
+	\label{tab:regulacion_carga}
+	\begin{tabular}{cccc}
+		\toprule
+		$V_{in}$ [V] & $ V_o$ [mV] & $I_i$ & $I_o$\\
+		\midrule
+		13.32 & -78.0&& \\
+		\bottomrule
+	\end{tabular}
+\end{minipage}
 
 \subsection{Eficiencia}
 
@@ -1057,12 +1184,42 @@ En cuanto a la curva de eficiencia en función de la tensión de entrada, lo esp
 	
 	
 	\section{Problemas encontrados}
-	
-	\subsection{Limitación de corriente}
-	\subsection{Ruido de conmutación}
-	\subsection{Inestabilidad de señal de salida}
+	\subsection{Driver Defectuoso}
+		Uno de los problemas más serios encontrados durante la implementación fue el funcionamiento anómalo del driver \textbf{IR2111}. La polarización del transistor $Q_2$ se vio anulada completamente.
+		
+		Adicionalmente, la entrada de control del driver, idealmente de alta impedancia, parecía cargar al circuito generador de PWM, deformando la señal, y retrasando la activación de los flancos ascendentes. Para solucionar esto, debió colocarse una resistencia de \textit{pull-up} anormalmente chica.
+		
+	\subsection{Ruido de conmutación} \label{sec:ruido}
+		Se observó durante los experimentos que, a mayor tensión de entrada, más se inestabilizaba la fuente, pudiendo incluso dejar de regular.
+		
+		Investigando las señales del circuito, se encontró que la señal triangular se ve afectada por el ruido de conmutación de la fuente, haciendo que el comparador del circuito PWM accione antes de tiempo, y deforme la señal triangular de forma dramática (figura \ref{fig:ruido}).
+		
+		Sin la señal triangular como corazón del sistema, el lazo comienza a generar señales PWM fuertemente oscilantes, anulando el control sobre la salida.
+		
+		Debe analizarse el PCB con detenimiento para encontrar algún punto conflictivo, o en su defecto colocar un capacitor de filtrado que anule estos impulsos indeseados.
+		
+		Este problema acarrea otra consecuencia: el sistema deja de regular para cargas pequeñas. Por este motivo, fue imposible conseguir mediciones de eficiencia aceptables.
+		
+		Este problema puede ser resuelto de forma preliminar colocando un capacitor en el nodo de salida de la triangular, que sirve de suavizador.
+		
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.7\linewidth]{img/BUCK/ruido}
+			\caption{Medición de la señal triangular generada.}
+			\label{fig:ruido}
+		\end{figure}
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.7\linewidth]{img/BUCK/pwm}
+			\caption{Medición del nodo $V_s$. Notar la señal PWM de duty irregular.}
+			\label{fig:pwm}
+		\end{figure}
 	\section{Conclusiones}
-
+	
+	El regulador funciona correctamente para ciertos valores acotados de salida ($Io < \SI{700}{mA}$). Esto hace que ciertos análisis, como el de eficiencia, se vean seriamente afectados.
+	
+	A pesar de este inconveniente, se logró asegurar el funcionamiento básico del convertidor. Para poder utilizarlo en su rango completo de operación, se deberá hacer un análisis del ruido que logra afectar la etapa PWM para eliminarlo, y estabilizar el control.
+		
 	
 	{\footnotesize
 		\printbibliography

@@ -16,17 +16,16 @@
 \contentsline {subsection}{\numberline {3.4}Limitador de duty}{7}{}%
 \contentsline {subsection}{\numberline {3.5}Elección del capacitor \textit {Bootstrap}}{8}{}%
 \contentsline {subsection}{\numberline {3.6}Compensación}{9}{}%
-\contentsline {subsection}{\numberline {3.7}Diseño de red \textit {Snubber}}{10}{}%
-\contentsline {section}{\numberline {4}Mediciones}{10}{}%
-\contentsline {subsection}{\numberline {4.1}Regulación de linea}{10}{}%
-\contentsline {subsection}{\numberline {4.2}Regulación de carga}{12}{}%
-\contentsline {subsection}{\numberline {4.3}Eficiencia}{14}{}%
-\contentsline {subsection}{\numberline {4.4}Red \textit {Snubber}}{15}{}%
-\contentsline {section}{\numberline {5}Problemas encontrados}{15}{}%
-\contentsline {subsection}{\numberline {5.1}Limitación de corriente}{15}{}%
-\contentsline {subsection}{\numberline {5.2}Ruido de conmutación}{15}{}%
-\contentsline {subsection}{\numberline {5.3}Inestabilidad de señal de salida}{15}{}%
-\contentsline {section}{\numberline {6}Conclusiones}{15}{}%
-\contentsline {section}{\numberline {A}Apéndice I: PCB}{16}{}%
-\contentsline {subsection}{\numberline {A.1}Esquematico.}{16}{}%
-\contentsline {subsection}{\numberline {A.2}Pistas}{17}{}%
+\contentsline {subsection}{\numberline {3.7}Diseño de red \textit {Snubber}}{12}{}%
+\contentsline {section}{\numberline {4}Mediciones}{13}{}%
+\contentsline {subsection}{\numberline {4.1}Regulación de linea}{13}{}%
+\contentsline {subsection}{\numberline {4.2}Regulación de carga}{15}{}%
+\contentsline {subsection}{\numberline {4.3}Eficiencia}{16}{}%
+\contentsline {subsection}{\numberline {4.4}Red \textit {Snubber}}{17}{}%
+\contentsline {section}{\numberline {5}Problemas encontrados}{17}{}%
+\contentsline {subsection}{\numberline {5.1}Driver Defectuoso}{17}{}%
+\contentsline {subsection}{\numberline {5.2}Ruido de conmutación}{18}{}%
+\contentsline {section}{\numberline {6}Conclusiones}{19}{}%
+\contentsline {section}{\numberline {A}Apéndice I: PCB}{20}{}%
+\contentsline {subsection}{\numberline {A.1}Esquematico.}{20}{}%
+\contentsline {subsection}{\numberline {A.2}Pistas}{21}{}%

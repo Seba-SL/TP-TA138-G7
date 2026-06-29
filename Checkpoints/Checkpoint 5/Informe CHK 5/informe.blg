@@ -1,17 +1,11 @@
-[0] Config.pm:306> INFO - This is Biber 2.18
-[0] Config.pm:309> INFO - Logfile is 'informe.blg'
-[99] biber:340> INFO - === lun jun 29, 2026, 10:21:25
-[116] Biber.pm:418> INFO - Reading 'informe.bcf'
-[210] Biber.pm:978> INFO - Found 1 citekeys in bib section 0
-[250] Biber.pm:4401> INFO - Processing section 0
-[266] Biber.pm:4592> INFO - Looking for bibtex file 'referencias.bib' for section 0
-[267] bibtex.pm:1713> INFO - LaTeX decoding ...
-[269] bibtex.pm:1518> INFO - Found BibTeX data source 'referencias.bib'
-[308] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[308] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
-[308] Biber.pm:4221> INFO - Sorting list 'apa/apasortcite//global/global' of type 'entry' with template 'apa' and locale 'es-ES'
-[317] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[317] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
-[317] Biber.pm:4221> INFO - Sorting list 'apa/global//global/global' of type 'entry' with template 'apa' and locale 'es-ES'
-[318] bbl.pm:654> INFO - Writing 'informe.bbl' with encoding 'UTF-8'
-[319] bbl.pm:757> INFO - Output to informe.bbl
+[0] Config.pm:328> INFO - This is Biber 2.21
+[0] Config.pm:331> INFO - Logfile is 'informe.blg'
+[146] biber-MSWIN64:342> INFO - === 
+[200] Biber.pm:421> INFO - Reading 'informe.bcf'
+[364] Biber.pm:1002> INFO - Found 2 citekeys in bib section 0
+[392] Biber.pm:4487> INFO - Processing section 0
+[406] Biber.pm:4678> INFO - Looking for bibtex file 'referencias.bib' for section 0
+[469] bibtex.pm:1713> INFO - LaTeX decoding ...
+[480] bibtex.pm:1519> INFO - Found BibTeX data source 'referencias.bib'
+[522] Utils.pm:479> ERROR - BibTeX subsystem: C:\Users\ramaz\AppData\Local\Temp\biber_tmp_9Txf\f1acd60b6c57e7ae00f56d747b2cd459_4992.utf8, line 11, syntax error: found "type", expected end of entry ("}" or ")") (skipping to next "@")
+[522] Biber.pm:137> INFO - ERRORS: 1

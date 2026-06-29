@@ -1,59 +1,154 @@
 LTspice 24.1.5 for Windows
 Circuit: C:\Users\ramaz\Desktop\Circuitos II\TP-TA138-G7\Simulación\BUCK\Compensación.net
-Start Time: Sun Jun 28 15:16:23 2026
-Options: gmin=1e-10  abstol=1e-10  reltol=0.003  cshunt=1e-15
+Start Time: Mon Jun 29 18:18:18 2026
 solver = Normal
 Maximum thread count: 12
 tnom = 27
 temp = 27
 method = trap
-gmin = 1e-10
-abstol = 1e-10
-reltol = 0.003
-Singular matrix:  Check nodes b1#branch and u1:10
-   Iteration No. 2
+Early termination of direct N-R iteration.
 Direct Newton iteration failed to find .op point.  (Use ".option noopiter" to skip.)
 Starting Gmin stepping
 Increasing initial diagonal Gmin to 100
-Increasing initial diagonal Gmin to 1000
-Increasing initial diagonal Gmin to 10000
-Increasing initial diagonal Gmin to 100000
-Increasing initial diagonal Gmin to 1e+06
-Initial Gmin=1e+06 failed
+Gmin = 100
+Gmin = 10.7374
+vernier = 0.5
+vernier = 0.25
+Gmin = 3.1275
+vernier = 0.125
+vernier = 0.0625
+vernier = 0.03125
+vernier = 0.015625
+Gmin = 3.00922
+vernier = 0.0078125
+vernier = 0.0104167
+vernier = 0.00520833
+vernier = 0.00260417
+Gmin = 2.97226
+vernier = 0.00347222
+Gmin = 2.94978
+vernier = 0.00462963
+vernier = 0.00231481
+vernier = 0.00115741
+vernier = 0.00154321
+Gmin = 2.94183
+vernier = 0.00205761
+vernier = 0.00102881
+Gmin = 2.93163
+vernier = 0.000514403
+vernier = 0.00068587
+Gmin = 2.92774
+vernier = 0.000914493
+vernier = 0.00121932
+Gmin = 2.92094
+vernier = 0.00162576
+vernier = 0.000812882
+vernier = 0.000406441
+Gmin = 2.91649
+vernier = 0.000541921
+vernier = 0.000722562
+Gmin = 2.91248
+vernier = 0.000963415
+vernier = 0.000481708
+Gmin = 0
 Gmin stepping failed
 
 Starting source stepping with srcstepmethod=0
 Source Step = 3.0303%
 vernier = 0.25
-Source Step = 1.70455%
-Source Step = 3.59848%
-Source Step = 5.49242%
-Source Step = 7.38636%
-Source Step = 9.2803%
-vernier = 0.09375
-Source Step = 11.9318%
-Source Step = 14.7727%
-Source Step = 17.6136%
-Source Step = 20.4545%
-Source Step = 23.2955%
-vernier = 0.140625
-Source Step = 27.1307%
-Source Step = 31.392%
-Source Step = 35.6534%
-Source Step = 39.9148%
-Source Step = 44.1761%
-vernier = 0.210938
-Source Step = 49.7159%
-Source Step = 56.108%
-Source Step = 62.5%
-Source Step = 68.892%
-Source Step = 75.2841%
-vernier = 0.316406
-Source Step = 83.2741%
-Source Step = 92.8622%
+Source Step = 0.0177557%
+Source Step = 0.0473485%
+Source Step = 0.0769413%
+Source Step = 0.106534%
+Source Step = 0.136127%
+vernier = 0.00146484
+Source Step = 0.167199%
+Source Step = 0.211589%
+Source Step = 0.255978%
+Source Step = 0.300367%
+Source Step = 0.344756%
+Source Step = 0.389145%
+vernier = 0.00219727
+Source Step = 0.455729%
+Source Step = 0.522313%
+Source Step = 0.588897%
+Source Step = 0.655481%
+Source Step = 0.722064%
+vernier = 0.0032959
+Source Step = 0.818611%
+Source Step = 0.918487%
+Source Step = 1.01836%
+Source Step = 1.11824%
+Source Step = 1.21811%
+vernier = 0.00494385
+Source Step = 1.35794%
+Source Step = 1.50775%
+Source Step = 1.65757%
+Source Step = 1.80738%
+Source Step = 1.95719%
+vernier = 0.00741577
+Source Step = 2.15944%
+Source Step = 2.38416%
+Source Step = 2.60888%
+Source Step = 2.8336%
+Source Step = 3.05832%
+vernier = 0.0111237
+Source Step = 3.35046%
+Source Step = 3.68754%
+Source Step = 4.02462%
+Source Step = 4.3617%
+Source Step = 4.69878%
+vernier = 0.0166855
+Source Step = 5.12013%
+Source Step = 5.62575%
+Source Step = 6.13137%
+Source Step = 6.637%
+Source Step = 7.14262%
+vernier = 0.0250282
+Source Step = 7.74936%
+Source Step = 8.50779%
+Source Step = 9.26622%
+Source Step = 10.0247%
+Source Step = 10.7831%
+vernier = 0.0375423
+Source Step = 11.6553%
+Source Step = 12.7929%
+Source Step = 13.9306%
+Source Step = 15.0682%
+Source Step = 16.2059%
+vernier = 0.0563135
+Source Step = 17.4573%
+Source Step = 19.1638%
+Source Step = 20.8702%
+Source Step = 22.5767%
+Source Step = 24.2832%
+vernier = 0.0844703
+Source Step = 26.075%
+Source Step = 28.6347%
+Source Step = 31.1944%
+Source Step = 33.7541%
+Source Step = 36.3138%
+Source Step = 38.8735%
+vernier = 0.126705
+Source Step = 42.713%
+Source Step = 46.5526%
+Source Step = 50.3922%
+Source Step = 54.2317%
+Source Step = 58.0713%
+vernier = 0.190058
+Source Step = 63.6386%
+Source Step = 69.398%
+Source Step = 75.1573%
+Source Step = 80.9166%
+Source Step = 86.676%
+vernier = 0.285087
+Source Step = 93.2272%
+Source Step = 95.387%
+Source Step = 97.5467%
+Source Step = 99.7065%
 Source stepping succeeded in finding the operating point.
 
-Total elapsed time: 0.225 seconds.
+Total elapsed time: 0.658 seconds.
 
 Files loaded:
 C:\Users\ramaz\Desktop\Circuitos II\TP-TA138-G7\Simulación\BUCK\Compensación.net
