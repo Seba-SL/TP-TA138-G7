@@ -895,13 +895,84 @@ En función de los resultados obtenidos, apreciables en la tabla \ref{tab:regula
 
 	\subsection{Regulación de carga}
 	
+	La \textbf{regulación de carga} es un parámetro que cuantifica la capacidad de una fuente de alimentación para mantener constante su tensión de salida frente a variaciones en la corriente demandada por la carga. La tensión de salida debe experimentar una variación mínima de $\Delta V_0 = 400 \, mV$ al pasar desde condiciones de carga ligera $100 \, mA$ hasta carga nominal de $1.5 \,A$ según las condiciones establecidas. La carga ensayada consto de un reóstato, es decir una resistencia variable diseñada específicamente para controlar y regular la intensidad de la corriente eléctrica en un circuito, el banco de ensayo se observa en la figura \ref{fig:bancomedicionregcarga}.
+	
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=0.7\linewidth]{img/BUCK/banco_medicion_reg_carga}
 		\caption{Banco de medición de regulación de carga.}
 		\label{fig:bancomedicionregcarga}
 	\end{figure}
+
 	
+	Durante el ensayo de regulación de carga se observó que el convertidor mantuvo una tensión de salida prácticamente constante para corrientes inferiores a aproximadamente $700\,\mathrm{mA}$. Sin embargo, al incrementar la carga por encima de dicho valor, la fuente dejó de regular adecuadamente, produciéndose una caída abrupta de la tensión de salida, acompañada de un incremento significativo de la corriente consumida, dando indicios de que el convertidor entraba en una condición cercana a un cortocircuito.
+	
+	Con el objetivo de analizar este comportamiento, se monitoreó mediante osciloscopio la señal $V_S$ correspondiente a la salida del \textit{gate driver}. Se observó que, al aumentar la carga, el tiempo de conducción del transistor se incrementaba progresivamente hasta aproximarse al período completo de conmutación ($T_s$), es decir, el ciclo de trabajo tendía a valores cercanos al $100 \%$. Este comportamiento indica que el lazo de control intentaba compensar la caída de la tensión de salida aumentando continuamente el ciclo de trabajo, sin lograr recuperar la regulación.
+	
+	Adicionalmente, se observó que la señal triangular generada por el oscilador presentaba un nivel considerable de ruido únicamente cuando el convertidor operaba con estas cargas elevadas. Este fenómeno podría afectar el funcionamiento del comparador PWM, provocando fluctuaciones del ciclo de trabajo e incluso situaciones de saturación del modulador.
+	
+	Si bien no fue posible determinar experimentalmente la causa exacta de esta pérdida de regulación, existen diversas hipótesis que podrían explicar el comportamiento observado:
+	
+	\begin{itemize}
+		\item Saturación del inductor, provocando una disminución abrupta de la inductancia efectiva y un incremento excesivo de la corriente.
+
+		\item Insuficiente compensación del lazo de control, originando una respuesta inestable para corrientes elevadas.
+		
+		\item Acoplamiento de ruido de conmutación hacia el circuito de control, especialmente sobre la rampa triangular o la red de realimentación.
+		
+		\item Disposición física (layout) inadecuada, generando inductancias parásitas y rebotes de masa (\textit{ground bounce}) que afectan las señales analógicas del controlador.
+		
+		
+	\end{itemize}
+	
+	Para identificar el origen del problema se propone realizar los siguientes ensayos:
+	
+	\begin{itemize}
+		\item Medir la corriente del inductor para verificar la posible aparición de saturación.
+		\item Comparar la rampa triangular en vacío y bajo carga utilizando una punta diferencial o minimizando el lazo de masa del osciloscopio.
+		\item Medir simultáneamente la tensión de alimentación del controlador y del \textit{gate driver} para descartar caídas de alimentación.
+		\item Verificar el funcionamiento del lazo abierto, fijando manualmente el ciclo de trabajo, para comprobar si la etapa de potencia es capaz de entregar la corriente requerida.
+		\item Revisar la compensación del amplificador de error mediante simulación y análisis de estabilidad.
+		\item Mejorar el desacoplo de la alimentación del circuito de control e implementar una separación más rigurosa entre las masas de potencia y de señal.
+	\end{itemize}
+
+	
+	Se detalla a continuación un esquemático (figura \ref{fig:esquematico_med_reg_carga}) de la medición una vez se de con la solución, de forma de obtener mayor precisión en los datos, tomando mediciones de un $\Delta V_o$ y la corriente en carga.
+	
+\begin{figure}[H]
+	\centering
+\begin{tikzpicture}[transform shape]
+	% Paths, nodes and wires:
+	\node[ground] at (7.25, 13){};
+	\draw (7.25, 16) to[american voltage source, l={$V_{CC}$}] (7.25, 13);
+	\draw (14.5, 16.25) to[voltmeter, v^<=$\Delta V_o$, voltage/bump b=3] (17.75, 16.25);
+	\draw (13, 16.25) to[variable american resistor, l_={$\text{Reóstato}$}] (13, 12.75);
+	\node[ground] at (13, 12.25){};
+	\draw (14.5, 16.25) |- (13, 16.25);
+	\draw (9.5, 16.25) to[sdcdc, /tikz/circuitikz/bipoles/length=2.34cm, l={$buck$}] (13, 16.25);
+	\node[ground] at (18, 13.25){};
+	\draw (18, 16.25) to[american voltage source, l={$9,5 V$}] (18, 13.25);
+	\draw (17.75, 16.25) -- (18, 16.25);
+	\draw (9.5, 16.25) |- (7.25, 16.25) -| (7.25, 16);
+	\draw (13, 12.25) to[ammeter] (13, 13.25);
+\end{tikzpicture}
+		\label{fig:esquematico_med_reg_carga}
+\end{figure}
+
+
+La regulación de carga se calcula mediante la siguiente expresión:
+
+\begin{equation}
+	\text{Regulación de carga} =
+	\frac{V_{\text{carga ligera}}-V_{\text{carga nominal}}}
+	{V_{\text{carga nominal}}}
+	\times 100 \%
+\end{equation}
+
+donde $V_{\text{carga ligera}}$ corresponde a la tensión de salida medida para una corriente de carga reducida (en este caso $100\,\mathrm{mA}$) y $V_{\text{carga nominal}}$ es la tensión de salida para la corriente máxima especificada ($1.5\,\mathrm{A}$).
+
+Se espera que la tensión permanezca prácticamente constante al variar la carga entre $100\,\mathrm{mA}$ y $1.5\,\mathrm{A}$. En condiciones normales de funcionamiento, una regulación de carga inferior al $1 \% $  se considera un resultado satisfactorio, correspondiendo a una diferencia de tensión inferior a aproximadamente $95\,\mathrm{mV}$ entre ambos extremos del rango de carga.
+
 	
 	\subsection{Red \textit{Snubber}}
 	

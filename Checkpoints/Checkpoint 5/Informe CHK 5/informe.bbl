@@ -1,5 +1,5 @@
 % $ biblatex auxiliary file $
-% $ biblatex bbl format version 3.3 $
+% $ biblatex bbl format version 3.2 $
 % Do not modify the above lines!
 %
 % This is an auxiliary file used by the 'biblatex' package.
@@ -18,8 +18,8 @@
 
 
 \refsection{0}
-  \datalist[entry]{apa/apasortcite//global/global/global}
-    \entry{toshiba_snubbers}{report}{}{}
+  \datalist[entry]{apa/apasortcite//global/global}
+    \entry{toshiba_snubbers}{report}{}
       \list{institution}{1}{%
         {Toshiba}%
       }
@@ -34,8 +34,8 @@
       \field{dateera}{ce}
     \endentry
   \enddatalist
-  \datalist[entry]{apa/global//global/global/global}
-    \entry{toshiba_snubbers}{report}{}{}
+  \datalist[entry]{apa/global//global/global}
+    \entry{toshiba_snubbers}{report}{}
       \list{institution}{1}{%
         {Toshiba}%
       }
