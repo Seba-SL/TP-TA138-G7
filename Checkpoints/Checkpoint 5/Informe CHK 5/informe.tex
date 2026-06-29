@@ -617,7 +617,7 @@ Esta modificación también afecta la tensión de sensado, pues $V_{med} = \SI{5
 		V_{PWM = 90\%} = \SI{3.84}{V}+ 0.9 (\SI{7.08}{V} - \SI{3.84}{V}) = \SI{6.75}{V}.
 	\end{equation}
 	
-	Para que el circuito de la figura \ref{fig:amp_error} limite el PWM al valor previsto, y considerando un diodo tipo \textit{Schottky}, se deberá obtener una tensión constante $V_{lim} \approx V_{PWM = 90\%} - \SI{0.2}{V}  \SI{6.55}{V}$.
+	Para que el circuito de la figura \ref{fig:amp_error} limite el PWM al valor previsto, y considerando un diodo tipo \textit{Schottky}, se deberá obtener una tensión constante $V_{lim} \approx V_{PWM = 90\%} - \SI{0.2}{V} =  \SI{6.55}{V}$.
 	
 \begin{figure}[H]
 	\centering
@@ -752,14 +752,61 @@ La ecuación de $V_{lim}$ es idéntica a (\ref{eq:reg}), se fijan las resistenci
 		
 		
 		
-\subsection{Diseño de red \textit{Snubber}}
+		\subsection{Compensación}
+		
+		Para la compensación del lazo realimentador, será necesario aplicar un modelo promediado. Este consiste en evaluar el circuito en sus posibles estados de conmutación (on-off), y obtener un modelo que \textit{promedie} según el tiempo que pasa el circuito en ese estado.
+		
+		Para poder observar la ganancia de lazo en un diagrama de Bode, y así proponer técnicas de compensación, se utiliza la librería \textit{average}, y se reemplaza el generador PWM de la figura \ref{fig:amp_error} y el transistor de paso $Q_2$ por un modelo promediado. El archivo de simulación puede verse en la figura \ref{fig:sim_compensacion}.
+		
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=\linewidth]{img/BUCK/sim_compensacion}
+			\caption{Archivo de simulación utilizado para evaluar la ganancia de lazo.}
+			\label{fig:sim_compensacion}
+		\end{figure}
+		
+		
+		\subsection{Diseño de red \textit{Snubber}}
+		
+		El diseño de la red \textit{Snubber} depende exclusivamente de las capacidades e inductancias parásitas del circuito. Como tal, es difícil de estimar antes de la implementación.
+		
+		Para su diseño, se prueba el circuito implementado de la figura \ref{sec:apendice_PCB}, en régimen permanente, y se mide la señal sobre el nodo $V_s$ (figura \ref{fig:vs_snubber}).
 	
-	
-	
-
-	
-	\subsection{Compensación}
-	
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.7\linewidth]{img/BUCK/ringing2}
+			\caption{Efecto \textit{ringing} sobre el nodo de conmutación $V_s$}
+			\label{fig:vs_snubber}
+		\end{figure}
+		
+		En base a los resultados experimentales, se diseña la red RC, siguiendo los pasos del manual \cite{toshiba_snubbers}:
+		
+		\begin{enumerate}
+			\item Se observa la frecuencia de la oscilación de la figura \ref{fig:vs_snubber}. $f_s \approx \SI{50}{\mega\hertz}$.
+			\item Se calcula la capacidad parásita esperada, que será la resultante de la suma de la capacidad de juntura $C_j$ del diodo de freewheeling y la capacidad total de salida $C_{oss}$ del transistor $Q_2$.
+			
+			\begin{equation}
+				C_p \approx C_j + C_{oss} = \SI{120}{pF} + \SI{70}{pF} = \SI{190}{pF}.
+			\end{equation}
+			
+			\item Se obtiene la inductancia parásita según
+			
+			\begin{equation}
+				L_p \approx \frac{1}{(2\pi f_s)^2 \cdot C_p} = \SI{53.3}{nHy}.
+			\end{equation}
+			
+			\item Finalmente, se calcula la resistencia de la red, que será equivalente a la impedancia
+			
+			\begin{equation}
+				R_{SNB} = \sqrt{\frac{L_p}{C_p}} = \SI{16.7}{\ohm}.
+			\end{equation}
+		\end{enumerate}
+		
+		El capacitor de \textit{snubber} será el responsable de la totalidad de la disipación de potencia, y por ende reducción de eficiencia de la fuente. A mayor $C_{SNB}$, mayor atenuación del efecto \textit{ringing}, pero mayor pérdida de eficiencia. En este caso, se escoje una capacidad \SI{220}{pF} cercana a la capacidad parásita.
+		
+		\begin{equation}
+			P_{SNB} = C_{SNB}\cdot V_{IN}^2 \cdot f_{sw} = \SI{220}{pF} \cdot \SI{32}{V} \cdot \SI{130}{\kilo\hertz} = \SI{0.9}{mW}.
+		\end{equation}
 	
 	
 	\section{Mediciones}
@@ -864,29 +911,33 @@ En función de los resultados obtenidos, apreciables en la tabla \ref{tab:regula
 		\begin{minipage}{0.48\linewidth}
 			\centering
 			\includegraphics[width=\linewidth]{img/BUCK/medicion_sin_snubber}
-			\caption{Medición sin snubber}
+			\caption{Medición con red \textit{Snubber}.}
 			\label{fig:medicionsinsnubber}
 		\end{minipage}
 		\hfill
 		\begin{minipage}{0.48\linewidth}
 			\centering
 			\includegraphics[width=\linewidth]{img/BUCK/medicion_con_snubber1}
-			\caption{Medición con snubber}
+			\caption{Medición con red \textit{Snubber}.}
 			\label{fig:medicionconsnubber}
 		\end{minipage}
 		
 	\end{figure}
-	\subsection{Validación del Inductor}
-	\subsection{Regulación a lazo cerrado}
 	
+	Notar que, si bien aun se puede apreciar un sobrepico, la señal se estabiliza mucho más rápido, asegurando la señal triangular de corriente en el bobinado.
+	
+	
+	\section{Problemas encontrados}
+	
+	\subsection{Limitación de corriente}
+	\subsection{Ruido de conmutación}
+	\subsection{Inestabilidad de señal de salida}
 	\section{Conclusiones}
 
 	
 	{\footnotesize
 		\printbibliography
 	}
-	
-	
 	\newpage
 	\appendix
 

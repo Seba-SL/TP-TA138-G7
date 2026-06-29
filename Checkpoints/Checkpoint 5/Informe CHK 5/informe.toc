@@ -15,15 +15,17 @@
 \contentsline {subsection}{\numberline {3.3}Alimentación de lazo}{6}{}%
 \contentsline {subsection}{\numberline {3.4}Limitador de duty}{7}{}%
 \contentsline {subsection}{\numberline {3.5}Elección del capacitor \textit {Bootstrap}}{8}{}%
-\contentsline {subsection}{\numberline {3.6}Diseño de red \textit {Snubber}}{9}{}%
-\contentsline {subsection}{\numberline {3.7}Compensación}{9}{}%
-\contentsline {section}{\numberline {4}Mediciones}{9}{}%
-\contentsline {subsection}{\numberline {4.1}Regulación de linea}{9}{}%
-\contentsline {subsection}{\numberline {4.2}Regulación de carga}{11}{}%
-\contentsline {subsection}{\numberline {4.3}Red \textit {Snubber}}{11}{}%
-\contentsline {subsection}{\numberline {4.4}Validación del Inductor}{11}{}%
-\contentsline {subsection}{\numberline {4.5}Regulación a lazo cerrado}{11}{}%
-\contentsline {section}{\numberline {5}Conclusiones}{11}{}%
-\contentsline {section}{\numberline {A}Apéndice I: PCB}{12}{}%
-\contentsline {subsection}{\numberline {A.1}Esquematico.}{12}{}%
-\contentsline {subsection}{\numberline {A.2}Pistas}{13}{}%
+\contentsline {subsection}{\numberline {3.6}Compensación}{9}{}%
+\contentsline {subsection}{\numberline {3.7}Diseño de red \textit {Snubber}}{9}{}%
+\contentsline {section}{\numberline {4}Mediciones}{10}{}%
+\contentsline {subsection}{\numberline {4.1}Regulación de linea}{10}{}%
+\contentsline {subsection}{\numberline {4.2}Regulación de carga}{12}{}%
+\contentsline {subsection}{\numberline {4.3}Red \textit {Snubber}}{13}{}%
+\contentsline {section}{\numberline {5}Problemas encontrados}{13}{}%
+\contentsline {subsection}{\numberline {5.1}Limitación de corriente}{13}{}%
+\contentsline {subsection}{\numberline {5.2}Ruido de conmutación}{13}{}%
+\contentsline {subsection}{\numberline {5.3}Inestabilidad de señal de salida}{13}{}%
+\contentsline {section}{\numberline {6}Conclusiones}{13}{}%
+\contentsline {section}{\numberline {A}Apéndice I: PCB}{14}{}%
+\contentsline {subsection}{\numberline {A.1}Esquematico.}{14}{}%
+\contentsline {subsection}{\numberline {A.2}Pistas}{15}{}%

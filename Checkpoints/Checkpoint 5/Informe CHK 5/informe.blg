@@ -1,9 +1,17 @@
 [0] Config.pm:328> INFO - This is Biber 2.21
 [0] Config.pm:331> INFO - Logfile is 'informe.blg'
-[125] biber-MSWIN64:342> INFO - === 
-[168] Biber.pm:421> INFO - Reading 'informe.bcf'
-[332] Biber.pm:1002> INFO - Found 0 citekeys in bib section 0
-[361] bbl.pm:676> INFO - Writing 'informe.bbl' with encoding 'UTF-8'
-[361] bbl.pm:779> INFO - Output to informe.bbl
-[361] Biber.pm:132> WARN - The file 'informe.bcf' does not contain any citations!
-[361] Biber.pm:134> INFO - WARNINGS: 1
+[129] biber-MSWIN64:342> INFO - === 
+[179] Biber.pm:421> INFO - Reading 'informe.bcf'
+[352] Biber.pm:1002> INFO - Found 1 citekeys in bib section 0
+[377] Biber.pm:4487> INFO - Processing section 0
+[390] Biber.pm:4678> INFO - Looking for bibtex file 'referencias.bib' for section 0
+[457] bibtex.pm:1713> INFO - LaTeX decoding ...
+[467] bibtex.pm:1519> INFO - Found BibTeX data source 'referencias.bib'
+[509] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
+[509] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[509] Biber.pm:4307> INFO - Sorting list 'apa/apasortcite//global/global/global' of type 'entry' with template 'apa' and locale 'es-ES'
+[517] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
+[517] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[517] Biber.pm:4307> INFO - Sorting list 'apa/global//global/global/global' of type 'entry' with template 'apa' and locale 'es-ES'
+[518] bbl.pm:676> INFO - Writing 'informe.bbl' with encoding 'UTF-8'
+[519] bbl.pm:779> INFO - Output to informe.bbl

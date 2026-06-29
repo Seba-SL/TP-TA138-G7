@@ -16,5 +16,40 @@
   {}
 \endgroup
 
+
+\refsection{0}
+  \datalist[entry]{apa/apasortcite//global/global/global}
+    \entry{toshiba_snubbers}{report}{}{}
+      \list{institution}{1}{%
+        {Toshiba}%
+      }
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labeltitlesource}{title}
+      \field{title}{RC Snubbers for Step-Down Converters}
+      \field{type}{Application Note}
+      \field{year}{2018}
+      \field{dateera}{ce}
+    \endentry
+  \enddatalist
+  \datalist[entry]{apa/global//global/global/global}
+    \entry{toshiba_snubbers}{report}{}{}
+      \list{institution}{1}{%
+        {Toshiba}%
+      }
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labeltitlesource}{title}
+      \field{title}{RC Snubbers for Step-Down Converters}
+      \field{type}{Application Note}
+      \field{year}{2018}
+      \field{dateera}{ce}
+    \endentry
+  \enddatalist
+\endrefsection
 \endinput
 
