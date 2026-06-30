@@ -1,11 +1,17 @@
 [0] Config.pm:328> INFO - This is Biber 2.21
 [0] Config.pm:331> INFO - Logfile is 'informe.blg'
-[147] biber-MSWIN64:342> INFO - === 
-[199] Biber.pm:421> INFO - Reading 'informe.bcf'
-[421] Biber.pm:1002> INFO - Found 2 citekeys in bib section 0
-[450] Biber.pm:4487> INFO - Processing section 0
-[465] Biber.pm:4678> INFO - Looking for bibtex file 'referencias.bib' for section 0
-[527] bibtex.pm:1713> INFO - LaTeX decoding ...
-[538] bibtex.pm:1519> INFO - Found BibTeX data source 'referencias.bib'
-[584] Utils.pm:479> ERROR - BibTeX subsystem: C:\Users\ramaz\AppData\Local\Temp\biber_tmp_27yw\f1acd60b6c57e7ae00f56d747b2cd459_18620.utf8, line 11, syntax error: found "type", expected end of entry ("}" or ")") (skipping to next "@")
-[584] Biber.pm:137> INFO - ERRORS: 1
+[162] biber-MSWIN64:342> INFO - === 
+[219] Biber.pm:421> INFO - Reading 'informe.bcf'
+[458] Biber.pm:1002> INFO - Found 2 citekeys in bib section 0
+[506] Biber.pm:4487> INFO - Processing section 0
+[520] Biber.pm:4678> INFO - Looking for bibtex file 'referencias.bib' for section 0
+[613] bibtex.pm:1713> INFO - LaTeX decoding ...
+[624] bibtex.pm:1519> INFO - Found BibTeX data source 'referencias.bib'
+[683] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[683] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
+[683] Biber.pm:4307> INFO - Sorting list 'apa/apasortcite//global/global/global' of type 'entry' with template 'apa' and locale 'es-ES'
+[705] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
+[705] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[705] Biber.pm:4307> INFO - Sorting list 'apa/global//global/global/global' of type 'entry' with template 'apa' and locale 'es-ES'
+[709] bbl.pm:676> INFO - Writing 'informe.bbl' with encoding 'UTF-8'
+[711] bbl.pm:779> INFO - Output to informe.bbl

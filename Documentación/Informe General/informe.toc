@@ -16,12 +16,12 @@
 \contentsline {subsubsection}{\numberline {2.2.11}Consideraciones de fabricación PCB}{16}{}%
 \contentsline {paragraph}{Arquitectura general}{16}{}%
 \contentsline {paragraph}{Selección de materiales y encapsulados}{16}{}%
-\contentsline {paragraph}{Selección de huellas y modelos 3D}{16}{}%
-\contentsline {paragraph}{Ancho de pistas}{16}{}%
+\contentsline {paragraph}{Selección de huellas y modelos 3D}{17}{}%
+\contentsline {paragraph}{Ancho de pistas}{17}{}%
 \contentsline {paragraph}{Dimensionamiento de pistas}{17}{}%
-\contentsline {paragraph}{Disposición de componentes}{17}{}%
-\contentsline {paragraph}{Consideraciones térmicas}{17}{}%
-\contentsline {paragraph}{Fijación mecánica }{17}{}%
+\contentsline {paragraph}{Disposición de componentes}{18}{}%
+\contentsline {paragraph}{Consideraciones térmicas}{18}{}%
+\contentsline {paragraph}{Fijación mecánica }{18}{}%
 \contentsline {paragraph}{Separación y reglas de diseño}{18}{}%
 \contentsline {paragraph}{Análisis de requerimientos eléctricos (seguridad eléctrica y EMC)}{18}{}%
 \contentsline {paragraph}{Auto-ruteo}{18}{}%
@@ -38,12 +38,21 @@
 \contentsline {paragraph}{Eficiencia:}{28}{}%
 \contentsline {subsubsection}{\numberline {3.1.2}Modo Dinámico}{29}{}%
 \contentsline {subsection}{\numberline {3.2}Simulaciones de fuente switching}{30}{}%
-\contentsline {section}{\numberline {4}Conclusiones}{30}{}%
-\contentsline {subsection}{\numberline {4.1}Regulador Lineal LDO}{30}{}%
+\contentsline {section}{\numberline {4}Mediciones}{30}{}%
+\contentsline {section}{\numberline {5}Errores}{30}{}%
+\contentsline {section}{\numberline {6}Conclusiones}{30}{}%
+\contentsline {subsection}{\numberline {6.1}Regulador Lineal LDO}{30}{}%
+\contentsline {subsection}{\numberline {6.2}Regulador BUCK}{31}{}%
 \contentsline {section}{\numberline {A}Apéndice I: Simulaciones}{32}{}%
 \contentsline {subsection}{\numberline {A.1}LDO}{32}{}%
-\contentsline {section}{\numberline {B}Apéndice II: Esquemáticos}{33}{}%
-\contentsline {subsection}{\numberline {B.1}LDO}{33}{}%
-\contentsline {section}{\numberline {C}Apéndice III: PCB}{34}{}%
-\contentsline {subsection}{\numberline {C.1}LDO capa superior}{35}{}%
-\contentsline {subsection}{\numberline {C.2}LDO capa inferior}{36}{}%
+\contentsline {subsection}{\numberline {A.2}BUCK}{33}{}%
+\contentsline {section}{\numberline {B}Apéndice II: Esquemáticos}{36}{}%
+\contentsline {subsection}{\numberline {B.1}LDO}{36}{}%
+\contentsline {subsection}{\numberline {B.2}BUCK}{37}{}%
+\contentsline {section}{\numberline {C}Apéndice III: PCB}{38}{}%
+\contentsline {subsection}{\numberline {C.1}LDO}{38}{}%
+\contentsline {subsection}{\numberline {C.2}LDO capa superior}{39}{}%
+\contentsline {subsection}{\numberline {C.3}LDO capa inferior}{40}{}%
+\contentsline {subsection}{\numberline {C.4}BUCK}{41}{}%
+\contentsline {subsection}{\numberline {C.5}BUCK capa superior}{42}{}%
+\contentsline {subsection}{\numberline {C.6}BUCK capa inferior}{43}{}%

@@ -107,7 +107,7 @@ citestyle=apa
 		%{\scshape\Huge Trabajo Pr\'actico \par}
 		{\scshape\Huge Diseño de Fuente de Alimentación \par}
 		\vspace{2cm}
-		{\scshape\Large Checkpoint 2: Compensación de lazos y análisis térmico. \par}
+		{\scshape\Large MEMORIA TÉCNICA \par}
 		
 		
 		\vspace{2cm}
@@ -126,7 +126,9 @@ citestyle=apa
 		\begin{tabular}{ p{6cm} p{6cm} p{6cm}}
 			\textbf{Docentes:}  
 			\\Teóricas: Julio Zola & Tutor: Sergio Andres Quinteros  
-		\end{tabular}
+		\end{tabular}\par
+		\vspace{2cm}
+		{\scshape\Large 1er cuatrimestre 2026}
 		
 	\end{titlepage}
 	
@@ -137,7 +139,6 @@ citestyle=apa
 	\tableofcontents \label{Indice}
 	\newpage
 	
-	\checkpointstart{1}
 	\section{Objetivo}
 
 	
@@ -1029,9 +1030,6 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 		\label{fig:shunt}
 	\end{figure}
 	
-	\checkpointend{1}
-	
-	\checkpointstart{2}
 	
 \FloatBarrier
 	\subsubsection{Compensación de lazos}
@@ -1716,9 +1714,6 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 	
 	% SL : voy a seguir la seccion del diseño de pcb a parte y dsp lo añado
 	
-	
-	\checkpointend{2}
-	
 	\subsubsection{Mejoras:}
 	Aunque el regulador lineal satisface las especificaciones de la tabla \ref{tabla:especificaciones_ldo}, hay algunas mejoras que pueden realizarse al circuito para mejorar aun más su desempeño:
 	
@@ -1749,7 +1744,6 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 	
 	Se presentan los resultados obtenidos para cada uno de estos casos.
 	
-	\checkpointstart{2}
 	\FloatBarrier
 	\paragraph{Ganancias de lazo: }
 	\FloatBarrier
@@ -1840,7 +1834,6 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 		\caption{Bode resultante de la medición de $T_A$ para el lazo de corriente compensado.}
 		\label{fig:bode_corriente_compensado}
 	\end{figure}
-	\checkpointend{2}
 	\FloatBarrier
 	\paragraph{Estabilización de tensión: }
 	\FloatBarrier
@@ -1987,7 +1980,6 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 		\label{fig:ldoeficiencia}
 	\end{figure}
 	
-	\checkpointstart{2}
 	\FloatBarrier
 	\subsubsection{Modo Dinámico}
 	\FloatBarrier
@@ -2025,12 +2017,14 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 	
 	Es de especial importancia el sobrepico de corriente ocasionado por el abrupto cambio de carga. Notar que, si bien será limitado por el regulador de tipo shunt, deberá ser tenido en cuenta a la hora de conectar una carga. La duración del mismo es de \SI{2.5}{\micro\second}.
 
-	
-	\checkpointend{2}
 	\FloatBarrier
 	\subsection{Simulaciones de fuente switching}
 	\FloatBarrier
 	Por agregar en futuras entregas.
+	
+	\section{Mediciones}
+	
+	\section{Errores}
 	
 	\input{conclusiones}
 
@@ -2052,6 +2046,27 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 		\caption{Captura de simulación en LtSpice.}
 		\label{fig:esquematicoldoltspice}
 	\end{figure}
+	
+	\subsection{BUCK}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.85\linewidth]{img/BUCK/simulacion_pwm}
+		\caption{Captura de simulación en LtSpice.}
+		\label{fig:esquematicobuckpwm}
+	\end{figure}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.85\linewidth]{img/BUCK/simulacion_buck}
+		\caption{Captura de simulación en LtSpice.}
+		\label{fig:esquematicobuck}
+	\end{figure}
+		\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.85\linewidth]{img/BUCK/simulacion_buck_compensado}
+		\caption{Captura de simulación en LtSpice.}
+		\label{fig:esquematicobuckcompensado}
+	\end{figure}
+	
 
 	\section{Apéndice II: Esquemáticos}
 	\label{sec:apendice_esquematicos}
@@ -2063,8 +2078,18 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 		\caption{Esquemático de la implementación del regulador lineal LDO.}
 		\label{fig:esquematicokicadldo}
 	\end{figure}
+	
+	\subsection{BUCK}
+		\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.85\linewidth]{img/BUCK/esquematico_buck}
+		\caption{Esquemático de la implementación de la fuente switching tipo \textit{Buck}.}
+		\label{fig:esquematicokicadbuck}
+	\end{figure}
+	
 	\end{landscape}
 \section{Apéndice III: PCB}
+\subsection{LDO}
 \label{sec:apendice_PCB}
 
 \includepdf[
@@ -2081,5 +2106,21 @@ pagecommand={
 }
 ]{img/LDO/pistas_LDO_inferior.pdf}
 
+\subsection{BUCK}
+	
+\includepdf[
+pages=1,
+pagecommand={
+	\subsection{BUCK capa superior}
+}
+]{img/BUCK/pistas_BUCK.pdf}
+
+\includepdf[
+pages=1,
+pagecommand={
+	\subsection{BUCK capa inferior}
+}
+]{img/BUCK/pistas_BUCK_inferior.pdf}
+	
 	
 \end{document}
