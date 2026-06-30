@@ -27,3 +27,15 @@ Algunas reflexiones adicionales:
 \end{itemize}
 
 \subsection{Regulador BUCK}
+
+El regulador funciona correctamente tras ciertas adaptaciones provisorias, que permiten anular una parte del ruido de conmutación que se filtra el circuito PWM.
+
+Los resultados respetaron, en su mayoría, los requerimientos pedidos, a excepción de algunos valores particualres, como la eficiencia. Si bien se podría aspirar a valores cercanos al 95\%, no son malos para un primer prototipo.
+
+La fuente podría usar algunas mejoras, como protecciones a la carga y a la alimentación, y para sí misma. Además, se requiere un estudio de propagación de ruido de conmutación, que fue lo que ocasionó graves problemas durante el desarrollo, e incluso tras las correcciones, sigue volviendo a la fuente inestable bajo ciertos escenarios.
+
+Asimismo, si bien la compensación demuestra ser robusta en las simulaciones, se podría evaluar la posibilidad de aumentar el margen de fase a costa de ancho de banda, y de esta forma asegurar aún más la estabilidad.
+
+Por otro lado, la elección del filtro \textit{Snubber} resultó ser insuficiente: no llega a amortiguar del todo los sobrepicos de tensión sobre el nodo de conmutación. Para corregir esto, bastará con elegir una capacidad más grande a costa de menor eficiencia (pero mayor robustez y estabilidad a la salida).
+
+La eficiencia podrá ser mejorada fácilmente con el refinamiento del circuito de conmutación. En particular, la resistencia de \textit{pull-up} responsable de alimentar al gate driver, consume casi \SI{25}{mA} en estado bajo. También se puede jugar con la corriente de alimentación de los reguladores lineas, entre otras cosas, acercándonos a la combinación de valores más eficiente.

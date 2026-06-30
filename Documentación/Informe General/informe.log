@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.10)  30 JUN 2026 12:28
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.10)  30 JUN 2026 14:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1389,12 +1389,12 @@ la.jpg>] (informe.toc
 LaTeX Info: Redefining \sptext on input line 1.
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
-)
+ [1])
 \tf@toc=\write5
 \openout5 = `informe.toc'.
 
- [1]
-<img/esquema_general.png, id=22, 596.2275pt x 183.68625pt>
+ [2]
+<img/esquema_general.png, id=25, 596.2275pt x 183.68625pt>
 File: img/esquema_general.png Graphic file (type png)
 <use img/esquema_general.png>
 Package pdftex.def Info: img/esquema_general.png  used on input line 194.
@@ -1414,191 +1414,245 @@ Underfull \hbox (badness 5622) in paragraph at lines 224--224
 \OT1/cmr/m/n/10 100 [] \OML/cmm/m/it/10 < I[] < \OT1/cmr/m/n/10 1[]5 A$ 
  []
 
-[2 <./img/esquema_general.png>] [3]
-<img/buck/vcontrol.png, id=37, 987.2082pt x 466.1415pt>
+[3 <./img/esquema_general.png>] [4]
+<img/buck/vcontrol.png, id=40, 987.2082pt x 466.1415pt>
 File: img/buck/vcontrol.png Graphic file (type png)
 <use img/buck/vcontrol.png>
-Package pdftex.def Info: img/buck/vcontrol.png  used on input line 362.
+Package pdftex.def Info: img/buck/vcontrol.png  used on input line 361.
 (pdftex.def)             Requested size: 512.14963pt x 241.82594pt.
- [4 <./img/buck/vcontrol.png>] [5]
-<img/buck/corriente_iL_riple_Vo.png, id=49, 987.2082pt x 466.1415pt>
+ [5 <./img/buck/vcontrol.png>] [6]
+<img/buck/corriente_iL_riple_Vo.png, id=53, 987.2082pt x 466.1415pt>
 File: img/buck/corriente_iL_riple_Vo.png Graphic file (type png)
 <use img/buck/corriente_iL_riple_Vo.png>
 Package pdftex.def Info: img/buck/corriente_iL_riple_Vo.png  used on input line
- 486.
+ 485.
 (pdftex.def)             Requested size: 358.50317pt x 169.27603pt.
- [6 <./img/buck/corriente_iL_riple_Vo.png>] [7]
-<img/buck/tiempo_conmutacionIRF3205.png, id=59, 240.14719pt x 330.48468pt>
+ [7 <./img/buck/corriente_iL_riple_Vo.png>] [8]
+<img/buck/tiempo_conmutacionIRF3205.png, id=62, 240.14719pt x 330.48468pt>
 File: img/buck/tiempo_conmutacionIRF3205.png Graphic file (type png)
 <use img/buck/tiempo_conmutacionIRF3205.png>
 Package pdftex.def Info: img/buck/tiempo_conmutacionIRF3205.png  used on input 
-line 692.
+line 691.
 (pdftex.def)             Requested size: 179.2555pt x 246.69296pt.
- [8 <./img/buck/tiempo_conmutacionIRF3205.png>]
-Overfull \hbox (7.861pt too wide) in paragraph at lines 785--785
+ [9 <./img/buck/tiempo_conmutacionIRF3205.png>]
+Overfull \hbox (7.861pt too wide) in paragraph at lines 784--784
  [][]\T1/cmr/m/n/5 Amplificador 
  []
 
 
-Overfull \hbox (6.15308pt too wide) in paragraph at lines 786--786
+Overfull \hbox (6.15308pt too wide) in paragraph at lines 785--785
  [][]\T1/cmr/m/n/5 Comparador 
  []
 
 
-Overfull \hbox (4.98528pt too wide) in paragraph at lines 795--795
+Overfull \hbox (4.98528pt too wide) in paragraph at lines 794--794
  [][]\T1/cmr/m/n/9 Escalado 
  []
 
-[9] [10]
-
-Package caption Warning: \label without proper reference on input line 226.
-See the caption package documentation for explanation.
-
-
-LaTeX Warning: Reference `tab:spec_buck' on page 11 undefined on input line 951
-.
-
-[11] [12]
-Overfull \hbox (13.96999pt too wide) in paragraph at lines 1105--1105
+[10] [11] [12] [13]
+Overfull \hbox (13.96999pt too wide) in paragraph at lines 1104--1104
  [][]$\OML/cmm/m/it/9 V[]$ 
  []
 
 
-Overfull \hbox (22.62036pt too wide) in paragraph at lines 1106--1106
+Overfull \hbox (22.62036pt too wide) in paragraph at lines 1105--1105
  [][]\T1/cmr/m/n/9 GND 
  []
 
 
-Overfull \hbox (9.87393pt too wide) in paragraph at lines 1107--1107
+Overfull \hbox (9.87393pt too wide) in paragraph at lines 1106--1106
  [][]\T1/cmr/m/n/9 IN 
  []
 
 
-Overfull \hbox (13.10675pt too wide) in paragraph at lines 1108--1108
+Overfull \hbox (13.10675pt too wide) in paragraph at lines 1107--1107
  [][]$\OML/cmm/m/it/9 V[]$ 
  []
 
 
-Overfull \hbox (13.19217pt too wide) in paragraph at lines 1109--1109
+Overfull \hbox (13.19217pt too wide) in paragraph at lines 1108--1108
  [][]$\OML/cmm/m/it/9 H[]$ 
  []
 
 
-Overfull \hbox (11.83522pt too wide) in paragraph at lines 1110--1110
+Overfull \hbox (11.83522pt too wide) in paragraph at lines 1109--1109
  [][]$\OML/cmm/m/it/9 L[]$ 
  []
 
 
-Overfull \hbox (10.76721pt too wide) in paragraph at lines 1111--1111
+Overfull \hbox (10.76721pt too wide) in paragraph at lines 1110--1110
  [][]$\OML/cmm/m/it/9 V[]$ 
  []
 
-<img/BUCK/sim_compensacion.png, id=79, 1221.06187pt x 475.02469pt>
+<img/BUCK/sim_compensacion.png, id=82, 1221.06187pt x 475.02469pt>
 File: img/BUCK/sim_compensacion.png Graphic file (type png)
 <use img/BUCK/sim_compensacion.png>
-Package pdftex.def Info: img/BUCK/sim_compensacion.png  used on input line 1148
+Package pdftex.def Info: img/BUCK/sim_compensacion.png  used on input line 1147
 .
 (pdftex.def)             Requested size: 512.14963pt x 199.24806pt.
-[13]
-<img/BUCK/bode_descompensado.png, id=85, 642.7212pt x 570.4512pt>
+[14]
+<img/BUCK/bode_descompensado.png, id=88, 642.7212pt x 570.4512pt>
 File: img/BUCK/bode_descompensado.png Graphic file (type png)
 <use img/BUCK/bode_descompensado.png>
 Package pdftex.def Info: img/BUCK/bode_descompensado.png  used on input line 11
-66.
+65.
 (pdftex.def)             Requested size: 358.50317pt x 318.18835pt.
-<img/BUCK/respuesta_descompensado.png, id=86, 642.9621pt x 317.5062pt>
+<img/BUCK/respuesta_descompensado.png, id=89, 642.9621pt x 317.5062pt>
 File: img/BUCK/respuesta_descompensado.png Graphic file (type png)
 <use img/BUCK/respuesta_descompensado.png>
 Package pdftex.def Info: img/BUCK/respuesta_descompensado.png  used on input li
-ne 1170.
+ne 1169.
 (pdftex.def)             Requested size: 358.50317pt x 177.03677pt.
- [14 <./img/BUCK/sim_compensacion.png>] [15 <./img/BUCK/bode_descompensado.png>
+ [15 <./img/BUCK/sim_compensacion.png>] [16 <./img/BUCK/bode_descompensado.png>
  <./img/BUCK/respuesta_descompensado.png>]
-<img/BUCK/bode_compensado.png, id=97, 642.7212pt x 570.4512pt>
+<img/BUCK/bode_compensado.png, id=100, 642.7212pt x 570.4512pt>
 File: img/BUCK/bode_compensado.png Graphic file (type png)
 <use img/BUCK/bode_compensado.png>
-Package pdftex.def Info: img/BUCK/bode_compensado.png  used on input line 1256.
+Package pdftex.def Info: img/BUCK/bode_compensado.png  used on input line 1255.
 
 (pdftex.def)             Requested size: 358.50317pt x 318.18835pt.
-<img/BUCK/respuesta_compensado.png, id=98, 642.9621pt x 317.5062pt>
+<img/BUCK/respuesta_compensado.png, id=101, 642.9621pt x 317.5062pt>
 File: img/BUCK/respuesta_compensado.png Graphic file (type png)
 <use img/BUCK/respuesta_compensado.png>
 Package pdftex.def Info: img/BUCK/respuesta_compensado.png  used on input line 
-1260.
+1259.
 (pdftex.def)             Requested size: 358.50317pt x 177.03677pt.
- [16]
-Underfull \hbox (badness 3354) in paragraph at lines 1285--1285
+ [17]
+<img/BUCK/ringing2.jpg, id=105, 803.0pt x 481.8pt>
+File: img/BUCK/ringing2.jpg Graphic file (type jpg)
+<use img/BUCK/ringing2.jpg>
+Package pdftex.def Info: img/BUCK/ringing2.jpg  used on input line 1274.
+(pdftex.def)             Requested size: 358.50317pt x 215.1024pt.
+ [18 <./img/BUCK/bode_compensado.png> <./img/BUCK/respuesta_compensado.png>]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[19 <./img/BUCK/ringing2.jpg>]
+<img/diseño_inductor/nucleo_EE19.png, id=115, 269.005pt x 263.98625pt>
+File: img/diseño_inductor/nucleo_EE19.png Graphic file (type png)
+<use img/diseño_inductor/nucleo_EE19.png>
+Package pdftex.def Info: img/diseño_inductor/nucleo_EE19.png  used on input li
+ne 1380.
+(pdftex.def)             Requested size: 143.40126pt x 140.72571pt.
+<img/BUCK/inductor_fabricado.png, id=116, 301.8778pt x 295.1025pt>
+File: img/BUCK/inductor_fabricado.png Graphic file (type png)
+<use img/BUCK/inductor_fabricado.png>
+Package pdftex.def Info: img/BUCK/inductor_fabricado.png  used on input line 14
+05.
+(pdftex.def)             Requested size: 100.38043pt x 98.12709pt.
+ [20 <./img/diseño_inductor/nucleo_EE19.png> <./img/BUCK/inductor_fabricado.pn
+g>] [21] [22]
+<img/buck/buck_solo_pcb.png, id=132, 1019.81pt x 317.185pt>
+File: img/buck/buck_solo_pcb.png Graphic file (type png)
+<use img/buck/buck_solo_pcb.png>
+Package pdftex.def Info: img/buck/buck_solo_pcb.png  used on input line 1615.
+(pdftex.def)             Requested size: 358.50317pt x 111.50522pt.
+<img/buck/pwm_pcb.png, id=133, 932.48375pt x 499.8675pt>
+File: img/buck/pwm_pcb.png Graphic file (type png)
+<use img/buck/pwm_pcb.png>
+Package pdftex.def Info: img/buck/pwm_pcb.png  used on input line 1627.
+(pdftex.def)             Requested size: 358.50317pt x 192.1788pt.
+<img/buck/PCB_frente.png, id=134, 647.41875pt x 530.98375pt>
+File: img/buck/PCB_frente.png Graphic file (type png)
+<use img/buck/PCB_frente.png>
+Package pdftex.def Info: img/buck/PCB_frente.png  used on input line 1636.
+(pdftex.def)             Requested size: 358.50317pt x 294.02698pt.
+ [23 <./img/buck/buck_solo_pcb.png> <./img/buck/pwm_pcb.png>]
+<img/BUCK/pcb_buck.jpeg, id=140, 544.28343pt x 542.025pt>
+File: img/BUCK/pcb_buck.jpeg Graphic file (type jpg)
+<use img/BUCK/pcb_buck.jpeg>
+Package pdftex.def Info: img/BUCK/pcb_buck.jpeg  used on input line 1643.
+(pdftex.def)             Requested size: 358.50317pt x 357.00978pt.
+
+Underfull \hbox (badness 3354) in paragraph at lines 1665--1665
 []|$\OT1/cmr/m/n/10 100 [] \OML/cmm/m/it/10 < I[] < \OT1/cmr/m/n/10 1[]5 A$ 
  []
 
 
-Underfull \hbox (badness 1430) in paragraph at lines 1294--1294
+Underfull \hbox (badness 1430) in paragraph at lines 1674--1674
 []|\T1/cmr/m/n/10 Corriente de fold-
  []
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Overfull \hbox (2.10585pt too wide) in paragraph at lines 1358--1358
+[24 <./img/buck/PCB_frente.png> <./img/BUCK/pcb_buck.jpeg>]
+Overfull \hbox (2.10585pt too wide) in paragraph at lines 1738--1738
 [][]$\OML/cmm/m/it/10 f[]$  
  []
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[17 <./img/BUCK/bode_compensado.png> <./img/BUCK/respuesta_compensado.png>]
-[18]
-Overfull \hbox (1.91925pt too wide) in paragraph at lines 1448--1448
+[25]
+Overfull \hbox (1.91925pt too wide) in paragraph at lines 1828--1828
 [][]$\OML/cmm/m/it/10 V[]$  
  []
 
-[19] [20] [21] [22]
+[26] [27]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[23]
-Overfull \hbox (1.91925pt too wide) in paragraph at lines 1951--1951
-[][]$\OML/cmm/m/it/10 V[]$  
- []
-
-
-Overfull \hbox (2.47215pt too wide) in paragraph at lines 1961--1961
+[28] [29] [30]
+Overfull \hbox (1.91925pt too wide) in paragraph at lines 2331--2331
 [][]$\OML/cmm/m/it/10 V[]$  
  []
 
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+Overfull \hbox (2.47215pt too wide) in paragraph at lines 2341--2341
+[][]$\OML/cmm/m/it/10 V[]$  
+ []
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[24] [25]
-Overfull \hbox (17.41716pt too wide) in paragraph at lines 2094--2094
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[31] [32]
+Overfull \hbox (17.41716pt too wide) in paragraph at lines 2474--2474
 [][]$\OML/cmm/m/it/10 v[]$  
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2119--2120
+Underfull \hbox (badness 10000) in paragraph at lines 2499--2500
 
  []
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[26
+[33
 
 ]
 
-LaTeX Warning: Command \' invalid in math mode on input line 2262.
+LaTeX Warning: Command \' invalid in math mode on input line 2642.
 
 Missing character: There is no � in font cmr7!
-[27]
+[34]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[28] (analisis_termico.tex
-<img/analisis_termico/circuito_termico_sin_rsa.png, id=143, 788.19469pt x 481.0
+[35]
+<../../Simulación/LDO/Graficos en Python/Capturas/LDO_Bode_lazo_corriente_shun
+t.png, id=180, 722.7pt x 578.16pt>
+File: ../../Simulación/LDO/Graficos en Python/Capturas/LDO_Bode_lazo_corriente
+_shunt.png Graphic file (type png)
+<use ../../Simulación/LDO/Graficos en Python/Capturas/LDO_Bode_lazo_corriente_
+shunt.png>
+Package pdftex.def Info: ../../Simulación/LDO/Graficos en Python/Capturas/LDO_
+Bode_lazo_corriente_shunt.png  used on input line 2933.
+(pdftex.def)             Requested size: 384.11221pt x 307.28789pt.
+ [36]
+<../../Simulación/LDO/Graficos en Python/Capturas/LDO_Bode_lazo_corriente_shun
+t_compensado.png, id=185, 722.7pt x 578.16pt>
+File: ../../Simulación/LDO/Graficos en Python/Capturas/LDO_Bode_lazo_corriente
+_shunt_compensado.png Graphic file (type png)
+<use ../../Simulación/LDO/Graficos en Python/Capturas/LDO_Bode_lazo_corriente_
+shunt_compensado.png>
+Package pdftex.def Info: ../../Simulación/LDO/Graficos en Python/Capturas/LDO_
+Bode_lazo_corriente_shunt_compensado.png  used on input line 2979.
+(pdftex.def)             Requested size: 384.11221pt x 307.28789pt.
+ (analisis_termico.tex [37 <../../Simulación/LDO/Graficos en Python/Capturas/L
+DO_Bode_lazo_corriente_shunt.png>]
+<img/analisis_termico/circuito_termico_sin_rsa.png, id=190, 788.19469pt x 481.0
 4718pt>
 File: img/analisis_termico/circuito_termico_sin_rsa.png Graphic file (type png)
 
@@ -1606,11 +1660,7 @@ File: img/analisis_termico/circuito_termico_sin_rsa.png Graphic file (type png)
 Package pdftex.def Info: img/analisis_termico/circuito_termico_sin_rsa.png  use
 d on input line 23.
 (pdftex.def)             Requested size: 245.82962pt x 150.03326pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<img/analisis_termico/circuito_termico_con_rsa.png, id=144, 651.18282pt x 481.0
+<img/analisis_termico/circuito_termico_con_rsa.png, id=191, 651.18282pt x 481.0
 4718pt>
 File: img/analisis_termico/circuito_termico_con_rsa.png Graphic file (type png)
 
@@ -1619,9 +1669,10 @@ Package pdftex.def Info: img/analisis_termico/circuito_termico_con_rsa.png  use
 d on input line 51.
 (pdftex.def)             Requested size: 245.82962pt x 181.60338pt.
 
+
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<img/analisis_termico/disipador.png, id=145, 539.01375pt x 264.99pt>
+<img/analisis_termico/disipador.png, id=192, 539.01375pt x 264.99pt>
 File: img/analisis_termico/disipador.png Graphic file (type png)
 <use img/analisis_termico/disipador.png>
 Package pdftex.def Info: img/analisis_termico/disipador.png  used on input line
@@ -1630,304 +1681,545 @@ Package pdftex.def Info: img/analisis_termico/disipador.png  used on input line
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[29] [30 <./img/analisis_termico/circuito_termico_sin_rsa.png> <./img/analisis_
-termico/circuito_termico_con_rsa.png>])
-<img/Encapsulados/to92_fixed.png, id=155, 465.74pt x 582.175pt>
+[38 <../../Simulación/LDO/Graficos en Python/Capturas/LDO_Bode_lazo_corriente_
+shunt_compensado.png> <./img/analisis_termico/circuito_termico_sin_rsa.png>])
+[39 <./img/analisis_termico/circuito_termico_con_rsa.png> <./img/analisis_termi
+co/disipador.png>]
+<img/Encapsulados/to92_fixed.png, id=203, 465.74pt x 582.175pt>
 File: img/Encapsulados/to92_fixed.png Graphic file (type png)
 <use img/Encapsulados/to92_fixed.png>
-Package pdftex.def Info: img/Encapsulados/to92_fixed.png  used on input line 25
-96.
+Package pdftex.def Info: img/Encapsulados/to92_fixed.png  used on input line 30
+32.
 (pdftex.def)             Requested size: 56.9055pt x 71.12828pt.
-<img/Encapsulados/to220_fixed.png, id=156, 353.32pt x 356.33125pt>
+<img/Encapsulados/to220_fixed.png, id=204, 353.32pt x 356.33125pt>
 File: img/Encapsulados/to220_fixed.png Graphic file (type png)
 <use img/Encapsulados/to220_fixed.png>
-Package pdftex.def Info: img/Encapsulados/to220_fixed.png  used on input line 2
-597.
+Package pdftex.def Info: img/Encapsulados/to220_fixed.png  used on input line 3
+033.
 (pdftex.def)             Requested size: 56.9055pt x 57.38933pt.
-<img/Encapsulados/dip8_fixed.png, id=157, 500.87125pt x 501.875pt>
+<img/Encapsulados/dip8_fixed.png, id=205, 500.87125pt x 501.875pt>
 File: img/Encapsulados/dip8_fixed.png Graphic file (type png)
 <use img/Encapsulados/dip8_fixed.png>
-Package pdftex.def Info: img/Encapsulados/dip8_fixed.png  used on input line 25
-98.
+Package pdftex.def Info: img/Encapsulados/dip8_fixed.png  used on input line 30
+34.
 (pdftex.def)             Requested size: 56.9055pt x 57.0137pt.
-<img/Encapsulados/R_axial_fixed.png, id=158, 1003.75pt x 1003.75pt>
+<img/Encapsulados/R_axial_fixed.png, id=206, 1003.75pt x 1003.75pt>
 File: img/Encapsulados/R_axial_fixed.png Graphic file (type png)
 <use img/Encapsulados/R_axial_fixed.png>
 Package pdftex.def Info: img/Encapsulados/R_axial_fixed.png  used on input line
- 2599.
+ 3035.
 (pdftex.def)             Requested size: 56.9055pt x 56.89883pt.
-<img/Encapsulados/preset_fixed.png, id=159, 472.76625pt x 501.875pt>
+<img/Encapsulados/preset_fixed.png, id=207, 472.76625pt x 501.875pt>
 File: img/Encapsulados/preset_fixed.png Graphic file (type png)
 <use img/Encapsulados/preset_fixed.png>
 Package pdftex.def Info: img/Encapsulados/preset_fixed.png  used on input line 
-2600.
+3036.
 (pdftex.def)             Requested size: 56.9055pt x 60.40619pt.
-<img/Encapsulados/ceramicos.png, id=160, 582.175pt x 582.175pt>
+<img/Encapsulados/ceramicos.png, id=208, 582.175pt x 582.175pt>
 File: img/Encapsulados/ceramicos.png Graphic file (type png)
 <use img/Encapsulados/ceramicos.png>
-Package pdftex.def Info: img/Encapsulados/ceramicos.png  used on input line 260
-1.
+Package pdftex.def Info: img/Encapsulados/ceramicos.png  used on input line 303
+7.
 (pdftex.def)             Requested size: 56.9055pt x 56.8973pt.
-<img/Encapsulados/bornera.png, id=161, 903.375pt x 903.375pt>
+<img/Encapsulados/bornera.png, id=209, 903.375pt x 903.375pt>
 File: img/Encapsulados/bornera.png Graphic file (type png)
 <use img/Encapsulados/bornera.png>
-Package pdftex.def Info: img/Encapsulados/bornera.png  used on input line 2602.
+Package pdftex.def Info: img/Encapsulados/bornera.png  used on input line 3038.
 
 (pdftex.def)             Requested size: 56.9055pt x 56.90189pt.
- [31 <./img/analisis_termico/disipador.png> <./img/Encapsulados/to92_fixed.png>
- <./img/Encapsulados/to220_fixed.png> <./img/Encapsulados/dip8_fixed.png> <./im
-g/Encapsulados/R_axial_fixed.png> <./img/Encapsulados/preset_fixed.png> <./img/
-Encapsulados/ceramicos.png> <./img/Encapsulados/bornera.png>] [32]
-Overfull \hbox (13.12079pt too wide) in paragraph at lines 2709--2734
+ [40 <./img/Encapsulados/to92_fixed.png> <./img/Encapsulados/to220_fixed.png> <
+./img/Encapsulados/dip8_fixed.png> <./img/Encapsulados/R_axial_fixed.png> <./im
+g/Encapsulados/preset_fixed.png> <./img/Encapsulados/ceramicos.png> <./img/Enca
+psulados/bornera.png>] [41]
+Overfull \hbox (13.12079pt too wide) in paragraph at lines 3145--3170
  [][] 
  []
 
-<img/LDO/PCB_Diseño/pistas_F.png, id=169, 471.7625pt x 469.755pt>
+<img/LDO/PCB_Diseño/pistas_F.png, id=216, 471.7625pt x 469.755pt>
 File: img/LDO/PCB_Diseño/pistas_F.png Graphic file (type png)
 <use img/LDO/PCB_Diseño/pistas_F.png>
-Package pdftex.def Info: img/LDO/PCB_Diseño/pistas_F.png  used on input line 2
-766.
+Package pdftex.def Info: img/LDO/PCB_Diseño/pistas_F.png  used on input line 3
+202.
 (pdftex.def)             Requested size: 250.95612pt x 249.89362pt.
-<img/LDO/PCB_Diseño/render_superior.png, id=170, 618.31pt x 596.2275pt>
+<img/LDO/PCB_Diseño/render_superior.png, id=217, 618.31pt x 596.2275pt>
 File: img/LDO/PCB_Diseño/render_superior.png Graphic file (type png)
 <use img/LDO/PCB_Diseño/render_superior.png>
 Package pdftex.def Info: img/LDO/PCB_Diseño/render_superior.png  used on input
- line 2772.
+ line 3208.
 (pdftex.def)             Requested size: 256.07481pt x 246.93852pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[33] [34 <./img/LDO/PCB_Diseño/pistas_F.png> <./img/LDO/PCB_Diseño/render_sup
-erior.png>]
-<img/LDO/Corte_lazo_tension.png, id=179, 453.94594pt x 298.11375pt>
+<img/LDO/Placa_montada_1.png, id=218, 1606.0pt x 1204.5pt>
+File: img/LDO/Placa_montada_1.png Graphic file (type png)
+<use img/LDO/Placa_montada_1.png>
+Package pdftex.def Info: img/LDO/Placa_montada_1.png  used on input line 3227.
+(pdftex.def)             Requested size: 245.82962pt x 184.36142pt.
+<img/LDO/placa_montada_lateral.png, id=219, 1606.0pt x 1204.5pt>
+File: img/LDO/placa_montada_lateral.png Graphic file (type png)
+<use img/LDO/placa_montada_lateral.png>
+Package pdftex.def Info: img/LDO/placa_montada_lateral.png  used on input line 
+3233.
+(pdftex.def)             Requested size: 245.82962pt x 184.36142pt.
+[42] [43 <./img/LDO/PCB_Diseño/pistas_F.png> <./img/LDO/PCB_Diseño/render_sup
+erior.png> <./img/LDO/Placa_montada_1.png> <./img/LDO/placa_montada_lateral.png
+>]
+<img/LDO/Corte_lazo_tension.png, id=229, 453.94594pt x 298.11375pt>
 File: img/LDO/Corte_lazo_tension.png Graphic file (type png)
 <use img/LDO/Corte_lazo_tension.png>
-Package pdftex.def Info: img/LDO/Corte_lazo_tension.png  used on input line 284
-4.
+Package pdftex.def Info: img/LDO/Corte_lazo_tension.png  used on input line 330
+5.
 (pdftex.def)             Requested size: 307.2929pt x 201.8049pt.
+ [44 <./img/LDO/Corte_lazo_tension.png>]
 <../../Simulación/LDO/Graficos en Python/Capturas/LDO_Bode_lazo_tension.png, i
-d=180, 578.16pt x 578.16pt>
+d=234, 578.16pt x 578.16pt>
 File: ../../Simulación/LDO/Graficos en Python/Capturas/LDO_Bode_lazo_tension.p
 ng Graphic file (type png)
 <use ../../Simulación/LDO/Graficos en Python/Capturas/LDO_Bode_lazo_tension.pn
 g>
 Package pdftex.def Info: ../../Simulación/LDO/Graficos en Python/Capturas/LDO_
-Bode_lazo_tension.png  used on input line 2853.
+Bode_lazo_tension.png  used on input line 3314.
 (pdftex.def)             Requested size: 435.3303pt x 435.3304pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
 <../../Simulación/LDO/Graficos en Python/Capturas/LDO_Bode_lazo_tension_compar
-acion.png, id=181, 578.16pt x 578.16pt>
+acion.png, id=235, 578.16pt x 578.16pt>
 File: ../../Simulación/LDO/Graficos en Python/Capturas/LDO_Bode_lazo_tension_c
 omparacion.png Graphic file (type png)
 <use ../../Simulación/LDO/Graficos en Python/Capturas/LDO_Bode_lazo_tension_co
 mparacion.png>
 Package pdftex.def Info: ../../Simulación/LDO/Graficos en Python/Capturas/LDO_
-Bode_lazo_tension_comparacion.png  used on input line 2864.
+Bode_lazo_tension_comparacion.png  used on input line 3325.
 (pdftex.def)             Requested size: 435.3303pt x 435.3304pt.
 <../../Simulación/LDO/Graficos en Python/Capturas/LDO_Bode_lazo_tension_compen
-sado.png, id=182, 722.7pt x 578.16pt>
+sado.png, id=236, 722.7pt x 578.16pt>
 File: ../../Simulación/LDO/Graficos en Python/Capturas/LDO_Bode_lazo_tension_c
 ompensado.png Graphic file (type png)
 <use ../../Simulación/LDO/Graficos en Python/Capturas/LDO_Bode_lazo_tension_co
 mpensado.png>
 Package pdftex.def Info: ../../Simulación/LDO/Graficos en Python/Capturas/LDO_
-Bode_lazo_tension_compensado.png  used on input line 2873.
+Bode_lazo_tension_compensado.png  used on input line 3334.
 (pdftex.def)             Requested size: 435.3303pt x 348.26608pt.
+
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<img/LDO/Corte_lazo_corriente.png, id=183, 494.59781pt x 365.11406pt>
+<img/LDO/Corte_lazo_corriente.png, id=237, 494.59781pt x 365.11406pt>
 File: img/LDO/Corte_lazo_corriente.png Graphic file (type png)
 <use img/LDO/Corte_lazo_corriente.png>
-Package pdftex.def Info: img/LDO/Corte_lazo_corriente.png  used on input line 2
-883.
+Package pdftex.def Info: img/LDO/Corte_lazo_corriente.png  used on input line 3
+344.
 (pdftex.def)             Requested size: 307.2929pt x 226.84192pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 <../../Simulación/LDO/Graficos en Python/Capturas/LDO_Bode_lazo_corriente_comp
-aracion.png, id=184, 578.16pt x 578.16pt>
+aracion.png, id=238, 578.16pt x 578.16pt>
 File: ../../Simulación/LDO/Graficos en Python/Capturas/LDO_Bode_lazo_corriente
 _comparacion.png Graphic file (type png)
 <use ../../Simulación/LDO/Graficos en Python/Capturas/LDO_Bode_lazo_corriente_
 comparacion.png>
 Package pdftex.def Info: ../../Simulación/LDO/Graficos en Python/Capturas/LDO_
-Bode_lazo_corriente_comparacion.png  used on input line 2892.
+Bode_lazo_corriente_comparacion.png  used on input line 3353.
 (pdftex.def)             Requested size: 435.3303pt x 435.3304pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 <../../Simulación/LDO/Graficos en Python/Capturas/LDO_Bode_lazo_corriente_comp
-ensado.png, id=185, 722.7pt x 578.16pt>
+ensado.png, id=239, 722.7pt x 578.16pt>
 File: ../../Simulación/LDO/Graficos en Python/Capturas/LDO_Bode_lazo_corriente
 _compensado.png Graphic file (type png)
 <use ../../Simulación/LDO/Graficos en Python/Capturas/LDO_Bode_lazo_corriente_
 compensado.png>
 Package pdftex.def Info: ../../Simulación/LDO/Graficos en Python/Capturas/LDO_
-Bode_lazo_corriente_compensado.png  used on input line 2901.
+Bode_lazo_corriente_compensado.png  used on input line 3362.
 (pdftex.def)             Requested size: 435.3303pt x 348.26608pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[35 <./img/LDO/Corte_lazo_tension.png>] [36 <../../Simulación/LDO/Graficos en 
-Python/Capturas/LDO_Bode_lazo_tension.png>] [37 <../../Simulación/LDO/Graficos
- en Python/Capturas/LDO_Bode_lazo_tension_comparacion.png>] [38 <../../Simulaci
-ón/LDO/Graficos en Python/Capturas/LDO_Bode_lazo_tension_compensado.png> <./im
-g/LDO/Corte_lazo_corriente.png>] [39 <../../Simulación/LDO/Graficos en Python/
-Capturas/LDO_Bode_lazo_corriente_comparacion.png>] [40 <../../Simulación/LDO/G
-raficos en Python/Capturas/LDO_Bode_lazo_corriente_compensado.png>]
-<../../Simulación/LDO/Graficos en Python/Capturas/LDO_Vcc_Vo.png, id=212, 462.
+[45 <../../Simulación/LDO/Graficos en Python/Capturas/LDO_Bode_lazo_tension.pn
+g>] [46 <../../Simulación/LDO/Graficos en Python/Capturas/LDO_Bode_lazo_tensio
+n_comparacion.png>] [47 <../../Simulación/LDO/Graficos en Python/Capturas/LDO_
+Bode_lazo_tension_compensado.png> <./img/LDO/Corte_lazo_corriente.png>]
+[48 <../../Simulación/LDO/Graficos en Python/Capturas/LDO_Bode_lazo_corriente_
+comparacion.png>] [49 <../../Simulación/LDO/Graficos en Python/Capturas/LDO_Bo
+de_lazo_corriente_compensado.png>]
+<../../Simulación/LDO/Graficos en Python/Capturas/LDO_Vcc_Vo.png, id=262, 462.
 528pt x 346.896pt>
 File: ../../Simulación/LDO/Graficos en Python/Capturas/LDO_Vcc_Vo.png Graphic 
 file (type png)
 <use ../../Simulación/LDO/Graficos en Python/Capturas/LDO_Vcc_Vo.png>
 Package pdftex.def Info: ../../Simulación/LDO/Graficos en Python/Capturas/LDO_
-Vcc_Vo.png  used on input line 2915.
+Vcc_Vo.png  used on input line 3376.
 (pdftex.def)             Requested size: 281.68385pt x 211.27277pt.
 <../../Simulación/LDO/Graficos en Python/Capturas/LDO_Vcc_Vo_compensado.png, i
-d=213, 722.7pt x 433.62pt>
+d=263, 722.7pt x 433.62pt>
 File: ../../Simulación/LDO/Graficos en Python/Capturas/LDO_Vcc_Vo_compensado.p
 ng Graphic file (type png)
 <use ../../Simulación/LDO/Graficos en Python/Capturas/LDO_Vcc_Vo_compensado.pn
 g>
 Package pdftex.def Info: ../../Simulación/LDO/Graficos en Python/Capturas/LDO_
-Vcc_Vo_compensado.png  used on input line 2920.
+Vcc_Vo_compensado.png  used on input line 3381.
 (pdftex.def)             Requested size: 281.68385pt x 169.01187pt.
- [41
+ [50
 
  <../../Simulación/LDO/Graficos en Python/Capturas/LDO_Vcc_Vo.png> <../../Simu
 lación/LDO/Graficos en Python/Capturas/LDO_Vcc_Vo_compensado.png>]
 <../../Simulación/LDO/Graficos en Python/Capturas/LDO_regulacion_linea.png, id
-=219, 462.528pt x 346.896pt>
+=269, 462.528pt x 346.896pt>
 File: ../../Simulación/LDO/Graficos en Python/Capturas/LDO_regulacion_linea.pn
 g Graphic file (type png)
 <use ../../Simulación/LDO/Graficos en Python/Capturas/LDO_regulacion_linea.png
 >
 Package pdftex.def Info: ../../Simulación/LDO/Graficos en Python/Capturas/LDO_
-regulacion_linea.png  used on input line 2968.
+regulacion_linea.png  used on input line 3429.
 (pdftex.def)             Requested size: 230.46576pt x 172.84943pt.
 <../../Simulación/LDO/Graficos en Python/Capturas/LDO_regulacion_linea_zoom.pn
-g, id=220, 462.528pt x 346.896pt>
+g, id=270, 462.528pt x 346.896pt>
 File: ../../Simulación/LDO/Graficos en Python/Capturas/LDO_regulacion_linea_zo
 om.png Graphic file (type png)
 <use ../../Simulación/LDO/Graficos en Python/Capturas/LDO_regulacion_linea_zoo
 m.png>
 Package pdftex.def Info: ../../Simulación/LDO/Graficos en Python/Capturas/LDO_
-regulacion_linea_zoom.png  used on input line 2973.
+regulacion_linea_zoom.png  used on input line 3434.
 (pdftex.def)             Requested size: 230.46576pt x 172.84943pt.
 <../../Simulación/LDO/Graficos en Python/Capturas/LDO_regulacion_carga.png, id
-=221, 462.528pt x 346.896pt>
+=271, 462.528pt x 346.896pt>
 File: ../../Simulación/LDO/Graficos en Python/Capturas/LDO_regulacion_carga.pn
 g Graphic file (type png)
 <use ../../Simulación/LDO/Graficos en Python/Capturas/LDO_regulacion_carga.png
 >
 Package pdftex.def Info: ../../Simulación/LDO/Graficos en Python/Capturas/LDO_
-regulacion_carga.png  used on input line 3012.
+regulacion_carga.png  used on input line 3473.
 (pdftex.def)             Requested size: 307.2929pt x 230.4818pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[42 <../../Simulación/LDO/Graficos en Python/Capturas/LDO_regulacion_linea.png
+[51 <../../Simulación/LDO/Graficos en Python/Capturas/LDO_regulacion_linea.png
 > <../../Simulación/LDO/Graficos en Python/Capturas/LDO_regulacion_linea_zoom.
 png>]
-<../../Simulación/LDO/Graficos en Python/Capturas/V vs I.png, id=229, 722.7pt 
+<../../Simulación/LDO/Graficos en Python/Capturas/V vs I.png, id=277, 722.7pt 
 x 433.62pt>
 File: ../../Simulación/LDO/Graficos en Python/Capturas/V vs I.png Graphic file
  (type png)
 <use ../../Simulación/LDO/Graficos en Python/Capturas/V vs I.png>
 Package pdftex.def Info: ../../Simulación/LDO/Graficos en Python/Capturas/V vs
- I.png  used on input line 3026.
+ I.png  used on input line 3487.
 (pdftex.def)             Requested size: 307.2929pt x 184.37538pt.
-<../../Simulación/LDO/Graficos en Python/Capturas/LDO_eficiencia.png, id=230, 
+<../../Simulación/LDO/Graficos en Python/Capturas/LDO_eficiencia.png, id=278, 
 462.528pt x 346.896pt>
 File: ../../Simulación/LDO/Graficos en Python/Capturas/LDO_eficiencia.png Grap
 hic file (type png)
 <use ../../Simulación/LDO/Graficos en Python/Capturas/LDO_eficiencia.png>
 Package pdftex.def Info: ../../Simulación/LDO/Graficos en Python/Capturas/LDO_
-eficiencia.png  used on input line 3046.
+eficiencia.png  used on input line 3507.
 (pdftex.def)             Requested size: 358.50317pt x 268.88925pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[43 <../../Simulación/LDO/Graficos en Python/Capturas/LDO_regulacion_carga.png
+[52 <../../Simulación/LDO/Graficos en Python/Capturas/LDO_regulacion_carga.png
 > <../../Simulación/LDO/Graficos en Python/Capturas/V vs I.png>]
-<img/LDO/Carga_activa.png, id=236, 255.20343pt x 201.75375pt>
+<img/LDO/Carga_activa.png, id=284, 255.20343pt x 201.75375pt>
 File: img/LDO/Carga_activa.png Graphic file (type png)
 <use img/LDO/Carga_activa.png>
-Package pdftex.def Info: img/LDO/Carga_activa.png  used on input line 3060.
+Package pdftex.def Info: img/LDO/Carga_activa.png  used on input line 3521.
 (pdftex.def)             Requested size: 153.64644pt x 121.47185pt.
 <../../Simulación/LDO/Graficos en Python/Capturas/LDO_lazos_dinamicos.png, id=
-237, 722.7pt x 578.16pt>
+285, 722.7pt x 578.16pt>
 File: ../../Simulación/LDO/Graficos en Python/Capturas/LDO_lazos_dinamicos.png
  Graphic file (type png)
 <use ../../Simulación/LDO/Graficos en Python/Capturas/LDO_lazos_dinamicos.png>
 
 Package pdftex.def Info: ../../Simulación/LDO/Graficos en Python/Capturas/LDO_
-lazos_dinamicos.png  used on input line 3077.
+lazos_dinamicos.png  used on input line 3538.
 (pdftex.def)             Requested size: 435.3303pt x 348.26608pt.
- [44 <../../Simulación/LDO/Graficos en Python/Capturas/LDO_eficiencia.png> <./
-img/LDO/Carga_activa.png>] (conclusiones.tex [45 <../../Simulación/LDO/Grafico
-s en Python/Capturas/LDO_lazos_dinamicos.png>]) [46]
-<img/LDO/Esquematico_LDO_LTSPICE2.png, id=250, 1073.51062pt x 685.05937pt>
+ [53 <../../Simulación/LDO/Graficos en Python/Capturas/LDO_eficiencia.png> <./
+img/LDO/Carga_activa.png>]
+<img/buck/simulacion_buck_lazo_abierto.png, id=291, 542.025pt x 180.675pt>
+File: img/buck/simulacion_buck_lazo_abierto.png Graphic file (type png)
+<use img/buck/simulacion_buck_lazo_abierto.png>
+Package pdftex.def Info: img/buck/simulacion_buck_lazo_abierto.png  used on inp
+ut line 3559.
+(pdftex.def)             Requested size: 358.50317pt x 119.505pt.
+<../../Simulación/BUCK/Datos/regulador_buck_Lazo_abierto.png, id=292, 987.2082
+pt x 466.1415pt>
+File: ../../Simulación/BUCK/Datos/regulador_buck_Lazo_abierto.png Graphic file
+ (type png)
+<use ../../Simulación/BUCK/Datos/regulador_buck_Lazo_abierto.png>
+Package pdftex.def Info: ../../Simulación/BUCK/Datos/regulador_buck_Lazo_abier
+to.png  used on input line 3570.
+(pdftex.def)             Requested size: 358.50317pt x 169.27603pt.
+ [54 <../../Simulación/LDO/Graficos en Python/Capturas/LDO_lazos_dinamicos.png
+> <./img/buck/simulacion_buck_lazo_abierto.png>]
+<img/buck/CorrientesIL_Io_buck_lazo_abierto.png, id=299, 722.7pt x 361.35pt>
+File: img/buck/CorrientesIL_Io_buck_lazo_abierto.png Graphic file (type png)
+<use img/buck/CorrientesIL_Io_buck_lazo_abierto.png>
+Package pdftex.def Info: img/buck/CorrientesIL_Io_buck_lazo_abierto.png  used o
+n input line 3580.
+(pdftex.def)             Requested size: 358.50317pt x 179.252pt.
+<../../Simulación/BUCK/Datos/grafico_pwm.png, id=300, 713.5458pt x 337.7418pt>
+
+File: ../../Simulación/BUCK/Datos/grafico_pwm.png Graphic file (type png)
+<use ../../Simulación/BUCK/Datos/grafico_pwm.png>
+Package pdftex.def Info: ../../Simulación/BUCK/Datos/grafico_pwm.png  used on 
+input line 3592.
+(pdftex.def)             Requested size: 358.50317pt x 169.6899pt.
+ [55 <../../Simulación/BUCK/Datos/regulador_buck_Lazo_abierto.png> <./img/buck
+/CorrientesIL_Io_buck_lazo_abierto.png>]
+<../../Simulación/BUCK/Datos/grafico_pwm2.png, id=306, 713.5458pt x 338.7054pt
+>
+File: ../../Simulación/BUCK/Datos/grafico_pwm2.png Graphic file (type png)
+<use ../../Simulación/BUCK/Datos/grafico_pwm2.png>
+Package pdftex.def Info: ../../Simulación/BUCK/Datos/grafico_pwm2.png  used on
+ input line 3599.
+(pdftex.def)             Requested size: 358.50317pt x 170.17403pt.
+<img/LDO/banco_medicion.png, id=307, 1606.0pt x 1204.5pt>
+File: img/LDO/banco_medicion.png Graphic file (type png)
+<use img/LDO/banco_medicion.png>
+Package pdftex.def Info: img/LDO/banco_medicion.png  used on input line 3628.
+(pdftex.def)             Requested size: 409.72125pt x 307.28128pt.
+ [56 <../../Simulación/BUCK/Datos/grafico_pwm.png> <../../Simulación/BUCK/Dat
+os/grafico_pwm2.png>]
+<img/LDO/bateria_p_medir.png, id=313, 233.37187pt x 375.65344pt>
+File: img/LDO/bateria_p_medir.png Graphic file (type png)
+<use img/LDO/bateria_p_medir.png>
+Package pdftex.def Info: img/LDO/bateria_p_medir.png  used on input line 3642.
+(pdftex.def)             Requested size: 128.0374pt x 206.1056pt.
+<img/LDO/generador_señales.png, id=314, 600.74437pt x 274.02374pt>
+File: img/LDO/generador_señales.png Graphic file (type png)
+<use img/LDO/generador_señales.png>
+Package pdftex.def Info: img/LDO/generador_señales.png  used on input line 365
+2.
+(pdftex.def)             Requested size: 317.53026pt x 144.84303pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 3664--3665
+
+ []
+
+[57 <./img/LDO/banco_medicion.png> <./img/LDO/bateria_p_medir.png> <./img/LDO/g
+enerador_señales.png>]
+<img/LDO/Diagramas medicion/medicion_reg_carga_banco.png, id=320, 578.16pt x 38
+7.4475pt>
+File: img/LDO/Diagramas medicion/medicion_reg_carga_banco.png Graphic file (typ
+e png)
+<use img/LDO/Diagramas medicion/medicion_reg_carga_banco.png>
+Package pdftex.def Info: img/LDO/Diagramas medicion/medicion_reg_carga_banco.pn
+g  used on input line 3677.
+(pdftex.def)             Requested size: 281.68385pt x 188.76312pt.
+<../Graficos/regulacion_carga.png, id=321, 987.2082pt x 466.1415pt>
+File: ../Graficos/regulacion_carga.png Graphic file (type png)
+<use ../Graficos/regulacion_carga.png>
+Package pdftex.def Info: ../Graficos/regulacion_carga.png  used on input line 3
+712.
+(pdftex.def)             Requested size: 512.14963pt x 241.82594pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 3734--3735
+
+ []
+
+[58 <./img/LDO/Diagramas medicion/medicion_reg_carga_banco.png> <../Graficos/re
+gulacion_carga.png>]
+<img/LDO/Diagramas medicion/carga_activa.png, id=327, 883.04906pt x 323.70938pt
+>
+File: img/LDO/Diagramas medicion/carga_activa.png Graphic file (type png)
+<use img/LDO/Diagramas medicion/carga_activa.png>
+Package pdftex.def Info: img/LDO/Diagramas medicion/carga_activa.png  used on i
+nput line 3741.
+(pdftex.def)             Requested size: 512.14963pt x 187.75157pt.
+<img/LDO/carga_activa_Medicion.png, id=328, 737.00343pt x 384.6872pt>
+File: img/LDO/carga_activa_Medicion.png Graphic file (type png)
+<use img/LDO/carga_activa_Medicion.png>
+Package pdftex.def Info: img/LDO/carga_activa_Medicion.png  used on input line 
+3811.
+(pdftex.def)             Requested size: 486.54057pt x 253.95302pt.
+ [59 <./img/LDO/Diagramas medicion/carga_activa.png>]
+<../Graficos/regulacion_de_linea.png, id=333, 722.7pt x 361.35pt>
+File: ../Graficos/regulacion_de_linea.png Graphic file (type png)
+<use ../Graficos/regulacion_de_linea.png>
+Package pdftex.def Info: ../Graficos/regulacion_de_linea.png  used on input lin
+e 3828.
+(pdftex.def)             Requested size: 512.14963pt x 256.07509pt.
+
+[60 <./img/LDO/carga_activa_Medicion.png> <../Graficos/regulacion_de_linea.png>
+]
+<img/LDO/Diagramas medicion/corriente.png, id=340, 613.54219pt x 176.15813pt>
+File: img/LDO/Diagramas medicion/corriente.png Graphic file (type png)
+<use img/LDO/Diagramas medicion/corriente.png>
+Package pdftex.def Info: img/LDO/Diagramas medicion/corriente.png  used on inpu
+t line 3847.
+(pdftex.def)             Requested size: 512.14963pt x 147.0552pt.
+<../Graficos/regulacion_corriente.png, id=341, 987.2082pt x 466.1415pt>
+File: ../Graficos/regulacion_corriente.png Graphic file (type png)
+<use ../Graficos/regulacion_corriente.png>
+Package pdftex.def Info: ../Graficos/regulacion_corriente.png  used on input li
+ne 3855.
+(pdftex.def)             Requested size: 512.14963pt x 241.82594pt.
+ [61 <./img/LDO/Diagramas medicion/corriente.png> <../Graficos/regulacion_corri
+ente.png>]
+<../Graficos/eficiencia.png, id=347, 987.2082pt x 466.1415pt>
+File: ../Graficos/eficiencia.png Graphic file (type png)
+<use ../Graficos/eficiencia.png>
+Package pdftex.def Info: ../Graficos/eficiencia.png  used on input line 3899.
+(pdftex.def)             Requested size: 512.14963pt x 241.82594pt.
+ [62 <../Graficos/eficiencia.png>]
+<img/buck/banco_pruebas_pwm.png, id=352, 963.6pt x 433.62pt>
+File: img/buck/banco_pruebas_pwm.png Graphic file (type png)
+<use img/buck/banco_pruebas_pwm.png>
+Package pdftex.def Info: img/buck/banco_pruebas_pwm.png  used on input line 394
+0.
+(pdftex.def)             Requested size: 358.50317pt x 161.3235pt.
+<img/buck/capturas_osc_pwm.png, id=353, 245.41687pt x 398.99063pt>
+File: img/buck/capturas_osc_pwm.png Graphic file (type png)
+<use img/buck/capturas_osc_pwm.png>
+Package pdftex.def Info: img/buck/capturas_osc_pwm.png  used on input line 3950
+.
+(pdftex.def)             Requested size: 307.2929pt x 499.60158pt.
+ [63 <./img/buck/banco_pruebas_pwm.png>] [64 <./img/buck/capturas_osc_pwm.png>]
+
+
+LaTeX Warning: Command \~ invalid in math mode on input line 4000.
+
+Missing character: There is no � in font cmr10!
+<img/BUCK/inductor_medicion_1.png, id=362, 602.25pt x 361.35pt>
+File: img/BUCK/inductor_medicion_1.png Graphic file (type png)
+<use img/BUCK/inductor_medicion_1.png>
+Package pdftex.def Info: img/BUCK/inductor_medicion_1.png  used on input line 4
+015.
+(pdftex.def)             Requested size: 256.07481pt x 153.65166pt.
+
+Overfull \hbox (4.37103pt too wide) in paragraph at lines 4071--4072
+ [][] 
+ []
+
+[65 <./img/BUCK/inductor_medicion_1.png>]
+<img/BUCK/medicion_LCR.png, id=367, 479.7925pt x 647.41875pt>
+File: img/BUCK/medicion_LCR.png Graphic file (type png)
+<use img/BUCK/medicion_LCR.png>
+Package pdftex.def Info: img/BUCK/medicion_LCR.png  used on input line 4117.
+(pdftex.def)             Requested size: 153.64644pt x 207.3264pt.
+ [66 <./img/BUCK/medicion_LCR.png>]
+<img/BUCK/regulacion_tension.png, id=373, 1204.5pt x 903.375pt>
+File: img/BUCK/regulacion_tension.png Graphic file (type png)
+<use img/BUCK/regulacion_tension.png>
+Package pdftex.def Info: img/BUCK/regulacion_tension.png  used on input line 41
+61.
+(pdftex.def)             Requested size: 297.04771pt x 222.78307pt.
+<img/BUCK/mediciones interpolaciones/regulacion_linea.png, id=374, 987.2082pt x
+ 466.1415pt>
+File: img/BUCK/mediciones interpolaciones/regulacion_linea.png Graphic file (ty
+pe png)
+<use img/BUCK/mediciones interpolaciones/regulacion_linea.png>
+Package pdftex.def Info: img/BUCK/mediciones interpolaciones/regulacion_linea.p
+ng  used on input line 4196.
+(pdftex.def)             Requested size: 512.14963pt x 241.82594pt.
+
+[67 <./img/BUCK/regulacion_tension.png>]
+<img/BUCK/banco_medicion_reg_carga.png, id=379, 1028.34187pt x 462.97969pt>
+File: img/BUCK/banco_medicion_reg_carga.png Graphic file (type png)
+<use img/BUCK/banco_medicion_reg_carga.png>
+Package pdftex.def Info: img/BUCK/banco_medicion_reg_carga.png  used on input l
+ine 4210.
+(pdftex.def)             Requested size: 358.50317pt x 161.40244pt.
+ [68 <./img/BUCK/mediciones interpolaciones/regulacion_linea.png> <./img/BUCK/b
+anco_medicion_reg_carga.png>]
+\absvshift=\dimen351
+ [69]
+[70]
+<img/BUCK/medicion_sin_snubber.png, id=391, 1204.5pt x 903.375pt>
+File: img/BUCK/medicion_sin_snubber.png Graphic file (type png)
+<use img/BUCK/medicion_sin_snubber.png>
+Package pdftex.def Info: img/BUCK/medicion_sin_snubber.png  used on input line 
+4370.
+(pdftex.def)             Requested size: 245.82962pt x 184.36601pt.
+<img/BUCK/medicion_con_snubber1.png, id=392, 1204.5pt x 903.375pt>
+File: img/BUCK/medicion_con_snubber1.png Graphic file (type png)
+<use img/BUCK/medicion_con_snubber1.png>
+Package pdftex.def Info: img/BUCK/medicion_con_snubber1.png  used on input line
+ 4377.
+(pdftex.def)             Requested size: 245.82962pt x 184.36601pt.
+<img/BUCK/impulso.jpg, id=393, 803.0pt x 481.8pt>
+File: img/BUCK/impulso.jpg Graphic file (type jpg)
+<use img/BUCK/impulso.jpg>
+Package pdftex.def Info: img/BUCK/impulso.jpg  used on input line 4392.
+(pdftex.def)             Requested size: 358.50317pt x 215.1024pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 4401--4402
+
+ []
+
+[71 <./img/BUCK/medicion_sin_snubber.png> <./img/BUCK/medicion_con_snubber1.png
+>]
+Underfull \hbox (badness 10000) in paragraph at lines 4405--4406
+
+ []
+
+[72 <./img/BUCK/impulso.jpg>]
+<img/BUCK/ruido.jpg, id=403, 803.0pt x 481.8pt>
+File: img/BUCK/ruido.jpg Graphic file (type jpg)
+<use img/BUCK/ruido.jpg>
+Package pdftex.def Info: img/BUCK/ruido.jpg  used on input line 4434.
+(pdftex.def)             Requested size: 358.50317pt x 215.1024pt.
+<img/BUCK/pwm.jpg, id=404, 803.0pt x 481.8pt>
+File: img/BUCK/pwm.jpg Graphic file (type jpg)
+<use img/BUCK/pwm.jpg>
+Package pdftex.def Info: img/BUCK/pwm.jpg  used on input line 4440.
+(pdftex.def)             Requested size: 358.50317pt x 215.1024pt.
+ (conclusiones.tex [73 <./img/BUCK/ruido.jpg> <./img/BUCK/pwm.jpg>]) [74]
+<img/LDO/Esquematico_LDO_LTSPICE2.png, id=411, 1073.51062pt x 685.05937pt>
 File: img/LDO/Esquematico_LDO_LTSPICE2.png Graphic file (type png)
 <use img/LDO/Esquematico_LDO_LTSPICE2.png>
 Package pdftex.def Info: img/LDO/Esquematico_LDO_LTSPICE2.png  used on input li
-ne 3113.
+ne 4461.
 (pdftex.def)             Requested size: 645.73994pt x 412.07365pt.
-<img/BUCK/simulacion_pwm.png, id=251, 926.71219pt x 665.48625pt>
+<img/BUCK/simulacion_pwm.png, id=412, 926.71219pt x 665.48625pt>
 File: img/BUCK/simulacion_pwm.png Graphic file (type png)
 <use img/BUCK/simulacion_pwm.png>
-Package pdftex.def Info: img/BUCK/simulacion_pwm.png  used on input line 3121.
+Package pdftex.def Info: img/BUCK/simulacion_pwm.png  used on input line 4469.
 (pdftex.def)             Requested size: 645.73994pt x 463.72507pt.
-<img/BUCK/simulacion_buck.png, id=252, 966.61125pt x 607.51968pt>
+<img/BUCK/simulacion_buck.png, id=413, 966.61125pt x 607.51968pt>
 File: img/BUCK/simulacion_buck.png Graphic file (type png)
 <use img/BUCK/simulacion_buck.png>
-Package pdftex.def Info: img/BUCK/simulacion_buck.png  used on input line 3127.
+Package pdftex.def Info: img/BUCK/simulacion_buck.png  used on input line 4475.
 
 (pdftex.def)             Requested size: 645.73994pt x 405.86804pt.
- [47
+ [75
 
  <./img/LDO/Esquematico_LDO_LTSPICE2.png>]
-<img/BUCK/simulacion_buck_compensado.png, id=257, 1003.49907pt x 514.17094pt>
+<img/BUCK/simulacion_buck_compensado.png, id=418, 1003.49907pt x 514.17094pt>
 File: img/BUCK/simulacion_buck_compensado.png Graphic file (type png)
 <use img/BUCK/simulacion_buck_compensado.png>
 Package pdftex.def Info: img/BUCK/simulacion_buck_compensado.png  used on input
- line 3133.
+ line 4481.
 (pdftex.def)             Requested size: 645.73994pt x 330.88062pt.
- [48 <./img/BUCK/simulacion_pwm.png>] [49 <./img/BUCK/simulacion_buck.png>]
-<img/LDO/esquematico_kicad_LDO.png, id=267, 861.9703pt x 590.205pt>
+ [76 <./img/BUCK/simulacion_pwm.png>] [77 <./img/BUCK/simulacion_buck.png>]
+<img/LDO/esquematico_kicad_LDO.png, id=427, 861.9703pt x 590.205pt>
 File: img/LDO/esquematico_kicad_LDO.png Graphic file (type png)
 <use img/LDO/esquematico_kicad_LDO.png>
 Package pdftex.def Info: img/LDO/esquematico_kicad_LDO.png  used on input line 
-3145.
+4493.
 (pdftex.def)             Requested size: 645.73994pt x 442.15733pt.
- [50 <./img/BUCK/simulacion_buck_compensado.png>]
+ [78 <./img/BUCK/simulacion_buck_compensado.png>]
 Overfull \vbox (6.36877pt too high) has occurred while \output is active []
 
 
-[51 <./img/LDO/esquematico_kicad_LDO.png>]
+[79 <./img/LDO/esquematico_kicad_LDO.png>]
 
 pdfTeX warning: pdflatex.exe (file ./img/BUCK/esquematico_buck.pdf): PDF inclus
 ion: found PDF version <1.7>, but at most version <1.5> allowed
-<img/BUCK/esquematico_buck.pdf, id=276, 845.04686pt x 597.50786pt>
+<img/BUCK/esquematico_buck.pdf, id=437, 845.04686pt x 597.50786pt>
 File: img/BUCK/esquematico_buck.pdf Graphic file (type pdf)
 <use img/BUCK/esquematico_buck.pdf>
-Package pdftex.def Info: img/BUCK/esquematico_buck.pdf  used on input line 3153
+Package pdftex.def Info: img/BUCK/esquematico_buck.pdf  used on input line 4501
 .
 (pdftex.def)             Requested size: 645.73994pt x 456.59969pt.
-[52 <./img/BUCK/esquematico_buck.pdf>]
+[80 <./img/BUCK/esquematico_buck.pdf>]
 
 pdfTeX warning: pdflatex.exe (file ./img/LDO/pistas_LDO.pdf): PDF inclusion: fo
 und PDF version <1.7>, but at most version <1.5> allowed
-<img/LDO/pistas_LDO.pdf, id=282, 597.50786pt x 845.04686pt>
+<img/LDO/pistas_LDO.pdf, id=443, 597.50786pt x 845.04686pt>
 File: img/LDO/pistas_LDO.pdf Graphic file (type pdf)
 <use img/LDO/pistas_LDO.pdf>
-Package pdftex.def Info: img/LDO/pistas_LDO.pdf  used on input line 3168.
+Package pdftex.def Info: img/LDO/pistas_LDO.pdf  used on input line 4516.
 (pdftex.def)             Requested size: 597.5064pt x 845.0448pt.
 
 
@@ -1937,46 +2229,46 @@ und PDF version <1.7>, but at most version <1.5> allowed
 
 pdfTeX warning: pdflatex.exe (file ./img/LDO/pistas_LDO.pdf): PDF inclusion: fo
 und PDF version <1.7>, but at most version <1.5> allowed
-<img/LDO/pistas_LDO.pdf, id=284, page=1, 597.50786pt x 845.04686pt>
+<img/LDO/pistas_LDO.pdf, id=445, page=1, 597.50786pt x 845.04686pt>
 File: img/LDO/pistas_LDO.pdf Graphic file (type pdf)
 <use img/LDO/pistas_LDO.pdf, page 1>
-Package pdftex.def Info: img/LDO/pistas_LDO.pdf , page1 used on input line 3168
+Package pdftex.def Info: img/LDO/pistas_LDO.pdf , page1 used on input line 4516
 .
 (pdftex.def)             Requested size: 597.5064pt x 845.0448pt.
 File: img/LDO/pistas_LDO.pdf Graphic file (type pdf)
 <use img/LDO/pistas_LDO.pdf, page 1>
-Package pdftex.def Info: img/LDO/pistas_LDO.pdf , page1 used on input line 3168
+Package pdftex.def Info: img/LDO/pistas_LDO.pdf , page1 used on input line 4516
 .
 (pdftex.def)             Requested size: 597.53374pt x 845.08348pt.
-[53
+[81
 
 ]
 File: img/LDO/pistas_LDO.pdf Graphic file (type pdf)
 <use img/LDO/pistas_LDO.pdf, page 1>
-Package pdftex.def Info: img/LDO/pistas_LDO.pdf , page1 used on input line 3168
+Package pdftex.def Info: img/LDO/pistas_LDO.pdf , page1 used on input line 4516
 .
 (pdftex.def)             Requested size: 597.53374pt x 845.08348pt.
 File: img/LDO/pistas_LDO.pdf Graphic file (type pdf)
 <use img/LDO/pistas_LDO.pdf, page 1>
-Package pdftex.def Info: img/LDO/pistas_LDO.pdf , page1 used on input line 3168
+Package pdftex.def Info: img/LDO/pistas_LDO.pdf , page1 used on input line 4516
 .
 (pdftex.def)             Requested size: 597.53374pt x 845.08348pt.
 File: img/LDO/pistas_LDO.pdf Graphic file (type pdf)
 <use img/LDO/pistas_LDO.pdf, page 1>
-Package pdftex.def Info: img/LDO/pistas_LDO.pdf , page1 used on input line 3168
+Package pdftex.def Info: img/LDO/pistas_LDO.pdf , page1 used on input line 4516
 .
 (pdftex.def)             Requested size: 597.53374pt x 845.08348pt.
- [54
+ [82
 
  <./img/LDO/pistas_LDO.pdf>]
 
 pdfTeX warning: pdflatex.exe (file ./img/LDO/pistas_LDO_inferior.pdf): PDF incl
 usion: found PDF version <1.7>, but at most version <1.5> allowed
-<img/LDO/pistas_LDO_inferior.pdf, id=294, 597.50786pt x 845.04686pt>
+<img/LDO/pistas_LDO_inferior.pdf, id=454, 597.50786pt x 845.04686pt>
 File: img/LDO/pistas_LDO_inferior.pdf Graphic file (type pdf)
 <use img/LDO/pistas_LDO_inferior.pdf>
-Package pdftex.def Info: img/LDO/pistas_LDO_inferior.pdf  used on input line 31
-75.
+Package pdftex.def Info: img/LDO/pistas_LDO_inferior.pdf  used on input line 45
+23.
 (pdftex.def)             Requested size: 597.5064pt x 845.0448pt.
 
 
@@ -1986,42 +2278,42 @@ usion: found PDF version <1.7>, but at most version <1.5> allowed
 
 pdfTeX warning: pdflatex.exe (file ./img/LDO/pistas_LDO_inferior.pdf): PDF incl
 usion: found PDF version <1.7>, but at most version <1.5> allowed
-<img/LDO/pistas_LDO_inferior.pdf, id=296, page=1, 597.50786pt x 845.04686pt>
+<img/LDO/pistas_LDO_inferior.pdf, id=456, page=1, 597.50786pt x 845.04686pt>
 File: img/LDO/pistas_LDO_inferior.pdf Graphic file (type pdf)
 <use img/LDO/pistas_LDO_inferior.pdf, page 1>
 Package pdftex.def Info: img/LDO/pistas_LDO_inferior.pdf , page1 used on input 
-line 3175.
+line 4523.
 (pdftex.def)             Requested size: 597.5064pt x 845.0448pt.
 File: img/LDO/pistas_LDO_inferior.pdf Graphic file (type pdf)
 <use img/LDO/pistas_LDO_inferior.pdf, page 1>
 Package pdftex.def Info: img/LDO/pistas_LDO_inferior.pdf , page1 used on input 
-line 3175.
+line 4523.
 (pdftex.def)             Requested size: 597.53374pt x 845.08348pt.
 File: img/LDO/pistas_LDO_inferior.pdf Graphic file (type pdf)
 <use img/LDO/pistas_LDO_inferior.pdf, page 1>
 Package pdftex.def Info: img/LDO/pistas_LDO_inferior.pdf , page1 used on input 
-line 3175.
+line 4523.
 (pdftex.def)             Requested size: 597.53374pt x 845.08348pt.
 File: img/LDO/pistas_LDO_inferior.pdf Graphic file (type pdf)
 <use img/LDO/pistas_LDO_inferior.pdf, page 1>
 Package pdftex.def Info: img/LDO/pistas_LDO_inferior.pdf , page1 used on input 
-line 3175.
+line 4523.
 (pdftex.def)             Requested size: 597.53374pt x 845.08348pt.
 File: img/LDO/pistas_LDO_inferior.pdf Graphic file (type pdf)
 <use img/LDO/pistas_LDO_inferior.pdf, page 1>
 Package pdftex.def Info: img/LDO/pistas_LDO_inferior.pdf , page1 used on input 
-line 3175.
+line 4523.
 (pdftex.def)             Requested size: 597.53374pt x 845.08348pt.
-[55
+[83
 
  <./img/LDO/pistas_LDO_inferior.pdf>]
 
 pdfTeX warning: pdflatex.exe (file ./img/BUCK/pistas_BUCK.pdf): PDF inclusion: 
 found PDF version <1.7>, but at most version <1.5> allowed
-<img/BUCK/pistas_BUCK.pdf, id=302, 597.55246pt x 845.07724pt>
+<img/BUCK/pistas_BUCK.pdf, id=462, 597.55246pt x 845.07724pt>
 File: img/BUCK/pistas_BUCK.pdf Graphic file (type pdf)
 <use img/BUCK/pistas_BUCK.pdf>
-Package pdftex.def Info: img/BUCK/pistas_BUCK.pdf  used on input line 3184.
+Package pdftex.def Info: img/BUCK/pistas_BUCK.pdf  used on input line 4532.
 (pdftex.def)             Requested size: 597.551pt x 845.07518pt.
 
 
@@ -2031,44 +2323,44 @@ found PDF version <1.7>, but at most version <1.5> allowed
 
 pdfTeX warning: pdflatex.exe (file ./img/BUCK/pistas_BUCK.pdf): PDF inclusion: 
 found PDF version <1.7>, but at most version <1.5> allowed
-<img/BUCK/pistas_BUCK.pdf, id=304, page=1, 597.55246pt x 845.07724pt>
+<img/BUCK/pistas_BUCK.pdf, id=464, page=1, 597.55246pt x 845.07724pt>
 File: img/BUCK/pistas_BUCK.pdf Graphic file (type pdf)
 <use img/BUCK/pistas_BUCK.pdf, page 1>
-Package pdftex.def Info: img/BUCK/pistas_BUCK.pdf , page1 used on input line 31
-84.
+Package pdftex.def Info: img/BUCK/pistas_BUCK.pdf , page1 used on input line 45
+32.
 (pdftex.def)             Requested size: 597.551pt x 845.07518pt.
 File: img/BUCK/pistas_BUCK.pdf Graphic file (type pdf)
 <use img/BUCK/pistas_BUCK.pdf, page 1>
-Package pdftex.def Info: img/BUCK/pistas_BUCK.pdf , page1 used on input line 31
-84.
+Package pdftex.def Info: img/BUCK/pistas_BUCK.pdf , page1 used on input line 45
+32.
 (pdftex.def)             Requested size: 597.57834pt x 845.11386pt.
-[56]
+[84]
 File: img/BUCK/pistas_BUCK.pdf Graphic file (type pdf)
 <use img/BUCK/pistas_BUCK.pdf, page 1>
-Package pdftex.def Info: img/BUCK/pistas_BUCK.pdf , page1 used on input line 31
-84.
-(pdftex.def)             Requested size: 597.57834pt x 845.11386pt.
-File: img/BUCK/pistas_BUCK.pdf Graphic file (type pdf)
-<use img/BUCK/pistas_BUCK.pdf, page 1>
-Package pdftex.def Info: img/BUCK/pistas_BUCK.pdf , page1 used on input line 31
-84.
+Package pdftex.def Info: img/BUCK/pistas_BUCK.pdf , page1 used on input line 45
+32.
 (pdftex.def)             Requested size: 597.57834pt x 845.11386pt.
 File: img/BUCK/pistas_BUCK.pdf Graphic file (type pdf)
 <use img/BUCK/pistas_BUCK.pdf, page 1>
-Package pdftex.def Info: img/BUCK/pistas_BUCK.pdf , page1 used on input line 31
-84.
+Package pdftex.def Info: img/BUCK/pistas_BUCK.pdf , page1 used on input line 45
+32.
 (pdftex.def)             Requested size: 597.57834pt x 845.11386pt.
- [57
+File: img/BUCK/pistas_BUCK.pdf Graphic file (type pdf)
+<use img/BUCK/pistas_BUCK.pdf, page 1>
+Package pdftex.def Info: img/BUCK/pistas_BUCK.pdf , page1 used on input line 45
+32.
+(pdftex.def)             Requested size: 597.57834pt x 845.11386pt.
+ [85
 
  <./img/BUCK/pistas_BUCK.pdf>]
 
 pdfTeX warning: pdflatex.exe (file ./img/BUCK/pistas_BUCK_inferior.pdf): PDF in
 clusion: found PDF version <1.7>, but at most version <1.5> allowed
-<img/BUCK/pistas_BUCK_inferior.pdf, id=312, 597.55246pt x 845.07724pt>
+<img/BUCK/pistas_BUCK_inferior.pdf, id=473, 597.55246pt x 845.07724pt>
 File: img/BUCK/pistas_BUCK_inferior.pdf Graphic file (type pdf)
 <use img/BUCK/pistas_BUCK_inferior.pdf>
 Package pdftex.def Info: img/BUCK/pistas_BUCK_inferior.pdf  used on input line 
-3191.
+4539.
 (pdftex.def)             Requested size: 597.551pt x 845.07518pt.
 
 
@@ -2078,33 +2370,33 @@ clusion: found PDF version <1.7>, but at most version <1.5> allowed
 
 pdfTeX warning: pdflatex.exe (file ./img/BUCK/pistas_BUCK_inferior.pdf): PDF in
 clusion: found PDF version <1.7>, but at most version <1.5> allowed
-<img/BUCK/pistas_BUCK_inferior.pdf, id=314, page=1, 597.55246pt x 845.07724pt>
+<img/BUCK/pistas_BUCK_inferior.pdf, id=475, page=1, 597.55246pt x 845.07724pt>
 File: img/BUCK/pistas_BUCK_inferior.pdf Graphic file (type pdf)
 <use img/BUCK/pistas_BUCK_inferior.pdf, page 1>
 Package pdftex.def Info: img/BUCK/pistas_BUCK_inferior.pdf , page1 used on inpu
-t line 3191.
+t line 4539.
 (pdftex.def)             Requested size: 597.551pt x 845.07518pt.
 File: img/BUCK/pistas_BUCK_inferior.pdf Graphic file (type pdf)
 <use img/BUCK/pistas_BUCK_inferior.pdf, page 1>
 Package pdftex.def Info: img/BUCK/pistas_BUCK_inferior.pdf , page1 used on inpu
-t line 3191.
+t line 4539.
 (pdftex.def)             Requested size: 597.57834pt x 845.11386pt.
 File: img/BUCK/pistas_BUCK_inferior.pdf Graphic file (type pdf)
 <use img/BUCK/pistas_BUCK_inferior.pdf, page 1>
 Package pdftex.def Info: img/BUCK/pistas_BUCK_inferior.pdf , page1 used on inpu
-t line 3191.
+t line 4539.
 (pdftex.def)             Requested size: 597.57834pt x 845.11386pt.
 File: img/BUCK/pistas_BUCK_inferior.pdf Graphic file (type pdf)
 <use img/BUCK/pistas_BUCK_inferior.pdf, page 1>
 Package pdftex.def Info: img/BUCK/pistas_BUCK_inferior.pdf , page1 used on inpu
-t line 3191.
+t line 4539.
 (pdftex.def)             Requested size: 597.57834pt x 845.11386pt.
 File: img/BUCK/pistas_BUCK_inferior.pdf Graphic file (type pdf)
 <use img/BUCK/pistas_BUCK_inferior.pdf, page 1>
 Package pdftex.def Info: img/BUCK/pistas_BUCK_inferior.pdf , page1 used on inpu
-t line 3191.
+t line 4539.
 (pdftex.def)             Requested size: 597.57834pt x 845.11386pt.
-[58
+[86
 
  <./img/BUCK/pistas_BUCK_inferior.pdf>] (informe.aux
 LaTeX Info: Redefining \sptext on input line 9.
@@ -2115,56 +2407,54 @@ LaTeX Info: Redefining \% on input line 9.
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
  ***********
-
-
-LaTeX Warning: There were undefined references.
-
 Package logreq Info: Writing requests to 'informe.run.xml'.
 \openout1 = `informe.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 57633 strings out of 467870
- 1461469 string characters out of 5418355
- 2504462 words of memory out of 5000000
- 85965 multiletter control sequences out of 15000+600000
- 648167 words of font info for 88 fonts, out of 8000000 for 9000
+ 58834 strings out of 467870
+ 1503028 string characters out of 5418355
+ 2497277 words of memory out of 5000000
+ 87164 multiletter control sequences out of 15000+600000
+ 649629 words of font info for 90 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  98i,18n,118p,1198b,2814s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\ramaz\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
-1000.pk> <C:\Users\ramaz\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
-0\ecrm0900.pk> <C:\Users\ramaz\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
-/dpi600\ecrm0700.pk> <C:\Users\ramaz\AppData\Local\MiKTeX\fonts/pk/ljfour/jknap
-pen/ec/dpi600\ecrm0500.pk> <C:\Users\ramaz\AppData\Local\MiKTeX\fonts/pk/ljfour
-/jknappen/ec/dpi600\ecbi1000.pk> <C:\Users\ramaz\AppData\Local\MiKTeX\fonts/pk/
-ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\ramaz\AppData\Local\MiKTeX\fon
-ts/pk/ljfour/jknappen/ec/dpi600\ecti1000.pk> <C:\Users\ramaz\AppData\Local\MiKT
-eX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\ramaz\AppData\Loca
-l\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\ramaz\AppDat
-a\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\ramaz\
-AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc2488.pk> <C:\Users\
-ramaz\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc1440.pk> <C:\
-Users\ramaz\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1728.pk
-><C:/Users/ramaz/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/c
-mbsy10.pfb><C:/Users/ramaz/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
-fonts/cm/cmbx10.pfb><C:/Users/ramaz/AppData/Local/Programs/MiKTeX/fonts/type1/p
-ublic/amsfonts/cm/cmex10.pfb><C:/Users/ramaz/AppData/Local/Programs/MiKTeX/font
-s/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/ramaz/AppData/Local/Programs/Mi
-KTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/ramaz/AppData/Local/Pro
-grams/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/ramaz/AppData/L
-ocal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/ramaz/A
-ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Users
-/ramaz/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><
-C:/Users/ramaz/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr
-5.pfb><C:/Users/ramaz/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts
-/cm/cmr7.pfb><C:/Users/ramaz/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
-msfonts/cm/cmr9.pfb><C:/Users/ramaz/AppData/Local/Programs/MiKTeX/fonts/type1/p
-ublic/amsfonts/cm/cmsy10.pfb><C:/Users/ramaz/AppData/Local/Programs/MiKTeX/font
-s/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/ramaz/AppData/Local/Programs/MiK
-TeX/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on informe.pdf (59 pages, 5876091 bytes).
+ <C:\Users\ramaz\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti
+0900.pk> <C:\Users\ramaz\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
+0\ecbx0900.pk> <C:\Users\ramaz\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
+/dpi600\tcrm1000.pk> <C:\Users\ramaz\AppData\Local\MiKTeX\fonts/pk/ljfour/jknap
+pen/ec/dpi600\ecrm0900.pk> <C:\Users\ramaz\AppData\Local\MiKTeX\fonts/pk/ljfour
+/jknappen/ec/dpi600\ecrm0700.pk> <C:\Users\ramaz\AppData\Local\MiKTeX\fonts/pk/
+ljfour/jknappen/ec/dpi600\ecrm0500.pk> <C:\Users\ramaz\AppData\Local\MiKTeX\fon
+ts/pk/ljfour/jknappen/ec/dpi600\ecbi1000.pk> <C:\Users\ramaz\AppData\Local\MiKT
+eX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\ramaz\AppData\Loca
+l\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1000.pk> <C:\Users\ramaz\AppDat
+a\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\ramaz\
+AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\
+ramaz\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\
+Users\ramaz\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc2488.pk
+> <C:\Users\ramaz\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc1
+440.pk> <C:\Users\ramaz\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600
+\ecbx1728.pk><C:/Users/ramaz/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
+msfonts/cm/cmbsy10.pfb><C:/Users/ramaz/AppData/Local/Programs/MiKTeX/fonts/type
+1/public/amsfonts/cm/cmbx10.pfb><C:/Users/ramaz/AppData/Local/Programs/MiKTeX/f
+onts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/ramaz/AppData/Local/Programs
+/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/ramaz/AppData/Local
+/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/ramaz/AppDa
+ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/ram
+az/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/U
+sers/ramaz/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi9.p
+fb><C:/Users/ramaz/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
+/cmr10.pfb><C:/Users/ramaz/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
+fonts/cm/cmr5.pfb><C:/Users/ramaz/AppData/Local/Programs/MiKTeX/fonts/type1/pub
+lic/amsfonts/cm/cmr7.pfb><C:/Users/ramaz/AppData/Local/Programs/MiKTeX/fonts/ty
+pe1/public/amsfonts/cm/cmr9.pfb><C:/Users/ramaz/AppData/Local/Programs/MiKTeX/f
+onts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/ramaz/AppData/Local/Programs
+/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/ramaz/AppData/Local/
+Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb>
+Output written on informe.pdf (87 pages, 28851047 bytes).
 PDF statistics:
- 863 PDF objects out of 1000 (max. 8388607)
+ 1087 PDF objects out of 1200 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 293 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 488 words of extra memory for PDF output out of 10000 (max. 10000000)
 

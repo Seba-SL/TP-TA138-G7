@@ -223,11 +223,10 @@ citestyle=apa
 			
 			Tensión regulada & $VREG$ & $\SI{12}{V} < V_{IN} < \SI{30}{V}$ \break $\SI{100}{mA} < I_o < \SI{1.5}{A}$ \break $f_{sw} = \SI{120}{\kilo\hertz}$ & 9,3 & 9,5  & 9,7 & \si{V} \\
 			\hline
-			\label{tab:spec_buck}
 		\end{tabular}
 		
 		\caption{Especificaciones del regulador lineal LDO.}
-		\label{tabla:especificaciones_buck}
+		\label{tab:especificaciones_buck}
 	\end{table}
 	
 	\subsubsection{implementación}
@@ -948,7 +947,7 @@ citestyle=apa
 		\label{fig:triag}
 	\end{figure}
 	
-	La elección de los integrados \textbf{TL082} y \textbf{LM319} se basa principalmente en la frecuencia de operación objetivo (tabla \ref{tab:spec_buck}), y en su capacidad para operar con fuente simple. Para ello se buscó un slew rate mayor que el requerido para la señal triangular (en este caso, los \SI{20}{V/\micro s} son ideales), y una velocidad de respuesta muy inferior a la requerida para generar la señal cuadrada.
+	La elección de los integrados \textbf{TL082} y \textbf{LM319} se basa principalmente en la frecuencia de operación objetivo (tabla \ref{tab:especificaciones_buck}), y en su capacidad para operar con fuente simple. Para ello se buscó un slew rate mayor que el requerido para la señal triangular (en este caso, los \SI{20}{V/\micro s} son ideales), y una velocidad de respuesta muy inferior a la requerida para generar la señal cuadrada.
 	
 	La elección de valores de los componentes de la figura \ref{fig:triag} se hace en base al siguiente criterio:
 	
@@ -1264,9 +1263,51 @@ Se fijan las resistencias $R_2 = \SI{5.6}{\kilo\ohm}$ y $R_1 = \SI{3.3}{\kilo\oh
 		\label{fig:sim_compensado}
 	\end{figure}
 	
+	\subsubsection{Diseño de red \textit{Snubber}}
+	
+	El diseño de la red \textit{Snubber} depende exclusivamente de las capacidades e inductancias parásitas del circuito. Como tal, es difícil de estimar antes de la implementación.
+	
+	Para su diseño, se prueba el circuito implementado de la figura \ref{sec:apendice_PCB}, en régimen permanente, y se mide la señal sobre el nodo $V_s$ (figura \ref{fig:vs_snubber}).
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\linewidth]{img/BUCK/ringing2}
+		\caption{Efecto \textit{ringing} sobre el nodo de conmutación $V_s$}
+		\label{fig:vs_snubber}
+	\end{figure}
+	
+	En base a los resultados experimentales, se diseña la red RC, siguiendo los pasos del manual \cite{toshiba_snubbers}:
+	
+	\begin{enumerate}
+		\item Se observa la frecuencia de la oscilación de la figura \ref{fig:vs_snubber}. $f_s \approx \SI{50}{\mega\hertz}$.
+		\item Se calcula la capacidad parásita esperada, que será la resultante de la suma de la capacidad de juntura $C_j$ del diodo de freewheeling y la capacidad total de salida $C_{oss}$ del transistor $Q_2$.
+		
+		\begin{equation}
+			C_p \approx C_j + C_{oss} = \SI{120}{pF} + \SI{70}{pF} = \SI{190}{pF}.
+		\end{equation}
+		
+		\item Se obtiene la inductancia parásita según
+		
+		\begin{equation}
+			L_p \approx \frac{1}{(2\pi f_s)^2 \cdot C_p} = \SI{53.3}{nHy}.
+		\end{equation}
+		
+		\item Finalmente, se calcula la resistencia de la red, que será equivalente a la impedancia
+		
+		\begin{equation}
+			R_{SNB} = \sqrt{\frac{L_p}{C_p}} = \SI{16.7}{\ohm}.
+		\end{equation}
+	\end{enumerate}
+	
+	El capacitor de \textit{snubber} será el responsable de la totalidad de la disipación de potencia, y por ende reducción de eficiencia de la fuente. A mayor $C_{SNB}$, mayor atenuación del efecto \textit{ringing}, pero mayor pérdida de eficiencia. En este caso, se escoje una capacidad \SI{220}{pF} cercana a la capacidad parásita.
+	
+	\begin{equation}
+		P_{SNB} = C_{SNB}\cdot V_{IN}^2 \cdot f_{sw} = \SI{220}{pF} \cdot \SI{32}{V} \cdot \SI{130}{\kilo\hertz} = \SI{0.9}{mW}.
+	\end{equation}
+	
 	\subsubsection{Construcción del inductor $L$}
 	
-	Se reitero el diseño del inductor mediante el método iterativo de Erickson para el nuevo valor de L, cuyas características finales se encuentran en la tabla \ref{tab:diseno_inductor}. El inductor debe diseñarse de forma que opere dentro de la región lineal del núcleo magnético y mantenga sus parámetros eléctricos en las condiciones nominales de operación. Para ello, es necesario considerar las principales limitaciones físicas de un inductor real, las cuales condicionan tanto su desempeño como su eficiencia.
+	Se diseña el inductor $L$ mediante el método iterativo de EricksonL, cuyas características finales se encuentran en la tabla \ref{tab:diseno_inductor}. El inductor debe diseñarse de forma que opere dentro de la región lineal del núcleo magnético y mantenga sus parámetros eléctricos en las condiciones nominales de operación. Para ello, es necesario considerar las principales limitaciones físicas de un inductor real, las cuales condicionan tanto su desempeño como su eficiencia.
 	
 	Las características operativas requeridas para el componente se resumen en la Tabla~\ref{tab:especificaciones}:
 	
@@ -1564,6 +1605,45 @@ Se fijan las resistencias $R_2 = \SI{5.6}{\kilo\ohm}$ y $R_1 = \SI{3.3}{\kilo\oh
 	$ {R_{cu}}_{[max]} = \left( \frac{P_{\text{cu}_{\max}}}{I_{L_{\text{dc}}}} \right)^2 = 0,390\, \Omega$
 	
 	Al realizar un bobinado del tipo paralelo la sección del cobre disminuye, lo que favorece una distribución más uniforme de la corriente a altas frecuencias. Si se mantiene constante la sección total de cobre, la resistencia en corriente continua permanece prácticamente inalterada, mientras que la resistencia en corriente alterna disminuye debido a la reducción del efecto pelicular. Con lo cual la expresión sigue siendo valida y se cumple lo requerido.	
+	
+	\subsubsection{Diseño PCB de la buck en lazo abierto}
+	
+	Se diseño el circuito \textit{buck} de forma que se pueda utilizar a lazo abierto modularizando la placa, en la figura \ref{fig:bucksolopcb} se puede observar el modelo en tres dimensiones del sector de la placa correspondiente al circuito \textit{buck}. 
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\linewidth]{img/buck/buck_solo_pcb}
+		\caption{Diseño del PCB del circuito buck.}
+		\label{fig:bucksolopcb}
+	\end{figure}
+	
+	\subsection{Diseño PCB de circuito PWM}
+	
+	
+	Se implementa el circuito en placa impresa. Notar que se deja espacio para el cálculo e implementación de la compensación del lazo realimentador (ver $C_4$ y $C_2$ en la figura \ref{sec:apendice_PCB}), para el futuro cierre del lazo. Se realizo un diseño simple faz a modo prototipo con ciertas conexiones cableadas en la capa superior y \textit{jumpers} para testeo como se aprecia en la figura \ref{fig:pwmpcb}, luego se implemento mediante transferencia térmica y corrosión de cobre sobrante de la placa con el uso de percloruro férrico obteniendo la placa Fig. \ref{fig:pcbbuck}.
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\linewidth]{img/buck/pwm_pcb}
+		\caption{Modelo 3D del PWM en circuito impreso.}
+		\label{fig:pwmpcb}
+	\end{figure}
+	
+	\subsubsection{Diseño PCB Completo}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\linewidth]{img/buck/PCB_frente}
+		\caption{}
+		\label{fig:pcbfrente}
+	\end{figure}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\linewidth]{img/BUCK/pcb_buck}
+		\caption{}
+		\label{fig:pcbbuck}
+	\end{figure}
 	
 	\subsection{Regulador de baja caída (LDO,Low Dropout Regulator)}
 	
@@ -2843,7 +2923,63 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 		\label{fig:lazo_corriente_compensado}
 	\end{figure}
 	
-	
+	\textbf{Lazo corriente rápido:}\\
+		El lazo de corriente limitador presenta un comportamiento inestable, esto hace la respuesta fuertemente oscilatoria tras un cambio instantáneo de carga.
+		
+		Se obtiene el diagrama de bode en la figura \ref{fig:bode_shunt}, utilizando la misma técnica que en los lazos de tensión y corriente \textit{foldback}, y con $R_L = \SI{1}{\ohm}$. Se debe obtener solicitar una corriente de salida superior a la corriente de corte del lazo limitador, y al mismo tiempo anular el lazo de corriente \textit{foldback} para que no domine la limitación.
+		
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.75\linewidth]{../../Simulación/LDO/Graficos en Python/Capturas/LDO_Bode_lazo_corriente_shunt}
+			\caption{Diagrama de módulo y fase del lazo limitador de corriente.}
+			\label{fig:bode_shunt}
+		\end{figure}
+		
+		La dificultad del análisis de este circuito radica en la operación de gran señal: observar que para corrientes de salida bajas, el transistor $Q_{16}$ se encuentra en corte. Lo que se espera es que, al aumentar la corriente de salida, el sistema progresivamente se acerque al modo de operación MAD, por ello la figura \ref{fig:bode_shunt} solo da una idea aproximada de la ganancia de lazo. Es de esperar que el polo dominante se corra dependiendo de la polarización.
+		
+		Del análisis de la figura \ref{fig:limitador} se deduce que el nodo dominante será, potencialmente, el nodo $v_{ctrl}$, por tener las capacidades asociadas del transistor de paso, que son muy grandes. El nodo 1 será inevitablemente el otro polo visible en la figura \ref{fig:bode_shunt}. Se intentará entonces aplicar \textit{pole-splitting} (figura \ref{fig:limitador}), alejando ambos polos y conservando lo mejor posible la velocidad de respuesta, crítica en este caso. Además, aprovecha la amplificación de la configuración emisor común realimentado de $Q1$ para reducir el tamaño de la capacidad considerablemente.
+		
+		\begin{figure}[H]
+			\centering
+			\begin{tikzpicture}[transform shape]
+				% Paths, nodes and wires:
+				\node[npn, rotate=-90, yscale=-1](N1) at (13.27, 8){} node[anchor=north] at (N1.text){$Q_2$};
+				\node[nigfetd, rotate=90, yscale=-1] at (12.269, 12){};
+				\node[pnp, xscale=-1](N2) at (11.16, 11){} node[anchor=east] at (N2.text){$Q_1$};
+				\draw (12, 11) -- (13.5, 11);
+				\node[circ](N3) at (13.5, 11){} node[anchor=west] at (N3.text){$v_{ctrl}$};
+				\node[circ] at (12, 11){};
+				\draw (11.16, 10.23) |- (12.5, 8);
+				\draw (11.16, 11.77) |- (10.25, 12);
+				\draw (11.5, 12) |- (10.25, 12);
+				\draw (15, 10) to[american resistor, /tikz/circuitikz/bipoles/length=0.840cm, l={$R_{}s$}] (15, 8);
+				\draw (15, 10) |- (13.04, 12);
+				\draw (14.04, 8) -- (15, 8);
+				\draw (13.27, 8.84) |- (15, 10);
+				\node[circ] at (15, 10){};
+				\draw (15, 8) -| (15, 7);
+				\node[circ] at (15, 8){};
+				\node[circ](N4) at (10.25, 12){} node[anchor=east] at (N4.text){$V_{in}$};
+				\node[circ](N5) at (15, 7){} node[anchor=west] at (N5.text){$v_o$};
+				\node[circ](N6) at (11.16, 8){} node[anchor=north] at (N6.text){$1$};
+				\node[circ] at (11.16, 12){};
+				\draw (11.16, 10.23) to[capacitor, /tikz/circuitikz/bipoles/length=0.700cm, l_={$C$}] (12.5, 10.25);
+				\draw (12.5, 10.25) -| (12.5, 11);
+				\node[circ] at (12.5, 11){};
+				\node[circ] at (11.16, 10.23){};
+			\end{tikzpicture}
+			\caption{Circuito del lazo limitador de corriente compensado.}
+			\label{fig:limitador}
+		\end{figure}
+		
+		Utilizando un capacitor $C \approx \SI{30}{pF}$, se logra compensar el circuito con un márgen de fase muy satisfactorio, como se ve en la figura \ref{fig:bode_shunt_compensado}.
+		
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.75\linewidth]{../../Simulación/LDO/Graficos en Python/Capturas/LDO_Bode_lazo_corriente_shunt_compensado}
+			\caption{Diagrama de módulo y fase del lazo limitador de corriente compensado.}
+			\label{fig:bode_shunt_compensado}
+		\end{figure}
 	\input{analisis_termico}
 	\newpage
 
@@ -3077,7 +3213,30 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 		\label{fig:pcb_vistas}
 		
 	\end{figure}
+		\subsubsection{Fabricación de la PCB}
 	
+	Se utilizo el método de planchado a una placa de cobre FR4 marcando las pistas por medio de papel impreso de transferencia térmica aplicándole calor. Luego se sumergió la placa en cloruro férrico atacando el cobre sobrante.
+	
+	Luego, se aplicó la serigrafía superior utilizando el mismo método (véase Figura~\ref{fig:placamontada1}). A continuación, se realizaron las perforaciones correspondientes, se limpió la placa con alcohol isopropílico y se procedió al ensamblado del circuito mediante la colocación de los componentes y soldado adecuado.
+	
+	\begin{figure}[H]
+		\centering
+		
+		\begin{subfigure}{0.48\textwidth}
+			\centering
+			\includegraphics[width=\linewidth]{img/LDO/Placa_montada_1}
+			\caption{Placa montada}
+		\end{subfigure}
+		\hfill
+		\begin{subfigure}{0.48\textwidth}
+			\centering
+			\includegraphics[width=\linewidth]{img/LDO/placa_montada_lateral}
+			\caption{Vista lateral}
+		\end{subfigure}
+		
+		\caption{Montaje de la placa LDO}
+		\label{fig:placamontada1}
+	\end{figure}
 	
 	
 	% SL : voy a seguir la seccion del diseño de pcb a parte y dsp lo añado
@@ -3094,6 +3253,8 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 		
 		\item \textbf{Par darlington:} Utilizar un par darlington en los pares diferenciales aumenta enormemente la resistencia $R_{diff}$, así como la ganancia $A_{d}$, por mejorar el valor de $gm$.
 	\end{itemize}
+	
+
 	
 	\section{Simulaciones}
 	\label{sec:simulaciones}
@@ -3388,11 +3549,898 @@ Sin embargo estas dos implementaciones no podrían actuar en simultáneo, es por
 	\FloatBarrier
 	\subsection{Simulaciones de fuente switching}
 	\FloatBarrier
-	Por agregar en futuras entregas.
+	\subsubsection{fuente \textit{buck} a lazo abierto}
+	
+	
+	Se simuló mediante el software Ltspice el comportamiento del circuito utilizando el esquematico de la captura \ref{fig:simulacionbucklazoabierto} y los diferentes modelos de componentes a lazo abierto, es decir sin utilizar la realimentación para el control de los transistores si no un generador de pruebas en el transistor que implementaría el $t_{on}$ y un diodo de rapida conmutación en reemplazo del transistor de tiempo $t_{off}$ . 
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\linewidth]{img/buck/simulacion_buck_lazo_abierto}
+		\caption{Captura esquemático de simulación en ltspice de circuito \textit{buck} a lazo abierto.}
+		\label{fig:simulacionbucklazoabierto}
+	\end{figure}
+	
+	
+	Se puede verificar la correcta regulación luego de un transitorio, graficando los datos de tensión de salida extraidos de la simulación como se muestra en la Fig. \ref{fig:reguladorbucklazoabierto}.
+	
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\linewidth]{../../Simulación/BUCK/Datos/regulador_buck_Lazo_abierto}
+		\caption{Datos de tensión de salida extraídos de la simulación del \textit{buck} a lazo abierto.}
+		\label{fig:reguladorbucklazoabierto}
+	\end{figure}
+	
+	
+	Mientras que en la Fig. \ref{fig:corrientesiliobucklazoabierto} se verifica que se encuentra trabajando en conducción continua.
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\linewidth]{img/buck/CorrientesIL_Io_buck_lazo_abierto}
+		\caption{Corriente en el inductor y resistor de salida, datos extraídos de la simulación del \textit{buck} a lazo abierto.}
+		\label{fig:corrientesiliobucklazoabierto}
+	\end{figure}
+	\subsubsection{PWM}
+	
+	Se realizan diferentes simulaciones sobre el archivo de la figura \ref{fig:esquematicobuckpwm}. Será de interés la triangular resultante, la señal pwm generada y su interacción con el valor medido. Para la medición a lazo abierto, se simula una entrada senoidal de valor medio \SI{9.5}{V}, con una amplitud de \SI{1.5}{V}.
+	
+	La señal triangular resultante puede verse en la figura \ref{fig:sim_triag}, y su interacción con la señal de salida PWM puede verse en la figura \ref{fig:sim_pwm2}.
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\linewidth]{../../Simulación/BUCK/Datos/grafico_pwm}
+		\caption{Señal triangular simulada.}
+		\label{fig:sim_triag}
+	\end{figure}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\linewidth]{../../Simulación/BUCK/Datos/grafico_pwm2}
+		\caption{Señal PWM resultante.}
+		\label{fig:sim_pwm2}
+	\end{figure}
+	
+	Se observa que el comportamiento es coherente con los resultados calculados, con la salvedad de la frecuencia de oscilación, que es un poco más alta $f_s = \SI{128}{\kilo\hertz}$.
+	
+	
 	
 	\section{Mediciones}
+	\subsection{LDO}
+	
+	Con el objetivo de validar experimentalmente el desempeño del regulador implementado, se llevaron a cabo una serie de mediciones sobre el prototipo construido. Estas pruebas permiten contrastar los resultados obtenidos en la etapa de diseño y simulación con el comportamiento real del circuito, evaluando parámetros clave como la regulación de carga, la regulación de línea, la capacidad de limitación de corriente y la eficiencia del sistema. A continuación, se describe el banco de pruebas utilizado y la metodología empleada en cada caso.
+	
+	\subsubsection{Banco de Pruebas}
+	
+	Para realizar las mediciones se llevo la placa a el laboratorio y se la dispuso frente a un banco de pruebas compuesto por los siguientes instrumentos de medición.
+	
+	%completar al medir
+	\begin{itemize}
+		\item Fuente : UNI-T, UTP33115TFL-II
+		\item Generador de Señales, Topware, 8105  
+		\item Osciloscopio : UNI-T, UTD2102CEX+
+		\item Multimetro: VT-POWER, M890G
+		\item Banco de baterías
+	\end{itemize}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.8\linewidth]{img/LDO/banco_medicion}
+		\caption{banco de medición en laboratorio.}
+		\label{fig:bancomedicion}
+	\end{figure}
+	
+	
+	\begin{figure}[H]
+		\centering
+		
+		% =========================
+		% IMAGEN 1 (batería)
+		% =========================
+		\begin{minipage}{0.25\textwidth}
+			\centering
+			\includegraphics[width=\linewidth]{img/LDO/bateria_p_medir}
+			\caption{Banco de baterías para obtener tensión de referencia de bajo ruido.}
+			\label{fig:bateriapmedir}
+		\end{minipage}
+		\hfill
+		% =========================
+		% IMAGEN 2 (generador)
+		% =========================
+		\begin{minipage}{0.62\textwidth}
+			\centering
+			\includegraphics[width=\linewidth]{img/LDO/generador_señales}
+			\caption{Modelo de generador de señales utilizado en las pruebas.}
+			\label{fig:generadorsenales}
+		\end{minipage}
+		
+	\end{figure}
+	
+	\subsubsection{Regulación de carga estática y dinámica}
+	\label{sec:regulacion}
+	
+	La regulación idealmente no debe depender del tipo de carga, sin embargo una carga de poca resistencia consume mucha corriente que la fuente debe ser capaz de entregar y una carga que varié su resistencia infiere que la fuente debe cambiar su estado de equilibrio rápidamente a uno nuevo, esto previamente se a simulado, y en las próximas mediciones se verificara y se caracterizara el circuito de forma practica con componentes reales.
+	
+	\paragraph{Regulación de carga estática }\hfill\break
+	
+	Para la regulación de carga se varia la resistencia de carga desde valores grandes de resistencias hacia los puntos críticos donde la corriente llega a su limite y debe actuar la regulación de corriente. Dichos valores medidos se encuentran tabulados en la tabla \ref{tab:reg_carga_ldo} y la curva obtenida tras interpolar los puntos medidos en la figura \ref{fig:regulacioncarga}. A su vez se realizo el calculo de resistencia de Thevenin correspondiente a la caracterización de la resistencia de salida del regulador lineal.
+	
+	En búsqueda de una mayor sensibilidad de medición se midió la diferencia de la tensión de salida con respecto una fuente fija de tensión de $5,22 \,V$ tal como se detalla en el diagrama de la figura \ref{fig:medicionregcargabanco}, luego dicha diferencia ,en el orden de los mV, fue la variación que afecto cada punto de medición.
+	\begin{figure}[H]
+		\centering
+		
+		% =========================
+		% IZQUIERDA: IMAGEN
+		% =========================
+		\begin{minipage}{0.55\textwidth}
+			\centering
+			\includegraphics[width=\linewidth]{img/LDO/Diagramas medicion/medicion_reg_carga_banco.png}
+			\caption{Banco de pruebas para medición de regulación de carga}
+			\label{fig:medicionregcargabanco}
+		\end{minipage}
+		\hfill
+		% =========================
+		% DERECHA: TABLA
+		% =========================
+		\begin{minipage}{0.42\textwidth}
+			\centering
+			\captionof{table}{Mediciones de regulación de carga estática del LDO}
+			\label{tab:reg_carga_ldo}
+			\begin{tabular}{|c|c|}
+				\hline
+				\textbf{$R_L$ [$\Omega$]} &
+				\textbf{$V_O$ [V]} \\
+				\hline
+				100k & 4.8186 \\
+				10k  & 4.8079 \\
+				4k7  & 4.8071 \\
+				1k   & 4.8038 \\
+				560  & 4.8025 \\
+				220  & 4.7950 \\
+				100  & 4.7830 \\
+				47   & 4.7630 \\
+				23.5 & 4.7650 \\
+				10   & 4.6270 \\
+				\hline
+			\end{tabular}
+		\end{minipage}
+		
+	\end{figure}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=1\linewidth]{../Graficos/regulacion_carga}
+		\caption{Interpolación de los puntos medidos en regulación de carga estática.}
+		\label{fig:regulacioncarga}
+	\end{figure}
+	
+	Tomando dos puntos de la curva correspondientes a la resistencia de $1 \, k\Omega$  y de $220 \, \Omega$ y utilizando la expresión \ref{eq:rt_general} se llega a el valor de resistencia de salida de $0,52 \Omega$.
+	
+	\begin{equation} 
+		R_T =
+		\frac{
+			\left(
+			1-\dfrac{V_1}{V_2}
+			\right)R_2
+		}{
+			\left(
+			\dfrac{V_1}{V_2}\cdot\dfrac{R_2}{R_1}
+			\right)-1
+		} = 0,52 \, \Omega
+		\label{eq:rt_general}
+	\end{equation}
+	
+	
+	\paragraph{Regulación de carga dinámica}\hfill\break
+	
+	Para una carga dinámica se debe considerar una carga activa que varié su corriente, se medirá utilizando como carga una fuente de corriente con un transistor. El regulador deberá mantener la tensión de salida con una variación acotada en
+	función de la variación de la corriente en la carga.
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=1\linewidth]{img/LDO/Diagramas medicion/carga_activa}
+		\caption{Disposición del banco de medición para carga activa.}
+		\label{fig:cargaactiva}
+	\end{figure}
+	\begin{figure}[H]
+		\centering
+		\begin{minipage}{0.45\textwidth}
+			\centering
+			
+			\begin{tikzpicture}[transform shape, scale=1.2]
+				% Paths, nodes and wires:
+				\node[npn] at (33, 5){};
+				\draw (33, 4.25) to[american resistor, /tikz/circuitikz/bipoles/length=1.09cm, l={$R_E$}] (33, 2.5);
+				\node[sground] at (33, 2.5){};
+				\node[sground] at (30.98, 3.34){};
+				
+				\node[shape=rectangle, minimum width=1.215cm, minimum height=0.215cm] 
+				at (33.25, 7){}
+				node[anchor=north west, align=left, text width=0.827cm, inner sep=6pt] 
+				at (32.625, 7.125){$V_o$};
+				
+				\node[circ] at (33, 6.5){};
+				\draw (33, 5.75) -- (33, 6.5);
+				
+				\node[shape=rectangle, minimum width=4.84cm, minimum height=0.84cm] 
+				at (33.71, 4.118){}
+				node[anchor=north west, align=left, text width=4.452cm, inner sep=6pt] 
+				at (31.272, 4.555){\tiny Generador de\\funciones};
+				
+				\draw[-latex] (33.25, 5.812) -- (33.25, 5.375);
+				
+				\node[shape=rectangle, minimum width=1.215cm, minimum height=0.215cm] 
+				at (33.875, 5.75){}
+				node[anchor=north west, align=left, text width=0.827cm, inner sep=6pt] 
+				at (33.25, 5.875){$i_o$};
+				
+				\draw (31, 4.75) to[square voltage source, mirror] (30.98, 3.34);
+				\draw (32.16, 5) -- (31, 5) -- (31, 4.75);
+			\end{tikzpicture}
+			
+		\end{minipage}
+		\hfill
+		\begin{minipage}{0.53\textwidth}
+			
+			Se implementó una carga dinámica basada en un transistor NPN controlado mediante un generador de funciones configurado con una señal cuadrada de 1 kHz y 2 V pico. El colector del transistor se conecta a la salida del regulador, mientras que el emisor posee una resistencia $R_E$ de 1k hacia referencia, permitiendo fijar la corriente consumida.
+			
+			La amplitud de la señal aplicada a la base conmuta el transistor entre distintos niveles de conducción, generando cambios rápidos de corriente sobre la salida del regulador. Aplicando la ley de Kirchhoff en la malla base-emisor se obtiene:
+			
+			\[
+			V_{\text{gen}} - V_{BE(on)} - i_o R_E = 0
+			\]
+			
+			Despejando la corriente:
+			
+			\[
+			i_o = \frac{V_{\text{gen}} - V_{BE(on)}}{R_E}
+			\]
+			
+		\end{minipage}
+		
+		\caption{Implementación de carga dinámica para ensayo transitorio del regulador LDO.}
+		\label{fig:carga_dinamica}
+	\end{figure}
+	
+	La Figura \ref{fig:cargaactivamedicion} presenta la respuesta dinámica del regulador LDO frente a variaciones rápidas de carga generadas mediante la carga activa implementada. Puede observarse un comportamiento \textit{subamortiguado}, caracterizado por la presencia de sobrepico y oscilaciones amortiguadas antes de alcanzar nuevamente el régimen estacionario.
+	
+	La forma temporal obtenida resulta consistente con la prevista durante la etapa de simulación y diseño, indicando que el modelo empleado representa adecuadamente la dinámica dominante del sistema. Sin embargo, la amplitud de las oscilaciones medidas experimentalmente resulta superior a la esperada, fenómeno atribuible principalmente a no idealidades de los componentes reales, capacitancias y resistencias parásitas del montaje, así como también a limitaciones del modelo utilizado para el transistor de paso y los elementos de compensación.
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.95\linewidth]{img/LDO/carga_activa_Medicion}
+		\caption{Validación de respuesta dinámica en el laboratorio.}
+		\label{fig:cargaactivamedicion}
+	\end{figure}
+	
+	
+	\subsubsection{Regulación de línea}
+	
+	Midiendo de la misma forma que en la figura \ref{fig:medicionregcargabanco} las coordenadas de dos puntos de la curva de tensión de salida en función de la tensión de alimentación es posible calcular la regulación de línea. La estabilización de la tensión de salida resulta algo dependiente de la tensión de la fuente de entrada. Debido a esto, el rechazo del rizado de la fuente de entrada será bajo. Se puede observar la interpolación de los puntos medidos en la figura \ref{fig:regulaciondelinea}.
+	
+	Se caracteriza la regulación de linea tomando la variación de la salida respecto a la variación de la fuente para dos puntos. En este caso se utilizaron los puntos en donde la tensión de alimentación es de $5,03 \, V$ y  $15,94 \, V$. Obteniendo el valor de $0,035 \frac{V}{V}$ que caracteriza la regulación de linea.
+	
+	
+	% Agregar para comparar con la simulación
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=1\linewidth]{../Graficos/regulacion_de_linea}
+		\caption{Interpolación de los puntos medidos en regulación de linea.}
+		\label{fig:regulaciondelinea}
+	\end{figure}
+	
+	
+	\[
+	Reg_{\text{mult}} = \frac{V_{O2,\text{mult}} - V_{O1,\text{mult}}}{V_{CC2} - V_{CC1}} = 0,035 \, \frac{V}{V}
+	\]
+	
+	\subsubsection{Limitación de corriente}
+	
+	El circuito cuenta con una limitación de corriente que se acciona al alcanzar un valor de corriente estimado y comienza el mecanismo de \textit{foldback} en donde la tensión se ajusta dejando de regular.
+	
+	
+	Este mecanismo se observo al variar la carga y midiendo la corriente a través de un amperímetro.
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=1\linewidth]{img/LDO/Diagramas medicion/corriente}
+		\caption{Disposición banco de pruebas para medir corriente y tensión de salida.}
+		\label{fig:corriente}
+	\end{figure}
+	
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=1\linewidth]{../Graficos/regulacion_corriente}
+		\caption{Comparación entre lo esperado idealmente en regulación de corriente y lo logrado en el laboratorio al medir el prototipo.}
+		\label{fig:regulacioncorriente}
+	\end{figure}
+	
+	
+	Se puede observar en la figura \ref{fig:regulacioncorriente} como la medición se desvía respecto a lo esperado, alcanzando un valor máximo de corriente al rededor de 1 A, mientras que se conserva el limite en corto de unos 400 mA previsto en el diseño.
+	
+	En la tabla \ref{tab:foldback_medicion} se detallan los valores de resistencia contemplados y la corriente de salida alcanzada en los que se baso la interpolación.
+	
+	\begin{table}[H]
+		\centering
+		\caption{Mediciones experimentales de foldback en LDO variando la carga}
+		\begin{tabular}{|c|c|c|}
+			\hline
+			\textbf{Resistencia $R_L$ [$\Omega$]} &
+			\textbf{Corriente $I_O$ [mA]} &
+			\textbf{Tensión $V_O$ [V]} \\
+			\hline
+			
+			0 (corto) & 400 & 0.00 \\
+			1.5       & 400 & 0.60 \\
+			2.5       & 410 & 1.03 \\
+			3.5       & 670 & 2.34 \\
+			4.5       & 980 & 4.41 \\
+			5.0       & 980 & 4.90 \\
+			
+			\hline
+		\end{tabular}
+		\label{tab:foldback_medicion}
+	\end{table}
+	
+	\subsubsection{Eficiencia}
+	
+	En un regulador lineal de bajo \textit{dropout} (LDO), la eficiencia se define como el cociente entre la potencia entregada a la carga y la potencia absorbida desde la fuente de alimentación, expresada como:
+	
+	\[
+	\eta = \frac{P_O}{P_E} = \frac{V_O I_O}{V_{CC} I_{CC}}
+	\]
+	
+	Debido a que un LDO regula la tensión disipando la diferencia de potencial entre la entrada y la salida sobre el transistor de paso, su eficiencia suele ser menor que la de reguladores conmutados. En particular, la potencia no aprovechada se transforma principalmente en calor. Por este motivo, la eficiencia depende fuertemente de la relación entre la tensión de salida y la tensión de entrada, alcanzando sus mejores valores cuando $V_{CC}$ es apenas superior a $V_O$, es decir, dentro de la zona de regulación cercana al \textit{dropout}. A medida que aumenta la diferencia entre entrada y salida, la disipación interna crece y la eficiencia disminuye considerablemente.
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=1\linewidth]{../Graficos/eficiencia}
+		\caption{}
+		\label{fig:eficiencia}
+	\end{figure}
+	
+	\begin{table}[H]
+		\centering
+		\caption{Mediciones de eficiencia del regulador LDO variando $V_{CC}$}
+		\begin{tabular}{|c|c|c|c|c|}
+			\hline
+			\textbf{$V_{CC}$ [V]} &
+			\textbf{$I_{CC}$ [mA]} &
+			\textbf{$V_O$ [V]} &
+			\textbf{$I_O$ [mA]} &
+			\textbf{$P_O/P_E$ [-]} \\
+			\hline
+			
+			3.48  & 20 & 0.0203 & 0.0002 & 0.000058 \\
+			4.57  & 34 & 2.63   & 26.3   & 0.417 \\
+			4.81  & 41 & 3.18   & 31.8   & 0.506 \\
+			4.99  & 47 & 3.63   & 36.3   & 0.561 \\
+			5.37  & 59 & 4.63   & 46.3   & 0.642 \\
+			5.62  & 63 & 4.99   & 49.9   & 0.704 \\
+			6.25  & 64 & 4.99   & 49.9   & 0.620 \\
+			7.18  & 64 & 4.99   & 49.9   & 0.544 \\
+			8.20  & 65 & 4.99   & 49.9   & 0.469 \\
+			11.04 & 67 & 4.99   & 49.9   & 0.336 \\
+			13.13 & 68 & 5.00   & 49.99  & 0.280 \\
+			15.27 & 70 & 5.00   & 50.0   & 0.232 \\
+			\hline
+		\end{tabular}
+		\label{tab:eficiencia_ldo}
+	\end{table}
+	\subsection{BUCK}
+	\subsubsection{PWM}
+	
+	
+	Ya en el laboratorio se verifica el funcionamiento del PWM, alimentando el circuito con fuentes de laboratorio y utilizando un osciloscopio para observar y medir la señal como se puede ver en la figura \ref{fig:bancopruebaspwm}. Para verificar la modulación del ancho de pulso se coloco una fuente a la terminal de muestreo y se vario la tensión levemente.
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\linewidth]{img/buck/banco_pruebas_pwm}
+		\caption{Banco de pruebas.}
+		\label{fig:bancopruebaspwm}
+	\end{figure}
+	
+	
+	Se puede observar la señal triangular y el pulso modulado en la figura \ref{fig:capturasoscpwm}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.6\linewidth]{img/buck/capturas_osc_pwm}
+		\caption{Capturas del osciloscopio midiendo el pulso modulado y la señal triangular del oscilador.}
+		\label{fig:capturasoscpwm}
+	\end{figure}
+	
+	Notar que, según el esquemático de la imagen \ref{sec:apendice_PCB}, el comparador con histéresis de la imagen \ref{fig:amp_error} no se encuentra implementado. Esto hace el flanco de conmutación muy ruidoso, debido a la naturaleza también ruidosa de la señal de entrada $v_{sense}$.
+	
+	\subsubsection{Medición y caracterización del inductor fabricado}
+	
+	Para corroborar el valor final y el correcto funcionamiento del inductor inicialmente se realizo una medida estimativa del valor de inductancia mediante un circuito que releve un valor aproximado de este y también la no saturación del mismo en condiciones similares a las del circuito regulador. Y como verificación final se realizo una medida con el instrumento de medición de inductancia LCR.
+	
+	
+	\paragraph{Método de medición mediante filtro RL:} 
+	
+	Se realizo un filtro RL y se comprobó la frecuencia de corte, de esta forma se despejo el valor aproximado de L.
+	
+	Para determinar la inductancia se emplea un circuito RL serie, excitado
+	mediante una señal senoidal de frecuencia variable. Tomando la salida
+	sobre el inductor, el circuito se comporta como un filtro pasa-altos cuya
+	función de transferencia está dada por
+	
+	\begin{equation}
+		H(s)=\frac{V_L(s)}{V_{in}(s)}=
+		\frac{sL}{R+sL}.
+	\end{equation}
+	
+	La frecuencia de corte del filtro se produce cuando la magnitud de la
+	impedancia inductiva es igual a la resistencia, es decir,
+	
+	\begin{equation}
+		\omega_cL=R.
+	\end{equation}
+	
+	Como $\omega_c=2\pi f_c$, la inductancia puede obtenerse despejando
+	
+	\begin{equation}
+		L=\frac{R}{2\pi f_c}.
+	\end{equation}
+	
+	De esta manera, conociendo el valor de la resistencia y midiendo la
+	frecuencia de corte del circuito, es posible determinar el valor de la
+	inductancia. La frecuencia de corte puede identificarse cuando la amplitud de la tensión de salida alcanza el $70.7 \%$ de su valor máximo
+	($-3\,\mathrm{dB}$).
+	\begin{figure}[H]
+		\centering
+		
+		\begin{minipage}[c]{0.45\textwidth}
+			\centering
+			\begin{tikzpicture}[transform shape, scale=0.85]
+				% Paths, nodes and wires:
+				\draw (5, 10.75) to[sinusoidal voltage source, l_={$Señal$}] (5, 13.75);
+				\node[ground] at (5, 10.75){};
+				\draw (8, 13) to[american resistor, l={$R$}] (8, 15.25);
+				\draw (5, 13.75) -| (5, 15.5) -| (8, 15.25);
+				\draw (9.75, 11) to[oscope, l_={$Osciloscopio$}] (9.75, 13);
+				\draw (8, 13) to[american inductor, l={$L_x$}] (8, 11.25);
+				\node[ground] at (8, 10.75){};
+				\draw (8, 10.75) -- (8, 11.25);
+				\draw (9.75, 11) |- (8, 11);
+				\draw (9.75, 13) -- (8, 13);
+			\end{tikzpicture}
+		\end{minipage}
+		\hfill
+		\begin{minipage}[c]{0.50\textwidth}
+			\centering
+			\includegraphics[width=\linewidth]{img/BUCK/inductor_medicion_1}
+		\end{minipage}
+		
+		\caption{Montaje experimental para la medición de la inductancia mediante un circuito RL y captura de la respuesta obtenida en el osciloscopio.}
+		\label{fig:inductormedicion1}
+	\end{figure}
+	
+	
+	\paragraph{Método contemplando linealidad y saturación: } 
+	
+	
+	La Figura \ref{fig:medicion_L_sat} presenta el circuito utilizado para verificar la linealidad del inductor mediante un ensayo de corriente pulsada (\textit{Pulse Test}). El MOSFET conmuta el inductor mediante una señal PWM, mientras que el diodo proporciona un camino de circulación para la corriente durante el apagado del transistor. La corriente del inductor se obtiene midiendo la tensión sobre la resistencia de sensado $R_{sense}$. Incrementando gradualmente la tensión de alimentación o el tiempo de conducción del MOSFET, la corriente alcanza valores cada vez mayores. Mientras el núcleo opere en la región lineal, la corriente presenta una rampa de pendiente constante; la aparición de una curvatura creciente indica el inicio de la saturación del núcleo debido a la disminución de la inductancia efectiva. El valor de L se obtiene calculando la pendiente de dicha curva.
+	
+	Durante el intervalo de conducción del MOSFET, la tensión aplicada al
+	inductor puede aproximarse por
+	
+	\begin{equation}
+		v_L \approx V_{CC}.
+	\end{equation}
+	
+	A partir de la ecuación característica del inductor,
+	
+	\begin{equation}
+		v_L=L\frac{di_L}{dt},
+	\end{equation}
+	
+	despejando la inductancia se obtiene
+	
+	\begin{equation}
+		L=\frac{v_L}{\dfrac{di_L}{dt}}
+		\approx
+		\frac{V_{CC}}{\dfrac{di_L}{dt}}.
+	\end{equation}
+	
+	\begin{figure}[H]
+		
+		\begin{minipage}[t]{0.42\textwidth}
+			\centering
+			\begin{tikzpicture}[transform shape, scale=0.95]
+				% Paths, nodes and wires:
+				\draw (5.75, 12) to[empty diode, l={$D$}] (5.75, 14.5);
+				\draw (8.25, 14.75) to[american inductor, l={$L$}] (8.25, 12);
+				\draw (8.25, 11.375) -| (8.25, 11.5);
+				\node[nmos, xscale=-1, yscale=-1](N1) at (8.25, 10.605){} node[anchor=east] at (N1.text){$Q$};
+				\draw (8.25, 9.835) to[american resistor, /tikz/circuitikz/bipoles/length=1.16cm, l={$R_{sense}$}] (8.25, 7.25);
+				\node[ground] at (8.25, 7.25){};
+				\node[ground] at (3.25, 13.75){};
+				\draw (3.25, 15.75) -- (7, 15.75) -| (7, 15.25);
+				\draw (3.25, 15.75) to[american voltage source, l={$V_{cc}$}] (3.25, 13.75);
+				\draw (10.5, 9.25) to[square voltage source, l={$V_s$}] (10.5, 10.25);
+				\node[ground] at (10.5, 9.25){};
+				\draw (9.23, 10.605) -| (10.5, 10.25);
+				\draw (8.25, 14.75) -| (8.25, 15.25) -- (7, 15.25);
+				\draw (5.75, 14.5) -| (5.75, 15.25) -- (7, 15.25);
+				\draw (5.75, 12) -- (8.25, 12);
+				\draw (8.25, 11.5) -| (8.25, 12);
+			\end{tikzpicture}
+		\end{minipage}
+		\hfill
+		\begin{minipage}[t]{0.5\textwidth}
+			\vspace*{-6cm}
+			Se observa la tensión sobre la resistencia de sensado
+			$R_{sense}$, proporcional a la corriente del inductor.
+			Mientras el núcleo permanezca en la región lineal, la corriente
+			debe aumentar formando una rampa de pendiente constante.
+			
+			
+			\begin{enumerate}
+				\item Se fija una tensión continua $V_{cc}$.
+				\item Se excita el MOSFET con un PWM de \textit{Duty} ajustable mediante generador digital.
+				\item Medir la tensión sobre $R_{sense}$.
+				\item Incrementar gradualmente $V_{cc}$ o el ciclo de trabajo \textit{Duty}.
+			\end{enumerate}
+			
+			Si la rampa permanece lineal, el núcleo opera fuera de saturación. La aparición de una curvatura creciente indica el inicio de la saturación del núcleo.
+			
+		\end{minipage}
+		
+		\caption{Circuito para la medición de la saturación del inductor mediante corriente pulsada.}
+		\label{fig:medicion_L_sat}
+	\end{figure}
+	
+	
+	\paragraph{Medición mediante LCR:}
+	
+	Finalmente, la inductancia como ultima instancia se verificó mediante un medidor LCR ( Fig.\ref{fig:medicionlcr}), el cual determina el valor del componente aplicando una señal senoidal de pequeña amplitud y midiendo su impedancia compleja. A partir de la reactancia inductiva y la frecuencia de ensayo, el instrumento calcula automáticamente la inductancia. Este método proporciona una medición de mayor precisión y sirve para validar el valor obtenido mediante los métodos anteriores.
+	
+	
+	
+	La siguiente lista detalla las consideraciones para establecer la medición del LCR como la mas precisa.
+	\begin{itemize}
+		\item Frecuencia de prueba conocida y estable. El instrumento genera una señal senoidal de amplitud y frecuencia muy precisas (100 Hz, 120 Hz, 1 kHz, 10 kHz o 100 kHz).
+		\item Medición simultánea de tensión y corriente. Mide con gran precisión la amplitud y el desfase entre ambas magnitudes.
+		\item Procesamiento digital. A partir de estas mediciones calcula la impedancia compleja del componente y obtiene directamente la inductancia, la resistencia serie equivalente (ESR) y el factor de calidad (Q).
+		
+		\item Calibración interna. Los medidores LCR compensan las resistencias y capacitancias de los cables mediante procedimientos de calibración (\textit{open} y \textit{short}), reduciendo significativamente el error.
+		
+	\end{itemize}
+	
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.3\linewidth]{img/BUCK/medicion_LCR}
+		\caption{Medición de inductancia mediante instrumento LCR.}
+		\label{fig:medicionlcr}
+	\end{figure}
+	
+	\subsubsection{Regulación de linea}
+	
+	La regulación de línea caracteriza la capacidad del convertidor para mantener constante la tensión de salida frente a variaciones en la tensión de entrada, manteniendo constante la carga en este caso de $1 \, k\Omega$, cabe resaltar que se encuentra en paralelo con la resistencia de sangrado interna de $100\, \Omega$. Rápidamente se detecto un error en el rendimiento de la fuente, ya que la regulación comienza a partir de una entrada de 13 V, mayor a lo esperado en el diseño el cual regulaba para valores mas bajos llegando a cumplir el requerimiento del rango de entrada desde 12 V hasta 30 V. Por otra parte las mediciones se ven limitadas hasta un valor cercano a 24 V debido a limitación del instrumental utilizado en el laboratorio.
+	
+	
+	
+	Debido a que las variaciones de la tensión de salida son del orden de unos pocos milivoltios, en lugar de medir directamente la tensión de salida se utilizó una fuente de laboratorio auxiliar ajustada a $9.5\,\mathrm{V}$ como referencia. Para cada valor de tensión de entrada se midió la diferencia de potencial entre la salida del convertidor \textit{buck} y la fuente de laboratorio, obteniendo el error $\Delta V_o$. Posteriormente, la tensión de salida se reconstruyó como
+	
+	\[
+	V_o = 9.5\,\mathrm{V} + \Delta V_o,
+	\]
+	
+	lo que permitió representar gráficamente la regulación de línea con mayor resolución.
+	
+	La regulación de línea se estimó a partir de la pendiente promedio de la característica de transferencia,
+	
+	\[
+	\mathrm{Reg}_{\mathrm{L}}=
+	\frac{\Delta V_o}{\Delta V_{in}},
+	\]
+	
+	obteniéndose
+	
+	\[
+	\mathrm{Reg}_{\mathrm{L}}
+	=
+	\frac{66.1\,\mathrm{mV}}{10.78\,\mathrm{V}}
+	=
+	6.13\,\mathrm{mV/V}.
+	\]
+	
+	Este resultado indica que, en promedio, la tensión de salida varía aproximadamente $6.13\,\mathrm{mV}$ por cada voltio de variación de la tensión de entrada, evidenciando un aceptable comportamiento del convertidor frente a perturbaciones en la alimentación.
+	
+	
+	\begin{figure}[H]
+		\centering
+		
+		\begin{minipage}[t]{0.58\textwidth}
+			\centering
+			\includegraphics[width=\linewidth]{img/BUCK/regulacion_tension}
+			\caption{Medición inicial de la regulación para una tensión dentro de entrada de 22 V.}
+			\label{fig:regulaciontension}
+		\end{minipage}
+		\hfill
+		\begin{minipage}[t]{0.38\textwidth}
+			\centering
+			\vspace{-8cm}
+			\captionof{table}{Mediciones de regulación de línea.}
+			\label{tab:regulacion_linea}
+			\begin{tabular}{cc}
+				\toprule
+				$V_{in}$ [V] & $\Delta V_o$ [mV] \\
+				\midrule
+				13.32 & -78.0 \\
+				14.27 & -37.7 \\
+				15.32 & -32.5 \\
+				16.37 & -30.4 \\
+				17.42 & -22.3 \\
+				18.34 & -17.5 \\
+				19.59 & -17.7 \\
+				20.10 & -17.8 \\
+				21.30 & -15.2 \\
+				22.20 & -12.0 \\
+				23.30 & -12.2 \\
+				24.10 & -11.9 \\
+				\bottomrule
+			\end{tabular}
+		\end{minipage}
+		
+	\end{figure}
+	
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=1\linewidth]{img/BUCK/mediciones interpolaciones/regulacion_linea}
+		\caption{Interpolación de los puntos medidos.}
+		\label{fig:regulacionlinea}
+	\end{figure}
+	
+	En función de los resultados obtenidos, apreciables en la tabla \ref{tab:regulacion_linea}, el convertidor mantiene la tensión de salida dentro del rango especificado de 9.3 V a 9.7 V para todas las condiciones de entrada ensayadas, comprendidas entre \(13.32\,\mathrm{V}\) y \(24.10\,\mathrm{V}\). Sin embargo, se verificó experimentalmente que el convertidor no comienza a regular a partir de \(12\,\mathrm{V}\), como se establecía en las especificaciones de diseño, sino aproximadamente desde \(13\,\mathrm{V}\). Asimismo, debido a la limitación de la fuente de alimentación disponible en el laboratorio, no fue posible extender las mediciones hasta \(30\,\mathrm{V}\), por lo que el cumplimiento de la regulación de línea para el intervalo comprendido entre \(24.10\,\mathrm{V}\) y \(30\,\mathrm{V}\) no pudo ser corroborado experimentalmente.
+	
+	
+	\subsubsection{Regulación de carga}
+	
+	La \textbf{regulación de carga} es un parámetro que cuantifica la capacidad de una fuente de alimentación para mantener constante su tensión de salida frente a variaciones en la corriente demandada por la carga. La tensión de salida debe experimentar una variación mínima de $\Delta V_0 = 400 \, mV$ al pasar desde condiciones de carga ligera $100 \, mA$ hasta carga nominal de $1.5 \,A$ según las condiciones establecidas. La carga ensayada consto de un reóstato, es decir una resistencia variable diseñada específicamente para controlar y regular la intensidad de la corriente eléctrica en un circuito, el banco de ensayo se observa en la figura \ref{fig:bancomedicionregcarga}.
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\linewidth]{img/BUCK/banco_medicion_reg_carga}
+		\caption{Banco de medición de regulación de carga.}
+		\label{fig:bancomedicionregcarga}
+	\end{figure}
+	
+	
+	Durante el ensayo de regulación de carga se observó que el convertidor mantuvo una tensión de salida prácticamente constante para corrientes inferiores a aproximadamente $700\,\mathrm{mA}$. Sin embargo, al incrementar la carga por encima de dicho valor, la fuente dejó de regular adecuadamente, produciéndose una caída abrupta de la tensión de salida, acompañada de un incremento significativo de la corriente consumida, dando indicios de que el convertidor entraba en una condición cercana a un cortocircuito.
+	
+	Con el objetivo de analizar este comportamiento, se monitoreó mediante osciloscopio la señal $V_S$ correspondiente a la salida del \textit{gate driver}. Se observó que, al aumentar la carga, el tiempo de conducción del transistor se incrementaba progresivamente hasta aproximarse al período completo de conmutación ($T_s$), es decir, el ciclo de trabajo tendía a valores cercanos al $100 \%$. Este comportamiento indica que el lazo de control intentaba compensar la caída de la tensión de salida aumentando continuamente el ciclo de trabajo, sin lograr recuperar la regulación.
+	
+	Adicionalmente, se observó que la señal triangular generada por el oscilador presentaba un nivel considerable de ruido únicamente cuando el convertidor operaba con estas cargas elevadas. Este fenómeno podría afectar el funcionamiento del comparador PWM, provocando fluctuaciones del ciclo de trabajo e incluso situaciones de saturación del modulador.
+	
+	Si bien no fue posible determinar experimentalmente la causa exacta de esta pérdida de regulación, existen diversas hipótesis que podrían explicar el comportamiento observado:
+	
+	\begin{itemize}
+		\item Saturación del inductor, provocando una disminución abrupta de la inductancia efectiva y un incremento excesivo de la corriente.
+		
+		\item Insuficiente compensación del lazo de control, originando una respuesta inestable para corrientes elevadas.
+		
+		\item Acoplamiento de ruido de conmutación hacia el circuito de control, especialmente sobre la rampa triangular o la red de realimentación.
+		
+		\item Disposición física (layout) inadecuada, generando inductancias parásitas y rebotes de masa (\textit{ground bounce}) que afectan las señales analógicas del controlador.
+		
+		
+	\end{itemize}
+	
+	Para identificar el origen del problema se propone realizar los siguientes ensayos:
+	
+	\begin{itemize}
+		\item Medir la corriente del inductor para verificar la posible aparición de saturación.
+		\item Comparar la rampa triangular en vacío y bajo carga utilizando una punta diferencial o minimizando el lazo de masa del osciloscopio.
+		\item Medir simultáneamente la tensión de alimentación del controlador y del \textit{gate driver} para descartar caídas de alimentación.
+		\item Verificar el funcionamiento del lazo abierto, fijando manualmente el ciclo de trabajo, para comprobar si la etapa de potencia es capaz de entregar la corriente requerida.
+		\item Revisar la compensación del amplificador de error mediante simulación y análisis de estabilidad.
+		\item Mejorar el desacoplo de la alimentación del circuito de control e implementar una separación más rigurosa entre las masas de potencia y de señal.
+	\end{itemize}
+	
+	
+	Se detalla a continuación un esquemático (figura \ref{fig:esquematico_med_reg_carga}) de la medición una vez se de con la solución, de forma de obtener mayor precisión en los datos, tomando mediciones de un $\Delta V_o$ y la corriente en carga.
+	
+	\begin{figure}[H]
+		\centering
+		\begin{tikzpicture}[transform shape]
+			% Paths, nodes and wires:
+			\node[ground] at (7.25, 13){};
+			\draw (7.25, 16) to[american voltage source, l={$V_{CC}$}] (7.25, 13);
+			\draw (14.5, 16.25) to[voltmeter, v^<=$\Delta V_o$, voltage/bump b=3] (17.75, 16.25);
+			\draw (13, 16.25) to[variable american resistor, l_={$\text{Reóstato}$}] (13, 12.75);
+			\node[ground] at (13, 12.25){};
+			\draw (14.5, 16.25) |- (13, 16.25);
+			\draw (9.5, 16.25) to[sdcdc, /tikz/circuitikz/bipoles/length=2.34cm, l={$buck$}] (13, 16.25);
+			\node[ground] at (18, 13.25){};
+			\draw (18, 16.25) to[american voltage source, l={$9,5 V$}] (18, 13.25);
+			\draw (17.75, 16.25) -- (18, 16.25);
+			\draw (9.5, 16.25) |- (7.25, 16.25) -| (7.25, 16);
+			\draw (13, 12.25) to[ammeter] (13, 13.25);
+		\end{tikzpicture}
+		\caption{Esquemático del banco de ensayo utilizado para la medición de la regulación de carga del convertidor Buck.}
+		\label{fig:esquematico_med_reg_carga}
+	\end{figure}
+	
+	
+	La regulación de carga se calcula mediante la siguiente expresión:
+	
+	\begin{equation}
+		\text{Regulación de carga} =
+		\frac{V_{\text{carga ligera}}-V_{\text{carga nominal}}}
+		{V_{\text{carga nominal}}}
+		\times 100 \% \label{eq:reg_carga}
+	\end{equation}
+	
+	donde $V_{\text{carga ligera}}$ corresponde a la tensión de salida medida para una corriente de carga reducida (en este caso $100\,\mathrm{mA}$) y $V_{\text{carga nominal}}$ es la tensión de salida para la corriente máxima especificada ($1.5\,\mathrm{A}$).
+	
+	Se espera que la tensión permanezca prácticamente constante al variar la carga entre $100\,\mathrm{mA}$ y $1.5\,\mathrm{A}$. En condiciones normales de funcionamiento, una regulación de carga inferior al $1 \% $  se considera un resultado satisfactorio, correspondiendo a una diferencia de tensión inferior a aproximadamente $95\,\mathrm{mV}$ entre ambos extremos del rango de carga.
+	
+	\subsubsection{Eficiencia}
+	
+	Para el análisis de eficiencia del circuito, se puede retomar el mismo banco de prueba que para la regulación de carga (Fig.\ref{fig:esquematico_med_reg_carga}) dado que la fuente de laboratorio cuenta con amperímetro integrado y podremos conocer $I_{cc}$, se diferenciara de la anterior medición ya que se tomaran rango de valores de interés y también se variara la tensión de entrada, ya que en las especificaciones debemos garantizar una eficiencia de entre $85 \%$ hasta $97 \%$ para los rangos $V_{cc} \in [12,5 \, V ; 30 \, V]$ y $ I_o \in [750 \, mA ; 1.5 \,A]$.
+	
+	
+	La eficiencia se define como la relación entre la potencia entregada a la carga y la potencia absorbida desde la fuente de alimentación. Este parámetro permite cuantificar el aprovechamiento energético del convertidor, considerando las pérdidas presentes en los dispositivos semiconductores, el inductor, el circuito de control y los elementos pasivos.
+	
+	La eficiencia puede expresarse mediante
+	
+	\begin{equation}
+		\eta=
+		\frac{P_{\mathrm{salida}}}
+		{P_{\mathrm{entrada}}}
+		\times100 \%
+	\end{equation}
+	
+	donde
+	
+	\begin{equation}
+		P_{\mathrm{entrada}}=V_{CC}\,I_{CC}
+	\end{equation}
+	
+	y
+	
+	\begin{equation}
+		P_{\mathrm{salida}}=V_{o}\,I_{o}.
+	\end{equation}
+	
+	Por lo tanto, la eficiencia puede calcularse experimentalmente mediante
+	
+	\begin{equation}
+		\eta=
+		\frac{V_o I_o}
+		{V_{CC} I_{CC}}
+		\times100 \%
+	\end{equation}
+	
+	Para verificar el cumplimiento de las especificaciones del diseño, se realizarían mediciones de la tensión y corriente de entrada, junto con la tensión y corriente de salida, variando la tensión de alimentación en el intervalo
+	
+	En cada punto de operación se calcularía la eficiencia mediante la ecuación anterior y posteriormente se gráfica su evolución en función de la tensión de entrada para distintos valores de corriente de carga. De acuerdo con las especificaciones del proyecto, el convertidor debe presentar una eficiencia comprendida dentro de todo el rango de operación especificado.
+	
+	Idealmente, la eficiencia debería mantenerse elevada en todo el rango de tensiones de entrada, presentando únicamente pequeñas variaciones debido a las pérdidas por conducción del MOSFET y del diodo, las pérdidas de conmutación, las pérdidas magnéticas del inductor y el consumo propio del circuito de control. Como consecuencia, es esperable que la eficiencia disminuya levemente para tensiones de entrada elevadas, debido al incremento de las pérdidas de conmutación, y para cargas reducidas, donde el consumo del circuito de control representa una fracción mayor de la potencia total suministrada.
+	
+	En cuanto a la curva de eficiencia en función de la tensión de entrada, lo esperable es que la eficiencia se mantenga alta en la mayor parte del rango y disminuya suavemente al aumentar la tensión de entrada. Este comportamiento se explica principalmente por el incremento de las pérdidas de conmutación, por el mayor tiempo de conducción del diodo cuando el ciclo de trabajo disminuye para el \textit{buck} asíncrono y esta característica para el \textit{buck} sincrónico se esperaría que ocurra de forma menos pronunciada. 
+	
+	\subsubsection{Resultados Parciales}
+	Tras la estabilización del circuito (sección \ref{sec:ruido}), se realizan mediciones con diferentes valores de carga, para dar una forma aproximada a la curva de regulación de carga y eficiencia. Dado que no se cuenta con una fuente de alimentación externa, se utiliza un multímetro como muestra la figura \ref{fig:esquematico_med_reg_carga}, pero sin la fuente externa de \SI{9.5}{V}, a costa de perder precisión.
+	
+	\begin{figure}[H]
+		\centering
+		\label{tab:regulacion_carga}
+		\begin{tabular}{cccccc}
+			\toprule
+			$V_{in}$ [V] & $ V_o$ [mV] & $I_i$ & $I_o$ & $R_L$ & $\eta$ \\
+			\midrule
+			\SI{15.19}{V} & \SI{9.53}{V} & \SI{951}{mA} & \SI{1.35}{A} & \SI{6.3}{\ohm} & 89\% \\
+			\SI{15.19}{V} & \SI{9.54}{V} & \SI{717}{mA} & \SI{1.02}{A} & \SI{8.8}{\ohm} & 77\% \\
+			\SI{15.25}{V} & \SI{9.54}{V} & \SI{608}{mA} & \SI{850}{mA} & \SI{10}{\ohm} & 91\% \\
+			\SI{15.25}{V} & \SI{9.54}{V} & \SI{503}{mA} & \SI{700}{mA} & \SI{12}{\ohm} & 87\% \\
+			\SI{15.25}{V} & \SI{9.54}{V} & \SI{432}{mA} & \SI{590}{mA} & \SI{15}{\ohm} & 85\% \\
+			\SI{15.25}{V} & \SI{9.55}{V} & \SI{185}{mA} & \SI{200}{mA} & \SI{47}{\ohm} & 68\% \\
+			\SI{15.25}{V} & \SI{9.55}{V} & \SI{111}{mA} & \SI{95}{mA} & \SI{100}{\ohm} & 53\% \\
+			\bottomrule
+		\end{tabular}
+		\captionof{table}{Mediciones de regulación de carga.}
+	\end{figure}
+	
+	Notar que para el rango de corrientes $\SI{590}{mA} < Io < \SI{1.5}{A}$, la eficiencia se encuentra en el rango esperado, alcanzando valores pico de 91\%, excepto para valores cercanos a \SI{9}{\ohm}.
+	
+	En cuanto a la regulación de carga, la limitación de medición impide obtener un resultado preciso, pero se puede conjeturar que tendrá un valor de, como máximo, y utilizando la ecuación \ref{eq:reg_carga}:
+	
+	\begin{equation}
+		\frac{\SI{9.56}{V} - \SI{9.53}{V}}{\SI{9.53}{V}} \times 100\% = 0.31\%.
+	\end{equation}
+	
+	Lo cual es una cota superior muy buena.
+	
+	
+	\subsubsection{Red \textit{Snubber}}
+	
+	\begin{figure}[H]
+		\centering
+		
+		\begin{minipage}{0.48\linewidth}
+			\centering
+			\includegraphics[width=\linewidth]{img/BUCK/medicion_sin_snubber}
+			\caption{Medición con red \textit{Snubber}.}
+			\label{fig:medicionsinsnubber}
+		\end{minipage}
+		\hfill
+		\begin{minipage}{0.48\linewidth}
+			\centering
+			\includegraphics[width=\linewidth]{img/BUCK/medicion_con_snubber1}
+			\caption{Medición con red \textit{Snubber}.}
+			\label{fig:medicionconsnubber}
+		\end{minipage}
+		
+	\end{figure}
+	
+	Notar que, si bien aun se puede apreciar un sobrepico, la señal se estabiliza mucho más rápido, asegurando la señal triangular de corriente en el bobinado.
+	
+	\subsubsection{Respuesta al encendido}
+	
+	Para esta prueba, se retira la red RC de \textit{slow-start} ($R_6$ , $C_4$ de la figura \ref{sec:apendice_PCB}), y se observa la respuesta temporal de la salida respecto de un impulso de entrada. La figura \ref{fig:encendido} muestra el resultado.
+	
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.7\linewidth]{img/BUCK/impulso}
+		\caption{Respuesta al impulso de entrada.}
+		\label{fig:encendido}
+	\end{figure}
+	
+	Se observa que, si bien la forma de onda no es la misma a la esperada de las simulaciones (figura \ref{fig:sim_compensado}), el sistema se encuentra correctamente compensado. El tiempo de arranque también es considerablemente diferente, rondando los \SI{4}{ms}. Esto sugiere un ancho de banda considerablemente inferior a los resultados simulados. Si bien es un problema en cuanto a la efectividad de la fuente, no impide su correcto funcionamiento.
+	
 	
 	\section{Errores}
+	\subsection{Capacitor de suavizado de entrada}\hfill\break
+	
+	Se agrega un capacitor electrolítico de valor \SI{10}{\micro F} para suavizar la señal de entrada. Esto permite al circuito tomar corriente de forma abrupta, y minimiza el ruido de entrada a la salida del regulador.
+	
+	\subsection{Rango de regulación}\hfill\break
+	
+	Las mediciones reflejan un rango de entrada $\SI{5.3}{V} < V_{in} < \SI{16.5}{V}$ para el cuál la salida $V_o \approx \SI{5}{V}$.
+	Una hipótesis, basada en la experiencia de diseño, es que la llave analógica satura cuando la tensión del lazo de corriente es muy pequeña. Una forma de evitar este fenómeno es reduciendo la resistencia $R_{16}$ y aumentando $R_{17}$ (figura \ref{fig:esquematicokicadldo}). Esto reduce la corriente por la rama central y, reduce la caída sobre $R_{16}$, mejorando el rango de $V_{ctrl}$, y en consecuencia el rango de regulación.
+	\subsection{LDO}
+	
+	\subsection{BUCK}
+	\subsubsection{Driver Defectuoso}
+	Uno de los problemas más serios encontrados durante la implementación fue el funcionamiento anómalo del driver \textbf{IR2111}. La polarización del transistor $Q_2$ se vio anulada completamente.
+	
+	Adicionalmente, la entrada de control del driver, idealmente de alta impedancia, parecía cargar al circuito generador de PWM, deformando la señal, y retrasando la activación de los flancos ascendentes. Para solucionar esto, debió colocarse una resistencia de \textit{pull-up} anormalmente chica.
+	
+	\textit{Nota:} El origen de la falla es, con gran probabilidad, producto de una manupulación poco cuidadosa durante la etapa de testeo inicial del equipo. Es posible que alguna mala conexión involuntaria haya destruido parte del integrado. 
+	
+	\subsubsection{Ruido de conmutación} \label{sec:ruido}
+	Se observó durante los experimentos que, a mayor tensión de entrada, más se inestabilizaba la fuente, pudiendo incluso dejar de regular.
+	
+	Investigando las señales del circuito, se encontró que la señal triangular se ve afectada por el ruido de conmutación de la fuente, haciendo que el comparador del circuito PWM accione antes de tiempo, y deforme la señal triangular de forma dramática (figura \ref{fig:ruido}).
+	
+	Sin la señal triangular como corazón del sistema, el lazo comienza a generar señales PWM fuertemente oscilantes, anulando el control sobre la salida.
+	
+	Debe analizarse el PCB con detenimiento para encontrar algún punto conflictivo, o en su defecto colocar un capacitor de filtrado que anule estos impulsos indeseados.
+	
+	Este problema acarrea otra consecuencia: el sistema deja de regular para cargas pequeñas. Por este motivo, fue imposible conseguir mediciones de eficiencia aceptables.
+	
+	Este problema puede ser resuelto de forma provisoria colocando un capacitor en el nodo de salida de la triangular, que sirve de suavizador, o aumentando el valor de capacidad de la red \textit{Snubber}, permitiendo realizar \textbf{mediciones parciales}.
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\linewidth]{img/BUCK/ruido}
+		\caption{Medición de la señal triangular generada.}
+		\label{fig:ruido}
+	\end{figure}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\linewidth]{img/BUCK/pwm}
+		\caption{Medición del nodo $V_s$. Notar la señal PWM de duty irregular.}
+		\label{fig:pwm}
+	\end{figure}
 	
 	\input{conclusiones}
 
