@@ -1,19 +1,20 @@
 \babel@toc {spanish}{}\relax 
 \contentsline {section}{\numberline {1}Objetivo}{2}{}%
-\contentsline {section}{\numberline {2}Desarrollo}{2}{}%
+\contentsline {section}{\numberline {2}Especificaciones obtenidas}{2}{}%
 \contentsline {subsection}{\numberline {2.1}Fuente de alimentación conmutada}{2}{}%
 \contentsline {subsection}{\numberline {2.2}Regulador de baja caída (LDO,Low Dropout Regulator)}{2}{}%
-\contentsline {subsubsection}{\numberline {2.2.1}Especificaciones e implementación}{2}{}%
-\contentsline {subsubsection}{\numberline {2.2.2}El transistor de paso (Tipo MOS)}{3}{}%
-\contentsline {subsubsection}{\numberline {2.2.3}Lazo de Tensión}{4}{}%
-\contentsline {subsubsection}{\numberline {2.2.4}Tensión de referencia $V_{Ref}$}{6}{}%
-\contentsline {subsubsection}{\numberline {2.2.5}Lazo de Corriente}{7}{}%
-\contentsline {subsubsection}{\numberline {2.2.6}Tensión de referencia $V_{Ref-c}$}{8}{}%
-\contentsline {subsubsection}{\numberline {2.2.7}Llave electrónica}{9}{}%
-\contentsline {subsubsection}{\numberline {2.2.8}Limitador de corriente shunt}{11}{}%
-\contentsline {subsubsection}{\numberline {2.2.9}Compensación de lazos}{11}{}%
-\contentsline {subsubsection}{\numberline {2.2.10}Analisis termico}{14}{}%
-\contentsline {subsubsection}{\numberline {2.2.11}Consideraciones de fabricación PCB}{16}{}%
+\contentsline {subsubsection}{\numberline {2.2.1}Especificaciones}{2}{}%
+\contentsline {subsubsection}{\numberline {2.2.2}Implementación}{2}{}%
+\contentsline {subsubsection}{\numberline {2.2.3}El transistor de paso (Tipo MOS)}{3}{}%
+\contentsline {subsubsection}{\numberline {2.2.4}Lazo de Tensión}{4}{}%
+\contentsline {subsubsection}{\numberline {2.2.5}Tensión de referencia $V_{Ref}$}{6}{}%
+\contentsline {subsubsection}{\numberline {2.2.6}Lazo de Corriente}{7}{}%
+\contentsline {subsubsection}{\numberline {2.2.7}Tensión de referencia $V_{Ref-c}$}{8}{}%
+\contentsline {subsubsection}{\numberline {2.2.8}Llave electrónica}{9}{}%
+\contentsline {subsubsection}{\numberline {2.2.9}Limitador de corriente shunt}{11}{}%
+\contentsline {subsubsection}{\numberline {2.2.10}Compensación de lazos}{11}{}%
+\contentsline {subsubsection}{\numberline {2.2.11}Analisis termico}{14}{}%
+\contentsline {subsubsection}{\numberline {2.2.12}Consideraciones de fabricación PCB}{16}{}%
 \contentsline {paragraph}{Arquitectura general}{16}{}%
 \contentsline {paragraph}{Selección de materiales y encapsulados}{16}{}%
 \contentsline {paragraph}{Selección de huellas y modelos 3D}{17}{}%
@@ -26,7 +27,7 @@
 \contentsline {paragraph}{Análisis de requerimientos eléctricos (seguridad eléctrica y EMC)}{18}{}%
 \contentsline {paragraph}{Auto-ruteo}{18}{}%
 \contentsline {paragraph}{Características del diseño de la placa impresa del LDO}{18}{}%
-\contentsline {subsubsection}{\numberline {2.2.12}Mejoras:}{18}{}%
+\contentsline {subsubsection}{\numberline {2.2.13}Mejoras:}{18}{}%
 \contentsline {section}{\numberline {3}Simulaciones}{19}{}%
 \contentsline {subsection}{\numberline {3.1}Simulaciones del regulador lineal LDO}{19}{}%
 \contentsline {subsubsection}{\numberline {3.1.1}Modo estático}{19}{}%

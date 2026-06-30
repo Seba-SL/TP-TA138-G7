@@ -181,7 +181,7 @@ citestyle=apa
 		\caption{Especificaciones Generales.}
 	\end{table}
 	
-	\section{Desarrollo}
+	\section{Diseño y elección de componentes}
 	
 	La construcción del dispositivo se divide en dos secciones: 
 	\begin{itemize}
@@ -198,10 +198,118 @@ citestyle=apa
 
 	\subsection{Fuente de alimentación conmutada}
 	
+	La fuente conmutada será la primera línea de entrada. Predece al regulador lineal, y su objetivo es operar con altas ganancias, realizando el trabajo pesado de reducción de tensión a la salida, para aligerar al regulador lineal. Esto mejora enormemente la eficiencia general del sistema.
+	
+	\subsubsection{Especificaciones}
+	
+	Las especificaciones que se busca obtener para esta etapa son las siguientes:
+	
+		\begin{table}[h]
+		\centering
+		\renewcommand{\arraystretch}{1.5}
+		\begin{tabular}{|p{3cm}|l|p{5cm}|c|c|c|c|}
+			\hline
+			\textbf{Característica} & \textbf{Símbolo} & \textbf{Condiciones de prueba} & \textbf{Min.} & \textbf{Tip.} & \textbf{Max.} & \textbf{Unidades} \\
+			\hline
+			
+			\multicolumn{7}{|l|}{\textbf{Especificaciones regulador lineal Vo}} \\
+			\hline
+			
+			Vo exactitud y regulación de carga & Vo & $\SI{100}{mA} < I_{out} < \SI{1.5}{A}$ \break $VREG = \SI{9.5}{V}$ & 4,9 & 5 & 5,1 & V \\
+			\hline
+			
+			Vo rango de capacidad de carga & COUT(Vo) &  & 1,0 & 2,2 & 15,0 & \si{\micro\farad} \\
+			\hline
+			
+			Io corriente límite & ILIM(Vo) &  &  & 1,5 &  & A \\
+			\hline
+			
+			Corriente de foldback & IFBK &  &  & 400 &  & \si{mA} \\
+			\hline
+			
+			%\multirow{2}{3cm}{Vo startup time} & t(start) & $C = \SI{2.2}{\micro\farad},\ I = \SI{100}{\milli\ampere}$ &  &  &  & ms \\
+			%\cline{2-7}
+			% & t(start) & $C = \SI{2.2}{\micro\farad},\ I = \SI{100}{\milli\ampere}$ &  &  &  & ms \\
+			%\hline
+		\end{tabular}
+		
+		\caption{Especificaciones del regulador lineal LDO.}
+		\label{tabla:especificaciones_buck}
+	\end{table}
+	
+	\subsubsection{implementación}
+	
+	La implementación se hará mediante un a fuente tipo \textit{Buck} síncrona realimentada. Se utilizan dos N-MOS a modo de llave, ya que suelen tener una mejor eficiencia que los transistores P-MOS. Por este motivo, se incorpora un gate driver capaz de generar una sobretensión para el nodo de control del transistor de paso $Q_1$ (figura \ref{fig:bloques_buck}).
+	
+	\begin{figure}[h]
+		\centering
+		\begin{tikzpicture}[transform shape]
+			% Paths, nodes and wires:
+			\node[op amp, xscale=-0.78, yscale=-0.78] at (14.572, 8.132){};
+			\draw (11, 12) to[american voltage source, mirror, l_={$V_{cc}$}] (11, 10);
+			\draw (11, 12) to[sinusoidal voltage source, l={$v_{ac}$}] (11, 14);
+			\node[pigfete, rotate=90](N1) at (17.27, 14){} node[anchor=south] at (N1.text){$T_p$};
+			\draw (11, 14) -- (16.5, 14);
+			\node[spdt, rotate=-90] at (17, 11.5){};
+			\draw (21, 12) to[american resistor, /tikz/circuitikz/bipoles/length=0.840cm, l={$R_L$}] (21, 10);
+			\draw (15, 12.75) to[push button] (16.5, 12.75);
+			\draw (16.5, 12.75) -| (17, 13.02);
+			\draw (15, 12.75) -- (14.5, 12.75) -- (14.5, 14);
+			\draw (12.5, 10.75) to[full ZZener diode, mirror, /tikz/circuitikz/bipoles/length=0.700cm] (12.5, 12.25);
+			\draw (12.5, 12.25) -| (12.5, 14);
+			\draw (12.5, 10.75) |- (11, 10);
+			\draw (21, 10) -- (12.5, 10);
+			\node[shape=rectangle, draw, line width=1pt, minimum width=0.965cm, minimum height=1.465cm] at (12.5, 11.5){};
+			\draw (13, 11.5) -- (13.5, 11.5);
+			\node[circ](N2) at (13.5, 11.5){} node[anchor=west] at (N2.text){$v_{ref}$};
+			\draw (17, 12.095) -| (17, 12.75);
+			\draw (15.5, 7.75) -- (15.75, 7.75);
+			\node[circ](N3) at (15.75, 7.75){} node[anchor=west] at (N3.text){$v_{ref-t}$};
+			\node[shape=rectangle, draw, line width=1pt, minimum width=1.965cm, minimum height=1.215cm] at (18.5, 8.125){};
+			\draw (19, 8.5) -| (20, 12) -- (21, 12);
+			\draw (19, 7.75) -| (21, 10);
+			\draw (18, 8.5) to[american controlled voltage source, mirror, /tikz/circuitikz/bipoles/length=0.700cm] (18, 7.75);
+			\draw (18, 8.5) |- (15.5, 8.514);
+			\draw (18, 7.75) -- (17.25, 7.75) -- (17, 7.75) -| (17, 7.25);
+			\node[op amp, xscale=-0.78, yscale=-0.78] at (14.572, 6.257){};
+			\draw (15.5, 5.875) -- (15.75, 5.875);
+			\node[circ](N4) at (15.75, 5.875){} node[anchor=west] at (N4.text){$v_{ref-c}$};
+			\node[shape=rectangle, draw, line width=1pt, minimum width=1.965cm, minimum height=1.215cm] at (18.5, 6.25){};
+			\draw (18, 6.625) to[american controlled voltage source, mirror, /tikz/circuitikz/bipoles/length=0.700cm] (18, 5.875);
+			\draw (18, 6.625) |- (15.5, 6.639);
+			\draw (18, 5.875) -- (17.25, 5.875) -- (17, 5.875) -| (17, 5.375);
+			\draw (19, 6.5) -| (22, 12.5) -- (21, 12.5);
+			\draw (21, 13.25) -- (22.75, 13.25) |- (19, 6);
+			\draw (19, 6.5) -| (19, 6);
+			\draw (21, 12) -| (21, 12.5);
+			\draw (21, 13.25) |- (18.04, 14);
+			\node[tlground] at (17, 5.375){};
+			\node[tlground] at (17, 7.25){};
+			\draw (13.644, 6.257) -| (13, 6.25) -| (13, 9.75) -- (16.5, 9.75) -| (16.685, 10.905);
+			\draw (13.644, 8.132) |- (17.25, 9.25) -| (17.315, 10.905);
+			\node[shape=rectangle, minimum width=0.715cm, minimum height=0.715cm] at (18.5, 9.125){} node[anchor=north west, align=left, text width=0.327cm, inner sep=6pt] at (18.125, 9.5){$f_v$};
+			\node[shape=rectangle, minimum width=0.715cm, minimum height=0.715cm] at (18.5, 5.25){} node[anchor=north west, align=left, text width=0.327cm, inner sep=6pt] at (18.125, 5.625){$f_A$};
+			\node[circ] at (19, 7.75){};
+			\node[circ] at (19, 8.5){};
+			\node[circ] at (14.5, 14){};
+			\node[circ] at (12.5, 14){};
+			\node[circ] at (12.5, 10){};
+			\node[circ] at (17, 12.75){};
+			\node[circ] at (21, 12){};
+			\node[circ] at (21, 10){};
+			\node[shape=rectangle, draw, line width=1pt, minimum width=1.59cm, minimum height=1.31cm] at (17, 11.5){};
+			\node[shape=rectangle, draw, line width=1pt, minimum width=1.715cm, minimum height=0.715cm] at (15.75, 12.875){};
+			\draw (11, 10) -| (11, 9.75);
+			\node[tlground] at (11, 9.75){};
+		\end{tikzpicture}
+		\caption{Circuito simplificado de la fuente \textit{Buck}.}
+		\label{fig:bloques_buck}
+	\end{figure}
+	
 	
 	\subsection{Regulador de baja caída (LDO,Low Dropout Regulator)}
 	
-	\subsubsection{Especificaciones e implementación}
+	\subsubsection{Especificaciones}
 	\FloatBarrier
 	El propósito de esta etapa es regular la tensión de salida de la fuente conmutada de forma precisa, sacrificando la eficiencia. Se espera de esta etapa las especificaciones de la tabla \ref{tabla:especificaciones_ldo}.
 	
@@ -237,6 +345,8 @@ citestyle=apa
 		\caption{Especificaciones del regulador lineal LDO.}
 		\label{tabla:especificaciones_ldo}
 	\end{table}
+	
+	\subsubsection{Implementación}
 	
 Para la implementación, se utilizará un transistor de paso, responsable de disipar la potencia de recorte, realimentado por tensión y corriente, y se modela la entrada de tensión pre-regulada con una componente continua y una alterna de acuerdo a la figura \ref{fig:bloques_ldo}.
 
