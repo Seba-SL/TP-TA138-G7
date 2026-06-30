@@ -4,30 +4,30 @@
 \contentsline {section}{\numberline {3}Desarrollo}{2}{}%
 \contentsline {subsection}{\numberline {3.1}Correcciones previas}{2}{}%
 \contentsline {subsection}{\numberline {3.2}Construcción del inductor $L$}{2}{}%
-\contentsline {subsubsection}{\numberline {3.2.1}Densidad de corriente}{3}{}%
-\contentsline {subsubsection}{\numberline {3.2.2}Saturación del núcleo}{3}{}%
-\contentsline {subsubsection}{\numberline {3.2.3}Profundidad de penetración}{3}{}%
-\contentsline {subsubsection}{\numberline {3.2.4}Resistividad del cobre}{4}{}%
-\contentsline {subsubsection}{\numberline {3.2.5}Medición y caracterización del inductor fabricado}{4}{}%
-\contentsline {paragraph}{Método de medición mediante filtro RL:}{4}{}%
-\contentsline {paragraph}{Método contemplando linealidad y saturación: }{5}{}%
-\contentsline {paragraph}{Medición mediante LCR:}{6}{}%
-\contentsline {subsection}{\numberline {3.3}Alimentación de lazo}{7}{}%
-\contentsline {subsection}{\numberline {3.4}Limitador de duty}{7}{}%
-\contentsline {subsection}{\numberline {3.5}Elección del capacitor \textit {Bootstrap}}{8}{}%
-\contentsline {subsection}{\numberline {3.6}Compensación}{9}{}%
-\contentsline {subsection}{\numberline {3.7}Diseño de red \textit {Snubber}}{12}{}%
-\contentsline {section}{\numberline {4}Mediciones}{13}{}%
-\contentsline {subsection}{\numberline {4.1}Regulación de linea}{13}{}%
-\contentsline {subsection}{\numberline {4.2}Regulación de carga}{15}{}%
-\contentsline {subsection}{\numberline {4.3}Eficiencia}{17}{}%
-\contentsline {subsection}{\numberline {4.4}Resultados Parciales}{17}{}%
-\contentsline {subsection}{\numberline {4.5}Red \textit {Snubber}}{18}{}%
-\contentsline {subsection}{\numberline {4.6}Respuesta al encendido}{18}{}%
-\contentsline {section}{\numberline {5}Problemas encontrados}{19}{}%
-\contentsline {subsection}{\numberline {5.1}Driver Defectuoso}{19}{}%
-\contentsline {subsection}{\numberline {5.2}Ruido de conmutación}{19}{}%
-\contentsline {section}{\numberline {6}Conclusiones}{20}{}%
-\contentsline {section}{\numberline {A}Apéndice I: PCB}{22}{}%
-\contentsline {subsection}{\numberline {A.1}Esquematico.}{22}{}%
-\contentsline {subsection}{\numberline {A.2}Pistas}{23}{}%
+\contentsline {subsubsection}{\numberline {3.2.1}Profundidad de penetración}{4}{}%
+\contentsline {subsubsection}{\numberline {3.2.2}Densidad de corriente}{4}{}%
+\contentsline {subsubsection}{\numberline {3.2.3}Saturación del núcleo}{5}{}%
+\contentsline {subsubsection}{\numberline {3.2.4}Resistividad del cobre}{6}{}%
+\contentsline {subsubsection}{\numberline {3.2.5}Medición y caracterización del inductor fabricado}{6}{}%
+\contentsline {paragraph}{Método de medición mediante filtro RL:}{6}{}%
+\contentsline {paragraph}{Método contemplando linealidad y saturación: }{7}{}%
+\contentsline {paragraph}{Medición mediante LCR:}{8}{}%
+\contentsline {subsection}{\numberline {3.3}Alimentación de lazo}{8}{}%
+\contentsline {subsection}{\numberline {3.4}Limitador de duty}{9}{}%
+\contentsline {subsection}{\numberline {3.5}Elección del capacitor \textit {Bootstrap}}{10}{}%
+\contentsline {subsection}{\numberline {3.6}Compensación}{11}{}%
+\contentsline {subsection}{\numberline {3.7}Diseño de red \textit {Snubber}}{14}{}%
+\contentsline {section}{\numberline {4}Mediciones}{15}{}%
+\contentsline {subsection}{\numberline {4.1}Regulación de linea}{15}{}%
+\contentsline {subsection}{\numberline {4.2}Regulación de carga}{17}{}%
+\contentsline {subsection}{\numberline {4.3}Eficiencia}{19}{}%
+\contentsline {subsection}{\numberline {4.4}Resultados Parciales}{19}{}%
+\contentsline {subsection}{\numberline {4.5}Red \textit {Snubber}}{20}{}%
+\contentsline {subsection}{\numberline {4.6}Respuesta al encendido}{20}{}%
+\contentsline {section}{\numberline {5}Problemas encontrados}{21}{}%
+\contentsline {subsection}{\numberline {5.1}Driver Defectuoso}{21}{}%
+\contentsline {subsection}{\numberline {5.2}Ruido de conmutación}{21}{}%
+\contentsline {section}{\numberline {6}Conclusiones}{22}{}%
+\contentsline {section}{\numberline {A}Apéndice I: PCB}{24}{}%
+\contentsline {subsection}{\numberline {A.1}Esquematico.}{24}{}%
+\contentsline {subsection}{\numberline {A.2}Pistas}{25}{}%
