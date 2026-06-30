@@ -21,11 +21,13 @@
 \contentsline {subsection}{\numberline {4.1}Regulación de linea}{13}{}%
 \contentsline {subsection}{\numberline {4.2}Regulación de carga}{15}{}%
 \contentsline {subsection}{\numberline {4.3}Eficiencia}{16}{}%
-\contentsline {subsection}{\numberline {4.4}Red \textit {Snubber}}{17}{}%
-\contentsline {section}{\numberline {5}Problemas encontrados}{17}{}%
-\contentsline {subsection}{\numberline {5.1}Driver Defectuoso}{17}{}%
-\contentsline {subsection}{\numberline {5.2}Ruido de conmutación}{18}{}%
-\contentsline {section}{\numberline {6}Conclusiones}{19}{}%
-\contentsline {section}{\numberline {A}Apéndice I: PCB}{20}{}%
-\contentsline {subsection}{\numberline {A.1}Esquematico.}{20}{}%
-\contentsline {subsection}{\numberline {A.2}Pistas}{21}{}%
+\contentsline {subsection}{\numberline {4.4}Resultados Parciales}{17}{}%
+\contentsline {subsection}{\numberline {4.5}Red \textit {Snubber}}{18}{}%
+\contentsline {subsection}{\numberline {4.6}Respuesta al encendido}{18}{}%
+\contentsline {section}{\numberline {5}Problemas encontrados}{18}{}%
+\contentsline {subsection}{\numberline {5.1}Driver Defectuoso}{18}{}%
+\contentsline {subsection}{\numberline {5.2}Ruido de conmutación}{19}{}%
+\contentsline {section}{\numberline {6}Conclusiones}{20}{}%
+\contentsline {section}{\numberline {A}Apéndice I: PCB}{21}{}%
+\contentsline {subsection}{\numberline {A.1}Esquematico.}{21}{}%
+\contentsline {subsection}{\numberline {A.2}Pistas}{22}{}%

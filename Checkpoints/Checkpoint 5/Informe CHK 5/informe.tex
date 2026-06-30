@@ -1091,28 +1091,12 @@ La regulación de carga se calcula mediante la siguiente expresión:
 	\text{Regulación de carga} =
 	\frac{V_{\text{carga ligera}}-V_{\text{carga nominal}}}
 	{V_{\text{carga nominal}}}
-	\times 100 \%
+	\times 100 \% \label{eq:reg_carga}
 \end{equation}
 
 donde $V_{\text{carga ligera}}$ corresponde a la tensión de salida medida para una corriente de carga reducida (en este caso $100\,\mathrm{mA}$) y $V_{\text{carga nominal}}$ es la tensión de salida para la corriente máxima especificada ($1.5\,\mathrm{A}$).
 
 Se espera que la tensión permanezca prácticamente constante al variar la carga entre $100\,\mathrm{mA}$ y $1.5\,\mathrm{A}$. En condiciones normales de funcionamiento, una regulación de carga inferior al $1 \% $  se considera un resultado satisfactorio, correspondiendo a una diferencia de tensión inferior a aproximadamente $95\,\mathrm{mV}$ entre ambos extremos del rango de carga.
-
-\textbf{Resultados Parciales}\\
-Tras la estabilización del circuito (sección \ref{sec:ruido}), se realizan mediciones con diferentes valores de carga, para dar una forma aproximada a la curva de regulación de carga:
-\begin{minipage}[t]{0.38\textwidth}
-	\centering
-	\vspace{-8cm}
-	\captionof{table}{Mediciones de regulación de carga.}
-	\label{tab:regulacion_carga}
-	\begin{tabular}{cccc}
-		\toprule
-		$V_{in}$ [V] & $ V_o$ [mV] & $I_i$ & $I_o$\\
-		\midrule
-		13.32 & -78.0&& \\
-		\bottomrule
-	\end{tabular}
-\end{minipage}
 
 \subsection{Eficiencia}
 
@@ -1159,6 +1143,40 @@ Idealmente, la eficiencia debería mantenerse elevada en todo el rango de tensio
 
 En cuanto a la curva de eficiencia en función de la tensión de entrada, lo esperable es que la eficiencia se mantenga alta en la mayor parte del rango y disminuya suavemente al aumentar la tensión de entrada. Este comportamiento se explica principalmente por el incremento de las pérdidas de conmutación, por el mayor tiempo de conducción del diodo cuando el ciclo de trabajo disminuye para el \textit{buck} asíncrono y esta característica para el \textit{buck} sincrónico se esperaría que ocurra de forma menos pronunciada. 
 	
+		\subsection{Resultados Parciales}
+	Tras la estabilización del circuito (sección \ref{sec:ruido}), se realizan mediciones con diferentes valores de carga, para dar una forma aproximada a la curva de regulación de carga y eficiencia. Dado que no se cuenta con una fuente de alimentación externa, se utiliza un multímetro como muestra la figura \ref{fig:esquematico_med_reg_carga}, pero sin la fuente externa de \SI{9.5}{V}, a costa de perder precisión.
+	
+	\begin{figure}[H]
+		\centering
+		\label{tab:regulacion_carga}
+		\begin{tabular}{cccccc}
+			\toprule
+			$V_{in}$ [V] & $ V_o$ [mV] & $I_i$ & $I_o$ & $R_L$ & $\eta$ \\
+			\midrule
+			\SI{15.19}{V} & \SI{9.53}{V} & \SI{951}{mA} & \SI{1.35}{A} & \SI{6.3}{\ohm} & 89\% \\
+			\SI{15.19}{V} & \SI{9.54}{V} & \SI{717}{mA} & \SI{1.02}{A} & \SI{8.8}{\ohm} & 77\% \\
+			\SI{15.25}{V} & \SI{9.54}{V} & \SI{608}{mA} & \SI{850}{mA} & \SI{10}{\ohm} & 91\% \\
+			\SI{15.25}{V} & \SI{9.54}{V} & \SI{503}{mA} & \SI{700}{mA} & \SI{12}{\ohm} & 87\% \\
+			\SI{15.25}{V} & \SI{9.54}{V} & \SI{432}{mA} & \SI{590}{mA} & \SI{15}{\ohm} & 85\% \\
+			\SI{15.25}{V} & \SI{9.55}{V} & \SI{185}{mA} & \SI{200}{mA} & \SI{47}{\ohm} & 68\% \\
+			\SI{15.25}{V} & \SI{9.55}{V} & \SI{111}{mA} & \SI{95}{mA} & \SI{100}{\ohm} & 53\% \\
+			\bottomrule
+		\end{tabular}
+		\captionof{table}{Mediciones de regulación de carga.}
+	\end{figure}
+	
+	Notar que para el rango de corrientes $\SI{590}{mA} < Io < \SI{1.5}{A}$, la eficiencia se encuentra en el rango esperado, alcanzando valores pico de 91\%, excepto para valores cercanos a \SI{9}{\ohm}.
+	
+	En cuanto a la regulación de carga, la limitación de medición impide obtener un resultado preciso, pero se puede conjeturar que tendrá un valor de, como máximo, y utilizando la ecuación \ref{eq:reg_carga}:
+	
+	\begin{equation}
+		\frac{\SI{9.56}{V} - \SI{9.53}{V}}{\SI{9.53}{V}} \times 100\% = 0.31\%.
+	\end{equation}
+	
+	Lo cual es una cota superior muy buena.
+	
+	
+	
 	\subsection{Red \textit{Snubber}}
 	
 	\begin{figure}[H]
@@ -1181,13 +1199,27 @@ En cuanto a la curva de eficiencia en función de la tensión de entrada, lo esp
 	\end{figure}
 	
 	Notar que, si bien aun se puede apreciar un sobrepico, la señal se estabiliza mucho más rápido, asegurando la señal triangular de corriente en el bobinado.
-	
-	
+
+	\subsection{Respuesta al encendido}
+		
+		Para esta prueba, se retira la red RC de \textit{slow-start} ($R_6$ , $C_4$ de la figura \ref{sec:apendice_PCB}), y se observa la respuesta temporal de la salida respecto de un impulso de entrada. La figura \ref{fig:encendido} muestra el resultado.
+		
+		\begin{figure}
+			\centering
+			\includegraphics[width=0.7\linewidth]{img/BUCK/impulso}
+			\caption{Respuesta al impulso de entrada.}
+			\label{fig:encendido}
+		\end{figure}
+		
+		Se observa que, si bien la forma de onda no es la misma a la esperada de las simulaciones (figura \ref{fig:sim_compensado}), el sistema se encuentra correctamente compensado. El tiempo de arranque también es considerablemente diferente, rondando los \SI{4}{ms}. Esto sugiere un ancho de banda considerablemente inferior a los resultados simulados. Si bien es un problema en cuanto a la efectividad de la fuente, no impide su correcto funcionamiento.
+
 	\section{Problemas encontrados}
 	\subsection{Driver Defectuoso}
 		Uno de los problemas más serios encontrados durante la implementación fue el funcionamiento anómalo del driver \textbf{IR2111}. La polarización del transistor $Q_2$ se vio anulada completamente.
 		
 		Adicionalmente, la entrada de control del driver, idealmente de alta impedancia, parecía cargar al circuito generador de PWM, deformando la señal, y retrasando la activación de los flancos ascendentes. Para solucionar esto, debió colocarse una resistencia de \textit{pull-up} anormalmente chica.
+		
+		\textit{Nota:} El origen de la falla es, con gran probabilidad, producto de una manupulación poco cuidadosa durante la etapa de testeo inicial del equipo. Es posible que alguna mala conexión involuntaria haya destruido parte del integrado. 
 		
 	\subsection{Ruido de conmutación} \label{sec:ruido}
 		Se observó durante los experimentos que, a mayor tensión de entrada, más se inestabilizaba la fuente, pudiendo incluso dejar de regular.
@@ -1200,7 +1232,7 @@ En cuanto a la curva de eficiencia en función de la tensión de entrada, lo esp
 		
 		Este problema acarrea otra consecuencia: el sistema deja de regular para cargas pequeñas. Por este motivo, fue imposible conseguir mediciones de eficiencia aceptables.
 		
-		Este problema puede ser resuelto de forma preliminar colocando un capacitor en el nodo de salida de la triangular, que sirve de suavizador.
+		Este problema puede ser resuelto de forma provisoria colocando un capacitor en el nodo de salida de la triangular, que sirve de suavizador, o aumentando el valor de capacidad de la red \textit{Snubber}, permitiendo realizar \textbf{mediciones parciales}.
 		
 		\begin{figure}[H]
 			\centering
@@ -1216,9 +1248,17 @@ En cuanto a la curva de eficiencia en función de la tensión de entrada, lo esp
 		\end{figure}
 	\section{Conclusiones}
 	
-	El regulador funciona correctamente para ciertos valores acotados de salida ($Io < \SI{700}{mA}$). Esto hace que ciertos análisis, como el de eficiencia, se vean seriamente afectados.
+	El regulador funciona correctamente tras ciertas adaptaciones provisorias, que permiten anular una parte del ruido de conmutación que se filtra el circuito PWM.
 	
-	A pesar de este inconveniente, se logró asegurar el funcionamiento básico del convertidor. Para poder utilizarlo en su rango completo de operación, se deberá hacer un análisis del ruido que logra afectar la etapa PWM para eliminarlo, y estabilizar el control.
+	Los resultados respetaron, en su mayoría, los requerimientos pedidos, a excepción de algunos valores particualres, como la eficiencia. Si bien se podría aspirar a valores cercanos al 95\%, no son malos para un primer prototipo.
+	
+	La fuente podría usar algunas mejoras, como protecciones a la carga y a la alimentación, y para sí misma. Además, se requiere un estudio de propagación de ruido de conmutación, que fue lo que ocasionó graves problemas durante el desarrollo, e incluso tras las correcciones, sigue volviendo a la fuente inestable bajo ciertos escenarios.
+	
+	Asimismo, si bien la compensación demuestra ser robusta en las simulaciones, se podría evaluar la posibilidad de aumentar el margen de fase a costa de ancho de banda, y de esta forma asegurar aún más la estabilidad.
+	
+	Por otro lado, la elección del filtro \textit{Snubber} resultó ser insuficiente: no llega a amortiguar del todo los sobrepicos de tensión sobre el nodo de conmutación. Para corregir esto, bastará con elegir una capacidad más grande a costa de menor eficiencia (pero mayor robustez y estabilidad a la salida).
+
+	La eficiencia podrá ser mejorada fácilmente con el refinamiento del circuito de conmutación. En particular, la resistencia de \textit{pull-up} responsable de alimentar al gate driver, consume casi \SI{25}{mA} en estado bajo. También se puede jugar con la corriente de alimentación de los reguladores lineas, entre otras cosas, acercándonos a la combinación de valores más eficiente.
 		
 	
 	{\footnotesize

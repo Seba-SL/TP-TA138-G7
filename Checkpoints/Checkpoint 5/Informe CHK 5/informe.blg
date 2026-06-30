@@ -1,11 +1,11 @@
 [0] Config.pm:328> INFO - This is Biber 2.21
 [0] Config.pm:331> INFO - Logfile is 'informe.blg'
-[146] biber-MSWIN64:342> INFO - === 
-[200] Biber.pm:421> INFO - Reading 'informe.bcf'
-[364] Biber.pm:1002> INFO - Found 2 citekeys in bib section 0
-[392] Biber.pm:4487> INFO - Processing section 0
-[406] Biber.pm:4678> INFO - Looking for bibtex file 'referencias.bib' for section 0
-[469] bibtex.pm:1713> INFO - LaTeX decoding ...
-[480] bibtex.pm:1519> INFO - Found BibTeX data source 'referencias.bib'
-[522] Utils.pm:479> ERROR - BibTeX subsystem: C:\Users\ramaz\AppData\Local\Temp\biber_tmp_9Txf\f1acd60b6c57e7ae00f56d747b2cd459_4992.utf8, line 11, syntax error: found "type", expected end of entry ("}" or ")") (skipping to next "@")
-[522] Biber.pm:137> INFO - ERRORS: 1
+[147] biber-MSWIN64:342> INFO - === 
+[199] Biber.pm:421> INFO - Reading 'informe.bcf'
+[421] Biber.pm:1002> INFO - Found 2 citekeys in bib section 0
+[450] Biber.pm:4487> INFO - Processing section 0
+[465] Biber.pm:4678> INFO - Looking for bibtex file 'referencias.bib' for section 0
+[527] bibtex.pm:1713> INFO - LaTeX decoding ...
+[538] bibtex.pm:1519> INFO - Found BibTeX data source 'referencias.bib'
+[584] Utils.pm:479> ERROR - BibTeX subsystem: C:\Users\ramaz\AppData\Local\Temp\biber_tmp_27yw\f1acd60b6c57e7ae00f56d747b2cd459_18620.utf8, line 11, syntax error: found "type", expected end of entry ("}" or ")") (skipping to next "@")
+[584] Biber.pm:137> INFO - ERRORS: 1
