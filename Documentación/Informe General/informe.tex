@@ -204,7 +204,7 @@ citestyle=apa
 	
 	Las especificaciones que se busca obtener para esta etapa son las siguientes:
 	
-		\begin{table}[h]
+		\begin{table}[H]
 		\centering
 		\renewcommand{\arraystretch}{1.5}
 		\begin{tabular}{|p{3cm}|l|p{5cm}|c|c|c|c|}
@@ -212,25 +212,18 @@ citestyle=apa
 			\textbf{Característica} & \textbf{Símbolo} & \textbf{Condiciones de prueba} & \textbf{Min.} & \textbf{Tip.} & \textbf{Max.} & \textbf{Unidades} \\
 			\hline
 			
-			\multicolumn{7}{|l|}{\textbf{Especificaciones regulador lineal Vo}} \\
+			\multicolumn{7}{|l|}{\textbf{Especificaciones regulador \textit{BUCK}}} \\
 			\hline
 			
-			Vo exactitud y regulación de carga & Vo & $\SI{100}{mA} < I_{out} < \SI{1.5}{A}$ \break $VREG = \SI{9.5}{V}$ & 4,9 & 5 & 5,1 & V \\
+			Eficiencia & $\eta$ & $\SI{12}{V} < V_{IN} < \SI{30}{V}$ \break $\SI{750}{mA} < I_{out} < \SI{1.5}{A}$ & 85 & 90 & 95 & \% \\
 			\hline
 			
-			Vo rango de capacidad de carga & COUT(Vo) &  & 1,0 & 2,2 & 15,0 & \si{\micro\farad} \\
+			Frecuencia de conmutación & $f_{sw}$ &  & 120 &  & 140 & \si{\kilo\hertz} \\
 			\hline
 			
-			Io corriente límite & ILIM(Vo) &  &  & 1,5 &  & A \\
+			Tensión regulada & $VREG$ & $\SI{12}{V} < V_{IN} < \SI{30}{V}$ \break $\SI{100}{mA} < I_o < \SI{1.5}{A}$ \break $f_{sw} = \SI{120}{\kilo\hertz}$ & 9,3 & 9,5  & 9,7 & \si{V} \\
 			\hline
-			
-			Corriente de foldback & IFBK &  &  & 400 &  & \si{mA} \\
-			\hline
-			
-			%\multirow{2}{3cm}{Vo startup time} & t(start) & $C = \SI{2.2}{\micro\farad},\ I = \SI{100}{\milli\ampere}$ &  &  &  & ms \\
-			%\cline{2-7}
-			% & t(start) & $C = \SI{2.2}{\micro\farad},\ I = \SI{100}{\milli\ampere}$ &  &  &  & ms \\
-			%\hline
+			\label{tab:spec_buck}
 		\end{tabular}
 		
 		\caption{Especificaciones del regulador lineal LDO.}
@@ -241,71 +234,1336 @@ citestyle=apa
 	
 	La implementación se hará mediante un a fuente tipo \textit{Buck} síncrona realimentada. Se utilizan dos N-MOS a modo de llave, ya que suelen tener una mejor eficiencia que los transistores P-MOS. Por este motivo, se incorpora un gate driver capaz de generar una sobretensión para el nodo de control del transistor de paso $Q_1$ (figura \ref{fig:bloques_buck}).
 	
-	\begin{figure}[h]
+	\begin{figure}[H]
 		\centering
 		\begin{tikzpicture}[transform shape]
 			% Paths, nodes and wires:
-			\node[op amp, xscale=-0.78, yscale=-0.78] at (14.572, 8.132){};
-			\draw (11, 12) to[american voltage source, mirror, l_={$V_{cc}$}] (11, 10);
-			\draw (11, 12) to[sinusoidal voltage source, l={$v_{ac}$}] (11, 14);
-			\node[pigfete, rotate=90](N1) at (17.27, 14){} node[anchor=south] at (N1.text){$T_p$};
-			\draw (11, 14) -- (16.5, 14);
-			\node[spdt, rotate=-90] at (17, 11.5){};
-			\draw (21, 12) to[american resistor, /tikz/circuitikz/bipoles/length=0.840cm, l={$R_L$}] (21, 10);
-			\draw (15, 12.75) to[push button] (16.5, 12.75);
-			\draw (16.5, 12.75) -| (17, 13.02);
-			\draw (15, 12.75) -- (14.5, 12.75) -- (14.5, 14);
-			\draw (12.5, 10.75) to[full ZZener diode, mirror, /tikz/circuitikz/bipoles/length=0.700cm] (12.5, 12.25);
-			\draw (12.5, 12.25) -| (12.5, 14);
-			\draw (12.5, 10.75) |- (11, 10);
-			\draw (21, 10) -- (12.5, 10);
-			\node[shape=rectangle, draw, line width=1pt, minimum width=0.965cm, minimum height=1.465cm] at (12.5, 11.5){};
-			\draw (13, 11.5) -- (13.5, 11.5);
-			\node[circ](N2) at (13.5, 11.5){} node[anchor=west] at (N2.text){$v_{ref}$};
-			\draw (17, 12.095) -| (17, 12.75);
-			\draw (15.5, 7.75) -- (15.75, 7.75);
-			\node[circ](N3) at (15.75, 7.75){} node[anchor=west] at (N3.text){$v_{ref-t}$};
-			\node[shape=rectangle, draw, line width=1pt, minimum width=1.965cm, minimum height=1.215cm] at (18.5, 8.125){};
-			\draw (19, 8.5) -| (20, 12) -- (21, 12);
-			\draw (19, 7.75) -| (21, 10);
-			\draw (18, 8.5) to[american controlled voltage source, mirror, /tikz/circuitikz/bipoles/length=0.700cm] (18, 7.75);
-			\draw (18, 8.5) |- (15.5, 8.514);
-			\draw (18, 7.75) -- (17.25, 7.75) -- (17, 7.75) -| (17, 7.25);
-			\node[op amp, xscale=-0.78, yscale=-0.78] at (14.572, 6.257){};
-			\draw (15.5, 5.875) -- (15.75, 5.875);
-			\node[circ](N4) at (15.75, 5.875){} node[anchor=west] at (N4.text){$v_{ref-c}$};
-			\node[shape=rectangle, draw, line width=1pt, minimum width=1.965cm, minimum height=1.215cm] at (18.5, 6.25){};
-			\draw (18, 6.625) to[american controlled voltage source, mirror, /tikz/circuitikz/bipoles/length=0.700cm] (18, 5.875);
-			\draw (18, 6.625) |- (15.5, 6.639);
-			\draw (18, 5.875) -- (17.25, 5.875) -- (17, 5.875) -| (17, 5.375);
-			\draw (19, 6.5) -| (22, 12.5) -- (21, 12.5);
-			\draw (21, 13.25) -- (22.75, 13.25) |- (19, 6);
-			\draw (19, 6.5) -| (19, 6);
-			\draw (21, 12) -| (21, 12.5);
-			\draw (21, 13.25) |- (18.04, 14);
-			\node[tlground] at (17, 5.375){};
-			\node[tlground] at (17, 7.25){};
-			\draw (13.644, 6.257) -| (13, 6.25) -| (13, 9.75) -- (16.5, 9.75) -| (16.685, 10.905);
-			\draw (13.644, 8.132) |- (17.25, 9.25) -| (17.315, 10.905);
-			\node[shape=rectangle, minimum width=0.715cm, minimum height=0.715cm] at (18.5, 9.125){} node[anchor=north west, align=left, text width=0.327cm, inner sep=6pt] at (18.125, 9.5){$f_v$};
-			\node[shape=rectangle, minimum width=0.715cm, minimum height=0.715cm] at (18.5, 5.25){} node[anchor=north west, align=left, text width=0.327cm, inner sep=6pt] at (18.125, 5.625){$f_A$};
-			\node[circ] at (19, 7.75){};
-			\node[circ] at (19, 8.5){};
-			\node[circ] at (14.5, 14){};
-			\node[circ] at (12.5, 14){};
-			\node[circ] at (12.5, 10){};
-			\node[circ] at (17, 12.75){};
-			\node[circ] at (21, 12){};
-			\node[circ] at (21, 10){};
-			\node[shape=rectangle, draw, line width=1pt, minimum width=1.59cm, minimum height=1.31cm] at (17, 11.5){};
-			\node[shape=rectangle, draw, line width=1pt, minimum width=1.715cm, minimum height=0.715cm] at (15.75, 12.875){};
-			\draw (11, 10) -| (11, 9.75);
-			\node[tlground] at (11, 9.75){};
+			\node[shape=rectangle, draw, line width=1pt, minimum width=2.215cm, minimum height=1.777cm](N1) at (18.375, 11.906){} node[anchor=south] at ([yshift=-0.12cm]N1.text){$Gate \ Driver$};
+			\draw (17.25, 11.813) -- (16, 11.813);
+			\draw (17.25, 11.312) -- (16.75, 11.312) -| (16.75, 11.063);
+			\node[tlground] at (16.75, 11.063){};
+			\node[trarrow, xscale=-1, yscale=-1](N2) at (16.112, 9){} node[anchor=south] at (N2.text){$PWM$};
+			\draw (15.888, 12.563) -- (17.25, 12.563);
+			\node[trarrow](N3) at (15.888, 12.563){} node[anchor=east] at (N3.text){$V_{cc12}$};
+			\node[nigfetd, rotate=90](N4) at (17.77, 16.29){} node[anchor=south] at (N4.text){$Q_1$};
+			\node[nigfetd](N5) at (20, 14.56){} node[anchor=west] at (N5.text){$Q_2$};
+			\draw (24, 16.29) to[capacitor, l={$C_S$}] (24, 13.29);
+			\draw (26, 16.29) to[american resistor, l={$R_S$}] (26, 13.29);
+			\draw (20, 16.29) -- (20, 15.29);
+			\draw (24, 13.29) |- (20, 13.29) -| (20, 13.75);
+			\draw (24, 16.29) -- (26, 16.29);
+			\draw (26, 13.29) -- (24, 13.29);
+			\draw (20, 13.79) -| (20, 13.75);
+			\draw (15, 13.29) to[capacitor, l={$C_E$}] (15, 16.29);
+			\draw (15, 13.29) -- (20, 13.29);
+			\draw (15, 16.29) -- (17, 16.29);
+			\draw (18.54, 16.29) -- (20, 16.29);
+			\draw (20, 16.29) to[cute inductor, l={$L$}] (24, 16.29);
+			\draw (12, 16.29) to[battery, l={$V_E$}] (12, 13.29);
+			\node[circ] at (15, 16.29){};
+			\node[circ] at (15, 13.29){};
+			\node[circ] at (20, 13.29){};
+			\node[circ](N6) at (20, 16.29){} node[anchor=south] at (N6.text){$V_S$};
+			\node[circ] at (24, 16.29){};
+			\node[circ] at (24, 13.29){};
+			\node[circ](N7) at (26, 16.29){} node[anchor=south] at (N7.text){$V_o$};
+			\draw (26, 16.29) -- (27, 16.29);
+			\draw (15, 16.29) -- (12, 16.29);
+			\draw (15, 13.29) |- (12, 13.29);
+			\node[shape=rectangle, draw, line width=1pt, minimum width=1.965cm, minimum height=1.777cm] at (12, 10.5){};
+			\draw (12, 9.594) to[empty Schottky diode, /tikz/circuitikz/bipoles/length=0.980cm] (12, 11.406);
+			\node[shape=rectangle, draw, line width=1pt, minimum width=1.965cm, minimum height=1.027cm](N8) at (19.75, 8.5){} node[anchor=north] at ([yshift=-0.49cm]N8.text){$Triangular$};
+			\node[circ](N9) at (12, 11.906){} node[anchor=south] at (N9.text){$V_E$};
+			\draw (12, 11.906) -- (12, 11.406);
+			\node[tlground] at (12, 9.156){};
+			\draw (12, 9.156) -| (12, 9.594);
+			\draw (13, 10.906) -- (13.5, 10.906);
+			\node[trarrow](N10) at (13.5, 10.906){} node[anchor=west] at (N10.text){$V_{cc12}$};
+			\draw (13, 10.156) -- (13.5, 10.156);
+			\node[trarrow](N11) at (13.5, 10.156){} node[anchor=west] at (N11.text){$V_{cc2}$};
+			\draw (28, 12) to[american resistor, /tikz/circuitikz/bipoles/length=0.980cm, l={$R_1$}] (28, 10);
+			\draw (28, 10) to[american resistor, /tikz/circuitikz/bipoles/length=0.980cm, l={$R_2$}] (28, 8);
+			\node[tlground] at (28, 8){};
+			\draw (27, 16.29) -| (28, 12);
+			\draw (18.04, 15.31) |- (17.875, 12.813);
+			\draw (19.02, 14.29) |- (18.375, 12.813);
+			\draw (20, 16.29) -- (18.5, 14.75);
+			\draw (18.5, 14.75) |- (18.375, 12.813);
+			\node[op amp, xscale=-1, yscale=-1] at (17.31, 9.01){};
+			\node[op amp, xscale=-1] at (21.81, 9.49){};
+			\node[currarrow, xscale=-1, yscale=-1](N12) at (23, 9){} node[anchor=west] at (N12.text){$Vcc_{12}/2$};
+			\draw (28, 10) |- (23, 9.98);
+			\node[circ] at (28, 9.98){};
+			\draw (18.5, 9.5) -| (20.62, 9.49);
+			\draw (18.5, 8.52) -| (18.75, 8.5);
+			\draw (19, 8.25) -- (19.25, 8.75) -- (19.5, 8.25) -- (19.75, 8.75) -- (20, 8.25) -- (20.25, 8.75) -- (20.5, 8.25);
+			\draw (16.12, 9.02) |- (15, 9.01) -| (15, 11.76) |- (16, 11.823);
+			\draw (20.5, 9.5) to[empty Schottky diode, /tikz/circuitikz/bipoles/length=0.980cm] (20.5, 10.75);
+			\node[circ](N13) at (20.5, 10.75){} node[anchor=south] at (N13.text){$Vcc2$};
+			\node[circ] at (20.5, 9.5){};
 		\end{tikzpicture}
 		\caption{Circuito simplificado de la fuente \textit{Buck}.}
 		\label{fig:bloques_buck}
 	\end{figure}
 	
+	El lazo de realimentación consta de un amplificador de error, cuya función es producir la diferencia entre la señal objetivo ($Vcc_{12}/2$) y la señal muestreada mediante el divisor resisitivo $R_1$ - $R_2$. Esta señal se compara con otra señal, perdiódica con forma triangular, para convertirla en una señal tipo PWM, que se encarga de controlar los transistores de paso.
+	
+	
+	\subsubsection{Convertidor BUCK a lazo abierto}
+	
+	En términos generales, un convertidor \textit{buck} se alimenta de una señal de entrada a a regular, por medio de dos transistores en conmutación, que generan una señal cuadrada que tiene como valor medio la tensión objetivo, la señal cuadrada generada es filtrada por un filtro LC, obteniendo de esta forma una tensión regulada con riple cuadrático. En la figura \ref{fig:buck_schematic}, se observa un circuito \textit{buck} inicial de diseño.
+	
+	\begin{figure}[H]
+		\centering
+		\resizebox{0.9\textwidth}{!}{
+			\begin{tikzpicture}[transform shape]
+				% Paths, nodes and wires:
+				\node[nigfetd, rotate=90](N1) at (11.77, 11){} node[anchor=south] at (N1.text){$Q_1$};
+				\node[nigfetd](N2) at (14, 9.27){} node[anchor=west] at (N2.text){$Q_2$};
+				\draw (18, 11) to[capacitor, l={$C_S$}] (18, 8);
+				\draw (20, 11) to[american resistor, l={$R_S$}] (20, 8);
+				\draw (14, 11) -- (14, 10);
+				\draw (18, 8) |- (14, 8) -| (14, 8.46);
+				\draw (18, 11) -- (20, 11);
+				\draw (20, 8) -- (18, 8);
+				\draw (12.039, 10.02) |- (11, 9.5);
+				\draw (14, 8.5) -| (14, 8.46);
+				\draw (13.02, 9) -| (11, 9);
+				\draw (9, 8) to[capacitor, l={$C_E$}] (9, 11);
+				\draw (9, 8) -- (14, 8);
+				\draw (9, 11) -- (11, 11);
+				\draw (12.54, 11) -- (14, 11);
+				\draw (14, 11) to[cute inductor, l={$L$}] (18, 11);
+				\draw (6, 11) to[battery, l={$V_E$}] (6, 8);
+				\node[circ] at (9, 11){};
+				\node[circ] at (9, 8){};
+				\node[circ](N3) at (11, 9.5){} node[anchor=east] at (N3.text){$H_{ctrl}$};
+				\node[circ](N4) at (11, 9){} node[anchor=east] at (N4.text){$L_{ctrl}$};
+				\node[circ] at (14, 8){};
+				\node[circ](N5) at (14, 11){} node[anchor=south] at (N5.text){$V_S$};
+				\node[circ] at (18, 11){};
+				\node[circ] at (18, 8){};
+				\node[circ](N6) at (20, 11){} node[anchor=south] at (N6.text){$V_o$};
+				\node[flowarrow] at (21.25, 11){};
+				\draw (20, 11) -- (21, 11);
+				\draw (9, 11) -- (6, 11);
+				\draw (9, 8) |- (6, 8);
+			\end{tikzpicture}
+		}
+		\caption{Circuito \textit{buck}.}
+		\label{fig:buck_schematic}
+		
+	\end{figure}
+	
+	Entendiendo la señal de control como una señal periódica cuadrada que alterna entre una tensión suficiente para colocar a los transistores en saturación (\textit{on}) y otra que los lleva a corte (\textit{off}), en dicha señal se define el tiempo $t_{ON}$ como el tiempo que dura la señal que permite la conducción en el transistor en un periodo T. Aquí a su vez se define el ciclo de trabajo D (duty cicle) como $ D = \frac{t_{ON}}{T}$. 
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=1\linewidth]{img/buck/vcontrol}
+		\caption{ Señal de control y señal conmutada lograda en el circuito buck.}
+		\label{fig:vcontrol}
+	\end{figure}
+	
+	Teniendo en cuenta que el transistor permite replicar la señal de control en el nodo que interconecta los transistores y el inductor, pero con una tensión cercana a la tensión de alimentación, dicha señal se define como señal de conmutación o \textit{switching} $V_s$. Tal como se ve en la figura \ref{fig:vcontrol}.
+	
+	
+	De esta relación estimando las tensiones de saturación y de caida de tensión en directa del diodo utilizado, se puede dar con una primer aproximación de D. Aproximando la salida del regulador como la componente continua de la señal de conmutación, idealizando el filtro LC.
+	
+	
+	\begin{equation}
+		V_o \approx V_{s_{\text{prom}}}
+		=
+		\frac{1}{T}\int_0^T v_s(t)\,dt
+	\end{equation}
+	
+	Considerando que durante el intervalo de conducción del transistor ($t_{on}$) la tensión aplicada al inductor es aproximadamente $(V_E - V_{SAT})$, y durante el intervalo restante ($T-t_{on}$) el diodo conduce imponiendo una tensión aproximada $-V_D$, la señal de conmutación puede modelarse como:
+	
+	\begin{equation}
+		v_s(t)=
+		\begin{cases}
+			V_E - V_{SAT}, & 0<t<t_{on} \\
+			-V_{SAT}, & t_{on}<t<T
+		\end{cases}
+	\end{equation}
+	
+	Por lo tanto, el valor promedio resulta:
+	
+	\begin{equation}
+		V_o \approx
+		\frac{1}{T}
+		\left[
+		\int_0^{t_{on}} (V_E - V_{SAT})\,dt
+		+
+		\int_{t_{on}}^T (-V_{SAT})\,dt
+		\right]
+	\end{equation}
+	
+	Resolviendo las integrales:
+	
+	\begin{equation}
+		V_o \approx
+		\frac{1}{T}
+		\left[
+		(V_E - V_{SAT})t_{on}
+		-
+		V_{SAT}(T-t_{on})
+		\right]
+	\end{equation}
+	
+	Reordenando:
+	
+	\begin{equation}
+		V_o \approx
+		\frac{t_{on}}{T}(V_E - V_{SAT})
+		-
+		\frac{T-t_{on}}{T}V_{SAT}
+	\end{equation}
+	
+	Definiendo el ciclo de trabajo como:
+	
+	\begin{equation}
+		D = \frac{t_{on}}{T}
+	\end{equation}
+	
+	y teniendo en cuenta que:
+	
+	\begin{equation}
+		1-D = \frac{T-t_{on}}{T}
+	\end{equation}
+	
+	se obtiene finalmente:
+	
+	\begin{equation}
+		V_o \approx D(V_E - V_{SAT}) - (1-D)V_{SAT}
+	\end{equation}
+	
+	
+	Aproximando las caídas de tensión de los transistores en conducción a cero:
+	
+	\begin{equation}
+		V_{SAT} \approx 0
+	\end{equation}
+	
+	la expresión obtenida previamente se simplifica a:
+	
+	\begin{equation}
+		V_o \approx D \cdot V_E
+	\end{equation}
+	
+	Despejando el ciclo de trabajo:
+	
+	\begin{equation}
+		D \approx \frac{V_o}{V_E}
+	\end{equation}
+	
+	Reemplazando con los valores de diseño:
+	
+	\begin{equation}
+		D \approx \frac{9.5\,V}{24\,V}
+	\end{equation}
+	
+	\begin{equation}
+		D \approx 0.396
+	\end{equation}
+	
+	Por lo tanto, el ciclo de trabajo requerido resulta aproximadamente:
+	
+	\begin{equation}
+		D \approx 39.6\%
+	\end{equation}
+	
+	
+	El principio de funcionamiento del regulador se basa en la transferencia periódica de energía desde la fuente de entrada hacia la carga mediante la conmutación controlada de los dispositivos electrónicos de potencia. La tensión media de salida se regula variando el ciclo de trabajo $D$ de la señal PWM aplicada a las llaves de conmutación.
+	
+	
+	Asimismo, se analizará el regulador operando en modo de conducción continua (CCM, \textit{Continuous Conduction Mode}), condición en la cual la corriente del inductor nunca se anula ni invierte su sentido. Bajo esta hipótesis, la corriente del inductor presenta una forma aproximadamente triangular con un valor medio distinto de cero, mientras que el capacitor forma una tensión integrando dicha tensión menos la corriente de salida, dado que la integral de una señal lineal que alterna entre pendiente positiva y negativa la tensión del capacitor sera una señal cuadrática tal como se observa en la figura \ref{fig:corrienteilriplevo}.
+	
+	A partir de estas consideraciones será posible determinar posteriormente los valores adecuados del inductor $L$ y del capacitor $C$, de forma tal de garantizar un funcionamiento estable en conducción continua y un rizado acotado en corriente y tensión.
+	
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\linewidth]{img/buck/corriente_iL_riple_Vo}
+		\caption{Forma de la señal de corriente en el inductor y tensión en el capacitor del regulador.}
+		\label{fig:corrienteilriplevo}
+	\end{figure}
+	
+	La corriente de salida se puede aproximar a la corriente media en el inductor, justamente para que la corriente no se vuelva discontinua la corriente de salida debe ser mayor a cero, es por eso que se fija un resistor de salida para que la corriente de salida no llegue a ser nula. 
+	
+	\begin{equation}
+		I_O \approx \frac{I_{L\text{MAX}} + I_{L\text{MIN}}}{2}
+	\end{equation}
+	
+	
+	\subsubsection{Inductor $L$ y capacitor $C_S$}
+	
+	Teniendo en cuenta que para el ciclo \textit{off} la tensión de salida corresponde con aproximadamente la tensión en el inductor:
+	
+	\begin{equation}
+		V_o \approx L \frac{d i_L }{dt} = L \frac{ {I_{min}} - {I_{max}} }{  T - t_{on}}
+	\end{equation} 
+	
+	Despejando el valor de inductancia:
+	
+	\begin{equation}
+		L \approx V_o  \frac{  T - t_{on}}{ {I_{min}} - {I_{max}} }
+	\end{equation} 
+	
+	Sacando como factor común T de la expresión e ingresando D.
+	
+	\begin{equation}
+		L \approx V_o  \frac{  T - t_{on}}{ {I_{min}} - {I_{max}} } =  V_o  T \frac{  (1 - \frac{t_{on}}{T})}{ {I_{min}} - {I_{max}} } 
+	\end{equation} 
+	
+	
+	\begin{equation}
+		L \approx  V_o  T \frac{  1 - D} {   I_{min} - {I_{max}}    } 
+	\end{equation} 
+	
+	Ahora sabiendo que $I_o = \frac{(I_{min} - I_{max})}{2}$ y despejando $ I_{min} = 2I_o - I_{max}$, se reemplaza:
+	
+	\begin{equation}
+		L \approx  V_o \cdot T \frac{  1 - D} {   (2I_o - I_{max}) - {I_{max}}    } 
+	\end{equation} 
+	
+	
+	\begin{equation}
+		L \approx  V_o \cdot T \frac{  1 - D} {   (2I_o - 2I_{max})   }  = V_o \cdot T \frac{  1 - D} {   2(I_o - I_{max})   }
+	\end{equation} 
+	
+	
+	
+	\begin{equation}
+		L \approx  V_o \cdot T \frac{  1 - D} {   (2I_o - 2I_{max})   }  = V_o  \frac{T}{2} \frac{  1 - D} {   (I_o - I_{max})   }
+	\end{equation} 
+	
+	Reemplazando $T = \frac{1}{f}$ se obtiene finalmente la expresión:
+	
+	\begin{equation}
+		L =
+		\frac{1}{2f}
+		\left(
+		\frac{(1-D)V_S}{I_{L\text{MAX}} - I_o}
+		\right)
+	\end{equation}
+	
+	De esta forma se puede estimar un valor de inductancia 
+	Partiendo de:
+	
+	\begin{equation}
+		L = \frac{1}{2f}\,\frac{(1-D)V_o}{(I_{L\text{MAX}} - I_o)}
+	\end{equation}
+	
+	y siendo para el modo crítico:
+	
+	\begin{equation}
+		I_o = I_{o\text{MIN}}
+	\end{equation}
+	
+	Resulta:
+	
+	\begin{equation}
+		I_{L\text{MAX}} = 2I_{o\text{MIN}}
+	\end{equation}
+	
+	\begin{equation}
+		L = \frac{(1-D)V_o}{2f\,I_{o\text{MIN}}}
+	\end{equation}
+	
+	Llamando \(R_{\text{MAX}}\) al valor máximo de \(R_c\):
+	
+	\begin{equation}
+		R_{\text{MAX}} = \frac{V_o}{I_{o\text{MIN}}}
+	\end{equation}
+	
+	se obtiene el valor crítico de \(L\) (\(L_{cr}\)) que permite continuar operando en modo continuo con una corriente de carga mínima o “carga mínima”:
+	
+	\begin{equation}
+		L_{cr} = \frac{(1-D)R_{\text{MAX}}}{2f}
+	\end{equation}
+	
+	Debe ser:
+	
+	\begin{equation}
+		L > L_{cr}
+	\end{equation}
+	
+	para operación en modo continuo.
+	
+	También puede encontrarse el valor crítico de la resistencia de carga que asegura el funcionamiento en modo continuo para un valor dado de \(L\):
+	
+	\begin{equation}
+		R_{cr} = \frac{2fL}{(1-D)}
+	\end{equation}
+	
+	Debe cumplirse:
+	
+	\begin{equation}
+		R < R_{cr}
+	\end{equation}
+	
+	para operación en modo continuo.
+	
+	Contemplando la frecuencia mayor brindada por las especificación con el objetivo de minimizar el riple en la salida, ya que el filtro pasa bajos LC atenuara mucho mas las frecuencias altas y también nos dará valores de L y C mas bajos para el mismo filtro.
+	
+	Reemplazando en las expresiones con los valores de frecuencia elegida $f = 140 \, kHz$, ciclo de trabajo $D = 0,395$, $I_{min} = 1.4 \, A$, $I_{max} = 1,6 \,A$ y rimple de $\Delta V_o = 400 \, mV$, llegando a los valores críticos: 
+	
+	\renewcommand{\arraystretch}{1.5}
+	\begin{table}[H]
+		\centering
+		\caption{Valores críticos para conservar la conducción continua}
+		\renewcommand{\arraystretch}{1.5}
+		\begin{tabular}{|c|c|c|}
+			\hline
+			\textbf{Parámetro crítico} & \textbf{Expresión utilizada} & \textbf{Condición para MCC} \\
+			\hline
+			
+			Inductancia crítica \(L_{cr}\) &
+			\(
+			L_{cr}= \frac{(1-D)V_o}{2f\,I_{o\text{MIN}}}
+			\)
+			&
+			\(
+			L > L_{cr} \approx 207 \, \mu H
+			\)
+			\\
+			
+			\hline
+			
+			Resistencia crítica \(R_{cr}\) &
+			\(
+			R_{cr}=\dfrac{2fL}{(1-D)}
+			\)
+			&
+			\(
+			R < R_{cr} \approx 95\, \Omega
+			\)
+			\\
+			
+			\hline
+			
+			Capacitancia crítica \(C_{cr}\) &
+			\(
+			C_{cr}=\dfrac{1-D}{16Lf^2\left(\dfrac{\Delta V_o}{V_o}\right)}
+			\)
+			&
+			\(
+			C > C_{cr} \approx 3,34 \, uF
+			\)
+			\\
+			
+			\hline
+			
+			Corriente mínima de carga \(I_{o\text{MIN}}\) &
+			\(
+			I_{o\text{MIN}}=\dfrac{(1-D)V_s}{2fL}
+			\)
+			&
+			\(
+			I_o >= I_{o\text{MIN}} = 100 \, mA
+			\)
+			\\
+			
+			\hline
+			
+		\end{tabular}
+		\label{tab:criticos_mcc}
+	\end{table}
+	
+	
+	Con los valores hallados en la tabla \ref{tab:criticos_mcc} se obtienen los limites para que el circuito trabaje en modo conducción continua, pero no serán los valores óptimos para regular la tensión, para asegurar que el riple sea minimo se considera un capacitor $100 \, \mu F$ y para que la corriente continua de salida tenga alguna utilidad se coloca un diodo led que indique que el regulador esta encendido para eso se debe calcular un resistor 
+	
+	\subsubsection{Transistores de conmutación}
+	Para la elección de transistores de paso debe hacerce un balance entre resistencia equivalente en conducción $R_{ON}$, sus capacidades parásitas $C_{gs}$, $C_{gd}$ y $C_{ds}$ y el costo.
+	El modelo elegido para la aplicación es el transistor N-MOS \textbf{IRF3205}, debido a su costo moderado
+	
+	
+	\subsubsection{Frecuencia de oscilador}
+	
+	Como regla práctica, a fin de maximizar la eficiencia, el periodo mínimo del oscilador debe ser aproximadamente cien veces mayor que el tiempo de conmutación del transistor. Porque así el MOSFET pasa más del 99 \% del tiempo en estados ideales (encendido o apagado) y menos del 1 \% del tiempo en la región de transición donde disipa mucha potencia.
+	
+	
+	
+	
+	
+	\begin{minipage}[c]{0.35\textwidth}
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width= 1\linewidth]{img/buck/tiempo_conmutacionIRF3205}
+			\caption{Formas de onda de tiempo de conmutación para el IRF520.}
+			\label{fig:tiempoconmutacionirf3205}
+		\end{figure}
+		
+	\end{minipage}
+	\hfill
+	\begin{minipage}[c]{0.60\textwidth}
+		
+		\begin{equation}
+			T_{sw} = 100\cdot t_{sw}
+		\end{equation}
+		
+		Cuando se aplica la tensión de entrada base, el transistor no se enciende inmediatamente. Al igual que la respuesta de frecuencia, los tiempos de conmutación de transistores se ven afectados por la capacitancia de la unión y el tiempo de tránsito de los electrones a través de las uniones. El tiempo entre la aplicación del impulso de entrada y el comienzo del flujo de corriente del drenaje se denomina el tiempo de retardo (td), incluso cuando el transistor comienza a encenderse, transcurre un tiempo finito antes de que el CI alcance su nivel máximo. Esto se conoce como el tiempo de subida ($t_{d_{on}}$) y de bajada $t_{d_{off}}$.
+		
+		El tiempo de subida se especifica como el tiempo requerido para que el CI pase del 10\% al 90\% de su nivel máximo. 
+		
+		
+		Para el IRF520 el tiempo de retardo de encendido ($t_{d_{on}}$) es de $15 \, ns$  y el tiempo en que se produce la caída de tensión entre el drain y source es de $t_r = 75 \,ns$ mientras que el tiempo de retardo de apagado ($t_{d_{off}}$) es de $ 40 \, ns$ y el tiempo en que se produce el cambio de tensión en $v_{ds}$ es de $t_f = 30 \, ns $ , por lo tanto se consideran los tiempos de encendidos y de apagado como:
+		
+		
+		\begin{itemize}
+			\item $t_{on} =t_{d_{on}} + t_r =  90 \,ns$
+			\item $t_{off} = t_{d_{off}} + t_f = 70 \,ns $	
+		\end{itemize}
+		
+		
+		Dando asi el tiempo de conmutación como $t_{sw} = 90 \, ns$
+		
+		
+	\end{minipage}
+	
+	Por lo tanto el periodo de oscilación tiene que ser como mínimo T $ \geq   100 \cdot t_{sw} = 9 \, \mu s$, siendo así la frecuencia máxima para lograr una eficiencia 110 kHz. Por lo tanto al utilizar una frecuencia de 133 kHz se debe considerar una menor eficiencia.
+	
+	
+	
+	\begin{table}[H]
+		\centering
+		\caption{Componentes seleccionados para el convertidor Buck}
+		\renewcommand{\arraystretch}{1.5}
+		\begin{tabular}{|c|c|c|c|}
+			\hline
+			\textbf{Componente} & \textbf{Símbolo} & \textbf{Valor / Modelo} & \textbf{Observaciones} \\
+			\hline
+			
+			Inductor de salida & \(L\) & $250 \mu H $&  \\
+			\hline
+			
+			Capacitor de salida & \(C\) & $100 \mu F$ &  \\
+			\hline
+			
+			Capacitor de entrada & \(C_{in}\) & $100 \mu F$ &  \\
+			\hline
+			
+			MOSFET superior & \(Q_1\) & N-MOS IRF520  &  \\
+			\hline
+			
+			MOSFET inferior & \(Q_2\) & N-MOS IRF520  &  \\
+			\hline
+			
+			Frecuencia de conmutación & \(f_s\) & 133 kHz&  \\
+			\hline
+			
+			Tensión de entrada & \(V_{in}\) & 24 V &  \\
+			\hline
+			
+			Tensión de salida & \(V_o\) & 9,5 v  &  \\
+			\hline
+			
+			Corriente máxima de salida & \(I_o\) & 1,5 A &  \\
+			\hline
+			
+		\end{tabular}
+		\label{tab:componentes_buck}
+	\end{table}
+	
+	\subsubsection{Diseño del lazo realimentador}
+	
+	Una vez verificado el diseño de la fuente conmutada, se debe diseñar un lazo capaz de regularla. Para cumplir con este requerimiento, se parte de la salida de la fuente (figura \ref{fig:buck_schematic}), y se genera una señal PWM capaz de controlar la conmutación de los transistores. En la figura \ref{fig:bloque_PWM} puede verse la estructura simplificada del lazo.
+	
+	
+	\begin{figure}[H]
+		\centering
+		\begin{tikzpicture}[transform shape]
+			% Paths, nodes and wires:
+			\draw (9.99, 7.5) to[twoport] (11.99, 7.5);
+			\draw (10.99, 7.98) to[american resistor, /tikz/circuitikz/bipoles/length=0.700cm] (10.99, 7);
+			\node[plain amp, xscale=-1, yscale=-1] at (8.94, 7){};
+			\node[circ](N1) at (12, 6.52){} node[anchor=west] at (N1.text){$v_{ref}$};
+			\node[circ](N2) at (11.99, 7.49){} node[anchor=west] at (N2.text){$v_{o}$};
+			\draw (10, 6.52) -| (12, 6.5);
+			\node[nigfetd, xscale=0.5, yscale=0.5] at (4.48, 6.52){};
+			\node[plain amp, xscale=-1, yscale=-1] at (6.43, 6.52){};
+			\node[shape=rectangle, minimum width=1.465cm, minimum height=0.965cm] at (9, 7){} node[anchor=center, align=center, text width=1.077cm, inner sep=6pt] at (9, 7){\tiny Amplificador de error};
+			\node[shape=rectangle, minimum width=1.465cm, minimum height=0.965cm] at (6.5, 6.5){} node[anchor=center, align=center, text width=1.077cm, inner sep=6pt] at (6.5, 6.5){\tiny Comparador PWM};
+			\node[shape=rectangle, draw, line width=1pt, minimum width=0.965cm, minimum height=0.965cm] at (4.25, 6.5){};
+			\draw (5.24, 6.52) -| (4.75, 6.5);
+			\draw (8, 5) |- (7.62, 6.03);
+			\draw (8.5, 4.5) |- (8, 4.5) -| (8, 5);
+			\node[shape=rectangle, minimum width=1.945cm, minimum height=1.215cm] at (10.01, 4.375){} node[anchor=center, align=center, text width=1.557cm, inner sep=6pt] at (10.01, 4.375){\tiny Generador de señal triangular};
+			\node[shape=rectangle, draw, line width=1pt, minimum width=1.945cm, minimum height=1.225cm] at (10.01, 4.38){};
+			\draw (9, 4.5) -- (8.5, 4.5);
+			\draw (9, 4.5) -| (9.02, 4.51);
+			\node[shape=rectangle, minimum width=1.465cm, minimum height=0.965cm] at (11, 8.25){} node[anchor=center, align=center, text width=1.077cm, inner sep=6pt] at (11, 8.25){\small Escalado};
+			\node[shape=rectangle, minimum width=1.465cm, minimum height=0.965cm] at (4.25, 7.5){} node[anchor=center, align=center, text width=1.077cm, inner sep=6pt] at (4.25, 7.5){\small Gate Driver};
+			\node[shape=rectangle, draw, line width=1pt, minimum width=0.945cm, minimum height=0.965cm] at (4.26, 4.5){};
+			\draw (4.26, 4) to[empty Schottky diode, /tikz/circuitikz/bipoles/length=0.840cm] (4.26, 5);
+			\draw (4.26, 5) |- (4.25, 5.25);
+			\draw (4.26, 4) |- (4.25, 3.75);
+			\node[tlground] at (4.25, 3.75){};
+			\node[circ](N3) at (4.26, 5.25){} node[anchor=south] at (N3.text){$V_{E}$};
+			\draw (4.75, 4.5) -- (5, 4.5);
+			\node[circ](N4) at (5, 4.5){} node[anchor=west] at (N4.text){$V_{5V}$};
+			\draw (10, 5) |- (9.99, 5.25);
+			\draw (10.01, 3.75) |- (10, 3.5);
+			\node[tlground] at (10, 3.5){};
+			\node[circ](N5) at (10, 5.25){} node[anchor=south] at (N5.text){$V_{5V}$};
+			\draw (9, 7.75) |- (8.99, 8);
+			\draw (9, 6.5) |- (8.99, 6.25);
+			\node[tlground] at (8.99, 6.25){};
+			\node[circ](N6) at (9, 8){} node[anchor=south] at (N6.text){$V_{5V}$};
+			\draw (9, 7.75) -- (9, 7.5);
+			\draw (6.51, 7.25) |- (6.5, 7.5);
+			\draw (6.51, 6) |- (6.5, 5.75);
+			\node[tlground] at (6.5, 5.75){};
+			\node[circ](N7) at (6.51, 7.5){} node[anchor=south] at (N7.text){$V_{5V}$};
+			\draw (6.51, 7.25) -- (6.51, 7);
+			\draw (7.75, 7) |- (7.62, 7.01);
+		\end{tikzpicture}
+		\caption{Diagrama de bloques del lazo realimentador.}
+		\label{fig:bloque_PWM}
+	\end{figure}
+	
+	Se sensa la señal de salida y se obtiene el error respecto de una referencia. Luego, se compara el error con una señal triangular, cuyo objetivo es aumentar el duty si el error es negativo (tensión de salida baja) y disminuirlo si es positivo.
+	
+	\subsubsection{Escalador de señal de salida}
+	
+	Se busca comparar la señal de salida con una tensión de referencia más baja. Para ello debe escalarse $V_o$ de tal modo que, si $V_o$ tiene el valor deseado, $v_{med} = V_o \cdot escalado$. Se elige una combinación de resistores tal que $\SI{9.5}{V} \cdot escalado = v_{med} =\SI{5.75}{V} \to escalado = 0.605$. La figura \ref{fig:escalado} muestra su topología.
+	
+	\begin{figure}[H]
+		\centering
+\begin{tikzpicture}[transform shape]
+	% Paths, nodes and wires:
+	\draw (12, 11) to[american resistor, /tikz/circuitikz/bipoles/length=0.980cm, l={$R_1$}] (12, 9);
+	\draw (12, 9) to[american resistor, /tikz/circuitikz/bipoles/length=0.980cm, l={$R_2$}] (12, 7);
+	\node[circ] at (12, 9){};
+	\node[circ](N1) at (12, 11){} node[anchor=south] at (N1.text){$V_o$};
+	\node[tlground] at (12, 7){};
+	\node[currarrow, xscale=-1, yscale=-1](N2) at (10.276, 9){} node[anchor=east] at (N2.text){$v_{sense}$};
+	\draw (10.25, 9) -- (12, 9);
+\end{tikzpicture}
+		\caption{Bloque de escalado.}
+		\label{fig:escalado}
+	\end{figure}
+	
+	Se eligen dos resistores de valor $R_{1} = \SI{22}{\kilo\ohm}$ y otro de valor $R_2 = \SI{33}{\kilo\ohm}$:
+	
+	\begin{equation}
+		escalado = \frac{R_2}{R_1 + R_2} = 0.6
+	\end{equation}
+	\subsubsection{Alimentación del lazo y tensión de referencia}
+	Para el correcto funcionamiento del lazo, se busca que su tensión de alimentación sea independiente de la entrada $V_{E}$, por dos motivos: para proteger los comparadores y amplificadores de sobretensión, y para reducir el ruido del lazo. Asimismo, y con el objetivo de aumentar al máximo la excursión simétrica, se fija la tensión de referencia en la mitad de la tensión de alimentación.
+	
+	En la figura \ref{fig:regulador_431} puede verse el circuito de alimentación del lazo realimentador. Se implementa mediante el uso de un regulador ajustable \textbf{TL431} con el agregado de un transistor como fuente de corriente.
+	
+	Se busca, por limitación de los comparadores y amplificadores elegidos, una tensión de alimentación de \SI{11.5}{V}, y por ende una tensión de referencia de \SI{5.75}{V}
+	
+	\begin{figure}[H]
+		\centering
+		\begin{tikzpicture}[transform shape]
+			% Paths, nodes and wires:
+			\draw (6, 4.75) to[empty Schottky diode, l={$TL431$}] (6, 7.25);
+			\draw (6, 8.25) to[american resistor, /tikz/circuitikz/bipoles/length=0.840cm, l={$R_1$}] (6, 9.75);
+			\draw (8, 6) to[american resistor, /tikz/circuitikz/bipoles/length=0.840cm, l={$R_2$}] (8, 7.5);
+			\draw (8, 4.5) to[american resistor, /tikz/circuitikz/bipoles/length=0.840cm, l={$R_3$}] (8, 6);
+			\draw (10, 6) to[american resistor, /tikz/circuitikz/bipoles/length=0.840cm, l={$R_4$}] (10, 7.5);
+			\draw (10, 4.5) to[american resistor, /tikz/circuitikz/bipoles/length=0.840cm, l={$R_5$}] (10, 6);
+			\node[npn](N1) at (8, 8.27){} node[anchor=west] at (N1.text){$Q_1$};
+			\draw (8, 9.04) -| (8, 10) |- (6, 10);
+			\draw (6, 9.75) -| (6, 10);
+			\draw (6, 8.25) -| (6, 7);
+			\draw (7.16, 8.27) -| (6, 8.25);
+			\draw (8, 7.5) -- (10, 7.5);
+			\draw (10, 4.5) -- (6, 4.5);
+			\draw (6, 4.5) -| (6, 4.75);
+			\draw (8, 6) |- (6.25, 6);
+			\draw (10, 6) -- (11, 6);
+			\node[circ] at (6, 8.25){};
+			\node[circ] at (8, 6){};
+			\node[circ] at (10, 6){};
+			\node[circ] at (8, 7.5){};
+			\node[circ] at (8, 4.5){};
+			\node[rground, xscale=-1, yscale=-1](N2) at (7, 10){} node[anchor=south] at ([yshift=0.32cm]N2.text){$V_E$};
+			\node[circ](N3) at (11, 6){} node[anchor=west] at (N3.text){$V_{med}$};
+			\draw (10, 7.5) -- (11, 7.5);
+			\node[circ] at (10, 7.5){};
+			\node[circ](N4) at (11, 7.5){} node[anchor=west] at (N4.text){$V_{5V}$};
+			\node[tlground] at (8, 4){};
+			\draw (8, 4) -| (8, 4.5);
+			\node[circ] at (7, 10){};
+		\end{tikzpicture}
+		\caption{Esquemático de circuito de alimentación del lazo realimentador.}
+		\label{fig:regulador_431}
+	\end{figure}
+	
+	El resistor $R_1$ es el responsable de suministrar corriente al integrado. Se debe asegurar que provea al menos \SI{1}{mA} para todo el rango de operación de la fuente. Para asegurar no desperdiciar energía, se fija un valor lo más alto posible:
+	
+	\begin{equation}
+		I_{TL} = \frac{V_E - (V_{11.5V} + vbe_{on})}{R_1} = \frac{\SI{12.5}{V} - (\SI{11.5}{V} + \SI{0.7}{V})}{R_1} \to R_1 \approx \SI{120}{\ohm}.
+	\end{equation}
+	Y de este modo se asegura que, para tensiones de entrada más altas, no se superen los \SI{100}{mA}, la corriente admitida máxima.
+	
+	Las resistencias $R_{2-5}$ se fijan en \SI{10}{\kilo\ohm}. Su objetivo será fijar las tensiones de referencia para asegurar $V_{11.5V} = 11.5V$ y $V_{med} = 5.75V$. Su valor no debe ser demasiado chico para reducir el consumo pasivo, pero tampoco demasiado grande como para ser afectado fácilmente por el ruido electromagnético.
+	
+	Notar que $R_4$ y $R_5$ actúan de forma efectiva como divisor de tensión, pues la salida será la entrada de amplificadores y comparadores, de alta impedancia.
+	
+	\subsubsection{Generador de señal triangular}
+	
+	Para la generación de la señal triangular, se utiliza un comparador con histéresis en serie con un integrador. El circuito completo se muestra en la figura \ref{fig:triag}.
+	
+	\begin{figure}[H]
+		\centering
+		\begin{tikzpicture}[transform shape]
+			% Paths, nodes and wires:
+			\node[op amp](N1) at (9.19, 6.49){} node[anchor=center] at (N1.text){$TL082$};
+			\node[op amp, yscale=-1](N2) at (14.19, 6.49){} node[anchor=center] at (N2.text){$LM319$};
+			\draw (16.5, 8) to[american resistor, /tikz/circuitikz/bipoles/length=0.980cm, l={$R_{pu}$}] (16.5, 6.5);
+			\draw (13, 6.98) to[american resistor, /tikz/circuitikz/bipoles/length=0.980cm, l_={$R_1$}] (11, 7);
+			\draw (15.5, 8.5) to[american resistor, /tikz/circuitikz/bipoles/length=0.980cm, l={$R_2$}] (13, 8.5);
+			\draw (13.5, 10) to[american resistor, /tikz/circuitikz/bipoles/length=0.980cm, l={$R_C$}] (12, 10);
+			\draw (13, 7) -| (13, 8.5) -- (13.25, 8.5);
+			\draw (15.38, 6.49) -| (17.5, 10) -- (13.5, 10);
+			\draw (8, 8.25) to[capacitor, /tikz/circuitikz/bipoles/length=1.12cm, l={$C$}] (10, 8.25);
+			\draw (10, 8.25) -| (11, 7);
+			\draw (7, 8.25) -| (7, 10) -- (12, 10);
+			\node[circ] at (11, 7){};
+			\node[circ] at (7, 8.25){};
+			\draw (8, 6.98) -| (7, 8.25);
+			\draw (7, 8.25) -- (8, 8.25);
+			\draw (15.5, 8.5) -| (15.5, 6.5);
+			\draw (10.38, 6.49) -| (11, 7);
+			\node[circ] at (13, 7){};
+			\node[circ] at (15.5, 6.5){};
+			\node[rground, xscale=-1, yscale=-1](N3) at (9.107, 7.029){} node[anchor=south] at ([yshift=0.33cm]N3.text){$V_{5V}$};
+			\node[ground] at (9.107, 5.951){};
+			\node[ground] at (14.107, 5.951){};
+			\node[rground, xscale=-1, yscale=-1](N4) at (14.107, 7.029){} node[anchor=south] at ([yshift=0.33cm]N4.text){$V_{5V}$};
+			\node[circ](N5) at (8, 6){} node[anchor=east] at (N5.text){$V_{med}$};
+			\node[circ](N6) at (13, 6){} node[anchor=east] at (N6.text){$V_{med}$};
+			\node[circ](N7) at (11.75, 8.25){} node[anchor=west] at (N7.text){$v_{triag}$};
+			\node[rground, xscale=-1, yscale=-1](N8) at (16.5, 8){} node[anchor=south] at ([yshift=0.33cm]N8.text){$V_{5V}$};
+			\node[circ] at (16.5, 6.5){};
+			\draw (11, 8.25) -- (11.75, 8.25);
+			\node[circ] at (11, 8.25){};
+		\end{tikzpicture}
+		\caption{Esquemático del generador de señal triangular.}
+		\label{fig:triag}
+	\end{figure}
+	
+	La elección de los integrados \textbf{TL082} y \textbf{LM319} se basa principalmente en la frecuencia de operación objetivo (tabla \ref{tab:spec_buck}), y en su capacidad para operar con fuente simple. Para ello se buscó un slew rate mayor que el requerido para la señal triangular (en este caso, los \SI{20}{V/\micro s} son ideales), y una velocidad de respuesta muy inferior a la requerida para generar la señal cuadrada.
+	
+	La elección de valores de los componentes de la figura \ref{fig:triag} se hace en base al siguiente criterio:
+	
+	\begin{itemize}
+		\item Los resistores $R_1$ y $R_2$ definen la amplitud de la señal triangular, mediante el ajuste de los puntos de comparación del comparador con histéresis. Del análisis se deduce la siguiente fórmula:
+		\begin{equation}
+			V_{lim} = v_{med} \cdot \left( 1 \pm \frac{R_1}{R_2} \right)
+		\end{equation}
+		Teniendo en cuenta los márgenes (Output Voltage Swing) del \textbf{TL082}, la amplitud máxima será de $\approx \SI{2.6}{V}$. Como tal, se fija $R_1 = \SI{33}{\kilo\ohm}$ y $R_2 = \SI{100}{\kilo\ohm}$. La señal triangular se moverá entre los límites $\SI{4.45}{V} < v_{triag} < \SI{7.05}{V}$.
+		
+		\item La resistencia $R_{pu}$ es necesaria por ser el LM319 \textit{open-collector}. Se fija en $R_{pu} = \SI{1}{\kilo\hertz}$ para no consumir mucha corriente (\SI{5}{mA}), pero no afectar demasiado la carga y descarga de $C$.
+		
+		\item A continuación debe fijarse la frecuencia de operación. Se fija primero $C = \SI{1}{nF}$, pues es un valor válido para capacitores cerámicos (que funcionan correctamente en el rango $\sim \SI{100}{\kilo\hertz}$).
+		
+		Analizando la expresión característica de un amplificador integrador, se obtiene que los tiempos de crecimiento y decrecimiento están determinados por:
+		\begin{equation}
+			\Delta t_c = 2 \cdot \frac{R1}{R2} \cdot (R_C + R_{pu}) \cdot C
+		\end{equation}
+		\begin{equation}
+			\Delta t_d = 2 \cdot \frac{R1}{R2} \cdot R_C \cdot C
+		\end{equation}
+		
+		Se busca una frecuencia de operación de $\sim \SI{130}{\kilo\hertz} \to T = \Delta t_c + \Delta t_d \sim \SI{7.7}{\micro s}$.
+		Se fija $R_{C} = \SI{4.7}{\kilo\ohm}$.
+		
+		\begin{equation}
+			t_c = \SI{4.35}{\micro s}, \qquad \Delta t_d = \SI{3.7}{\micro s} \to f_s =\approx \SI{124}{\kilo\hertz}
+		\end{equation}
+		
+		\textit{Observación:} el hecho de que la frecuencia no sea exactamente triangular no afecta de ninguna manera la generación de la señal PWM, solo alterará el movimiento de su fase.\\
+		\textit{Observación:} La salida del generador de señal triangular deberá ser de alta impedancia.
+	\end{itemize}
+	
+	\subsubsection{Amplificador de error y comparador PWM}
+	
+	Una vez diseñados los bloques que generan la señal triangular, la señal de sensado y la señal de referencia, se las deberá comparar para obtener una señal PWM modulada. Se colocan en serie un amplificador inversor, para amplificar el error al rango de la señal triangular, y luego se compara la salida con la señal triangular. El circuito final se ve en la figura \ref{fig:amp_error}.
+	
+	\begin{figure}[H]
+		\centering
+\begin{tikzpicture}[transform shape]
+	% Paths, nodes and wires:
+	\node[op amp](N1) at (6.81, 8){} node[anchor=center] at (N1.text){$TL082$};
+	\draw (11.5, 9.5) to[american resistor, l={$10k\Omega$}] (14.5, 9.5);
+	\draw (11.75, 8) to[american resistor, l={$1k\Omega$}] (9, 8);
+	\node[op amp, yscale=-1](N2) at (12.94, 7.51){} node[anchor=center] at (N2.text){$LM319$};
+	\draw (11.5, 9.5) -| (11.5, 8);
+	\draw (14.13, 7.51) -| (14.5, 9.5);
+	\draw (14.5, 7.51) -| (16, 7.5);
+	\node[circ] at (11.5, 8){};
+	\node[circ] at (14.5, 7.5){};
+	\node[inputarrow](N3) at (5.62, 7.51){} node[anchor=east] at ([xshift=-0.07cm]N3.text){$v_{med}$};
+	\node[inputarrow](N4) at (5.62, 8.49){} node[anchor=east] at ([xshift=-0.09cm]N4.text){$v_{sense}$};
+	\node[inputarrow](N5) at (11.75, 7.02){} node[anchor=east] at ([xshift=-0.07cm]N5.text){$v_{triag}$};
+	\node[ground] at (6.727, 7.461){};
+	\node[ground] at (12.857, 6.971){};
+	\node[rground, xscale=-1, yscale=-1](N6) at (6.727, 8.539){} node[anchor=south] at ([yshift=0.32cm]N6.text){$V_{11.5V}$};
+	\node[rground, xscale=-1, yscale=-1](N7) at (12.857, 8.049){} node[anchor=south] at ([yshift=0.32cm]N7.text){$V_{11.5V}$};
+	\draw (15.25, 9.5) to[american resistor, l={$1k\Omega$}] (15.25, 7.5);
+	\node[rground, xscale=-1, yscale=-1](N8) at (15.25, 9.5){} node[anchor=south] at ([yshift=0.32cm]N8.text){$V_{11.5V}$};
+	\node[circ] at (15.25, 7.5){};
+	\draw (8.75, 8) to[empty Schottky diode, /tikz/circuitikz/bipoles/length=0.980cm] (8.75, 9.25);
+	\draw (8, 8) -- (9, 8);
+	\node[circ] at (8.75, 8){};
+	\node[circ](N9) at (8.75, 9.25){} node[anchor=south] at (N9.text){$V_{lim}$};
+	\node[inputarrow](N10) at (16, 7.5){} node[anchor=west] at ([xshift=0.07cm]N10.text){$PWM$};
+\end{tikzpicture}
+		\caption{Esquemático del amplificador de error y comparador PWM.}
+		\label{fig:amp_error}
+	\end{figure}
+	
+	La elección de los valores sigue el siguiente criterio:
+	\begin{itemize}
+		\item Se coloca un diodo Zener con $V_z = \SI{10}{V}$ para proteger la entrada de sobrepicos de tensión ocasionados por el transitorio de la fuente switching, para proteger al lazo realimentador.
+		
+		
+		\item Los resistores del comparador con histéresis cumplen la función de hacer la transición entre estados del PWM limpia, y por lo tanto la histéresis será muy pequeña y tendrá valor $R_3/R_4$. Se fijan valores $R_3 = \SI{1}{\kilo\ohm}$ y $R_4 = \SI{10}{\kilo\ohm}$ para una histéresis del 10\%. Debido a que el error estacionario debe ser 0, su valor no afecta en gran medida al consumo pasivo de corriente.
+		
+		\item El valor del resistor $R_{pu}$ se fija en $R_{pu} = \SI{10}{\kilo\ohm}$. De este modo la corriente de consumo pasivo será $\sim \SI{500}{\micro\ampere}$. Dado que la entrada del gate driver es de alta impedancia, este valor no es crítico para el funcionamiento.
+	\end{itemize}
+	
+	Para conseguir una fuente constante de tensión capaz de absorver suficiente corriente para hacer de un efectivo limitador, se utiliza la topología de la figura \ref{fig:reglim}.
+	
+	\begin{figure}[H]
+		\centering
+		\begin{tikzpicture}[transform shape]
+			% Paths, nodes and wires:
+			\draw (8, 4) to[empty Schottky diode, l_={$TL431$}] (8, 7.5);
+			\draw (6, 9) to[american resistor, /tikz/circuitikz/bipoles/length=0.840cm, l={$1k\Omega$}] (6, 10.75);
+			\draw (6, 5.75) to[american resistor, /tikz/circuitikz/bipoles/length=0.840cm, l={$R_2$}] (6, 7.5);
+			\draw (6, 4) to[american resistor, /tikz/circuitikz/bipoles/length=0.840cm, l={$R_3$}] (6, 5.75);
+			\draw (10, 4) -- (6, 4);
+			\node[circ] at (8, 7.5){};
+			\node[circ] at (8, 4){};
+			\node[rground, xscale=-1, yscale=-1](N1) at (6, 10.75){} node[anchor=south] at ([yshift=0.32cm]N1.text){$V_E$};
+			\node[tlground] at (8, 3.5){};
+			\draw (8, 3.5) -| (8, 4);
+			\node[pnp] at (10, 7.5){};
+			\draw (6, 5.75) -- (7.75, 5.75);
+			\draw (10, 4) to[american resistor, /tikz/circuitikz/bipoles/length=0.840cm, l_={$1k\Omega$}] (10, 6.75);
+			\draw (9.16, 7.5) -- (8, 7.5);
+			\draw (6, 9) -- (10, 9);
+			\draw (10, 9) -- (11.25, 9);
+			\draw (6, 7.5) -- (6, 9);
+			\draw (8, 7.5) to[american resistor, /tikz/circuitikz/bipoles/length=0.840cm, l={$1k\Omega$}] (8, 9);
+			\draw (10, 9) -| (10, 8.27);
+			\node[circ] at (6, 9){};
+			\node[circ] at (8, 9){};
+			\node[circ] at (10, 9){};
+			\node[circ] at (6, 5.75){};
+			\node[currarrow](N2) at (11.25, 9){} node[anchor=west] at (N2.text){$V_{lim}$};
+		\end{tikzpicture}
+		\caption{Regulador lineal limitador de PWM.}
+		\label{fig:reglim}
+	\end{figure}
+
+La ecuación de $V_{lim}$ es, según la hoja de datos, 
+
+\begin{equation}
+	V_{lim} = \SI{2.5}{V} \cdot (1 + \frac{R_2}{R_1}).
+\end{equation} 
+
+Se fijan las resistencias $R_2 = \SI{5.6}{\kilo\ohm}$ y $R_1 = \SI{3.3}{\kilo\ohm}$ para $V_{lim} = \SI{6.74}{V}$.
+
+	
+	\subsubsection{Elección y diseño del \textit{Gate Driver}}
+	Para el manejo de los transistores de conmutación, se utiliza un \textit{gate driver} que asegure la conmutación de la fuente de forma segura. Dado que se trata de una fuente sincrónica, además de implementar un control por \textit{High-Side}, deberá tenerse en cuenta el tiempo muerto.
+	
+	Por simplicidad, se elige el driver \textbf{IR2111}. Este módulo tiene integrado ambos controles (\textit{High-Side} y \textit{Low-Side}), además del control del tiempo muerto ($\sim 600\si{ns}$).
+	
+	El circuito de control tiene la forma de la figura \ref{fig:gatedriver}.
+	
+	\begin{figure}[H]
+		\centering
+		\begin{tikzpicture}[transform shape]
+			% Paths, nodes and wires:
+			\draw (8.5, 11) to[full Schottky diode, /tikz/circuitikz/bipoles/length=0.840cm, l={$D$}] (11, 11);
+			\node[shape=rectangle, draw, line width=1pt, minimum width=1.465cm, minimum height=1.965cm] at (9.75, 9.25){};
+			\draw (11.75, 11) to[capacitor, /tikz/circuitikz/bipoles/length=0.840cm, l={$C$}] (11.75, 9);
+			\draw (11, 11) -- (11.75, 11);
+			\draw (10.5, 10) -| (11, 11);
+			\draw (10.5, 8.5) -- (12.5, 8.5);
+			\draw (10.5, 9) -- (11.75, 9) -- (12.5, 9);
+			\draw (10.5, 9.5) -- (12.5, 9.5);
+			\node[circ] at (11, 11){};
+			\node[circ] at (11.75, 9){};
+			\draw (8.5, 11) -| (8.5, 9.75) -- (9, 9.75);
+			\draw (9, 9) -- (7.75, 9);
+			\draw (9, 8.5) -- (8.5, 8.5) -| (8.5, 8.25);
+			\node[tlground] at (8.5, 8.25){};
+			\node[trarrow](N1) at (7.638, 9){} node[anchor=east] at (N1.text){$PWM$};
+			\node[trarrow](N2) at (12.5, 8.5){} node[anchor=west] at (N2.text){$L_{ctrl}$};
+			\node[trarrow](N3) at (12.5, 9){} node[anchor=west] at (N3.text){$V_s$};
+			\node[trarrow](N4) at (12.5, 9.5){} node[anchor=west] at (N4.text){$H_{ctrl}$};
+			\node[shape=rectangle, minimum width=0.34cm, minimum height=0.34cm] at (9.063, 9.75){} node[anchor=center, align=center, text width=-0.048cm, inner sep=6pt] at (9.063, 9.75){\small $V_{cc}$};
+			\node[shape=rectangle, minimum width=0.34cm, minimum height=0.34cm] at (9.062, 8.5){} node[anchor=center, align=center, text width=-0.048cm, inner sep=6pt] at (9.062, 8.5){\small GND};
+			\node[shape=rectangle, minimum width=0.402cm, minimum height=0.34cm] at (9.125, 9){} node[anchor=center, align=center, text width=0.014cm, inner sep=6pt] at (9.125, 9){\small IN};
+			\node[shape=rectangle, minimum width=0.34cm, minimum height=0.34cm] at (10, 9.937){} node[anchor=center, align=center, text width=-0.048cm, inner sep=6pt] at (10, 9.937){\small $V_B$};
+			\node[shape=rectangle, minimum width=0.34cm, minimum height=0.34cm] at (10, 9.437){} node[anchor=center, align=center, text width=-0.048cm, inner sep=6pt] at (10, 9.437){\small $H_o$};
+			\node[shape=rectangle, minimum width=0.34cm, minimum height=0.34cm] at (10, 8.5){} node[anchor=center, align=center, text width=-0.048cm, inner sep=6pt] at (10, 8.5){\small $L_o$};
+			\node[shape=rectangle, minimum width=0.34cm, minimum height=0.34cm] at (10, 9){} node[anchor=center, align=center, text width=-0.048cm, inner sep=6pt] at (10, 9){\small $V_s$};
+			\node[shape=rectangle, minimum width=1.59cm, minimum height=0.527cm] at (9.625, 8.031){} node[anchor=north west, align=left, text width=1.202cm, inner sep=6pt] at (8.813, 8.312){IR2111};
+		\end{tikzpicture}
+		\caption{Esquemático del \textit{gate-driver}.}
+		\label{fig:gatedriver}
+	\end{figure}
+	
+	Para la elección del capacitor, se debe tener en cuenta la frecuencia de operación, el mínimo tiempo de carga, y la cantidad de carga que debe contener para sostener su valor de tensión.
+	
+	Dado que la frecuencia de operación será $f\approx\SI{130}{\kilo\hertz}$, podrá usarse un capacitor cerámico sin ningún inconveniente. Teniendo en cuenta un duty máximo de 90\%, se espera un tiempo mínimo de carga de $\approx 0.1 \cdot \SI{7.7}{\micro s} = \SI{770}{\nano s}$
+	
+	Durante el tiempo que se encuentra encendido, tendrá que cargar la compuerta \textit{gate} del transistor de paso, de unos \SI{200}{nC}, así como alimentar al controlador \textit{high-side} del IR2111, que consume, como máximo, \SI{100}{\micro\ampere}.
+	
+	La carga total a suministrar en el tiempo será de 
+	
+	\begin{equation}
+		Q_{tot} = \SI{200}{nC} + \SI{100}{\micro\ampere} \cdot \SI{7.7}{\micro s} \cdot 0.9 = \SI{200.6}{nC}.
+	\end{equation}
+	
+	Para calcular la capacidad mínima requerida, consideramos una caída de tensión máxima de \SI{0.5}{V} para mantener el transistor saturado:
+	
+	\begin{equation}
+		C_{bootstrap\_min} = \frac{\SI{200.6}{nC}}{\SI{0.5}{V}} =  \SI{400}{nF}.
+	\end{equation}
+	
+	Se elije entonces un capacitor cerámico de valor \SI{470}{nF}.
+	
+	El diodo deberá ser un diodo \textit{schottky} rápido que pueda soportar la corriente por carga del capacitor. En este caso, se elige el \textbf{1N4007}.
+	
+	\subsubsection{Compensación}
+	
+	Para la compensación del lazo realimentador, será necesario aplicar un modelo promediado. Este consiste en evaluar el circuito en sus posibles estados de conmutación (on-off), y obtener un modelo que \textit{promedie} según el tiempo que pasa el circuito en ese estado.
+	
+	Para poder observar la ganancia de lazo en un diagrama de Bode, y así proponer técnicas de compensación, se utiliza la librería \textit{average}, y se reemplaza el generador PWM de la figura \ref{fig:amp_error} y el transistor de paso $Q_2$ por un modelo promediado. El archivo de simulación puede verse en la figura \ref{fig:sim_compensacion}.
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\linewidth]{img/BUCK/sim_compensacion}
+		\caption{Archivo de simulación utilizado para evaluar la ganancia de lazo.}
+		\label{fig:sim_compensacion}
+	\end{figure}
+	
+	Se utiliza el lazo descompensado, cortado por una fuente AC (V3) sin valor de contínua, y se reemplazan los reguladores lineales por fuentes ideales de contínua para ayudar a la convergencia. Además, se utiliza el TL082 en formato fuente partida, debido a que el componente de fuente promediada (CCM2) opera con valores de tensión 0V-1V.
+	
+	Para analizar la ganancia de lazo, se debe evaluar la relación entre V(y) y V(x), teniendo en cuenta un signo negativo por utilizar el terminal inversor del operacional:
+	
+	\begin{equation}
+		-\frac{V(y)}{V(x)} = |T|.
+	\end{equation}
+	
+	El gráfico de bode resultante del circuito descompensado se muestra en la figura \ref{fig:sim_descompensado}. Se evalúa para la mínima y máxima carga admisible, con la fuente de tensión $Vee = \SI{30}{V}$.
+	
+	\begin{figure}[H]
+		\centering
+		\begin{subfigure}{0.7\textwidth}
+			\includegraphics[width=\linewidth]{img/BUCK/bode_descompensado}
+			\caption{Ganancia de lazo del circuito descompensado.}
+		\end{subfigure}
+		\begin{subfigure}{0.7\textwidth}
+			\includegraphics[width=\linewidth]{img/BUCK/respuesta_descompensado}
+			\caption{Respuesta temporal del circuito descompensado.}
+		\end{subfigure}
+		\caption{Análisis temporal y en frecuencia del circuito descompensado.}
+		\label{fig:sim_descompensado}
+	\end{figure}
+	
+	La fuente, sin compensar, es fuertemente inestable, con ganancia de lazo abierto \SI{129}{dB}. Para corregir esta situación, se adopta la siguiente técnica:
+	
+	En primer lugar, se busca utilizar acción integral (polo en el origen) para eliminar el error estacionario. En segundo lugar, se buscará un adelanto de fase con la implementación de un polo y un cero, formando así un amplificador de tipo II (\cite{compensation}), con transferencia.
+	
+	Adicionalmente, se agrega otra red, esta vez de atraso, que al ser colocada a la entrada del amplificador intercambiará sus polos por sus ceros. Esto forma un amplificador de error de tipo III (figura \ref{fig:compensacion} ). La transferencia final, teniendo en cuenta polos y ceros, tiene la siguiente forma:
+	
+	\begin{equation}
+		|T| = A_{VM} \cdot \frac{\omega_{Z1}}{s} \cdot \frac{1+ \frac{s}{\omega_{Z1}}}{1+ \frac{s}{\omega_{Z2}}} \cdot \frac{1+ \frac{s}{\omega_{P1}}}{1+ \frac{s}{\omega_{P2}}}.
+	\end{equation}
+	
+	Con 
+	
+	\begin{equation}
+		A_{VM} = R_{2}/R_1 \qquad \omega_{Z1} = \frac{1}{R_2 \cdot C_2} \qquad \omega_{Z2} = \frac{1}{\SI{22}{\kilo\ohm} \cdot C_1} \qquad \omega_{P1} = \frac{1}{R_1 \cdot C_1} \qquad \omega_{P2} = \frac{1}{R_2 \cdot C_3}
+	\end{equation}
+	
+	\begin{figure}[H]
+		\centering
+		\begin{tikzpicture}[transform shape]
+			% Paths, nodes and wires:
+			\draw (10, 11) to[american resistor, /tikz/circuitikz/bipoles/length=1.08cm, l={$22k\Omega$}] (10, 8);
+			\draw (10, 8) to[american resistor, /tikz/circuitikz/bipoles/length=1.08cm, l={$33k\Omega$}] (10, 6);
+			\node[tlground] at (10, 6){};
+			\node[rground, xscale=-1, yscale=-1](N1) at (10, 11){} node[anchor=south] at ([yshift=0.29cm]N1.text){$V_o$};
+			\node[circ] at (10, 8){};
+			\draw (10, 8) -- (13, 8);
+			\node[op amp](N2) at (14.19, 7.51){} node[anchor=center] at (N2.text){$TL082$};
+			\node[inputarrow](N3) at (13, 7.02){} node[anchor=east] at ([xshift=-0.07cm]N3.text){$v_{med}$};
+			\node[ground] at (14.107, 6.971){};
+			\node[rground, xscale=-1, yscale=-1](N4) at (14.107, 8.029){} node[anchor=south] at ([yshift=0.32cm]N4.text){$V_{11.5V}$};
+			\draw (8, 9.5) to[american resistor, /tikz/circuitikz/bipoles/length=1.08cm, l={$R_1$}] (8, 8);
+			\draw (8, 8) -- (10, 8);
+			\draw (8, 9.5) to[capacitor, /tikz/circuitikz/bipoles/length=0.980cm, l={$C_1$}] (8, 10.75);
+			\draw (8, 10.75) -- (10, 10.75);
+			\node[circ] at (10, 10.75){};
+			\draw (15.38, 7.51) -| (17.75, 7.5);
+			\node[inputarrow](N5) at (17.75, 7.5){} node[anchor=west] at ([xshift=0.07cm]N5.text){$Generador\ PWM$};
+			\draw (14, 9.5) to[american resistor, /tikz/circuitikz/bipoles/length=1.08cm, l_={$R_2$}] (12, 9.5);
+			\draw (14, 9.5) to[capacitor, /tikz/circuitikz/bipoles/length=0.980cm, l={$C_2$}] (15.25, 9.5);
+			\draw (15.25, 9.5) -- (15.5, 9.5) -| (15.5, 7.5);
+			\draw (12, 9.5) -| (12, 8);
+			\draw (13.25, 11) to[capacitor, /tikz/circuitikz/bipoles/length=0.980cm, l_={$C_3$}] (14.5, 11);
+			\draw (12, 9.5) -| (12, 11) -- (13.25, 11);
+			\draw (14.5, 11) -- (15.5, 11) -| (15.5, 9.5);
+			\node[circ] at (15.5, 7.5){};
+			\node[circ] at (15.5, 9.5){};
+			\node[circ] at (12, 9.5){};
+			\node[circ] at (12, 8){};
+			\node[shape=rectangle, draw, line width=0.5pt, dash pattern={on 2pt off 2pt}, minimum width=1.982cm, minimum height=3.732cm] at (8, 9.375){};
+			\node[shape=rectangle, rotate=-90, draw, line width=0.5pt, dash pattern={on 2pt off 2pt}, minimum width=2.507cm, minimum height=4.323cm] at (13.759, 10.238){};
+		\end{tikzpicture}
+		\caption{Esquemático del circuito amplificador de error compensado.}
+		\label{fig:compensacion}
+	\end{figure}
+	
+	El objetivo será no disminuir el ancho de banda dramáticamente compensando el polo doble en $f \approx \SI{1}{kHz}$ con dos redes de adelanto. Para ello, se fijan valores:
+	
+	\begin{equation}
+		R_1 = \SI{22}{\ohm} \qquad R_2 = \SI{47}{\kilo\ohm} \qquad C_1 = \SI{4.7}{nF} \qquad C_2 = \SI{470}{nF} \qquad C_3 = \SI{470}{pF}
+	\end{equation}
+	
+	Como resultado, se obtienen polos en
+	
+	\begin{equation}
+		\frac{\omega_{P1}}{2\pi} = \SI{1.5}{MHz} \qquad \frac{\omega_{P2}}{2\pi} = \SI{7.2}{\kilo\hertz}
+	\end{equation}
+	
+	y ceros en
+	
+	\begin{equation}
+		\frac{\omega_{Z1}}{2\pi} = \SI{7.2}{Hz} \qquad \frac{\omega_{Z2}}{2\pi} = \SI{1.5}{kHz}.
+	\end{equation}
+	
+	La figura \ref{fig:sim_compensado} muestra la ganancia de lazo y respuesta temporal del sistema, obteniéndose un margen de fase de alrededor de \SI{25}{\deg}.
+	
+	
+	\begin{figure}[H]
+		\centering
+		\begin{subfigure}{0.7\textwidth}
+			\includegraphics[width=\linewidth]{img/BUCK/bode_compensado}
+			\caption{Ganancia de lazo del circuito compensado.}
+		\end{subfigure}
+		\begin{subfigure}{0.7\textwidth}
+			\includegraphics[width=\linewidth]{img/BUCK/respuesta_compensado}
+			\caption{Respuesta temporal del circuito compensado.}
+		\end{subfigure}
+		\caption{Análisis temporal y en frecuencia del circuito compensado.}
+		\label{fig:sim_compensado}
+	\end{figure}
+	
+	\subsubsection{Construcción del inductor $L$}
+	
+	Se reitero el diseño del inductor mediante el método iterativo de Erickson para el nuevo valor de L, cuyas características finales se encuentran en la tabla \ref{tab:diseno_inductor}. El inductor debe diseñarse de forma que opere dentro de la región lineal del núcleo magnético y mantenga sus parámetros eléctricos en las condiciones nominales de operación. Para ello, es necesario considerar las principales limitaciones físicas de un inductor real, las cuales condicionan tanto su desempeño como su eficiencia.
+	
+	Las características operativas requeridas para el componente se resumen en la Tabla~\ref{tab:especificaciones}:
+	
+	\begin{table}[h!]
+		\centering
+		\caption{Parámetros nominales y críticos de diseño.}
+		\label{tab:especificaciones}
+		\begin{tabular}{lccS}
+			\toprule
+			\textbf{Parámetro} & \textbf{Símbolo} & \textbf{Unidad} & {\textbf{Valor Nominal}} \\
+			\midrule
+			Inductancia Nominal         & $L$                        & $\mu \text{H}$ & 250.00 \\
+			Frecuencia de Conmutación   & $f_s$                      & \text{kHz}  & 130.00 \\
+			Corriente Continua (DC)     & $I_{L_{\text{dc}}}$        & \text{A}    & 1.500  \\
+			Corriente Máxima de Pico    & $I_{L_{\text{max}}}$       & \text{A}    & 1.600  \\
+			Pérdidas Máximas en el Cobre& $P_{\text{cu}_{\text{max}}}$& \text{W}    & 1.000  \\
+			\bottomrule
+		\end{tabular}
+	\end{table}
+	
+	
+	
+	\begin{table}[H]
+		\centering
+		\renewcommand{\arraystretch}{1.3}
+		\begin{tabular}{|l|c|}
+			\hline
+			\multicolumn{2}{|c|}{\textbf{Diseño del Inductor}} \\
+			\hline
+			\textbf{Parámetro} & \textbf{Valor} \\
+			\hline
+			Constante Geométrica $K_g$ & $20.6 \cdot 10^{-2}$\\
+			\hline 
+			Constante Geométrica $K_{gfe}$ & $2.06 \cdot 10^{-3}$\\
+			\hline
+			Tipo de material & N87 \\
+			\hline
+			Tipo de núcleo & EE25 \\
+			\hline 
+			Sección del núcleo $A_c$ & 0.36 $\, cm^2 $\\
+			\hline 
+			Área de ancho de la bobina : $ W_A$ & 0.500$\, cm^2 $\\
+			\hline
+			Longitud media por vuelta : $MLT $ & 4.7 $\, cm $ \\
+			\hline 
+			Peso del núcleo: $g$ & 15.1 $\, g$\\
+			\hline
+			Entre hierro (gap) & $l_g=\SI{0.17}{\milli\meter}$ \\
+			\hline
+			Número de vueltas & $n_l=37$ \\
+			\hline
+			Tipo de alambre & AWG\#25 \\
+			\hline
+			Sección transversal del conductor $A_w$ & $1,623 \, \cdot 10^{-3} cm^2$\\
+			\hline
+		\end{tabular}
+		\caption{Parámetros de diseño del inductor de $L=\SI{50}{\micro\henry}$}
+		\label{tab:diseno_inductor}
+	\end{table}
+	
+	
+	
+	
+	
+	\begin{figure}[H]
+		\centering
+		
+		\begin{minipage}{0.28\textwidth}
+			\centering
+			\includegraphics[width=\linewidth]{img/diseño_inductor/nucleo_EE19}
+		\end{minipage}
+		\hfill
+		\begin{minipage}{0.65\textwidth}
+			\small
+			El núcleo \textbf{EE25} está compuesto por dos mitades con forma de
+			letra \textit{E}, cuya unión conforma un circuito magnético cerrado.
+			La denominación ``EE'' hace referencia a esta geometría, mientras que
+			el número ``25'' identifica el tamaño principal del núcleo, de
+			aproximadamente \SI{25}{mm}. Este tipo de núcleo de ferrita es
+			ampliamente utilizado en inductores y transformadores de fuentes
+			conmutadas debido a su facilidad de bobinado y buen aprovechamiento
+			del flujo magnético.
+		\end{minipage}
+		
+		\caption{Núcleo EE25 sin ensamblar.}
+		\label{fig:nucleoee19}
+		
+		
+	\end{figure}
+	\begin{figure}[H]
+		\centering
+		
+		\begin{minipage}{0.28\textwidth}
+			\centering
+			\includegraphics[width=0.7\linewidth]{img/BUCK/inductor_fabricado}\end{minipage}
+		\hfill
+		\begin{minipage}{0.65\textwidth}
+			
+			El inductor fue construido realizando el bobinado de forma manual sobre el carrete. Para reducir las pérdidas por efecto pelicular a la frecuencia de conmutación, se emplearon dos conductores esmaltados conectados en paralelo. Finalmente, se incorporó un entrehierro (\textit{gap}) mediante una lámina aislante calibrada entre ambas mitades del núcleo, aumentando la reluctancia del circuito magnético y disminuyendo la inductancia hasta el valor de diseño.
+			
+		\end{minipage}
+		
+		\caption{Núcleo EE25 ensamblado.}
+		\label{fig:nucleoee25_ensaamblado}
+	\end{figure}
+	
+	
+	\subsubsection{Profundidad de penetración}
+	
+	Debido a la elevada frecuencia de conmutación del convertidor, la corriente alterna tiende a concentrarse cerca de la superficie del conductor, fenómeno conocido como efecto pelicular (\textit{skin effect}). Cuando el radio del conductor supera la profundidad de penetración, la resistencia efectiva aumenta y, en consecuencia, también las pérdidas por conducción. Para mitigar este efecto se decidió emplearse conductores de menor diámetro conectados en paralelo o cable tipo \textit{Litz}, incrementando el área efectiva de conducción para la componente alterna de la corriente.
+	
+	La profundidad de penetración viene dada por:
+	
+	\begin{equation}
+		\delta=\sqrt{\frac{2\rho}{\omega\mu}}
+		\label{eq:skin_depth}
+	\end{equation}
+	
+	donde:
+	
+	\begin{itemize}
+		\item $\rho = 1.72\times10^{-8}\,\Omega\cdot\mathrm{m}$ es la resistividad del cobre.
+		\item $\mu=\mu_0\mu_r$ es la permeabilidad magnética del conductor.
+		\item $\mu_0=4\pi\times10^{-7}\,\mathrm{H/m}$.
+		\item $\mu_r\simeq1$ para el cobre.
+		\item $\omega=2\pi f$.
+	\end{itemize}
+	
+	Para una frecuencia de conmutación de
+	
+	\[
+	f=130\,\mathrm{kHz},
+	\]
+	
+	se obtiene
+	
+	\[
+	\omega=2\pi(130\times10^3)
+	=8.17\times10^5\;\mathrm{rad/s}.
+	\]
+	
+	Reemplazando en la ecuación \eqref{eq:skin_depth},
+	
+	\begin{equation}
+		\delta=
+		\sqrt{
+			\frac{
+				2(1.72\times10^{-8})
+			}{
+				(8.17\times10^5)
+				(4\pi\times10^{-7})
+			}
+		}
+		\simeq1.84\times10^{-4}\,\mathrm{m}
+	\end{equation}
+	
+	es decir,
+	
+	\begin{equation}
+		\boxed{\delta\simeq0.184\ \mathrm{mm}}
+	\end{equation}
+	
+	Por lo tanto, para minimizar las pérdidas por efecto pelicular se recomienda que el radio del conductor sea del orden de la profundidad de penetración o menor, es decir,
+	
+	\[
+	r\lesssim\delta,
+	\]
+	
+	lo que equivale aproximadamente a un diámetro máximo de
+	
+	\[
+	d\lesssim2\delta
+	\simeq0.37\ \mathrm{mm}.
+	\]
+	
+	En caso de requerirse una sección transversal mayor, resulta conveniente emplear varios conductores en paralelo o cable Litz.
+	
+	\subsubsection{Densidad de corriente}
+	
+	La sección transversal del conductor debe dimensionarse de manera que la densidad de corriente permanezca dentro de los valores recomendados para limitar el incremento de temperatura del bobinado y evitar pérdidas excesivas por efecto Joule.
+	
+	La densidad de corriente se calcula mediante
+	
+	\begin{equation}
+		\sigma_{I_L}=\frac{I_{L,\max}}{A_w}
+		\label{eq:densidad_corriente}
+	\end{equation}
+	
+	donde:
+	
+	\begin{itemize}
+		\item $I_{L,\max}$ es la corriente máxima que circula por el devanado.
+		\item $A_w$ es el área de la sección transversal del conductor.
+	\end{itemize}
+	
+	Para el conductor seleccionado se obtiene
+	
+	\[
+	\sigma_{I_L}
+	=
+	\frac{I_{L,\max}}{A_w}
+	\quad
+	[\mathrm{A/mm^2}].
+	\]
+	
+	Se verifica además que
+	
+	\begin{equation}
+		\sigma_{I_L}
+		<
+		\sigma_{I_L,\mathrm{esp}}
+		=
+		5\;\mathrm{A/mm^2},
+	\end{equation}
+	
+	cumpliéndose el criterio de diseño adoptado para la densidad máxima de corriente en el conductor.
+	
+	Por lo tanto, la sección del alambre seleccionada resulta adecuada, limitando las pérdidas óhmicas y evitando
+	\subsubsection{Saturación del núcleo} 
+	
+	El núcleo magnético debe operar por debajo de la densidad de flujo de saturación del material. De esta manera se asegura que la inductancia permanezca prácticamente constante y se evita la disminución abrupta de la inductancia, el aumento de la corriente y las pérdidas asociadas al funcionamiento en saturación.
+	
+	
+	
+	Considerando que la reluctancia del circuito magnético está dominada por el entrehierro, la intensidad de campo magnético en el mismo viene dada por
+	
+	\begin{equation}
+		H_g=\frac{N_LI_{L,\max}}{l_g},
+		\label{eq:H_gap}
+	\end{equation}
+	
+	donde:
+	
+	\begin{itemize}
+		\item $N_L$ es el número de espiras del inductor,
+		\item $I_{L,\max}$ es la corriente máxima del devanado,
+		\item $l_g$ es la longitud efectiva del entrehierro.
+	\end{itemize}
+	
+	Como en el entrehierro
+	
+	\[
+	B=\mu_0H,
+	\]
+	
+	la densidad de flujo máxima resulta
+	
+	\begin{equation}
+		B_{\max}
+		=
+		\mu_0
+		\frac{N_LI_{L,\max}}{l_g},
+		\label{eq:Bmax_gap}
+	\end{equation}
+	
+	donde
+	
+	\[
+	\mu_0=4\pi\times10^{-7}\ \mathrm{H/m}.
+	\]
+	
+	Reemplazando los valores de diseño,
+	
+	\[
+	B_{\max}
+	=
+	\mu_0
+	\frac{N_LI_{L,\max}}{l_g}
+	= 0.003 \, \mu
+	\ \mathrm{T}.
+	\]
+	
+	Finalmente, se verifica que
+	
+	\begin{equation}
+		B_{\max}
+		<
+		B_{\mathrm{sat}} = 300 \, mT,
+	\end{equation}
+	
+	cumpliéndose el criterio de diseño adoptado.
+	\subsubsection{Resistividad del cobre}
+	
+	Al seleccionar un conductor, en este caso el cobre, junto con su sección se establece una resistencia al paso de cargas. De esta forma se produce la resistencia $R_cu$ como:
+	
+	\begin{equation}
+		R_{cu} =  \frac{(\rho_{cu} \cdot nl \cdot MLT)}{Aw} = 0.087  \; \Omega\
+	\end{equation} 
+	
+	En la ecuación, $\rho_{cu} $ representa la resistividad eléctrica del cobre, nl el número de espiras del devanado, MLT (Mean Length per Turn) la longitud media de una espira y $A_w$ el área de la sección transversal del conductor empleado.
+	
+	
+	
+	Se debe considerar un valor de resistencia máximo como limite superior, en este caso fue el valor dado por la ley de Joule aplicada al devanado del inductor : 
+	$ {R_{cu}}_{[max]} = \left( \frac{P_{\text{cu}_{\max}}}{I_{L_{\text{dc}}}} \right)^2 = 0,390\, \Omega$
+	
+	Al realizar un bobinado del tipo paralelo la sección del cobre disminuye, lo que favorece una distribución más uniforme de la corriente a altas frecuencias. Si se mantiene constante la sección total de cobre, la resistencia en corriente continua permanece prácticamente inalterada, mientras que la resistencia en corriente alterna disminuye debido a la reducción del efecto pelicular. Con lo cual la expresión sigue siendo valida y se cumple lo requerido.	
 	
 	\subsection{Regulador de baja caída (LDO,Low Dropout Regulator)}
 	

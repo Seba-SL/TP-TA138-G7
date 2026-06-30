@@ -16,5 +16,88 @@
   {}
 \endgroup
 
+
+\refsection{0}
+  \datalist[entry]{apa/apasortcite//global/global/global}
+    \entry{compensation}{report}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=f901f2ead9648420ec2059c1aff6e4ad}{%
+           family={Sheehan},
+           familyi={S\bibinitperiod},
+           given={Robert},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3a51f92b3e7330691cc2dc945b460480}{%
+           family={Diana},
+           familyi={D\bibinitperiod},
+           given={Louis},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{institution}{1}{%
+        {Texas Instruments}%
+      }
+      \strng{namehash}{f79ee8d0debbd3c18b5db5a4920fa19d}
+      \strng{fullhash}{f79ee8d0debbd3c18b5db5a4920fa19d}
+      \strng{fullhashraw}{f79ee8d0debbd3c18b5db5a4920fa19d}
+      \strng{bibnamehash}{f79ee8d0debbd3c18b5db5a4920fa19d}
+      \strng{authorbibnamehash}{f79ee8d0debbd3c18b5db5a4920fa19d}
+      \strng{authornamehash}{f79ee8d0debbd3c18b5db5a4920fa19d}
+      \strng{authorfullhash}{f79ee8d0debbd3c18b5db5a4920fa19d}
+      \strng{authorfullhashraw}{f79ee8d0debbd3c18b5db5a4920fa19d}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Switch-mode power converter compensation made easy}
+      \field{type}{Application Note}
+      \field{year}{2016}
+      \field{dateera}{ce}
+    \endentry
+  \enddatalist
+  \datalist[entry]{apa/global//global/global/global}
+    \entry{compensation}{report}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=f901f2ead9648420ec2059c1aff6e4ad}{%
+           family={Sheehan},
+           familyi={S\bibinitperiod},
+           given={Robert},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3a51f92b3e7330691cc2dc945b460480}{%
+           family={Diana},
+           familyi={D\bibinitperiod},
+           given={Louis},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{institution}{1}{%
+        {Texas Instruments}%
+      }
+      \strng{namehash}{f79ee8d0debbd3c18b5db5a4920fa19d}
+      \strng{fullhash}{f79ee8d0debbd3c18b5db5a4920fa19d}
+      \strng{fullhashraw}{f79ee8d0debbd3c18b5db5a4920fa19d}
+      \strng{bibnamehash}{f79ee8d0debbd3c18b5db5a4920fa19d}
+      \strng{authorbibnamehash}{f79ee8d0debbd3c18b5db5a4920fa19d}
+      \strng{authornamehash}{f79ee8d0debbd3c18b5db5a4920fa19d}
+      \strng{authorfullhash}{f79ee8d0debbd3c18b5db5a4920fa19d}
+      \strng{authorfullhashraw}{f79ee8d0debbd3c18b5db5a4920fa19d}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Switch-mode power converter compensation made easy}
+      \field{type}{Application Note}
+      \field{year}{2016}
+      \field{dateera}{ce}
+    \endentry
+  \enddatalist
+\endrefsection
 \endinput
 

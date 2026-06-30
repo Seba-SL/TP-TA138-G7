@@ -1,59 +1,72 @@
 \babel@toc {spanish}{}\relax 
 \contentsline {section}{\numberline {1}Objetivo}{2}{}%
-\contentsline {section}{\numberline {2}Especificaciones obtenidas}{2}{}%
+\contentsline {section}{\numberline {2}Diseño y elección de componentes}{2}{}%
 \contentsline {subsection}{\numberline {2.1}Fuente de alimentación conmutada}{2}{}%
-\contentsline {subsection}{\numberline {2.2}Regulador de baja caída (LDO,Low Dropout Regulator)}{2}{}%
-\contentsline {subsubsection}{\numberline {2.2.1}Especificaciones}{2}{}%
-\contentsline {subsubsection}{\numberline {2.2.2}Implementación}{2}{}%
-\contentsline {subsubsection}{\numberline {2.2.3}El transistor de paso (Tipo MOS)}{3}{}%
-\contentsline {subsubsection}{\numberline {2.2.4}Lazo de Tensión}{4}{}%
-\contentsline {subsubsection}{\numberline {2.2.5}Tensión de referencia $V_{Ref}$}{6}{}%
-\contentsline {subsubsection}{\numberline {2.2.6}Lazo de Corriente}{7}{}%
-\contentsline {subsubsection}{\numberline {2.2.7}Tensión de referencia $V_{Ref-c}$}{8}{}%
-\contentsline {subsubsection}{\numberline {2.2.8}Llave electrónica}{9}{}%
-\contentsline {subsubsection}{\numberline {2.2.9}Limitador de corriente shunt}{11}{}%
-\contentsline {subsubsection}{\numberline {2.2.10}Compensación de lazos}{11}{}%
-\contentsline {subsubsection}{\numberline {2.2.11}Analisis termico}{14}{}%
-\contentsline {subsubsection}{\numberline {2.2.12}Consideraciones de fabricación PCB}{16}{}%
-\contentsline {paragraph}{Arquitectura general}{16}{}%
-\contentsline {paragraph}{Selección de materiales y encapsulados}{16}{}%
-\contentsline {paragraph}{Selección de huellas y modelos 3D}{17}{}%
-\contentsline {paragraph}{Ancho de pistas}{17}{}%
-\contentsline {paragraph}{Dimensionamiento de pistas}{17}{}%
-\contentsline {paragraph}{Disposición de componentes}{18}{}%
-\contentsline {paragraph}{Consideraciones térmicas}{18}{}%
-\contentsline {paragraph}{Fijación mecánica }{18}{}%
-\contentsline {paragraph}{Separación y reglas de diseño}{18}{}%
-\contentsline {paragraph}{Análisis de requerimientos eléctricos (seguridad eléctrica y EMC)}{18}{}%
-\contentsline {paragraph}{Auto-ruteo}{18}{}%
-\contentsline {paragraph}{Características del diseño de la placa impresa del LDO}{18}{}%
-\contentsline {subsubsection}{\numberline {2.2.13}Mejoras:}{18}{}%
-\contentsline {section}{\numberline {3}Simulaciones}{19}{}%
-\contentsline {subsection}{\numberline {3.1}Simulaciones del regulador lineal LDO}{19}{}%
-\contentsline {subsubsection}{\numberline {3.1.1}Modo estático}{19}{}%
-\contentsline {paragraph}{Ganancias de lazo: }{19}{}%
-\contentsline {paragraph}{Estabilización de tensión: }{26}{}%
-\contentsline {paragraph}{Regulación de Linea:}{26}{}%
-\contentsline {paragraph}{Regulación de carga:}{27}{}%
-\contentsline {paragraph}{$V_o$ en función de $I_L$:}{28}{}%
-\contentsline {paragraph}{Eficiencia:}{28}{}%
-\contentsline {subsubsection}{\numberline {3.1.2}Modo Dinámico}{29}{}%
-\contentsline {subsection}{\numberline {3.2}Simulaciones de fuente switching}{30}{}%
-\contentsline {section}{\numberline {4}Mediciones}{30}{}%
-\contentsline {section}{\numberline {5}Errores}{30}{}%
-\contentsline {section}{\numberline {6}Conclusiones}{30}{}%
-\contentsline {subsection}{\numberline {6.1}Regulador Lineal LDO}{30}{}%
-\contentsline {subsection}{\numberline {6.2}Regulador BUCK}{31}{}%
-\contentsline {section}{\numberline {A}Apéndice I: Simulaciones}{32}{}%
-\contentsline {subsection}{\numberline {A.1}LDO}{32}{}%
-\contentsline {subsection}{\numberline {A.2}BUCK}{33}{}%
-\contentsline {section}{\numberline {B}Apéndice II: Esquemáticos}{36}{}%
-\contentsline {subsection}{\numberline {B.1}LDO}{36}{}%
-\contentsline {subsection}{\numberline {B.2}BUCK}{37}{}%
-\contentsline {section}{\numberline {C}Apéndice III: PCB}{38}{}%
-\contentsline {subsection}{\numberline {C.1}LDO}{38}{}%
-\contentsline {subsection}{\numberline {C.2}LDO capa superior}{39}{}%
-\contentsline {subsection}{\numberline {C.3}LDO capa inferior}{40}{}%
-\contentsline {subsection}{\numberline {C.4}BUCK}{41}{}%
-\contentsline {subsection}{\numberline {C.5}BUCK capa superior}{42}{}%
-\contentsline {subsection}{\numberline {C.6}BUCK capa inferior}{43}{}%
+\contentsline {subsubsection}{\numberline {2.1.1}Especificaciones}{2}{}%
+\contentsline {subsubsection}{\numberline {2.1.2}implementación}{3}{}%
+\contentsline {subsubsection}{\numberline {2.1.3}Convertidor BUCK a lazo abierto}{3}{}%
+\contentsline {subsubsection}{\numberline {2.1.4}Inductor $L$ y capacitor $C_S$}{6}{}%
+\contentsline {subsubsection}{\numberline {2.1.5}Transistores de conmutación}{8}{}%
+\contentsline {subsubsection}{\numberline {2.1.6}Frecuencia de oscilador}{8}{}%
+\contentsline {subsubsection}{\numberline {2.1.7}Diseño del lazo realimentador}{9}{}%
+\contentsline {subsubsection}{\numberline {2.1.8}Escalador de señal de salida}{9}{}%
+\contentsline {subsubsection}{\numberline {2.1.9}Alimentación del lazo y tensión de referencia}{10}{}%
+\contentsline {subsubsection}{\numberline {2.1.10}Generador de señal triangular}{10}{}%
+\contentsline {subsubsection}{\numberline {2.1.11}Amplificador de error y comparador PWM}{11}{}%
+\contentsline {subsubsection}{\numberline {2.1.12}Elección y diseño del \textit {Gate Driver}}{12}{}%
+\contentsline {subsubsection}{\numberline {2.1.13}Compensación}{13}{}%
+\contentsline {subsection}{\numberline {2.2}Regulador de baja caída (LDO,Low Dropout Regulator)}{17}{}%
+\contentsline {subsubsection}{\numberline {2.2.1}Especificaciones}{17}{}%
+\contentsline {subsubsection}{\numberline {2.2.2}Implementación}{17}{}%
+\contentsline {subsubsection}{\numberline {2.2.3}El transistor de paso (Tipo MOS)}{18}{}%
+\contentsline {subsubsection}{\numberline {2.2.4}Lazo de Tensión}{19}{}%
+\contentsline {subsubsection}{\numberline {2.2.5}Tensión de referencia $V_{Ref}$}{21}{}%
+\contentsline {subsubsection}{\numberline {2.2.6}Lazo de Corriente}{22}{}%
+\contentsline {subsubsection}{\numberline {2.2.7}Tensión de referencia $V_{Ref-c}$}{23}{}%
+\contentsline {subsubsection}{\numberline {2.2.8}Llave electrónica}{24}{}%
+\contentsline {subsubsection}{\numberline {2.2.9}Limitador de corriente shunt}{26}{}%
+\contentsline {subsubsection}{\numberline {2.2.10}Compensación de lazos}{26}{}%
+\contentsline {subsubsection}{\numberline {2.2.11}Analisis termico}{29}{}%
+\contentsline {subsubsection}{\numberline {2.2.12}Consideraciones de fabricación PCB}{31}{}%
+\contentsline {paragraph}{Arquitectura general}{31}{}%
+\contentsline {paragraph}{Selección de materiales y encapsulados}{31}{}%
+\contentsline {paragraph}{Selección de huellas y modelos 3D}{32}{}%
+\contentsline {paragraph}{Ancho de pistas}{32}{}%
+\contentsline {paragraph}{Dimensionamiento de pistas}{32}{}%
+\contentsline {paragraph}{Disposición de componentes}{33}{}%
+\contentsline {paragraph}{Consideraciones térmicas}{33}{}%
+\contentsline {paragraph}{Fijación mecánica }{33}{}%
+\contentsline {paragraph}{Separación y reglas de diseño}{33}{}%
+\contentsline {paragraph}{Análisis de requerimientos eléctricos (seguridad eléctrica y EMC)}{33}{}%
+\contentsline {paragraph}{Auto-ruteo}{33}{}%
+\contentsline {paragraph}{Características del diseño de la placa impresa del LDO}{33}{}%
+\contentsline {subsubsection}{\numberline {2.2.13}Mejoras:}{33}{}%
+\contentsline {section}{\numberline {3}Simulaciones}{34}{}%
+\contentsline {subsection}{\numberline {3.1}Simulaciones del regulador lineal LDO}{34}{}%
+\contentsline {subsubsection}{\numberline {3.1.1}Modo estático}{34}{}%
+\contentsline {paragraph}{Ganancias de lazo: }{34}{}%
+\contentsline {paragraph}{Estabilización de tensión: }{41}{}%
+\contentsline {paragraph}{Regulación de Linea:}{41}{}%
+\contentsline {paragraph}{Regulación de carga:}{42}{}%
+\contentsline {paragraph}{$V_o$ en función de $I_L$:}{43}{}%
+\contentsline {paragraph}{Eficiencia:}{43}{}%
+\contentsline {subsubsection}{\numberline {3.1.2}Modo Dinámico}{44}{}%
+\contentsline {subsection}{\numberline {3.2}Simulaciones de fuente switching}{45}{}%
+\contentsline {section}{\numberline {4}Mediciones}{45}{}%
+\contentsline {section}{\numberline {5}Errores}{45}{}%
+\contentsline {section}{\numberline {6}Conclusiones}{45}{}%
+\contentsline {subsection}{\numberline {6.1}Regulador Lineal LDO}{45}{}%
+\contentsline {subsection}{\numberline {6.2}Regulador BUCK}{46}{}%
+\contentsline {section}{\numberline {A}Apéndice I: Simulaciones}{47}{}%
+\contentsline {subsection}{\numberline {A.1}LDO}{47}{}%
+\contentsline {subsection}{\numberline {A.2}BUCK}{48}{}%
+\contentsline {section}{\numberline {B}Apéndice II: Esquemáticos}{51}{}%
+\contentsline {subsection}{\numberline {B.1}LDO}{51}{}%
+\contentsline {subsection}{\numberline {B.2}BUCK}{52}{}%
+\contentsline {section}{\numberline {C}Apéndice III: PCB}{53}{}%
+\contentsline {subsection}{\numberline {C.1}LDO}{53}{}%
+\contentsline {subsection}{\numberline {C.2}LDO capa superior}{54}{}%
+\contentsline {subsection}{\numberline {C.3}LDO capa inferior}{55}{}%
+\contentsline {subsection}{\numberline {C.4}BUCK}{56}{}%
+\contentsline {subsection}{\numberline {C.5}BUCK capa superior}{57}{}%
+\contentsline {subsection}{\numberline {C.6}BUCK capa inferior}{58}{}%
