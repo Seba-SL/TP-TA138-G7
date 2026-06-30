@@ -3,14 +3,13 @@ import matplotlib.pyplot as plt
 
 # Cargar datos
 datos = np.loadtxt(
-    "buck_lazoabierto_ve_vo.txt",
+    "buck_lazoabierto_ve_vo2.txt",
     skiprows=1
 )
 
 # Extraer columnas
 t = datos[:, 0]      # tiempo [s]
-ve = datos[:, 1]     # tensión de entrada
-vo = datos[:, 2]     # tensión de salida
+vo = datos[:, 1]     # tensión de salida
 
 # Convertir tiempo a microsegundos
 t_us = t * 1e6

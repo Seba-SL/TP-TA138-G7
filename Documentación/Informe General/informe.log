@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.10)  30 JUN 2026 14:16
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.10)  30 JUN 2026 14:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1935,27 +1935,28 @@ lazos_dinamicos.png  used on input line 3538.
 (pdftex.def)             Requested size: 435.3303pt x 348.26608pt.
  [53 <../../Simulación/LDO/Graficos en Python/Capturas/LDO_eficiencia.png> <./
 img/LDO/Carga_activa.png>]
-<img/buck/simulacion_buck_lazo_abierto.png, id=291, 542.025pt x 180.675pt>
-File: img/buck/simulacion_buck_lazo_abierto.png Graphic file (type png)
-<use img/buck/simulacion_buck_lazo_abierto.png>
-Package pdftex.def Info: img/buck/simulacion_buck_lazo_abierto.png  used on inp
-ut line 3559.
-(pdftex.def)             Requested size: 358.50317pt x 119.505pt.
-<../../Simulación/BUCK/Datos/regulador_buck_Lazo_abierto.png, id=292, 987.2082
-pt x 466.1415pt>
-File: ../../Simulación/BUCK/Datos/regulador_buck_Lazo_abierto.png Graphic file
- (type png)
-<use ../../Simulación/BUCK/Datos/regulador_buck_Lazo_abierto.png>
-Package pdftex.def Info: ../../Simulación/BUCK/Datos/regulador_buck_Lazo_abier
-to.png  used on input line 3570.
-(pdftex.def)             Requested size: 358.50317pt x 169.27603pt.
+<img/buck/simulacion_buck_lazo_abierto2.png, id=291, 1136.74687pt x 451.6875pt>
+
+File: img/buck/simulacion_buck_lazo_abierto2.png Graphic file (type png)
+<use img/buck/simulacion_buck_lazo_abierto2.png>
+Package pdftex.def Info: img/buck/simulacion_buck_lazo_abierto2.png  used on in
+put line 3559.
+(pdftex.def)             Requested size: 358.50317pt x 142.4546pt.
  [54 <../../Simulación/LDO/Graficos en Python/Capturas/LDO_lazos_dinamicos.png
-> <./img/buck/simulacion_buck_lazo_abierto.png>]
-<img/buck/CorrientesIL_Io_buck_lazo_abierto.png, id=299, 722.7pt x 361.35pt>
-File: img/buck/CorrientesIL_Io_buck_lazo_abierto.png Graphic file (type png)
-<use img/buck/CorrientesIL_Io_buck_lazo_abierto.png>
-Package pdftex.def Info: img/buck/CorrientesIL_Io_buck_lazo_abierto.png  used o
-n input line 3580.
+> <./img/buck/simulacion_buck_lazo_abierto2.png>]
+<../../Simulación/BUCK/Datos/regulador_buck_Lazo_abierto2.png, id=298, 722.7pt
+ x 361.35pt>
+File: ../../Simulación/BUCK/Datos/regulador_buck_Lazo_abierto2.png Graphic fil
+e (type png)
+<use ../../Simulación/BUCK/Datos/regulador_buck_Lazo_abierto2.png>
+Package pdftex.def Info: ../../Simulación/BUCK/Datos/regulador_buck_Lazo_abier
+to2.png  used on input line 3570.
+(pdftex.def)             Requested size: 358.50317pt x 179.252pt.
+<../../Simulación/BUCK/Datos/corrientes.png, id=299, 722.7pt x 361.35pt>
+File: ../../Simulación/BUCK/Datos/corrientes.png Graphic file (type png)
+<use ../../Simulación/BUCK/Datos/corrientes.png>
+Package pdftex.def Info: ../../Simulación/BUCK/Datos/corrientes.png  used on i
+nput line 3580.
 (pdftex.def)             Requested size: 358.50317pt x 179.252pt.
 <../../Simulación/BUCK/Datos/grafico_pwm.png, id=300, 713.5458pt x 337.7418pt>
 
@@ -1964,8 +1965,8 @@ File: ../../Simulación/BUCK/Datos/grafico_pwm.png Graphic file (type png)
 Package pdftex.def Info: ../../Simulación/BUCK/Datos/grafico_pwm.png  used on 
 input line 3592.
 (pdftex.def)             Requested size: 358.50317pt x 169.6899pt.
- [55 <../../Simulación/BUCK/Datos/regulador_buck_Lazo_abierto.png> <./img/buck
-/CorrientesIL_Io_buck_lazo_abierto.png>]
+ [55 <../../Simulación/BUCK/Datos/regulador_buck_Lazo_abierto2.png> <../../Sim
+ulación/BUCK/Datos/corrientes.png>]
 <../../Simulación/BUCK/Datos/grafico_pwm2.png, id=306, 713.5458pt x 338.7054pt
 >
 File: ../../Simulación/BUCK/Datos/grafico_pwm2.png Graphic file (type png)
@@ -2412,10 +2413,10 @@ Package logreq Info: Writing requests to 'informe.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 58834 strings out of 467870
- 1503028 string characters out of 5418355
+ 58862 strings out of 467870
+ 1503968 string characters out of 5418355
  2497277 words of memory out of 5000000
- 87164 multiletter control sequences out of 15000+600000
+ 87192 multiletter control sequences out of 15000+600000
  649629 words of font info for 90 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  98i,18n,118p,1198b,2814s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -2452,7 +2453,7 @@ pe1/public/amsfonts/cm/cmr9.pfb><C:/Users/ramaz/AppData/Local/Programs/MiKTeX/f
 onts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/ramaz/AppData/Local/Programs
 /MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/ramaz/AppData/Local/
 Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on informe.pdf (87 pages, 28851047 bytes).
+Output written on informe.pdf (87 pages, 28864428 bytes).
 PDF statistics:
  1087 PDF objects out of 1200 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

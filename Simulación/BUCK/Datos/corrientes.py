@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 
 # Cargar datos
 datos = np.loadtxt(
-    "corrientes_iL_io.txt",
+    "corrientes_iL_io2.txt",
     skiprows=1
 )
 
@@ -22,6 +22,8 @@ plt.plot(t_us, iL, linewidth=3, label=r'$i_L$')
 plt.plot(t_us, io, linewidth=3, label=r'$i_o$')
 
 plt.xlabel('Tiempo [$\mu$s]')
+plt.xlim([3000 , 3100])
+plt.ylim([0 , 0.3])
 plt.ylabel('Corriente [A]')
 plt.title('Corriente del Inductor y Corriente de Salida')
 plt.grid(True)
