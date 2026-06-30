@@ -263,18 +263,6 @@ citestyle=apa
 	\end{table}
 	
 
-	\subsubsection{Densidad de corriente}
-	
-	La sección transversal del conductor debe dimensionarse de manera que la densidad de corriente permanezca dentro de los valores recomendados para limitar el incremento de temperatura del bobinado y evitar pérdidas excesivas por efecto Joule.
-	
-	\subsubsection{Saturación del núcleo} 
-	
-	El núcleo magnético debe operar por debajo de la densidad de flujo de saturación del material. De esta manera se asegura que la inductancia permanezca prácticamente constante y se evita la disminución abrupta de la inductancia, el aumento de la corriente y las pérdidas asociadas al funcionamiento en saturación.
-	
-	\subsubsection{Profundidad de penetración}
-	
-	Debido a la elevada frecuencia de conmutación del convertidor, la corriente alterna tiende a concentrarse cerca de la superficie del conductor, fenómeno conocido como efecto pelicular (\textit{skin effect}). Cuando el radio del conductor supera la profundidad de penetración, la resistencia efectiva aumenta y, en consecuencia, también las pérdidas por conducción. Para mitigar este efecto se decidió emplearse conductores de menor diámetro conectados en paralelo o cable tipo \textit{Litz}, incrementando el área efectiva de conducción para la componente alterna de la corriente.
-	
 	
 	\begin{table}[H]
 		\centering
@@ -307,6 +295,8 @@ citestyle=apa
 			\hline
 			Tipo de alambre & AWG\#25 \\
 			\hline
+			 Sección transversal del conductor $A_w$ & $1,623 \, \cdot 10^{-3} cm^2$\\
+			 	\hline
 		\end{tabular}
 		\caption{Parámetros de diseño del inductor de $L=\SI{50}{\micro\henry}$}
 		\label{tab:diseno_inductor}
@@ -359,7 +349,181 @@ citestyle=apa
 \end{figure}
 	
 	
-	\subsubsection{Resistividad del cobre}
+\subsubsection{Profundidad de penetración}
+	
+	Debido a la elevada frecuencia de conmutación del convertidor, la corriente alterna tiende a concentrarse cerca de la superficie del conductor, fenómeno conocido como efecto pelicular (\textit{skin effect}). Cuando el radio del conductor supera la profundidad de penetración, la resistencia efectiva aumenta y, en consecuencia, también las pérdidas por conducción. Para mitigar este efecto se decidió emplearse conductores de menor diámetro conectados en paralelo o cable tipo \textit{Litz}, incrementando el área efectiva de conducción para la componente alterna de la corriente.
+	
+	La profundidad de penetración viene dada por:
+	
+	\begin{equation}
+		\delta=\sqrt{\frac{2\rho}{\omega\mu}}
+		\label{eq:skin_depth}
+	\end{equation}
+	
+	donde:
+	
+	\begin{itemize}
+		\item $\rho = 1.72\times10^{-8}\,\Omega\cdot\mathrm{m}$ es la resistividad del cobre.
+		\item $\mu=\mu_0\mu_r$ es la permeabilidad magnética del conductor.
+		\item $\mu_0=4\pi\times10^{-7}\,\mathrm{H/m}$.
+		\item $\mu_r\simeq1$ para el cobre.
+		\item $\omega=2\pi f$.
+	\end{itemize}
+	
+	Para una frecuencia de conmutación de
+	
+	\[
+	f=130\,\mathrm{kHz},
+	\]
+	
+	se obtiene
+	
+	\[
+	\omega=2\pi(130\times10^3)
+	=8.17\times10^5\;\mathrm{rad/s}.
+	\]
+	
+	Reemplazando en la ecuación \eqref{eq:skin_depth},
+	
+	\begin{equation}
+		\delta=
+		\sqrt{
+			\frac{
+				2(1.72\times10^{-8})
+			}{
+				(8.17\times10^5)
+				(4\pi\times10^{-7})
+			}
+		}
+		\simeq1.84\times10^{-4}\,\mathrm{m}
+	\end{equation}
+	
+	es decir,
+	
+	\begin{equation}
+		\boxed{\delta\simeq0.184\ \mathrm{mm}}
+	\end{equation}
+	
+	Por lo tanto, para minimizar las pérdidas por efecto pelicular se recomienda que el radio del conductor sea del orden de la profundidad de penetración o menor, es decir,
+	
+	\[
+	r\lesssim\delta,
+	\]
+	
+	lo que equivale aproximadamente a un diámetro máximo de
+	
+	\[
+	d\lesssim2\delta
+	\simeq0.37\ \mathrm{mm}.
+	\]
+	
+	En caso de requerirse una sección transversal mayor, resulta conveniente emplear varios conductores en paralelo o cable Litz.
+	
+\subsubsection{Densidad de corriente}
+	
+	La sección transversal del conductor debe dimensionarse de manera que la densidad de corriente permanezca dentro de los valores recomendados para limitar el incremento de temperatura del bobinado y evitar pérdidas excesivas por efecto Joule.
+	
+	La densidad de corriente se calcula mediante
+	
+	\begin{equation}
+		\sigma_{I_L}=\frac{I_{L,\max}}{A_w}
+		\label{eq:densidad_corriente}
+	\end{equation}
+	
+	donde:
+	
+	\begin{itemize}
+		\item $I_{L,\max}$ es la corriente máxima que circula por el devanado.
+		\item $A_w$ es el área de la sección transversal del conductor.
+	\end{itemize}
+	
+	Para el conductor seleccionado se obtiene
+	
+	\[
+	\sigma_{I_L}
+	=
+	\frac{I_{L,\max}}{A_w}
+	\quad
+	[\mathrm{A/mm^2}].
+	\]
+	
+	Se verifica además que
+	
+	\begin{equation}
+		\sigma_{I_L}
+		<
+		\sigma_{I_L,\mathrm{esp}}
+		=
+		5\;\mathrm{A/mm^2},
+	\end{equation}
+	
+	cumpliéndose el criterio de diseño adoptado para la densidad máxima de corriente en el conductor.
+	
+	Por lo tanto, la sección del alambre seleccionada resulta adecuada, limitando las pérdidas óhmicas y evitando
+\subsubsection{Saturación del núcleo} 
+	
+	El núcleo magnético debe operar por debajo de la densidad de flujo de saturación del material. De esta manera se asegura que la inductancia permanezca prácticamente constante y se evita la disminución abrupta de la inductancia, el aumento de la corriente y las pérdidas asociadas al funcionamiento en saturación.
+	
+	
+	
+	Considerando que la reluctancia del circuito magnético está dominada por el entrehierro, la intensidad de campo magnético en el mismo viene dada por
+	
+	\begin{equation}
+		H_g=\frac{N_LI_{L,\max}}{l_g},
+		\label{eq:H_gap}
+	\end{equation}
+	
+	donde:
+	
+	\begin{itemize}
+		\item $N_L$ es el número de espiras del inductor,
+		\item $I_{L,\max}$ es la corriente máxima del devanado,
+		\item $l_g$ es la longitud efectiva del entrehierro.
+	\end{itemize}
+	
+	Como en el entrehierro
+	
+	\[
+	B=\mu_0H,
+	\]
+	
+	la densidad de flujo máxima resulta
+	
+	\begin{equation}
+		B_{\max}
+		=
+		\mu_0
+		\frac{N_LI_{L,\max}}{l_g},
+		\label{eq:Bmax_gap}
+	\end{equation}
+	
+	donde
+	
+	\[
+	\mu_0=4\pi\times10^{-7}\ \mathrm{H/m}.
+	\]
+	
+	Reemplazando los valores de diseño,
+	
+	\[
+	B_{\max}
+	=
+	\mu_0
+	\frac{N_LI_{L,\max}}{l_g}
+	= 0.003 \, \mu
+	\ \mathrm{T}.
+	\]
+	
+	Finalmente, se verifica que
+	
+	\begin{equation}
+		B_{\max}
+		<
+		B_{\mathrm{sat}} = 300 \, mT,
+	\end{equation}
+	
+	cumpliéndose el criterio de diseño adoptado.
+\subsubsection{Resistividad del cobre}
 
 Al seleccionar un conductor, en este caso el cobre, junto con su sección se establece una resistencia al paso de cargas. De esta forma se produce la resistencia $R_cu$ como:
 
